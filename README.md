@@ -1,4 +1,4 @@
-# duranduranbot
+# DuranDuranbot
 Artificial intelligence music bot inspired by how the new wave band Duran Duran composes music
 
 
