@@ -11,8 +11,6 @@ above, and click on "Evaluate File".
 
 */
 
-//GOAL OF THIS MUSIC BOT - to create the musician I want it to be.
-
 // GUI
 
 if(~number_of_instruments == nil, {~number_of_instruments = 3;});
