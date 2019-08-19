@@ -1,5 +1,5 @@
 # DuranDuranbot
-Artificial intelligence music bot inspired by how the new wave band Duran Duran composes music
+Teachable/trainable artificial intelligence music bot inspired by how the new wave band Duran Duran composes music
 
 
 ...
