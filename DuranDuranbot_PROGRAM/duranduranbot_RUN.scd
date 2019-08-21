@@ -13,7 +13,7 @@ above, and click on "Evaluate File".
 
 // GUI
 
-if(~number_of_instruments == nil, {~number_of_instruments = 3;});
+if(~number_of_instruments == nil, {~number_of_instruments = 4;});
 
 ~duranduranbot_GUI_func = {
 
@@ -188,9 +188,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 					~pausebuttonfunc.value;
 					~run_piece_func.value;
 				}, {
-					~duranduranbotsynth1.free;
-					~duranduranbotsynth2.free;
-					~duranduranbotsynth3.free;
+					s.makeBundle(s.latency, {~number_of_instruments.do(x = 0; {("duranduranbotsynth"++(x=x+1)).asSymbol.envirGet.free;});});
 					~timer_routine.stop;
 					~duranduranbot_routine.stop;
 					q = FileReader.read(Document.current.dir++"/other_program_files/ddbot_machine_learning_on_off.scd");
@@ -221,11 +219,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 			if(button.value == 1, {
 				~timer_routine.pause;
 				~duranduranbot_routine.pause;
-				s.makeBundle(s.latency, {
-					~duranduranbotsynth1.set(\freq, 0);
-					~duranduranbotsynth2.set(\freq, 0);
-					~duranduranbotsynth3.set(\freq, 0);
-				});
+				s.makeBundle(s.latency, {~number_of_instruments.do(x = 0; {("duranduranbotsynth"++(x=x+1)).asSymbol.envirGet.set(\freq, 0);});});
 				"piece paused".postln;
 				if(~will_record == 1, {s.pauseRecording;});
 			}, {~timer_routine.resume; ~duranduranbot_routine.resume; "piece resumed".postln; if(~will_record == 1, {s.record;});});
@@ -445,7 +439,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 		});
 		});*/
 
-	/*
+		/*
 		y=0;
 		x=0;
 		3.do({x=x+1;
@@ -465,7 +459,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 		/*~dna_choice_array_weights = Array.fill(9, {1/9}).normalizeSum;*/
 
 
-		AppClock.sched(0, {
+		AppClock.sched(0, {var write_func;
 			~interval_array = (1..12);
 			~dna_choice_array = (1..9);
 
@@ -478,9 +472,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 
 			~dna_choice_array_weights = ~dna_choice_array_weights.normalizeSum;
 
-			~number_of_instruments.do(x=0; {
-				var write_func;
-				write_func = {
+			write_func = {
 					(~interval_array.size+1).do(z = (-1); {
 						z=z+1;
 						(~interval_array.size).do(s = (-1); {
@@ -490,20 +482,10 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 					});
 					g.close;
 				};
-				x=x+1;
-				case
-				{(("inst_"++(x)).asSymbol.envirGet) == "bass"}{
-					g = File(Document.current.dir++"/other_program_files/ddbot_bass_net_weights.scd", "w");
-					write_func.value
-				}
-				{(("inst_"++(x)).asSymbol.envirGet) == "keys"}{
-					g = File(Document.current.dir++"/other_program_files/ddbot_keys_net_weights.scd", "w");
-					write_func.value
-				}
-				{(("inst_"++(x)).asSymbol.envirGet) == "vocal"}{
-					g = File(Document.current.dir++"/other_program_files/ddbot_vocal_net_weights.scd", "w");
-					write_func.value
-				};
+
+			~number_of_instruments.do(x=0; {
+				g = File(Document.current.dir++"/other_program_files/ddbot_"++(("inst_"++(x=x+1)).asSymbol.envirGet)++"_net_weights.scd", "w");
+				write_func.value;
 			});
 
 			g = File(Document.current.dir++"/other_program_files/ddbot_dna_weights.scd", "w");
@@ -534,13 +516,26 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 
 				thisThread.randSeed = ~randseed_1;
 
-				~instrument_array = ["bass", "keys", "vocal"];
-				~inst_1 = ~instrument_array.removeAt(([0,1,2]).wchoose([0.4,0.4,0.2]));
-				~inst_2 = ~instrument_array.removeAt(([0,1]).wchoose(case{~inst_1 == "bass"}{[0.4,0.2]}{~inst_1 == "keys"}{[0.4,0.2]}{~inst_1 == "vocal"}{[0.4,0.4]};));
-				~inst_3 = ~instrument_array.removeAt(0);
+				~instrument_array = (x = 0; Array.fill(~number_of_instruments, {"player_"++(x=x+1)}));
+				~instrument_array = ~instrument_array.scramble;
+				~number_of_instruments.do(x = 0; {("inst_"++(x=x+1)).asSymbol.envirPut(~instrument_array.at(x-1));});
 
 				~number_of_instruments.do(o=0; {
-					h = FileReader.read(Document.current.dir++"/other_program_files/ddbot_"++(("inst_"++(o=o+1)).asSymbol.envirGet).asString++"_net_weights.scd", false, true);
+					o=o+1;
+					if((FileReader.read(Document.current.dir++"/other_program_files/ddbot_"++(("inst_"++(o)).asSymbol.envirGet)++"_net_weights.scd", false, true)) == nil, {
+						g = File(Document.current.dir++"/other_program_files/ddbot_"++(("inst_"++(o)).asSymbol.envirGet)++"_net_weights.scd", "w");
+						t = Array.fill(~interval_array.size, {1/~interval_array.size}).normalizeSum;
+						(~interval_array.size+1).do(z = (-1); {
+						z=z+1;
+						(~interval_array.size).do(s = (-1); {
+							g.write((t.at(s=s+1)).asString++" ")
+						});
+						g.write("\n");
+					});
+					g.close;
+					});
+
+					h = FileReader.read(Document.current.dir++"/other_program_files/ddbot_"++(("inst_"++(o)).asSymbol.envirGet).asString++"_net_weights.scd", false, true);
 					(~interval_array.size+1).do(z = (-1); {((("inst_"++(o)).asSymbol.envirGet)++"_intvl_"++(z=z+1)++"_weights").asSymbol.envirPut(h.at(z));});
 					(~interval_array.size+1).do(z = (-1); {((("inst_"++(o)).asSymbol.envirGet)++"_intvl_"++(z=z+1)++"_weights").asSymbol.envirPut(((("inst_"++(o)).asSymbol.envirGet)++"_intvl_"++(z)++"_weights").asSymbol.envirGet.asFloat.normalizeSum;)});
 					(~interval_array.size+1).do(z = (-1); {((("inst_"++(o)).asSymbol.envirGet)++"_intvl_"++(z=z+1)++"_weights").asSymbol.envirGet.removeAt(12)});
@@ -549,7 +544,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 				h = FileReader.read(Document.current.dir++"/other_program_files/ddbot_dna_weights.scd", false, true);
 				~dna_choice_array_weights = h.flatten.asFloat.normalizeSum;
 
-				~song_dna_array_num = (1..12).choose;
+				~song_dna_array_num = 8;
 				~dna_choice_array = (1..9);
 				~dna_choice_array2 = ~dna_choice_array;
 				~song_dna_array_num.do(~song_dna_array = []; x = (-1); {
@@ -653,37 +648,17 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 					(~number_of_instruments-1).do(x = 1; {("instrument_"++(x=x+1)++"_freq").asSymbol.envirPut(~instrument_1_freq);});
 				};
 
-				~instrument_1_array_func = {
-					("instrument_1_array_part_"++(~part_num)).asSymbol.envirPut(
-						("instrument_1_array_part_"++(~part_num)).asSymbol.envirGet.add(
-							case
-							{~inst_1 == "bass"}{~inst_num = 1; ~inst_clock_func.value;}
-							{~inst_1 == "keys"}{~inst_num = 1; ~inst_clock_func.value;}
-							{~inst_1 == "vocal"}{~inst_num = 1; ~inst_clock_func.value;};
-					));
-				};
 
-				~instrument_2_array_func = {
-					("instrument_2_array_part_"++(~part_num)).asSymbol.envirPut(
-						("instrument_2_array_part_"++(~part_num)).asSymbol.envirGet.add(
-							case
-							{~inst_2 == "bass"}{~inst_num = 2; ~inst_clock_func.value;}
-							{~inst_2 == "keys"}{~inst_num = 2; ~inst_clock_func.value;}
-							{~inst_2 == "vocal"}{~inst_num = 2; ~inst_clock_func.value;};
-					));
-				};
+				~number_of_instruments.do(x = 0; {
+					("instrument_"++(x=x+1)++"_array_func").asSymbol.envirPut(
+						{
+							("instrument_"++(x)++"_array_part_"++(~part_num)).asSymbol.envirPut(
+								("instrument_"++(x)++"_array_part_"++(~part_num)).asSymbol.envirGet.add(~inst_num = x; ~inst_clock_func.value;);
 
-				~instrument_3_array_func = {
-					("instrument_3_array_part_"++(~part_num)).asSymbol.envirPut(
-						("instrument_3_array_part_"++(~part_num)).asSymbol.envirGet.add(
-
-							case
-							{~inst_3 == "bass"}{~inst_num = 3; ~inst_clock_func.value;}
-							{~inst_3 == "keys"}{~inst_num = 3; ~inst_clock_func.value;}
-							{~inst_3 == "vocal"}{~inst_num = 3; ~inst_clock_func.value;};
-					));
-				};
-
+							);
+						}
+					)
+				});
 			);
 
 			//Piece creation in parts. Only reason to have parts is to determine length of piece.
@@ -716,8 +691,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 								~midi_ratio_x = ~midi_ratio_x + 1;
 
 								~instrument_1_array_starting_func.value;
-								~instrument_2_array_func.value;
-								~instrument_3_array_func.value;
+								(~number_of_instruments-1).do(x = 1; {("instrument_"++(x=x+1)++"_array_func").asSymbol.envirGet.value;});
 
 								if(~dna_clock_y == ~dna_index_choice.asInteger, {~dna_clock_y = 0; ~dna_index_choice = ~dna_index_choice_func.value;});
 								if(~midi_ratio_x == (~midi_ratio_array.size-1), {~midi_ratio_x = 0});
@@ -733,9 +707,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 								~dna_clock_y = ~dna_clock_y + 1;
 								~midi_ratio_x = ~midi_ratio_x + 1;
 
-								~instrument_1_array_func.value;
-								~instrument_2_array_func.value;
-								~instrument_3_array_func.value;
+								~number_of_instruments.do(x = 0; {("instrument_"++(x=x+1)++"_array_func").asSymbol.envirGet.value;});
 
 								if(~dna_clock_y == ~dna_index_choice.asInteger, {~dna_clock_y = 0; ~dna_index_choice = ~dna_index_choice_func.value;});
 								if(~midi_ratio_x == (~midi_ratio_array.size-1), {~midi_ratio_x = 0});
@@ -769,9 +741,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 									~dna_clock_y = ~dna_clock_y + 1;
 									~midi_ratio_x = ~midi_ratio_x + 1;
 
-									~instrument_1_array_func.value;
-									~instrument_2_array_func.value;
-									~instrument_3_array_func.value;
+									~number_of_instruments.do(x = 0; {("instrument_"++(x=x+1)++"_array_func").asSymbol.envirGet.value;});
 
 									if(~dna_clock_y == ~dna_index_choice.asInteger, {~dna_clock_y = 0; ~dna_index_choice = ~dna_index_choice_func.value;});
 									if(~midi_ratio_x == (~midi_ratio_array.size-1), {~midi_ratio_x = 0});
@@ -791,30 +761,17 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 
 								1.do({
 
-									~instrument_1_full_pseq_array = [];
-									~instrument_2_full_pseq_array = [];
-									~instrument_3_full_pseq_array = [];
+									~number_of_instruments.do(x = 0; {("instrument_"++(x=x+1)++"_full_pseq_array").asSymbol.envirPut([]);});
 
-									x = 0;
-									~number_of_parts_in_piece.do({~instrument_1_full_pseq_array = ~instrument_1_full_pseq_array.add(("instrument_1_array_part_"++(x=x+1)).asSymbol.envirGet);});
-									~instrument_1_full_pseq_array = ~instrument_1_full_pseq_array.flatten;
-									~instrument_1_full_pseq_array = ~instrument_1_full_pseq_array.midicps;
-									~instrument_1_full_pseq_array = ~instrument_1_full_pseq_array.replace(h, 0);/*
-									~instrument_1_full_pseq_array_mirrored = ~instrument_1_full_pseq_array*1.4142135623729;*/
+									/*("instrument_"++(4)++"_full_pseq_array").asSymbol.envirGet*/
 
-									x = 0;
-									~number_of_parts_in_piece.do({~instrument_2_full_pseq_array = ~instrument_2_full_pseq_array.add(("instrument_2_array_part_"++(x=x+1)).asSymbol.envirGet);});
-									~instrument_2_full_pseq_array = ~instrument_2_full_pseq_array.flatten;
-									~instrument_2_full_pseq_array = ~instrument_2_full_pseq_array.midicps;
-									~instrument_2_full_pseq_array = ~instrument_2_full_pseq_array.replace(h, 0);/*
-									~instrument_2_full_pseq_array_mirrored = ~instrument_2_full_pseq_array*1.4142135623729;*/
-
-									x = 0;
-									~number_of_parts_in_piece.do({~instrument_3_full_pseq_array = ~instrument_3_full_pseq_array.add(("instrument_3_array_part_"++(x=x+1)).asSymbol.envirGet);});
-									~instrument_3_full_pseq_array = ~instrument_3_full_pseq_array.flatten;
-									~instrument_3_full_pseq_array = ~instrument_3_full_pseq_array.midicps;
-									~instrument_3_full_pseq_array = ~instrument_3_full_pseq_array.replace(h, 0);/*
-									~instrument_3_full_pseq_array_mirrored = ~instrument_3_full_pseq_array*1.4142135623729;*/
+									~number_of_instruments.do(x = 0; {
+										x=x+1;
+										~number_of_parts_in_piece.do(y = 0; {("instrument_"++(x)++"_full_pseq_array").asSymbol.envirPut(("instrument_"++(x)++"_full_pseq_array").asSymbol.envirGet.add(("instrument_"++(x)++"_array_part_"++(y=y+1)).asSymbol.envirGet););});
+										("instrument_"++(x)++"_full_pseq_array").asSymbol.envirPut(("instrument_"++(x)++"_full_pseq_array").asSymbol.envirGet.flatten);
+										("instrument_"++(x)++"_full_pseq_array").asSymbol.envirPut(("instrument_"++(x)++"_full_pseq_array").asSymbol.envirGet.midicps);
+										("instrument_"++(x)++"_full_pseq_array").asSymbol.envirPut(("instrument_"++(x)++"_full_pseq_array").asSymbol.envirGet.replace(h, 0));
+									});
 
 									"Piece Creation Is Finsihed".postln;
 
@@ -862,45 +819,21 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 
 		(
 
-			~klangarray1 = Array.rand(3, 0, 20);
-			~klangarray2 = Array.rand(3, 0, 20);
-			~klangarray3 = Array.rand(3, 0, 20);
-			~klangarray4 = Array.rand(3, 0, 20);
+			~klangarray1 = {Array.rand(3, 0, 20);};
 
-			SynthDef(\synth1, {arg freq = 432, freq1 = 60, amp = 0.1, detun = 1.006, ffreq = 800, rq = 1, gt = 1;
-				var sig;
-				sig = Mix(DynKlang.ar(`[ [freq]++~klangarray1+freq, nil, nil ], 1, 0) * 0.05);
-				sig = RLPF.ar(sig, ffreq, rq);
-				sig = sig * EnvGen.kr(
-					Env.adsr(0.01, 0.1, 0.6, 0.1),
-					gt
-				);
+			~number_of_instruments.do(x = 0; {
+				SynthDef("synth"++(x=x+1), {arg freq = 432, freq1 = 60, amp = 0.1, detun = 1.006, ffreq = 800, rq = 1, gt = 1;
+					var sig;
+					sig = Mix(DynKlang.ar(`[ [freq]++~klangarray1.value+freq, nil, nil ], 1, 0) * 0.05);
+					sig = RLPF.ar(sig, ffreq, rq);
+					sig = sig * EnvGen.kr(
+						Env.adsr(0.01, 0.1, 0.6, 0.1),
+						gt
+					);
 
-				Out.ar(0, sig!2);
-			}).add;
-			SynthDef(\synth2, {arg freq = 432, freq1 = 60, amp = 0.1, detun = 1.006, ffreq = 800, rq = 1, gt = 1;
-				var sig;
-				sig = Mix(DynKlang.ar(`[ [freq]++~klangarray2+freq, nil, nil ], 1, 0) * 0.05);
-				sig = RLPF.ar(sig, ffreq, rq);
-				sig = sig * EnvGen.kr(
-					Env.adsr(0.01, 0.1, 0.6, 0.1),
-					gt
-				);
-
-				Out.ar(0, sig!2);
-			}).add;
-			SynthDef(\synth3, {arg freq = 432, freq1 = 60, amp = 0.1, detun = 1.006, ffreq = 800, rq = 1, gt = 1;
-				var sig;
-				sig = Mix(DynKlang.ar(`[ [freq]++~klangarray3+freq, nil, nil ], 1, 0) * 0.05);
-				sig = RLPF.ar(sig, ffreq, rq);
-				sig = sig * EnvGen.kr(
-					Env.adsr(0.01, 0.1, 0.6, 0.1),
-					gt
-				);
-
-				Out.ar(0, sig!2);
-			}).add;
-
+					Out.ar(0, sig!2);
+				}).add;
+			});
 
 			/*SynthDef(\bass_synth1, {arg freq = 432, freq1 = 60, amp = 0.1, detun = 1.006, ffreq = 800, rq = 1, gt = 1;
 			var sig;
@@ -999,30 +932,10 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 
 					s.makeBundle(s.latency, {
 
-						~duranduranbotsynth1 = Synth(
-							(
-								case
-								{~inst_1 == "bass"}{\synth1}
-								{~inst_1 == "keys"}{\synth2}
-								{~inst_1 == "vocal"}{\synth3};
-						), [freq: ~instrument_1_full_pseq_array.at(i)]);
+						~number_of_instruments.do(x = 0; {("duranduranbotsynth"++(x=x+1)).asSymbol.envirPut(
+							Synth("synth"++(x), [freq: ("instrument_"++(x)++"_full_pseq_array").asSymbol.envirGet.at(i)]);
 
-						~duranduranbotsynth2 = Synth(
-							(
-								case
-								{~inst_2 == "bass"}{\synth1}
-								{~inst_2 == "keys"}{\synth2}
-								{~inst_2 == "vocal"}{\synth3};
-						), [freq: ~instrument_2_full_pseq_array.at(i)]);
-
-						~duranduranbotsynth3 = Synth(
-							(
-								case
-								{~inst_3 == "bass"}{\synth1}
-								{~inst_3 == "keys"}{\synth2}
-								{~inst_3 == "vocal"}{\synth3};
-						), [freq: ~instrument_3_full_pseq_array.at(i)]);
-
+						);});
 
 
 						/*~duranduranbotsynth1_m = Synth(
@@ -1064,10 +977,14 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 
 				(~instrument_1_full_pseq_array.size-1).do({
 
+					i = i + 1;
+
 					s.makeBundle(s.latency, {
-						~duranduranbotsynth1.set(\freq, ~instrument_1_full_pseq_array.at(i=i+1));
-						~duranduranbotsynth2.set(\freq, ~instrument_2_full_pseq_array.at(i));
-						~duranduranbotsynth3.set(\freq, ~instrument_3_full_pseq_array.at(i));
+
+						~number_of_instruments.do(x = 0; {("duranduranbotsynth"++(x=x+1)).asSymbol.envirGet.set(
+							\freq, ("instrument_"++(x)++"_full_pseq_array").asSymbol.envirGet.at(i);
+
+						);});
 
 
 						/*~duranduranbotsynth1_m.set(\freq, ~instrument_1_full_pseq_array_mirrored.at(i));
@@ -1082,9 +999,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 
 				});
 
-				~duranduranbotsynth1.free;
-				~duranduranbotsynth2.free;
-				~duranduranbotsynth3.free;
+				s.makeBundle(s.latency, {~number_of_instruments.do(x = 0; {("duranduranbotsynth"++(x=x+1)).asSymbol.envirGet.free;});});
 				~timer_routine.stop;
 				~duranduranbot_routine.stop;
 				"piece finished".postln;
