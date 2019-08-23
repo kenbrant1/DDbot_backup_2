@@ -472,8 +472,9 @@ if(~number_of_instruments == nil, {~number_of_instruments = 4;});
 
 			~dna_choice_array_weights = ~dna_choice_array_weights.normalizeSum;
 
-			write_func = {
-					(~interval_array.size+1).do(z = (-1); {
+			~number_of_instruments.do(x=0; {
+				g = File(Document.current.dir++"/other_program_files/ddbot_"++(("inst_"++(x=x+1)).asSymbol.envirGet)++"_net_weights.scd", "w");
+				(~interval_array.size+1).do(z = (-1); {
 						z=z+1;
 						(~interval_array.size).do(s = (-1); {
 							g.write((((("inst_"++(x)).asSymbol.envirGet)++"_intvl_"++(z)++"_weights").asSymbol.envirGet.at(s=s+1)).asString++" ")
@@ -481,11 +482,6 @@ if(~number_of_instruments == nil, {~number_of_instruments = 4;});
 						g.write("\n");
 					});
 					g.close;
-				};
-
-			~number_of_instruments.do(x=0; {
-				g = File(Document.current.dir++"/other_program_files/ddbot_"++(("inst_"++(x=x+1)).asSymbol.envirGet)++"_net_weights.scd", "w");
-				write_func.value;
 			});
 
 			g = File(Document.current.dir++"/other_program_files/ddbot_dna_weights.scd", "w");
@@ -645,7 +641,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 4;});
 						("instrument_1_array_part_"++(~part_num)).asSymbol.envirGet.add(~instrument_1_freq = ~freqmap2.choose)
 					);
 
-					(~number_of_instruments-1).do(x = 1; {("instrument_"++(x=x+1)++"_freq").asSymbol.envirPut(~instrument_1_freq);});
+					(~number_of_instruments-1).do(x = 1; {("instrument_"++(x=x+1)++"_freq").asSymbol.envirPut(~freqmap2.choose);});
 				};
 
 
