@@ -190,3 +190,5 @@
 // develop a faster way of generating a new piece using new random seeds. One-click
 
 // make DNA machine learning process different. set of weights for each DNA spot.
+
+//write "how to use" file... saing to train it, etc
