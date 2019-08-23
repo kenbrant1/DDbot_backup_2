@@ -187,5 +187,6 @@
 // Develop a quicker way to help DDbot learn. Like add a 5 star rating system on top of the time-based rating system... stars multiply
 // time-based rating
 
-
 // develop a faster way of generating a new piece using new random seeds. One-click
+
+// make DNA machine learning process different. set of weights for each DNA spot.
