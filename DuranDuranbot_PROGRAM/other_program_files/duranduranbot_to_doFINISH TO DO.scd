@@ -182,3 +182,10 @@
 
 // or use same method now, but create set of weight arrays for each instrument... weight array for what interval to add on to it's last note
 // based on each interval between last two other intruments.
+
+
+// Develop a quicker way to help DDbot learn. Like add a 5 star rating system on top of the time-based rating system... stars multiply
+// time-based rating
+
+
+// develop a faster way of generating a new piece using new random seeds. One-click
