@@ -192,3 +192,19 @@
 // make DNA machine learning process different. set of weights for each DNA spot.
 
 //write "how to use" file... saing to train it, etc
+
+
+//..... for dna machine learning changes....
+
+//...... create dna sets for each player, each player having a set of 64 arrays of weights, which the player cycles through,
+// .......for the whole piece, choosing 1-9 dna index, each player has own "thread", and cycles through own set of dna arrays
+//........ players do NOT follow the same DNA thread... they each have their own. Each run in parallel. But all follow
+// "bit track".
+
+(~number_of_instruments-1).do(x = 1; {("instrument_"++(x=x+1)++"_~dna_clock").asSymbol.envirGet.value;});
+~dna_clock = ~dna_clock + 1;
+
+~instrument_1_array_starting_func.value;
+(~number_of_instruments-1).do(x = 1; {("instrument_"++(x=x+1)++"_array_func").asSymbol.envirGet.value;});
+
+if(~dna_clock == ~dna_index_choice.asInteger, {~dna_clock = 0; ~dna_index_choice = ~dna_index_choice_func.value;});
