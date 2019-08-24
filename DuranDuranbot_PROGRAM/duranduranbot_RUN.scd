@@ -19,7 +19,10 @@ if(~number_of_instruments == nil, {~number_of_instruments = 4;});
 
 	var w, /*~firstview,*/ firstviewtext1, firstviewtext2, firstviewtext3, firstviewtext4, firstviewtext5, firstviewtext6, firstviewnextbutton, mainview, mainviewtext, maincolor, randseedEZText1, randseedEZText2, randseedEZText3, randseed_1_make, randseed_2_make, randseed_3_make, randseedviewtext1,randseedviewtext2,
 	randseedviewtext3, numerologynameEZText1, numerologynameEZText2, numerologynameEZText3, numerologynameviewtext1, numerologynameviewtext2, numerologynameviewtext3,
-	generatepiecebutton, playbutton, enterdatabasebutton, recordbutton, songtitletext, songtitlestatictext, piecedurationstatictext, machinelearningbutton, machinelearningtext;
+	generatepiecebutton, playbutton, enterdatabasebutton, recordbutton, songtitletext, songtitlestatictext, piecedurationstatictext, machinelearningbutton, machinelearningtext,
+	onestarbutton,twostarbutton,threestarbutton,fourstarbutton,fivestarbutton, quicknewpiecebutton, quicknewpiecebutton_revert, quicknewpiecetext,
+	rate_button_1,rate_button_2,rate_button_3,rate_button_4,rate_button_5,rate_button_6,ratepiecetext,
+	closeddbotbutton;
 	w = Window("DuranDuranbot",
 		Rect(Window.availableBounds.width/4, Window.availableBounds.height/4, Window.availableBounds.width/2, Window.availableBounds.height/2),
 		resizable: true, border:true);
@@ -171,8 +174,8 @@ if(~number_of_instruments == nil, {~number_of_instruments = 4;});
 			~piecegenerated.background=maincolor;
 			"please wait".postln;
 			~piecegenerated.font = Font(size: ~firstviewboundsWIDTH/55);
-			~piecegenerated.string = "please wait";
-			if(~piece_created == "true", {~playbutton.close; ~arrow.close;});
+			~piecegenerated.string = "please wait";/*
+			if(~piece_created == "true", {~playbutton.close; ~arrow.close;});*/
 			~piece_generator_func.value;
 
 		});
@@ -185,6 +188,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 4;});
 		~playbutton_func = {
 			~playbutton = Button.new(~firstview, Rect(~firstviewboundsWIDTH/5.1063829787234, ~firstviewboundsHEIGHT/6.2428571428571, ~firstviewboundsWIDTH/8, ~firstviewboundsHEIGHT/21.85)).states_([["play piece",Color.white,Color.black],["stop piece",Color.white,Color.black]]).action_({arg button;
 				if(button.value == 1, {
+					~seedscheck = 1;
 					~pausebuttonfunc.value;
 					~run_piece_func.value;
 				}, {
@@ -194,12 +198,19 @@ if(~number_of_instruments == nil, {~number_of_instruments = 4;});
 					q = FileReader.read(Document.current.dir++"/other_program_files/ddbot_machine_learning_on_off.scd");
 					2.do({q = q.at(0)});
 					q = q.asInteger;
-					if(q == 1, {~machine_learning_func.value;});
+					if(q == 1, {~machine_learning_func.value;"sdf".postln;});
 					Server.freeAll;
 					~pausebutton.close;
 					"piece stopped".postln;
 					if(~will_record == 1, {s.stopRecording;});
 					~fullpiecedur2 = ~fullpiecedur;
+					("\npiece rated:\nx"++(~net_change_mult)++" points\n").postln;
+					~net_change_mult = ~net_change_mult_array.at(0);
+					rate_button_1.value = 1;
+					rate_button_2.value = 0;
+					rate_button_3.value = 0;
+					rate_button_4.value = 0;
+					rate_button_5.value = 0;
 				});
 
 			});
@@ -230,22 +241,113 @@ if(~number_of_instruments == nil, {~number_of_instruments = 4;});
 
 		if(~duranduranbot_routine.isPlaying == true, {~playbutton.value = 1; ~pausebuttonfunc.value;}, {~playbutton.value = 0});
 
-		recordbutton = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.8, ~firstviewboundsWIDTH/9, ~firstviewboundsHEIGHT/21.85)).states_([["record off",Color.white,Color.black],["record on",Color.black,Color.red]]).action_({arg button;
+		~net_change_mult_array = [0, 1, 2, 3, 4];
+
+		rate_button_1 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/3.6428571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x0 pts",Color.white,Color.black], ["x0 pts",Color.black,Color.green]]).action_({arg button;
+			~net_change_mult = ~net_change_mult_array.at(0);
+			rate_button_1.value = 1;
+			rate_button_2.value = 0;
+			rate_button_3.value = 0;
+			rate_button_4.value = 0;
+			rate_button_5.value = 0;
+		});
+		rate_button_1.font = Font(size: ~firstviewboundsWIDTH/48);
+
+		rate_button_2 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/9.88, ~firstviewboundsHEIGHT/3.6428571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x1 pts",Color.white,Color.black], ["x1 pts",Color.black,Color.green]]).action_({arg button;
+			~net_change_mult = ~net_change_mult_array.at(1);
+			rate_button_1.value = 0;
+			rate_button_2.value = 1;
+			rate_button_3.value = 0;
+			rate_button_4.value = 0;
+			rate_button_5.value = 0;
+		});
+		rate_button_2.font = Font(size: ~firstviewboundsWIDTH/48);
+
+		rate_button_3 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/5.29, ~firstviewboundsHEIGHT/3.6428571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x2 pts",Color.white,Color.black], ["x2 pts",Color.black,Color.green]]).action_({arg button;
+			~net_change_mult = ~net_change_mult_array.at(2);
+			rate_button_1.value = 0;
+			rate_button_2.value = 0;
+			rate_button_3.value = 1;
+			rate_button_4.value = 0;
+			rate_button_5.value = 0;
+		});
+		rate_button_3.font = Font(size: ~firstviewboundsWIDTH/48);
+
+		rate_button_4 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/3.62, ~firstviewboundsHEIGHT/3.6428571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x3 pts",Color.white,Color.black], ["x3 pts",Color.black,Color.green]]).action_({arg button;
+			~net_change_mult = ~net_change_mult_array.at(3);
+			rate_button_1.value = 0;
+			rate_button_2.value = 0;
+			rate_button_3.value = 0;
+			rate_button_4.value = 1;
+			rate_button_5.value = 0;
+		});
+		rate_button_4.font = Font(size: ~firstviewboundsWIDTH/48);
+
+		rate_button_5 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/2.75, ~firstviewboundsHEIGHT/3.6428571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x4 pts",Color.white,Color.black], ["x4 pts",Color.black,Color.green]]).action_({arg button;
+			~net_change_mult = ~net_change_mult_array.at(4);
+			rate_button_1.value = 0;
+			rate_button_2.value = 0;
+			rate_button_3.value = 0;
+			rate_button_4.value = 0;
+			rate_button_5.value = 1;
+		});
+		rate_button_5.font = Font(size: ~firstviewboundsWIDTH/48);
+
+		~net_change_mult = ~net_change_mult_array.at(0);
+		rate_button_1.value = 1;
+		rate_button_2.value = 0;
+		rate_button_3.value = 0;
+		rate_button_4.value = 0;
+		rate_button_5.value = 0;
+
+		ratepiecetext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/3.028571428571, ~firstviewboundsWIDTH/1.7, ~firstviewboundsHEIGHT/21.85));
+		ratepiecetext.background=Color.white;
+		ratepiecetext.string = "^rate piece above by clicking on rating before stopping a running piece";
+		ratepiecetext.font = Font(size: ~firstviewboundsWIDTH/55);
+
+
+		quicknewpiecebutton = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.4428571428571, ~firstviewboundsWIDTH/6.1454545454545, ~firstviewboundsHEIGHT/21.85)).states_([["quick new piece",Color.white,Color.black],["quick new piece",Color.white,Color.black]]).action_({arg button;
+
+			~quicknewpiecebutton = 1;
+
+			{if(~duranduranbot_routine.isPlaying == true, {{~playbutton.valueAction = 0;}.value});}.value;
+
+			AppClock.sched(0, {
+				if(~seedscheck == 1, {newrandomseedsbutton.valueAction = 0}, {~seedscheck = 1});
+				generatepiecebutton.valueAction = 0; //piece fires at end of piece gen func
+			});
+		});
+		quicknewpiecebutton.font = Font(size: ~firstviewboundsWIDTH/48);
+
+		quicknewpiecebutton_revert = Button.new(~firstview, Rect(~firstviewboundsWIDTH/5.4, ~firstviewboundsHEIGHT/2.4428571428571, ~firstviewboundsWIDTH/7.9454545454545, ~firstviewboundsHEIGHT/21.85)).states_([["revert piece",Color.white,Color.black],["revert piece",Color.white,Color.black]]).action_({arg button;
+
+			~quicknewpiecebutton = 1;
+
+			if(~duranduranbot_routine.isPlaying == true, {~playbutton.valueAction = 0;});
+
+			AppClock.sched(0, {
+				if(~seedscheck == 1, {reversenewrandomseedsbutton.valueAction = 0}, {~seedscheck = 1});
+				generatepiecebutton.valueAction = 0; //piece fires at end of piece gen func
+			});
+		});
+		quicknewpiecebutton_revert.font = Font(size: ~firstviewboundsWIDTH/48);
+
+		recordbutton = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.5922222222222, ~firstviewboundsWIDTH/9, ~firstviewboundsHEIGHT/21.85)).states_([["record off",Color.white,Color.black],["record on",Color.black,Color.red]]).action_({arg button;
 			if(button.value == 1, {
-				~recordtext.string = "upon pressing "++"play piece".quote++"piece WILL be recorded";
+				~recordtext.string = "^all pieces WILL be recorded";
 				~will_record = 1;
-			}, {~recordtext.string = "upon pressing "++"play piece".quote++"piece will NOT be recorded"; ~will_record = 0;});
+			}, {~recordtext.string = "^all pieces will NOT be recorded"; ~will_record = 0;});
 
 		});
 		recordbutton.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		~recordtext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.45, ~firstviewboundsWIDTH/2.2, ~firstviewboundsHEIGHT/21.85));
+		~recordtext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.48, ~firstviewboundsWIDTH/2.2, ~firstviewboundsHEIGHT/21.85));
 		~recordtext.background=Color.white;
-		~recordtext.string = "upon pressing "++"play piece".quote++" piece will NOT be recorded";
+		~recordtext.string = "^all pieces will NOT be recorded";
 		~recordtext.font = Font(size: ~firstviewboundsWIDTH/55);
 
-		if(~will_record == 1, {~recordtext.string = "upon pressing "++"play piece".quote++"piece WILL be recorded"; recordbutton.value = 1;},
-			{~recordtext.string = "upon pressing "++"play piece".quote++"piece will NOT be recorded"; recordbutton.value = 0;});
+		if(~will_record == 1, {~recordtext.string = "^all pieces WILL be recorded"; recordbutton.value = 1;},
+			{~recordtext.string = "^all pieces will NOT be recorded"; recordbutton.value = 0;});
 
 		piecedurationstatictext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.9422222222222 /*~firstviewboundsHEIGHT/6.2428571428571*/, ~firstviewboundsWIDTH/2.7, ~firstviewboundsHEIGHT/21.85));
 		piecedurationstatictext.background=Color.white;
@@ -263,9 +365,9 @@ if(~number_of_instruments == nil, {~number_of_instruments = 4;});
 			z = "Current random seeds:\n"++
 			"randseed 1 - "++~randseed_1++"\n"++
 			"randseed 2 - "++~randseed_2++"\n"++
-			"randseed 3 - "++~randseed_3.asString++
-			"\n(also posted in post window)"++"\n"++
-			"*make sure to hit "++"generate piece".quote++" to generate a new piece based on the new seeds";
+			"randseed 3 - "++~randseed_3.asString++(if(~quicknewpiecebutton != 1, {
+				"\n(also posted in post window)"++"\n"++
+				"*make sure to hit "++"generate piece".quote++" to generate a new piece based on the new seeds"}, {""}));
 			z.postln;
 			currentrandomseedstrext.string = z;
 
@@ -286,9 +388,9 @@ if(~number_of_instruments == nil, {~number_of_instruments = 4;});
 			z = "Current random seeds:\n"++
 			"randseed 1 - "++~randseed_1++"\n"++
 			"randseed 2 - "++~randseed_2++"\n"++
-			"randseed 3 - "++~randseed_3.asString++
-			"\n(also posted in post window)"++"\n"++
-			"*make sure to hit "++"generate piece".quote++" to generate a new piece based on the new seeds";
+			"randseed 3 - "++~randseed_3.asString++(if(~quicknewpiecebutton != 1, {
+				"\n(also posted in post window)"++"\n"++
+				"*make sure to hit "++"generate piece".quote++" to generate a new piece based on the new seeds"}, {""}));
 			z.postln;
 			currentrandomseedstrext.string = z;
 
@@ -301,9 +403,9 @@ if(~number_of_instruments == nil, {~number_of_instruments = 4;});
 		currentrandomseedstrext.string ="Current random seeds:\n"++
 		"randseed 1 - "++~randseed_1++"\n"++
 		"randseed 2 - "++~randseed_2++"\n"++
-		"randseed 3 - "++~randseed_3.asString++
-		"\n(also posted in post window)"++"\n"++
-		"*make sure to hit "++"generate piece".quote++" to generate a new piece based on the new seeds";
+		"randseed 3 - "++~randseed_3.asString++(if(~quicknewpiecebutton != 1, {
+			"\n(also posted in post window)"++"\n"++
+			"*make sure to hit "++"generate piece".quote++" to generate a new piece based on the new seeds"}, {""}));
 		currentrandomseedstrext.align = \topLeft;
 		currentrandomseedstrext.font = Font(size: ~firstviewboundsWIDTH/58.384615384615);
 
@@ -330,15 +432,22 @@ if(~number_of_instruments == nil, {~number_of_instruments = 4;});
 		});
 		machinelearningbutton.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		machinelearningtext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.19, ~firstviewboundsWIDTH/2.1, ~firstviewboundsHEIGHT/21.85));
+		machinelearningtext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.19, ~firstviewboundsWIDTH/2, ~firstviewboundsHEIGHT/21.85));
 		machinelearningtext.background=Color.white;
-		machinelearningtext.string = "more info about machine learning on "++"instructions".quote++" page";
+		machinelearningtext.string = "^more info about machine learning on "++"instructions".quote++" page";
 		machinelearningtext.font = Font(size: ~firstviewboundsWIDTH/55);
 
 		q = FileReader.read(Document.current.dir++"/other_program_files/ddbot_machine_learning_on_off.scd");
 		2.do({q = q.at(0)});
 		q = q.asInteger;
 		if(q == 1, {machinelearningbutton.value = 0;});
+
+
+		closeddbotbutton = Button.new(~firstview, Rect(~firstviewboundsWIDTH/1.2, ~firstviewboundsHEIGHT/1.1, ~firstviewboundsWIDTH/7.5, ~firstviewboundsHEIGHT/21.85)).states_([["close DD'bot",Color.white,Color.black],["close DD'bot",Color.white,Color.black]]).action_({arg button;
+			Server.freeAll;
+			w.close;
+		});
+		closeddbotbutton.font = Font(size: ~firstviewboundsWIDTH/48);
 
 	};
 
@@ -374,8 +483,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 4;});
 
 		firstviewtext4 = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/6.2428571428571, ~firstviewboundsWIDTH/1.0285714285714, ~firstviewboundsHEIGHT/0.54625));
 		firstviewtext4.background=maincolor;
-		firstviewtext4.string =
-		"Play a DuranDuranbot piece by clicking the "++"generate piece".quote++"  button on the Main Page, and then by clicking the "++"play piece".quote++"  button. Once random seeds are input into the program on the front page (the very first page of this program), you can only generate a song once using the same random seeds. If you click on the "++"generate piece".quote++"  button more than once without inputting new random seeds the same piece will always be generated. To generate a new piece, you can go back to the first page and input new random seeds, or you can click the "++"new random seeds".quote++"  button across from the "++"generate piece".quote++"  button on the right side of the main page. \n\n You can also input "++"inspiration".quote++" into DuranDuranbot by clicking on the "++"input inspiration into DuranDuranbot".quote++" button on the main page.\n\nMachine learning is enabled by default, but you can disable it on the main page. Using the machine learning function allows for DuranDuranbot to learn what you prefer to hear in a piece by how long you listen to that peice.";
+		firstviewtext4.string = "HOW TO PLAY A PIECE\n\nPlay a DuranDuranbot piece by clicking the "++"generate piece".quote++"  button on the Main Page, and then by clicking the "++"play piece".quote++"  button. Once random seeds are input into the program on the front page (the very first page of this program), you can only generate a song once using the same random seeds. If you click on the "++"generate piece".quote++"  button more than once without inputting new random seeds the same piece will always be generated. To generate a new piece, you can go back to the first page and input new random seeds, or you can click the "++"new random seeds".quote++" button across from the "++"generate piece".quote++"  button on the right side of the main page. Or, you can quickly generate a new piece based on entirely new random seeds by simply clicking on the "++"quick new piece".quote++" button a few sets of buttons below the "++"generate piece".quote++" button. \n\nMACHINE LEARNING\n\nMachine learning is enabled by default, but you can disable it on the main page. Using the machine learning function allows for DuranDuranbot to learn what you prefer to hear in a piece by how long you listen to that peice combined with the point rating you give it. You can rate a piece by clicking on any of the point ratings before you stop a piece or a piece ends. Doing all of this will greatly help DuranDuranbot learn what music it should play. A quick way of training DD'bot is to use the "++"quick new piece".quote++" button in combination with the rating system - by clicking on the "++"quick new piece".quote++" button and rating it before you move on to another piece.";
 		firstviewtext4.align = \topLeft;
 		firstviewtext4.font = Font(size: ~firstviewboundsWIDTH/51.428571428571);
 
@@ -410,7 +518,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 4;});
 
 		~interval_array = (1..12);
 		~dna_choice_array = (1..9);
-		~net_change = 0.0000001;
+		~net_change = 0.0001;
 
 
 		~number_of_instruments.do(r = 0; {
@@ -424,7 +532,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 4;});
 						~old_int = ((("inst_"++(r)).asSymbol.envirGet)++"_intvl_weights_count_array").asSymbol.envirGet.at(x).at(0);
 						~new_int = ((("inst_"++(r)).asSymbol.envirGet)++"_intvl_weights_count_array").asSymbol.envirGet.at(x).at(1);
 
-						((("inst_"++(r)).asSymbol.envirGet)++"_intvl_"++(~old_int)++"_weights").asSymbol.envirGet.put(~new_int-1, ((("inst_"++(r)).asSymbol.envirGet)++"_intvl_"++(~old_int)++"_weights").asSymbol.envirGet.at(~new_int-1) + ~net_change);
+						((("inst_"++(r)).asSymbol.envirGet)++"_intvl_"++(~old_int)++"_weights").asSymbol.envirGet.put(~new_int-1, ((("inst_"++(r)).asSymbol.envirGet)++"_intvl_"++(~old_int)++"_weights").asSymbol.envirGet.at(~new_int-1) + (~net_change*~net_change_mult));
 						/*((("inst_"++(r)).asSymbol.envirGet)++"_intvl_"++(~old_int)++"_weights").asSymbol.envirGet.postln;*/
 					});
 				})
@@ -442,7 +550,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 4;});
 		/*
 		y=0;
 		x=0;
-		3.do({x=x+1;
+		~number_of_instruments.do({x=x+1;
 		12.do(y=(-1);{
 		((("inst_"++(x)).asSymbol.envirGet)++"_intvl_"++(y=y+1)++"_weights").asSymbol.envirGet.postln;
 		});
@@ -453,7 +561,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 4;});
 		*/
 
 		~note_net_points.do(x = (-1); {
-			~dna_choice_array_weights.put((~dna_index_choice_array.at(x=x+1)-1), ~dna_choice_array_weights.at((~dna_index_choice_array.at(x)-1)) + ~net_change);
+			~dna_choice_array_weights.put((~dna_index_choice_array.at(x=x+1)-1), ~dna_choice_array_weights.at((~dna_index_choice_array.at(x)-1)) + (~net_change*~net_change_mult));
 		});
 
 		/*~dna_choice_array_weights = Array.fill(9, {1/9}).normalizeSum;*/
@@ -475,13 +583,13 @@ if(~number_of_instruments == nil, {~number_of_instruments = 4;});
 			~number_of_instruments.do(x=0; {
 				g = File(Document.current.dir++"/other_program_files/ddbot_"++(("inst_"++(x=x+1)).asSymbol.envirGet)++"_net_weights.scd", "w");
 				(~interval_array.size+1).do(z = (-1); {
-						z=z+1;
-						(~interval_array.size).do(s = (-1); {
-							g.write((((("inst_"++(x)).asSymbol.envirGet)++"_intvl_"++(z)++"_weights").asSymbol.envirGet.at(s=s+1)).asString++" ")
-						});
-						g.write("\n");
+					z=z+1;
+					(~interval_array.size).do(s = (-1); {
+						g.write((((("inst_"++(x)).asSymbol.envirGet)++"_intvl_"++(z)++"_weights").asSymbol.envirGet.at(s=s+1)).asString++" ")
 					});
-					g.close;
+					g.write("\n");
+				});
+				g.close;
 			});
 
 			g = File(Document.current.dir++"/other_program_files/ddbot_dna_weights.scd", "w");
@@ -499,6 +607,8 @@ if(~number_of_instruments == nil, {~number_of_instruments = 4;});
 
 		(
 			(
+
+				"gen checkpoint 1".postln;
 
 				~tuning_frequency = 440; //default 440 hz
 				~freqmap = (i = ~tuning_frequency / (2 ** (69 / 12)); a = (-1); b = (-1); Array.fill(128, {i * (2 ** (((a=a+1) / 12).trunc)) * ( (2 ** (12.reciprocal)) ** ((b=b+1)  % 12));}));/*~freqmap = (i = 8.0271480262684/*-0.0000000000024*/; ~stepratio = 1.0594630943593; Array.fill(128, { i = i*~stepratio;}));*/
@@ -522,13 +632,13 @@ if(~number_of_instruments == nil, {~number_of_instruments = 4;});
 						g = File(Document.current.dir++"/other_program_files/ddbot_"++(("inst_"++(o)).asSymbol.envirGet)++"_net_weights.scd", "w");
 						t = Array.fill(~interval_array.size, {1/~interval_array.size}).normalizeSum;
 						(~interval_array.size+1).do(z = (-1); {
-						z=z+1;
-						(~interval_array.size).do(s = (-1); {
-							g.write((t.at(s=s+1)).asString++" ")
+							z=z+1;
+							(~interval_array.size).do(s = (-1); {
+								g.write((t.at(s=s+1)).asString++" ")
+							});
+							g.write("\n");
 						});
-						g.write("\n");
-					});
-					g.close;
+						g.close;
 					});
 
 					h = FileReader.read(Document.current.dir++"/other_program_files/ddbot_"++(("inst_"++(o)).asSymbol.envirGet).asString++"_net_weights.scd", false, true);
@@ -552,7 +662,6 @@ if(~number_of_instruments == nil, {~number_of_instruments = 4;});
 				~dna_index_choice_func = {~song_dna_array.at(if(~dna_x < (~song_dna_array.size-1), {~dna_x=~dna_x+1;}, {~dna_x = 0}))};
 				~dna_index_choice = ~dna_index_choice_func.value;
 				~dna_clock_y = 0;
-				~midi_ratio_x = 0;
 
 
 				//empties arrays after pre-generation of piece also
@@ -573,7 +682,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 4;});
 							~interval = ("instrument_"++(~inst_array.wrapAt(~inst_num-2))++"_freq").asSymbol.envirGet - ("instrument_"++(~inst_array.wrapAt(~inst_num-3))++"_freq").asSymbol.envirGet;
 							if(~interval.isNegative == true, {~interval = ~interval.neg});
 							while({~interval > 12}, {~interval = ~interval - 12});
-							~new_interval = ~interval_array.wchoose(((("inst_"++(~inst_num)).asSymbol.envirGet)++"_intvl_"++(~interval)++"_weights").asSymbol.envirGet;);
+							~new_interval = ~interval_array.wchoose(((("inst_"++(~inst_num)).asSymbol.envirGet)++"_intvl_"++(~interval.round)++"_weights").asSymbol.envirGet;);
 							~interval_choice = ~new_interval;
 
 							((("inst_"++(~inst_num)).asSymbol.envirGet)++"_interval").asSymbol.envirPut(~interval);
@@ -623,6 +732,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 4;});
 					~dna_index_choice_array = ~dna_index_choice_array.add(~dna_index_choice);
 
 					~put1.value;
+
 				};
 
 
@@ -657,6 +767,8 @@ if(~number_of_instruments == nil, {~number_of_instruments = 4;});
 				});
 			);
 
+			"gen checkpoint 2".postln;
+
 			//Piece creation in parts. Only reason to have parts is to determine length of piece.
 
 			//Piece creation is like human life. Pre-birth... then birth.... then etc...
@@ -684,13 +796,11 @@ if(~number_of_instruments == nil, {~number_of_instruments = 4;});
 							1.do({
 
 								~dna_clock_y = ~dna_clock_y + 1;
-								~midi_ratio_x = ~midi_ratio_x + 1;
 
 								~instrument_1_array_starting_func.value;
 								(~number_of_instruments-1).do(x = 1; {("instrument_"++(x=x+1)++"_array_func").asSymbol.envirGet.value;});
 
 								if(~dna_clock_y == ~dna_index_choice.asInteger, {~dna_clock_y = 0; ~dna_index_choice = ~dna_index_choice_func.value;});
-								if(~midi_ratio_x == (~midi_ratio_array.size-1), {~midi_ratio_x = 0});
 
 								/*~instrument_1_freq.postln;
 								~instrument_2_freq.postln;
@@ -701,12 +811,10 @@ if(~number_of_instruments == nil, {~number_of_instruments = 4;});
 							(~song_dna_array_SUM-1).do({
 
 								~dna_clock_y = ~dna_clock_y + 1;
-								~midi_ratio_x = ~midi_ratio_x + 1;
 
 								~number_of_instruments.do(x = 0; {("instrument_"++(x=x+1)++"_array_func").asSymbol.envirGet.value;});
 
 								if(~dna_clock_y == ~dna_index_choice.asInteger, {~dna_clock_y = 0; ~dna_index_choice = ~dna_index_choice_func.value;});
-								if(~midi_ratio_x == (~midi_ratio_array.size-1), {~midi_ratio_x = 0});
 
 								/*~instrument_1_freq.postln;
 								~instrument_2_freq.postln;
@@ -735,19 +843,17 @@ if(~number_of_instruments == nil, {~number_of_instruments = 4;});
 								~part_bit_size.do({
 
 									~dna_clock_y = ~dna_clock_y + 1;
-									~midi_ratio_x = ~midi_ratio_x + 1;
 
 									~number_of_instruments.do(x = 0; {("instrument_"++(x=x+1)++"_array_func").asSymbol.envirGet.value;});
 
 									if(~dna_clock_y == ~dna_index_choice.asInteger, {~dna_clock_y = 0; ~dna_index_choice = ~dna_index_choice_func.value;});
-									if(~midi_ratio_x == (~midi_ratio_array.size-1), {~midi_ratio_x = 0});
 
 								});
 							});
 
 						});
 
-
+						"gen checkpoint 3".postln;
 						//create pseq arrays function
 
 						(
@@ -784,8 +890,15 @@ if(~number_of_instruments == nil, {~number_of_instruments = 4;});
 										~fullpiecedur = ("piece length - "++(~dd_mins.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asString)++" mins");
 										piecedurationstatictext.string = ~fullpiecedur;
 										("\npiece duration: \n"++((~dd_mins.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asString))++" minutes";).postln;
+									});
 
-
+									if(~quicknewpiecebutton == 1, {
+										AppClock.sched(0, {
+											~quicknewpiecebutton = 0;
+											~pausebuttonfunc.value;
+											~playbutton.value = 1;
+											~run_piece_func.value;
+										});
 									});
 								});
 							};
@@ -1005,6 +1118,13 @@ if(~number_of_instruments == nil, {~number_of_instruments = 4;});
 				q = q.asInteger;
 				if(q == 1, {~machine_learning_func.value;});
 				Server.freeAll;
+				("\npiece rated:\nx"++(~net_change_mult)++" points\n").postln;
+				~net_change_mult = ~net_change_mult_array.at(0);
+				rate_button_1.value = 1;
+				rate_button_2.value = 0;
+				rate_button_3.value = 0;
+				rate_button_4.value = 0;
+				rate_button_5.value = 0;
 
 			});
 
