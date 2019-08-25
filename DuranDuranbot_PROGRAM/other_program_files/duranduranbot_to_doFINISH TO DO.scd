@@ -208,3 +208,7 @@
 (~number_of_instruments-1).do(x = 1; {("instrument_"++(x=x+1)++"_array_func").asSymbol.envirGet.value;});
 
 if(~dna_clock == ~dna_index_choice.asInteger, {~dna_clock = 0; ~dna_index_choice = ~dna_index_choice_func.value;});
+
+
+// or rather (choose this one)... have no set DNA, and each player chooses length of "decision wait time" based on
+// the wait times of others players. Get rid of DNA system entirely.
