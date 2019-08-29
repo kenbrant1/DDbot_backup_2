@@ -219,3 +219,5 @@ if(~dna_clock == ~dna_index_choice.asInteger, {~dna_clock = 0; ~dna_index_choice
 // give ddbot ability to REASON... Give use abilty to rate moments of a piece in real time. PARSE these moments into things like..
 // kinds of trasition intervals... harmonies... duration.... and somehow combine all of these preferred elements in piece creation
 // using the data learned.
+
+// also things like... how many intervals/harmonic intervals are used in a certain time period, and in what order...
