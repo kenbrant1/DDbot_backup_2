@@ -211,4 +211,11 @@ if(~dna_clock == ~dna_index_choice.asInteger, {~dna_clock = 0; ~dna_index_choice
 
 
 // or rather (choose this one)... have no set DNA, and each player chooses length of "decision wait time" based on
-// the wait times of others players. Get rid of DNA system entirely.
+// the wait times of others players. Get rid of DNA system entirely. Get rdi of 1/3 randomness too. Make all machine learning.
+// Actually, I think keep 1/3 randomness.
+
+
+
+// give ddbot ability to REASON... Give use abilty to rate moments of a piece in real time. PARSE these moments into things like..
+// kinds of trasition intervals... harmonies... duration.... and somehow combine all of these preferred elements in piece creation
+// using the data learned.
