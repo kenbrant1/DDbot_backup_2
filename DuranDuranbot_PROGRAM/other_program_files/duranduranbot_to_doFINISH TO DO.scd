@@ -221,3 +221,8 @@ if(~dna_clock == ~dna_index_choice.asInteger, {~dna_clock = 0; ~dna_index_choice
 // using the data learned.
 
 // also things like... how many intervals/harmonic intervals are used in a certain time period, and in what order...
+
+// ... have ddbot learn rules... reason... learn rules for composing a piece using neural nets/weight net... each succession
+// of weights (array) is a note... or a period in between trasitions... and ddbot learns pattern/progression "tendencies" by
+// way of neural/weight net(s).
+// Tie each "player" learned rules with each other "player".... harmonies, patterns/progressions, etc... somehow...
