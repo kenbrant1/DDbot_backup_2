@@ -228,4 +228,6 @@ if(~dna_clock == ~dna_index_choice.asInteger, {~dna_clock = 0; ~dna_index_choice
 // perhaps one large neural net... and ddbot learns tendencies at different parts of the net based on location
 // in piece it learned from.
 
+// create way(s) to select section of piece to rate. slide bar. and/or manual integer clock selection.
+
 // Tie each "player" learned rules with each other "player".... harmonies, patterns/progressions, etc... somehow...
