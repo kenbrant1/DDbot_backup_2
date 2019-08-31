@@ -231,3 +231,21 @@ if(~dna_clock == ~dna_index_choice.asInteger, {~dna_clock = 0; ~dna_index_choice
 // create way(s) to select section of piece to rate. slide bar. and/or manual integer clock selection.
 
 // Tie each "player" learned rules with each other "player".... harmonies, patterns/progressions, etc... somehow...
+
+// Make ONE giant neural net.
+
+// intergrate EVERY ELEMENT OF A PIECE OF MUSIC.
+
+// Elements -
+// - interval between last note
+// - harmonic intervals
+// - lengnth of last note
+// - lengths of harminic (possibly)
+// -
+
+//refined elements -
+// - interval between last note of last player, and last note of current player
+// - note durations of last note of current player, and perhaps of last player too
+// - position of section in neural net
+
+// make large neural net as one large peice of music
