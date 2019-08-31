@@ -249,3 +249,18 @@ if(~dna_clock == ~dna_index_choice.asInteger, {~dna_clock = 0; ~dna_index_choice
 // - position of section in neural net
 
 // make large neural net as one large peice of music
+
+// find new ntoe duration based on the avg of ALL player's current notes. By number of bits between trasition decision.
+// if avg dur of all notes is ... < 5 bits, < 10 bits, < 20 bits, > 30 ... weights - SCRATCH THAT... do by seconds
+
+// 4 documants for each player... 1 for each avg duration length.
+
+
+// final -
+// - make onyl 3 players.
+// - make 1 weight array for each interval between a player... and each other player. ex- [1, 1] [1, 2].. so on... [2, 1] [2, 2].. so on.12*12=144
+// 144 weighted arrays
+// - 144 arrays for each combination note durations .... IN SECONDS, NOT BITS. calculate seconds using num of bits and bit freq.
+// <= 0.5 secs, > 0.5 and <= 2 secs, > 2 secs
+// dur combos - 1,1,1, 1,1,2, 1,1,3 .... (9*3)
+// so 27 dur combos of 144 arrays for each combo of note durs. 27*144
