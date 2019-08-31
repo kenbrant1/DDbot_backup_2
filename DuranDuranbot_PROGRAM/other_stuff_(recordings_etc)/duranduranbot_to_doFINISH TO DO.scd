@@ -266,3 +266,5 @@ if(~dna_clock == ~dna_index_choice.asInteger, {~dna_clock = 0; ~dna_index_choice
 // so 27 dur combos of 144 arrays for each combo of note durs. 27*144
 
 //.... or maybe for EVERY COMBO (I think what I wrote before is everyo combo)
+
+// test it it works by soing postln for which document it edits. 1 weight array per document.
