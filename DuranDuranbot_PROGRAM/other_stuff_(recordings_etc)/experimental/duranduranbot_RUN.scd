@@ -573,22 +573,250 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 	~machine_learning_func = {
 
 		~interval_array = (1..12);
-		~dna_choice_array = [1, 2, 4, 8, 16, 32, 64];
+		~dna_choice_array = (1..64);
+		~time_array = [0.25, 1, 2, 4];
 		~dna_choice_array_num = (1..~dna_choice_array.size);
 		~net_change = 0.0001;
 
-		("instrument_"++(3)++"_full_pseq_array_midi").asSymbol.envirGet.postln.at(0)
+		/*("instrument_"++(1)++"_full_pseq_array_midi").asSymbol.envirGet.postln.at(~rate_selection_start+(x))
+
+		("instrument_"++(1)++"_full_pseq_array_midi").asSymbol.envirGet.postln.at(~rate_selection_start+(x-1));
+		("instrument_"++(2)++"_full_pseq_array_midi").asSymbol.envirGet.postln.at(~rate_selection_start+(x-1));
+		("instrument_"++(3)++"_full_pseq_array_midi").asSymbol.envirGet.postln.at(~rate_selection_start+(x-1));*/
 
 		~number_of_instruments.do(r = 0; {
 			r=r+1;
 			~inst_num = r;
 			(~rate_selection_end-~rate_selection_start).do(x = (-1); {
 				x=x+1;
-				~number_of_instruments.do(t = 1; u = 0; {
+				j = ("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1));
+				v = ("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+x);
+				if(((v != j) and: (v != 0) and: (j != nil)), {
+					u = 0;
 					("diff"++(u=u+1)).asSymbol.envirPut(
-						("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(x) - ("instrument_"++(~inst_array.wrapAt(~inst_num-(t=t-1)))++"_full_pseq_array_midi").asSymbol.envirGet.at(x);
+						e = v - j;
+						if(e.isNegative == true, {e = e.neg});
+						while({e > 12}, {e = e - 12});
+						e.value;
 					);
-					(("inst_"++(2)).asSymbol.envirGet)
+					(~number_of_instruments-1).do(t = 1; {
+						("diff"++(u=u+1)).asSymbol.envirPut(
+							e = j - ("instrument_"++(~inst_array.wrapAt(~inst_num-(t=t-1)))++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1));
+							if(e.isNegative == true, {e = e.neg});
+							while({e > 12}, {e = e - 12});
+							e.value;
+						);
+					});
+
+					("/other_program_files/ddbot_interval_weights/"++(~player_array.at(r-1))++"__"++(
+						case
+						{~player_array.at(0) == "player_1"}{~diff1}
+						{~player_array.at(1) == "player_1"}{~diff2}
+						{~player_array.at(2) == "player_1"}{~diff3};
+					)++"_"++(
+						case
+						{~player_array.at(0) == "player_2"}{~diff1}
+						{~player_array.at(1) == "player_2"}{~diff2}
+						{~player_array.at(2) == "player_2"}{~diff3};
+					)++"_"++(
+						case
+						{~player_array.at(0) == "player_3"}{~diff1}
+						{~player_array.at(1) == "player_3"}{~diff2}
+						{~player_array.at(2) == "player_3"}{~diff3};
+					)++"_weights.scd").asString.postln;
+
+					h = FileReader.read(Document.current.dir++"/other_program_files/ddbot_interval_weights/"++(~player_array.at(r-1))++"__"++(
+						case
+						{~player_array.at(0) == "player_1"}{~diff1}
+						{~player_array.at(1) == "player_1"}{~diff2}
+						{~player_array.at(2) == "player_1"}{~diff3};
+					)++"_"++(
+						case
+						{~player_array.at(0) == "player_2"}{~diff1}
+						{~player_array.at(1) == "player_2"}{~diff2}
+						{~player_array.at(2) == "player_2"}{~diff3};
+					)++"_"++(
+						case
+						{~player_array.at(0) == "player_3"}{~diff1}
+						{~player_array.at(1) == "player_3"}{~diff2}
+						{~player_array.at(2) == "player_3"}{~diff3};
+					)++"_weights.scd", false, true);
+					h = h.flatten.asFloat;
+					h.put(~diff1-1, (h.at(~diff1-1) + (~net_change*~net_change_mult)));
+					h = h.normalizeSum;
+					g = File(Document.current.dir++"/other_program_files/ddbot_interval_weights/"++(~player_array.at(r-1))++"__"++(
+						case
+						{~player_array.at(0) == "player_1"}{~diff1}
+						{~player_array.at(1) == "player_1"}{~diff2}
+						{~player_array.at(2) == "player_1"}{~diff3};
+					)++"_"++(
+						case
+						{~player_array.at(0) == "player_2"}{~diff1}
+						{~player_array.at(1) == "player_2"}{~diff2}
+						{~player_array.at(2) == "player_2"}{~diff3};
+					)++"_"++(
+						case
+						{~player_array.at(0) == "player_3"}{~diff1}
+						{~player_array.at(1) == "player_3"}{~diff2}
+						{~player_array.at(2) == "player_3"}{~diff3};
+					)++"_weights.scd", "w");
+					~interval_array.size.do(s = (-1); {g.write(h.at(s=s+1).asString++" ");});
+					g.close;
+				});
+			});
+		});
+
+
+		/*
+
+		~number_of_instruments.do(w = 0; v = 0; {
+		w=w+1;
+		(~interval_array.size+1).do(x = (-1); {
+		x=x+1;
+		(~interval_array.size+1).do(y = (-1); {
+		y=y+1;
+		(~interval_array.size+1).do(z = (-1); {
+		("player_"++(w)++"__"++(x)++"_"++(y)++"_"++(z=z+1)++"_weights").asSymbol.envirPut(Array.fill(~interval_array.size, {1/~interval_array.size}).normalizeSum;);
+		g = File(Document.current.dir++"/other_program_files/ddbot_interval_weights/player_"++(w)++"__"++(x)++"_"++(y)++"_"++(z)++"_weights.scd", "w");
+		~interval_array.size.do(s = (-1); {g.write(("player_"++(w)++"__"++(x)++"_"++(y)++"_"++(z)++"_weights").asSymbol.envirGet.at(s=s+1).asString++" ");});
+		g.close;
+		v=v+1; v.postln;
+		});
+		});
+		});
+		});
+
+		((("inst_"++(w)).asSymbol.envirGet)++"_"++(0)++(0)++(0)++"_weights").asSymbol.envirGet
+
+		*/
+
+
+
+		("instrument_"++(1)++"_full_pseq_array_midi").asSymbol.envirGet.postln.at(~rate_selection_start+(x));
+
+		("instrument_"++(1)++"_full_pseq_array_midi").asSymbol.envirGet.postln.at(~rate_selection_start+(x-1));
+		("instrument_"++(2)++"_full_pseq_array_midi").asSymbol.envirGet.postln.at(~rate_selection_start+(x-1));
+		("instrument_"++(3)++"_full_pseq_array_midi").asSymbol.envirGet.postln.at(~rate_selection_start+(x-1));
+
+
+		// do it where it counts number of bits per note... for each inst... then scan last note of same inst, as well as the notes
+		// of other inst at time of start of new note for current inst
+
+		~number_of_instruments.do(r = 0; {
+			r=r+1;
+			~inst_num = r;
+			(~rate_selection_end-~rate_selection_start).do(x = (-1); l = 0; {
+				x=x+1;
+				l=l+1;
+				j = ("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1));
+				v = ("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+x);
+				if(v != j, {
+					~number_of_instruments.do(k = 0; c = (~rate_selection_start+x); {
+						while({
+							("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(c=c-1) ==
+							("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1))
+						}, {k = k +1});
+						j = ("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1));
+						v = ("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+x);
+
+					u = 0;
+					("diff"++(u=u+1)).asSymbol.envirPut(
+						e = v - j;
+						if(e.isNegative == true, {e = e.neg});
+						while({e > 12}, {e = e - 12});
+						e.value;
+					);
+					(~number_of_instruments-1).do(t = 1; {
+						("diff"++(u=u+1)).asSymbol.envirPut(
+							e = j - ("instrument_"++(~inst_array.wrapAt(~inst_num-(t=t-1)))++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1));
+							if(e.isNegative == true, {e = e.neg});
+							while({e > 12}, {e = e - 12});
+							e.value;
+						);
+					});
+
+					("/other_program_files/ddbot_interval_weights/"++(~player_array.at(r-1))++"__"++(
+						case
+						{~player_array.at(0) == "player_1"}{~diff1}
+						{~player_array.at(1) == "player_1"}{~diff2}
+						{~player_array.at(2) == "player_1"}{~diff3};
+					)++"_"++(
+						case
+						{~player_array.at(0) == "player_2"}{~diff1}
+						{~player_array.at(1) == "player_2"}{~diff2}
+						{~player_array.at(2) == "player_2"}{~diff3};
+					)++"_"++(
+						case
+						{~player_array.at(0) == "player_3"}{~diff1}
+						{~player_array.at(1) == "player_3"}{~diff2}
+						{~player_array.at(2) == "player_3"}{~diff3};
+					)++"_weights.scd").asString.postln;
+
+					h = FileReader.read(Document.current.dir++"/other_program_files/ddbot_interval_weights/"++(~player_array.at(r-1))++"__"++(
+						case
+						{~player_array.at(0) == "player_1"}{~diff1}
+						{~player_array.at(1) == "player_1"}{~diff2}
+						{~player_array.at(2) == "player_1"}{~diff3};
+					)++"_"++(
+						case
+						{~player_array.at(0) == "player_2"}{~diff1}
+						{~player_array.at(1) == "player_2"}{~diff2}
+						{~player_array.at(2) == "player_2"}{~diff3};
+					)++"_"++(
+						case
+						{~player_array.at(0) == "player_3"}{~diff1}
+						{~player_array.at(1) == "player_3"}{~diff2}
+						{~player_array.at(2) == "player_3"}{~diff3};
+					)++"_weights.scd", false, true);
+					h = h.flatten.asFloat;
+					h.put(~diff1-1, (h.at(~diff1-1) + (~net_change*~net_change_mult)));
+					h = h.normalizeSum;
+					g = File(Document.current.dir++"/other_program_files/ddbot_interval_weights/"++(~player_array.at(r-1))++"__"++(
+						case
+						{~player_array.at(0) == "player_1"}{~diff1}
+						{~player_array.at(1) == "player_1"}{~diff2}
+						{~player_array.at(2) == "player_1"}{~diff3};
+					)++"_"++(
+						case
+						{~player_array.at(0) == "player_2"}{~diff1}
+						{~player_array.at(1) == "player_2"}{~diff2}
+						{~player_array.at(2) == "player_2"}{~diff3};
+					)++"_"++(
+						case
+						{~player_array.at(0) == "player_3"}{~diff1}
+						{~player_array.at(1) == "player_3"}{~diff2}
+						{~player_array.at(2) == "player_3"}{~diff3};
+					)++"_weights.scd", "w");
+					~interval_array.size.do(s = (-1); {g.write(h.at(s=s+1).asString++" ");});
+					g.close;
+				});
+			});
+		});
+
+
+
+
+
+		~number_of_instruments.do(w = 0; v = 0; {
+			w=w+1;
+			~time_array.size.do(x = 0; {
+				x=x+1;
+				~time_array.size.do(y = 0; {
+					y=y+1;
+					~time_array.size.do(z = 0; {
+						("player_"++(w)++"__"++(x)++"_"++(y)++"_"++(z=z+1)++"_time_weights").asSymbol.envirPut(Array.fill(~dna_choice_array.size, {1/~dna_choice_array.size}).normalizeSum;);
+						g = File(Document.current.dir++"/other_program_files/ddbot_time_weights/player_"++(w)++"__"++(x)++"_"++(y)++"_"++(z)++"_time_weights.scd", "w");
+						~dna_choice_array.size.do(s = (-1); {g.write(("player_"++(w)++"__"++(x)++"_"++(y)++"_"++(z)++"_time_weights").asSymbol.envirGet.at(s=s+1).asString++" ");});
+						g.close;
+						v=v+1; v.postln;
+					});
+				});
+			});
+		});
+
+		/*("player_"++(w)++"__"++(0)++"_"++(0)++"_"++(0)++"_time_weights").asSymbol.envirGet
+
+
 
 
 					~interval_array.size.do(x = (-1); {
@@ -605,7 +833,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 				})
 			})
 		});
-
+*/
 
 		/*~number_of_instruments.do(r = 0; {
 			r=r+1;
@@ -626,21 +854,6 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 		});*/
 
 
-		~number_of_instruments.do(w = 0; v = 0; {
-			w=w+1;
-			(~interval_array.size+1).do(x = (-1); {
-				x=x+1;
-				(~interval_array.size+1).do(y = (-1); {
-					y=y+1;
-					(~interval_array.size+1).do(z = (-1); {
-						((("inst_"++(w)).asSymbol.envirGet)++"_"++(x)++(y)++(z=z+1)++"_weights").asSymbol.envirPut(Array.fill(~interval_array.size, {1/~interval_array.size}).normalizeSum;);
-						v=v+1; v.postln;
-					});
-				});
-			});
-		});
-
-		((("inst_"++(w)).asSymbol.envirGet)++"_"++(0)++(0)++(0)++"_weights").asSymbol.envirGet
 
 		/*
 		y=0;
@@ -739,9 +952,9 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 
 				thisThread.randSeed = ~randseed_1;
 
-				~instrument_array = (x = 0; Array.fill(~number_of_instruments, {"player_"++(x=x+1)}));
-				~instrument_array = ~instrument_array.scramble;
-				~number_of_instruments.do(x = 0; {("inst_"++(x=x+1)).asSymbol.envirPut(~instrument_array.at(x-1));});
+				~player_array = (x = 0; Array.fill(~number_of_instruments, {"player_"++(x=x+1)}));
+				~player_array = ~player_array.scramble;
+				~number_of_instruments.do(x = 0; {("inst_"++(x=x+1)).asSymbol.envirPut(~player_array.at(x-1));});
 
 				~number_of_instruments.do(o=0; {
 					o=o+1;
@@ -776,7 +989,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 				~dna_weights_array_65*/
 
 				~song_dna_array_num = 8;
-				~dna_choice_array = [1, 2, 4, 8, 16, 32, 64];
+			~dna_choice_array = (1..64);
 				~dna_choice_array_num = (1..~dna_choice_array.size);
 				~dna_choice_array2 = ~dna_choice_array;
 				~song_dna_array_num.do(~song_dna_array = []; x = (-1); {
