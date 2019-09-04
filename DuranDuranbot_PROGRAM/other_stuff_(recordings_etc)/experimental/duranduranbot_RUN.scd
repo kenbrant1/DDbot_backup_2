@@ -584,6 +584,8 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 		("instrument_"++(2)++"_full_pseq_array_midi").asSymbol.envirGet.postln.at(~rate_selection_start+(x-1));
 		("instrument_"++(3)++"_full_pseq_array_midi").asSymbol.envirGet.postln.at(~rate_selection_start+(x-1));*/
 
+		// create back up func. write to 2 different folders.
+
 		~number_of_instruments.do(r = 0; {
 			r=r+1;
 			~inst_num = r;
@@ -667,9 +669,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 		});
 
 
-		/*
-
-		~number_of_instruments.do(w = 0; v = 0; {
+		/*~number_of_instruments.do(w = 0; v = 0; {
 		w=w+1;
 		(~interval_array.size+1).do(x = (-1); {
 		x=x+1;
@@ -686,9 +686,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 		});
 		});
 
-		((("inst_"++(w)).asSymbol.envirGet)++"_"++(0)++(0)++(0)++"_weights").asSymbol.envirGet
-
-		*/
+		((("inst_"++(w)).asSymbol.envirGet)++"_"++(0)++(0)++(0)++"_weights").asSymbol.envirGet*/
 
 
 
@@ -797,7 +795,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 
 
 
-		~number_of_instruments.do(w = 0; v = 0; {
+		/*~number_of_instruments.do(w = 0; v = 0; {
 			w=w+1;
 			~time_array.size.do(x = 0; {
 				x=x+1;
@@ -812,7 +810,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 					});
 				});
 			});
-		});
+		});*/
 
 		/*("player_"++(w)++"__"++(0)++"_"++(0)++"_"++(0)++"_time_weights").asSymbol.envirGet
 
