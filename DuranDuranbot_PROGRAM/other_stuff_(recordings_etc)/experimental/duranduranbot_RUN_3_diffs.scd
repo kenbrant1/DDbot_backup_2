@@ -586,7 +586,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 
 		// create back up func. write to 2 different folders.
 
-		// we only need 2 differences, not 3 for 3 insts********************************************
+		// we only need 2 differences, not 3 for 3 insts
 
 		~number_of_instruments.do(r = 0; {
 			r=r+1;
@@ -596,7 +596,14 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 				j = ("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1));
 				v = ("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+x);
 				if(((v != j) and: (v != 0) and: (j != nil)), {
-					(~number_of_instruments-1).do(t = 1; u = 0; {
+					u = 0;
+					("diff"++(u=u+1)).asSymbol.envirPut(
+						e = v - j;
+						if(e.isNegative == true, {e = e.neg});
+						while({e > 12}, {e = e - 12});
+						e.value;
+					);
+					(~number_of_instruments-1).do(t = 1; {
 						("diff"++(u=u+1)).asSymbol.envirPut(
 							e = j - ("instrument_"++(~inst_array.wrapAt(~inst_num-(t=t-1)))++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1));
 							if(e.isNegative == true, {e = e.neg});
