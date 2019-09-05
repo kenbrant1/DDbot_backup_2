@@ -774,7 +774,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 						if(("diff"++(u)).asSymbol.envirGet.isNegative == true, {("diff"++(u)).asSymbol.envirPut(("diff"++(u)).asSymbol.envirGet.neg);});
 						("diff"++(u)).asSymbol.envirGet.value;
 					});*/
-
+					"1".postln;
 					(~number_of_instruments).do(u = 0; {
 						while({("length"++(u=u+1)).asSymbol.envirGet > 64}, {(("length"++(u)).asSymbol.envirPut(("length"++(u)).asSymbol.envirGet/2)).round});
 					});
@@ -784,7 +784,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 					~diff3*/
 
 				/*	~time_array = [0.25, 1, 2, 4];*/
-
+"2".postln;
 					(~number_of_instruments).do(u = 1; {
 						u=u+1;
 						case
@@ -868,7 +868,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 
 
 
-		~number_of_instruments.do(w = 0; v = 0; {
+		/*~number_of_instruments.do(w = 0; v = 0; {
 			w=w+1;
 			(~time_array.size+1).do(x = 0; {
 				x=x+1;
@@ -883,7 +883,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 					});
 				});
 			});
-		});
+		});*/
 
 		/*("player_"++(w)++"__"++(0)++"_"++(0)++"_"++(0)++"_time_weights").asSymbol.envirGet*/
 
