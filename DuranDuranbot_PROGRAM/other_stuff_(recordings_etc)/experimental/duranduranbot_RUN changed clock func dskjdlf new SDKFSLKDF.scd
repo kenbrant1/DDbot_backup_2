@@ -573,9 +573,11 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 	~machine_learning_func = {
 
 		~interval_array = (1..12);
-		/*~dna_choice_array = (1..64);*/
-		~dna_choice_array = [1, 2, 4, 8, 16, 32, 64];
-		~time_array = [0.25, 1, 2, 4];
+		~dna_choice_array = (1..64);
+		~time_array = [0.0625, 0.125, 0.25, 0.5, 1, 2, 4];
+		/*~dna_choice_array = [1, 2, 4, 8, 16, 32, 64];*/
+		/*~dna_choice_array = [~bit_duration*1, ~bit_duration*2, ~bit_duration*4, ~bit_duration*8, ~bit_duration*16, ~bit_duration*32, ~bit_duration*64];*/
+		/*~time_array = [0.25, 1, 2, 4];*/
 		~dna_choice_array_num = (1..~dna_choice_array.size);
 		~net_change = 0.0001;
 
@@ -765,10 +767,6 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 						t=t-1;
 					});
 
-
-					// GET RID OF DIFFS. set weights for what to choose (out of [1, 2, 4..] array) based on EXACT bit length, not relative.
-					// [1, 2, 4, 8, 16, 32, 64]
-
 					~diff1 = ~length2 - ~length1;
 					if(~diff1.isNegative == true, {~diff1=~diff1.neg});
 					(~number_of_instruments-1).do(u = 1; {
@@ -881,19 +879,22 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 
 
 
-		/*~number_of_instruments.do(w = 0; v = 0; {
+		~number_of_instruments.do(w = 0; v = 0; {
 			w=w+1;
+			~time_array.size.do(x = 0; {
+				x=x+1;
 				~time_array.size.do(y = 0; {
 					y=y+1;
 					~time_array.size.do(z = 0; {
-						("player_"++(w)++"__"++(y)++"_"++(z=z+1)++"_time_weights").asSymbol.envirPut(Array.fill(~dna_choice_array.size, {1/~dna_choice_array.size}).normalizeSum;);
-						g = File(Document.current.dir++"/other_program_files/ddbot_time_weights/player_"++(w)++"__"++(y)++"_"++(z)++"_time_weights.scd", "w");
-						~dna_choice_array.size.do(s = (-1); {g.write(("player_"++(w)++"__"++(y)++"_"++(z)++"_time_weights").asSymbol.envirGet.at(s=s+1).asString++" ");});
+						("player_"++(w)++"__"++(x)++"_"++(y)++"_"++(z=z+1)++"_time_weights").asSymbol.envirPut(Array.fill(~dna_choice_array.size, {1/~dna_choice_array.size}).normalizeSum;);
+						g = File(Document.current.dir++"/other_program_files/ddbot_time_weights/player_"++(w)++"__"++(x)++"_"++(y)++"_"++(z)++"_time_weights.scd", "w");
+						~dna_choice_array.size.do(s = (-1); {g.write(("player_"++(w)++"__"++(x)++"_"++(y)++"_"++(z)++"_time_weights").asSymbol.envirGet.at(s=s+1).asString++" ");});
 						g.close;
 						v=v+1; v.postln;
 					});
 				});
-			});*/
+			});
+			});
 
 		/*("player_"++(w)++"__"++(0)++"_"++(0)++"_"++(0)++"_time_weights").asSymbol.envirGet*/
 
@@ -963,8 +964,8 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 
 				~song_dna_array_num = 8;
 				~time_array = [0.25, 1, 2, 4];
-				/*~dna_choice_array = (1..64);*/
-				~dna_choice_array = [1, 2, 4, 8, 16, 32, 64];
+				~dna_choice_array = (1..64);
+				/*~dna_choice_array = [1, 2, 4, 8, 16, 32, 64];*/
 				~dna_choice_array_num = (1..~dna_choice_array.size);
 				~dna_choice_array2 = ~dna_choice_array;
 				~song_dna_array_num.do(~song_dna_array = []; x = (-1); {
