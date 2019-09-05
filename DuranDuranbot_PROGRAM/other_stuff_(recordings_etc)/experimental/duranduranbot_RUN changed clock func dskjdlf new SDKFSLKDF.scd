@@ -767,15 +767,17 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 						t=t-1;
 					});
 
-					~diff1 = ~length2 - ~length1;
+					/*~diff1 = ~length2 - ~length1;
 					if(~diff1.isNegative == true, {~diff1=~diff1.neg});
 					(~number_of_instruments-1).do(u = 1; {
 						("diff"++(u=u+1)).asSymbol.envirPut(~length2 - ("length"++(u+1)).asSymbol.envirGet);
 						if(("diff"++(u)).asSymbol.envirGet.isNegative == true, {("diff"++(u)).asSymbol.envirPut(("diff"++(u)).asSymbol.envirGet.neg);});
 						("diff"++(u)).asSymbol.envirGet.value;
-					});
+					});*/
 
-					while({~diff1 > 64}, {(~diff1 = ~diff1/2).round});
+					(~number_of_instruments).do(u = 0; {
+						while({("length"++(u=u+1)).asSymbol.envirGet > 64}, {(("length"++(u)).asSymbol.envirPut(("length"++(u)).asSymbol.envirGet/2)).round});
+					});
 
 					/*~diff1
 					~diff2
@@ -783,92 +785,79 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 
 				/*	~time_array = [0.25, 1, 2, 4];*/
 
-					(~number_of_instruments-1).do(u = 1; {
+					(~number_of_instruments).do(u = 1; {
 						u=u+1;
 						case
-						{("diff"++(u)).asSymbol.envirGet*~bit_duration <= ~time_array.at(0)}{("diffplace"++(u)).asSymbol.envirPut(1)}
-						{(("diff"++(u)).asSymbol.envirGet*~bit_duration > ~time_array.at(0)) and: (("diff"++(u)).asSymbol.envirGet*~bit_duration <= ~time_array.at(1))}{("diffplace"++(u)).asSymbol.envirPut(2)}
-						{(("diff"++(u)).asSymbol.envirGet*~bit_duration > ~time_array.at(1)) and: (("diff"++(u)).asSymbol.envirGet*~bit_duration <= ~time_array.at(2))}{("diffplace"++(u)).asSymbol.envirPut(3)}
-						{(("diff"++(u)).asSymbol.envirGet*~bit_duration > ~time_array.at(2)) and: (("diff"++(u)).asSymbol.envirGet*~bit_duration <= ~time_array.at(3))}{("diffplace"++(u)).asSymbol.envirPut(4)};
+						{("length"++(u)).asSymbol.envirGet*~bit_duration <= ~time_array.at(0)}{("lengthplace"++(u)).asSymbol.envirPut(1)}
+						{(("length"++(u)).asSymbol.envirGet*~bit_duration > ~time_array.at(0)) and: (("length"++(u)).asSymbol.envirGet*~bit_duration <= ~time_array.at(1))}{("lengthplace"++(u)).asSymbol.envirPut(2)}
+						{(("length"++(u)).asSymbol.envirGet*~bit_duration > ~time_array.at(1)) and: (("length"++(u)).asSymbol.envirGet*~bit_duration <= ~time_array.at(2))}{("lengthplace"++(u)).asSymbol.envirPut(3)}
+						{(("length"++(u)).asSymbol.envirGet*~bit_duration > ~time_array.at(2)) and: (("length"++(u)).asSymbol.envirGet*~bit_duration <= ~time_array.at(3))}{("lengthplace"++(u)).asSymbol.envirPut(4)}
+						{(("length"++(u)).asSymbol.envirGet*~bit_duration > ~time_array.at(3)) and: (("length"++(u)).asSymbol.envirGet*~bit_duration <= ~time_array.at(4))}{("lengthplace"++(u)).asSymbol.envirPut(5)}
+						{(("length"++(u)).asSymbol.envirGet*~bit_duration > ~time_array.at(4)) and: (("length"++(u)).asSymbol.envirGet*~bit_duration <= ~time_array.at(5))}{("lengthplace"++(u)).asSymbol.envirPut(6)}
+						{(("length"++(u)).asSymbol.envirGet*~bit_duration > ~time_array.at(5)) and: (("length"++(u)).asSymbol.envirGet*~bit_duration <= ~time_array.at(6))}{("lengthplace"++(u)).asSymbol.envirPut(7)}
+						{("length"++(u)).asSymbol.envirGet*~bit_duration > ~time_array.at(6)}{("lengthplace"++(u)).asSymbol.envirPut(8)};
 					});
 
 					/*~diff3*~bit_duration
 
+					~length1
+					~length2
+					~length3
+					~length4
+					~lengthplace2
+					~lengthplace3
+					~lengthplace4*/
+					/*"write".postln;*/
 
-					~diffplace2
-					~diffplace3*/
-					"write".postln;
-
-					("/other_program_files/ddbot_time_weights/"++(~player_array.wrapAt(r-1))++"__"++(
+					/*("/other_program_files/ddbot_time_weights/"++(~player_array.wrapAt(r-1))++"__"++(
 						case
 						{~player_array.wrapAt(r-1) == "player_1"}{
 							case
-							{~player_array.wrapAt(r)   == "player_2"}{o = ~diffplace2}
-							{~player_array.wrapAt(r+1) == "player_2"}{o = ~diffplace3};
+							{~player_array.wrapAt(r)   == "player_2"}{o = ~lengthplace2}
+							{~player_array.wrapAt(r+1) == "player_2"}{o = ~lengthplace3};
 						}
 						{~player_array.wrapAt(r-1) == "player_2"}{
 							case
-							{~player_array.wrapAt(r)   == "player_3"}{o = ~diffplace2}
-							{~player_array.wrapAt(r+1) == "player_3"}{o = ~diffplace3};
+							{~player_array.wrapAt(r)   == "player_3"}{o = ~lengthplace2}
+							{~player_array.wrapAt(r+1) == "player_3"}{o = ~lengthplace3};
 						}
 						{~player_array.wrapAt(r-1) == "player_3"}{
 							case
-							{~player_array.wrapAt(r)   == "player_1"}{o = ~diffplace2}
-							{~player_array.wrapAt(r+1) == "player_1"}{o = ~diffplace3};
+							{~player_array.wrapAt(r)   == "player_1"}{o = ~lengthplace2}
+							{~player_array.wrapAt(r+1) == "player_1"}{o = ~lengthplace3};
 						};
 
 					)++"_"++(
-						if(o == ~diffplace2, {~diffplace3}, {~diffplace2});
-
-					)++"_time_weights.scd").asString.postln;
-
-					h = FileReader.read(Document.current.dir++"/other_program_files/ddbot_time_weights/"++(~player_array.wrapAt(r-1))++"__"++(
 						case
-						{~player_array.wrapAt(r-1) == "player_1"}{
+						{~player_array.wrapAt(r) == "player_1"}{
 							case
-							{~player_array.wrapAt(r)   == "player_2"}{o = ~diffplace2}
-							{~player_array.wrapAt(r+1) == "player_2"}{o = ~diffplace3};
+							{~player_array.wrapAt(r+1) == "player_2"}{p = ~lengthplace3}
+							{~player_array.wrapAt(r+2) == "player_2"}{p = ~lengthplace4};
 						}
-						{~player_array.wrapAt(r-1) == "player_2"}{
+						{~player_array.wrapAt(r) == "player_2"}{
 							case
-							{~player_array.wrapAt(r)   == "player_3"}{o = ~diffplace2}
-							{~player_array.wrapAt(r+1) == "player_3"}{o = ~diffplace3};
+							{~player_array.wrapAt(r+1) == "player_3"}{p = ~lengthplace3}
+							{~player_array.wrapAt(r+2) == "player_3"}{p = ~lengthplace4};
 						}
-						{~player_array.wrapAt(r-1) == "player_3"}{
+						{~player_array.wrapAt(r) == "player_3"}{
 							case
-							{~player_array.wrapAt(r)   == "player_1"}{o = ~diffplace2}
-							{~player_array.wrapAt(r+1) == "player_1"}{o = ~diffplace3};
+							{~player_array.wrapAt(r+1) == "player_1"}{p = ~lengthplace3}
+							{~player_array.wrapAt(r+2) == "player_1"}{p = ~lengthplace4};
 						};
 
 					)++"_"++(
-						if(o == ~diffplace2, {~diffplace3}, {~diffplace2});
+						if(o == ~lengthplace3, {~lengthplace4}, {~lengthplace3});
 
-					)++"_time_weights.scd", false, true);
+					)++"_time_weights.scd").asString.postln;*/
+
+					// don't think ~lengthplace matters with players. doesn't work like that in inst_clock_func.
+
+					("/other_program_files/ddbot_time_weights/"++(~player_array.wrapAt(r-1))++"__"++(~lengthplace2)++"_"++(~lengthplace3)++"_"++(~lengthplace4)++"_time_weights.scd").asString.postln;
+					h = FileReader.read(Document.current.dir++"/other_program_files/ddbot_time_weights/"++(~player_array.wrapAt(r-1))++"__"++(~lengthplace2)++"_"++(~lengthplace3)++"_"++(~lengthplace4)++"_time_weights.scd", false, true);
 					h = h.flatten.asFloat;
-					h.put(~diff1-1, (h.at(~diff1-1) + (~net_change*~net_change_mult)));
+					h.put(~length1-1, (h.at(~length1-1) + (~net_change*~net_change_mult)));
 					h = h.normalizeSum;
-					g = File(Document.current.dir++"/other_program_files/ddbot_time_weights/"++(~player_array.wrapAt(r-1))++"__"++(
-						case
-						{~player_array.wrapAt(r-1) == "player_1"}{
-							case
-							{~player_array.wrapAt(r)   == "player_2"}{o = ~diffplace2}
-							{~player_array.wrapAt(r+1) == "player_2"}{o = ~diffplace3};
-						}
-						{~player_array.wrapAt(r-1) == "player_2"}{
-							case
-							{~player_array.wrapAt(r)   == "player_3"}{o = ~diffplace2}
-							{~player_array.wrapAt(r+1) == "player_3"}{o = ~diffplace3};
-						}
-						{~player_array.wrapAt(r-1) == "player_3"}{
-							case
-							{~player_array.wrapAt(r)   == "player_1"}{o = ~diffplace2}
-							{~player_array.wrapAt(r+1) == "player_1"}{o = ~diffplace3};
-						};
-
-					)++"_"++(
-						if(o == ~diffplace2, {~diffplace3}, {~diffplace2});
-
-					)++"_time_weights.scd", "w");
+					g = File(Document.current.dir++"/other_program_files/ddbot_time_weights/"++(~player_array.wrapAt(r-1))++"__"++(~lengthplace2)++"_"++(~lengthplace3)++"_"++(~lengthplace4)++"_time_weights.scd", "w");
 					~dna_choice_array.size.do(s = (-1); {g.write(h.at(s=s+1).asString++" ");});
 					g.close;
 
@@ -881,11 +870,11 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 
 		~number_of_instruments.do(w = 0; v = 0; {
 			w=w+1;
-			~time_array.size.do(x = 0; {
+			(~time_array.size+1).do(x = 0; {
 				x=x+1;
-				~time_array.size.do(y = 0; {
+				(~time_array.size+1).do(y = 0; {
 					y=y+1;
-					~time_array.size.do(z = 0; {
+					(~time_array.size+1).do(z = 0; {
 						("player_"++(w)++"__"++(x)++"_"++(y)++"_"++(z=z+1)++"_time_weights").asSymbol.envirPut(Array.fill(~dna_choice_array.size, {1/~dna_choice_array.size}).normalizeSum;);
 						g = File(Document.current.dir++"/other_program_files/ddbot_time_weights/player_"++(w)++"__"++(x)++"_"++(y)++"_"++(z)++"_time_weights.scd", "w");
 						~dna_choice_array.size.do(s = (-1); {g.write(("player_"++(w)++"__"++(x)++"_"++(y)++"_"++(z)++"_time_weights").asSymbol.envirGet.at(s=s+1).asString++" ");});
@@ -894,7 +883,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 					});
 				});
 			});
-			});
+		});
 
 		/*("player_"++(w)++"__"++(0)++"_"++(0)++"_"++(0)++"_time_weights").asSymbol.envirGet*/
 
@@ -963,8 +952,8 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 				~dna_weights_array_65*/
 
 				~song_dna_array_num = 8;
-				~time_array = [0.25, 1, 2, 4];
 				~dna_choice_array = (1..64);
+				~time_array = [0.0625, 0.125, 0.25, 0.5, 1, 2, 4];
 				/*~dna_choice_array = [1, 2, 4, 8, 16, 32, 64];*/
 				~dna_choice_array_num = (1..~dna_choice_array.size);
 				~dna_choice_array2 = ~dna_choice_array;
