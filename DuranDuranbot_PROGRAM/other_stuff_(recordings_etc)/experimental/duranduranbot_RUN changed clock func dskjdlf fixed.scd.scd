@@ -705,7 +705,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 
 					(~number_of_instruments).do(o = 0; {
 						o=o+1;
-						while({("length"++(o)).asSymbol.envirGet > 64}, {(("length"++(o)).asSymbol.envirPut(("length"++(o)).asSymbol.envirGet/2)).round});
+						while({("length"++(o)).asSymbol.envirGet > 64}, {("length"++(o)).asSymbol.envirPut(("length"++(o)).asSymbol.envirGet/2).round});
 					});
 
 					/*~diff1
