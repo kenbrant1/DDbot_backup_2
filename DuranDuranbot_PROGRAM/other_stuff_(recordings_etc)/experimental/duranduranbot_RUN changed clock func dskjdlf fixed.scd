@@ -826,6 +826,10 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 
 								("dna_clock_"++(~inst_num)).asSymbol.envirPut(0);
 
+								~put_x = ([1,2,3]).wchoose([1/3,1/3,1/3]);
+								case
+								{~put_x == 1}{
+
 									("instrument_"++(~inst_num)++"_if_zero").asSymbol.envirPut("false");
 
 									//find new interval for current instrument
@@ -879,9 +883,21 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 									("dna_clock_"++(~inst_num)++"_choice").asSymbol.envirPut(~new_time);
 
 									~put1 = ("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet;
+								}
 
+								{~put_x == 2}{
 
+									("instrument_"++(~inst_num)++"_if_zero").asSymbol.envirPut("false");
 
+									~put1 = ("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet;
+								}
+
+								{~put_x == 3}{
+
+									("instrument_"++(~inst_num)++"_if_zero").asSymbol.envirPut("true");
+
+									~put1 = 0;
+								};
 							},
 							{
 								~put1 = if(("instrument_"++(~inst_num)++"_if_zero").asSymbol.envirGet == "false", {("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet;}, {0});
