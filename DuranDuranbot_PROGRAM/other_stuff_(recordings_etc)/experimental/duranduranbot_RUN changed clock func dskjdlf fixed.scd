@@ -230,11 +230,6 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 			"piece stopped".postln;
 			if(~will_record == 1, {s.stopRecording;});
 			~fullpiecedur2 = ~fullpiecedur;
-			rate_button_1.value = 1;
-			rate_button_2.value = 0;
-			rate_button_3.value = 0;
-			rate_button_4.value = 0;
-			rate_button_5.value = 0;
 			~stopbutton.close;
 			~playbutton.value = 0;
 			~pause_piece = 0;
@@ -302,30 +297,24 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 		});
 		rate_button_5.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		~net_change_mult = ~net_change_mult_array.at(0);
-		rate_button_1.value = 1;
-		rate_button_2.value = 0;
-		rate_button_3.value = 0;
-		rate_button_4.value = 0;
-		rate_button_5.value = 0;
-
 		rate_button = Button.new(~firstview, Rect(~firstviewboundsWIDTH/2.08, ~firstviewboundsHEIGHT/4.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["Rate",Color.white,Color.black]]).action_({arg button;
 
-			if(((~rate_selection_start != nil) and: (~rate_selection_end != nil)), {
 				q = FileReader.read(Document.current.dir++"/other_program_files/ddbot_machine_learning_on_off.scd");
 				2.do({q = q.at(0)});
 				q = q.asInteger;
 				if(q == 1, {~machine_learning_func.value;});
-				("\npiece rated:\nx"++(~net_change_mult)++" points\n").postln;
-				~net_change_mult = ~net_change_mult_array.at(0);
-				rate_button_1.value = 1;
-				rate_button_2.value = 0;
-				rate_button_3.value = 0;
-				rate_button_4.value = 0;
-				rate_button_5.value = 0;
-			}, {("\npiece not rated.\nplease select section\nof piece using\nthe range slider\nin order to rate.").postln;});
+				("\nlast 30 secs rated:\nx"++(~net_change_mult)++" points\n").postln;
 		});
 		rate_button_5.font = Font(size: ~firstviewboundsWIDTH/48);
+
+		if(~net_change_mult == nil, {rate_button_4.valueAction = 0;}, {
+			case
+			{~net_change_mult == ~net_change_mult_array.at(0);}{rate_button_1.value = 1;}
+			{~net_change_mult == ~net_change_mult_array.at(1);}{rate_button_2.value = 1;}
+			{~net_change_mult == ~net_change_mult_array.at(2);}{rate_button_3.value = 1;}
+			{~net_change_mult == ~net_change_mult_array.at(3);}{rate_button_4.value = 1;}
+			{~net_change_mult == ~net_change_mult_array.at(4);}{rate_button_5.value = 1;};
+		});
 
 		ratepiecetext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/3.44571428571, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/14.55));
 		ratepiecetext.background=Color.white;
@@ -346,6 +335,9 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 		rangeslider.setColors(Color.grey,Color.white, Color.grey(0.7),Color.grey, Color.white, Color.yellow);
 		rangeslider.font = Font(size: ~firstviewboundsWIDTH/55);
 
+		//
+		// ~instrument_1_full_pseq_array.size/(~piece_position*~bit_duration).round
+
 
 		if(~piece_position == nil, {~piece_position = 0});
 
@@ -355,6 +347,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 			~piece_position = timeselect.value*(~instrument_1_full_pseq_array.size/~piecedur_secs);
 			selection1 = ~piece_position.roundUp;
 			if(selection1 != ~piece_position, {~piece_position = selection1-1});
+			if(timeslider.value >= 30, {rangeslider.valueAction = [timeslider.value-30, timeslider.value]}, {rangeslider.valueAction = [0, timeslider.value]});
 			/*timeselect.value.postln;
 			~piece_position.postln;*/
 
@@ -579,6 +572,9 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 
 	~machine_learning_func = {
 
+		if(~duranduranbot_routine.isPlaying == true, {~playbutton.valueAction = 0});
+
+
 		~interval_array = (1..12);
 		~dna_choice_array = (1..64);
 		~time_array = [0.0625, 0.125, 0.25, 0.5, 1, 2, 4];
@@ -599,7 +595,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 		~number_of_instruments.do(r = 0; {
 			r=r+1;
 			~inst_num = r;
-			(if(((~rate_selection_start != nil) and: (~rate_selection_end != nil)), {~rate_selection_end-~rate_selection_start}, {0})).do(x = (-1); {
+			(~rate_selection_end-~rate_selection_start).do(x = (-1); {
 				x=x+1;
 				j = ("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1));
 				v = ("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+x);
@@ -676,7 +672,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 		~number_of_instruments.do(r = 0; {
 			r=r+1;
 			~inst_num = r;
-			(if(((~rate_selection_start != nil) and: (~rate_selection_end != nil)), {~rate_selection_end-~rate_selection_start}, {0})).do(x = (-1); {
+			(~rate_selection_end-~rate_selection_start).do(x = (-1); {
 				x=x+1;
 				j = ("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1));
 				v = ("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+x);
@@ -790,6 +786,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 		/*("player_"++(w)++"__"++(0)++"_"++(0)++"_"++(0)++"_time_weights").asSymbol.envirGet*/
 
 
+		if(~pause_piece == 1, {~playbutton.valueAction = 1});
 	};
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1071,6 +1068,8 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 										("\npiece duration: \n"++((~dd_mins.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asString))++" minutes";).postln;
 										rangeslider.set(spec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"), initVal: [0,if(~piecedur_secs != nil, {~piecedur_secs}, {0})]);
 										timeslider.set(spec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"));
+										~rate_selection_start = 0;
+										~rate_selection_end = ("instrument_"++(1)++"_full_pseq_array").asSymbol.envirGet.size;
 									});
 
 									if(~quicknewpiecebutton == 1, {
@@ -1214,7 +1213,6 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 
 
 
-			~note_net_points = 0;
 
 			~duranduranbot_routine = Task({var bit_timer;
 				bit_timer = 0;
@@ -1271,7 +1269,9 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 						~duranduranbotsynth3.set(\freq, ~instrument_3_full_pseq_array.at(x));*/
 					});
 
-					~note_net_points = ~note_net_points + 1;
+					~rate_selection_end = ~piece_position;
+					~rate_selection_start = ~piece_position-(30/~bit_duration);
+					if(~rate_selection_start.isNegative == true, {~rate_selection_start = 0;});
 
 					bit_timer = bit_timer + 1;
 					if(bit_timer == 16, {
@@ -1281,8 +1281,8 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 							~dd_secs = ~dd_secs-1;
 							if(~dd_secs == (-1), {~dd_mins = ~dd_mins-1; ~dd_secs = 59;});
 							piecedurationstatictext.string = ("piece length - "++(~piecedur_secs_zero.asString)++" secs ("++(~dd_mins.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asString)++" mins)");
-							/*if(~piecedur_secs_zero >= 20, {rangeslider.valueAction = [~piecedur_secs_zero-20, ~piecedur_secs_zero]}, {rangeslider.valueAction = [0, ~piecedur_secs_zero]});
-							*/
+							if(timeslider.value >= 30, {rangeslider.valueAction = [timeslider.value-30, timeslider.value]}, {rangeslider.valueAction = [0, timeslider.value]});
+
 						});
 						bit_timer = 0;
 
@@ -1309,7 +1309,9 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 						*/
 					});
 
-					~note_net_points = ~note_net_points + 1;
+					~rate_selection_end = ~piece_position;
+					~rate_selection_start = ~piece_position-(30/~bit_duration);
+					if(~rate_selection_start.isNegative == true, {~rate_selection_start = 0;});
 
 					bit_timer = bit_timer + 1;
 					if(bit_timer == 16, {
@@ -1319,8 +1321,8 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 							~dd_secs = ~dd_secs-1;
 							if(~dd_secs == (-1), {~dd_mins = ~dd_mins-1; ~dd_secs = 59;});
 							piecedurationstatictext.string = ("piece length - "++(~piecedur_secs_zero.asString)++" secs ("++(~dd_mins.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asString)++" mins)");
-							/*if(~piecedur_secs_zero >= 20, {rangeslider.valueAction = [~piecedur_secs_zero-20, ~piecedur_secs_zero]}, {rangeslider.valueAction = [0, ~piecedur_secs_zero]});
-							*/
+							if(timeslider.value >= 30, {rangeslider.valueAction = [timeslider.value-30, timeslider.value]}, {rangeslider.valueAction = [0, timeslider.value]});
+
 						});
 						bit_timer = 0;
 
