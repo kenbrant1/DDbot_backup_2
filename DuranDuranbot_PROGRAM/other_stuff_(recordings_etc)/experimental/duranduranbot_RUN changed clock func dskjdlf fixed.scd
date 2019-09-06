@@ -22,7 +22,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 	randseedviewtext3, numerologynameEZText1, numerologynameEZText2, numerologynameEZText3, numerologynameviewtext1, numerologynameviewtext2, numerologynameviewtext3,
 	generatepiecebutton, playbutton, enterdatabasebutton, recordbutton, songtitletext, songtitlestatictext, piecedurationstatictext, machinelearningbutton, machinelearningtext,
 	onestarbutton,twostarbutton,threestarbutton,fourstarbutton,fivestarbutton, quicknewpiecebutton, quicknewpiecebutton_revert, quicknewpiecetext,
-	rate_button_1,rate_button_2,rate_button_3,rate_button_4,rate_button_5,rate_button_6, rate_button,ratepiecetext, rangeslider,timeslider,
+	rate_button_1,rate_button_2,rate_button_3,rate_button_4,rate_button_5,rate_button_6, rate_button,ratepiecetext, rangeslider,timeslider,timeslidertext,
 	closeddbotbutton;
 	w = Window("DuranDuranbot",
 		Rect(Window.availableBounds.width/4, Window.availableBounds.height/4, Window.availableBounds.width/2, Window.availableBounds.height/2),
@@ -171,7 +171,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 
 		generatepiecebutton = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/6.2428571428571, ~firstviewboundsWIDTH/6.5454545454545, ~firstviewboundsHEIGHT/21.85)).states_([["generate piece",Color.white,Color.black],["generate piece",Color.white,Color.black]]).action_({arg button;
 			var piecegenerated;
-			~piecegenerated = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsWIDTH/7.8, ~firstviewboundsWIDTH/6.2608695652174, ~firstviewboundsWIDTH/36));
+			~piecegenerated = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/9.5, ~firstviewboundsWIDTH/6.2608695652174, ~firstviewboundsWIDTH/36));
 			~piecegenerated.background=maincolor;
 			"please wait".postln;
 			~piecegenerated.font = Font(size: ~firstviewboundsWIDTH/55);
@@ -199,7 +199,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 				}, {
 					/*~timer_routine.pause;*/
 					~duranduranbot_routine.pause;
-					s.makeBundle(s.latency, {~number_of_instruments.do(x = 0; {("duranduranbotsynth"++(x=x+1)).asSymbol.envirGet.set(\freq, 0);});});
+					Server.default.makeBundle(Server.default.latency, {~number_of_instruments.do(x = 0; {("duranduranbotsynth"++(x=x+1)).asSymbol.envirGet.set(\freq, 0);});});
 					"piece paused".postln;
 					if(~will_record == 1, {s.pauseRecording;});
 					~pause_piece = 1;
@@ -221,21 +221,15 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 		if(~piece_created == nil, {~playbutton.close; ~arrow.close;});
 
 		~stop_func = {
-			s.makeBundle(s.latency, {~number_of_instruments.do(x = 0; {("duranduranbotsynth"++(x=x+1)).asSymbol.envirGet.free;});});
+			Server.default.makeBundle(Server.default.latency, {~number_of_instruments.do(x = 0; {("duranduranbotsynth"++(x=x+1)).asSymbol.envirGet.free;});});
 			/*~timer_routine.stop;*/
 			~duranduranbot_routine.stop;
 			~piece_position = 0;
 			timeslider.valueAction = 0;
-			q = FileReader.read(Document.current.dir++"/other_program_files/ddbot_machine_learning_on_off.scd");
-			2.do({q = q.at(0)});
-			q = q.asInteger;
-			if(q == 1, {~machine_learning_func.value;});
 			Server.freeAll;
 			"piece stopped".postln;
 			if(~will_record == 1, {s.stopRecording;});
 			~fullpiecedur2 = ~fullpiecedur;
-			("\npiece rated:\nx"++(~net_change_mult)++" points\n").postln;
-			~net_change_mult = ~net_change_mult_array.at(0);
 			rate_button_1.value = 1;
 			rate_button_2.value = 0;
 			rate_button_3.value = 0;
@@ -258,7 +252,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 
 		~net_change_mult_array = [2, 4, 6, 8, 12];
 
-		rate_button_1 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/3.6428571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x2 pts",Color.white,Color.black], ["x2 pts",Color.black,Color.green]]).action_({arg button;
+		rate_button_1 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/4.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x2 pts",Color.white,Color.black], ["x2 pts",Color.black,Color.green]]).action_({arg button;
 			~net_change_mult = ~net_change_mult_array.at(0);
 			rate_button_1.value = 1;
 			rate_button_2.value = 0;
@@ -268,7 +262,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 		});
 		rate_button_1.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		rate_button_2 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/9.88, ~firstviewboundsHEIGHT/3.6428571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x4 pts",Color.white,Color.black], ["x4 pts",Color.black,Color.green]]).action_({arg button;
+		rate_button_2 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/9.88, ~firstviewboundsHEIGHT/4.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x4 pts",Color.white,Color.black], ["x4 pts",Color.black,Color.green]]).action_({arg button;
 			~net_change_mult = ~net_change_mult_array.at(1);
 			rate_button_1.value = 0;
 			rate_button_2.value = 1;
@@ -278,7 +272,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 		});
 		rate_button_2.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		rate_button_3 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/5.29, ~firstviewboundsHEIGHT/3.6428571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x6 pts",Color.white,Color.black], ["x6 pts",Color.black,Color.green]]).action_({arg button;
+		rate_button_3 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/5.29, ~firstviewboundsHEIGHT/4.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x6 pts",Color.white,Color.black], ["x6 pts",Color.black,Color.green]]).action_({arg button;
 			~net_change_mult = ~net_change_mult_array.at(2);
 			rate_button_1.value = 0;
 			rate_button_2.value = 0;
@@ -288,7 +282,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 		});
 		rate_button_3.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		rate_button_4 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/3.62, ~firstviewboundsHEIGHT/3.6428571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x8 pts",Color.white,Color.black], ["x8 pts",Color.black,Color.green]]).action_({arg button;
+		rate_button_4 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/3.62, ~firstviewboundsHEIGHT/4.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x8 pts",Color.white,Color.black], ["x8 pts",Color.black,Color.green]]).action_({arg button;
 			~net_change_mult = ~net_change_mult_array.at(3);
 			rate_button_1.value = 0;
 			rate_button_2.value = 0;
@@ -298,7 +292,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 		});
 		rate_button_4.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		rate_button_5 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/2.75, ~firstviewboundsHEIGHT/3.6428571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x12 pts",Color.white,Color.black], ["x12 pts",Color.black,Color.green]]).action_({arg button;
+		rate_button_5 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/2.75, ~firstviewboundsHEIGHT/4.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x12 pts",Color.white,Color.black], ["x12 pts",Color.black,Color.green]]).action_({arg button;
 			~net_change_mult = ~net_change_mult_array.at(4);
 			rate_button_1.value = 0;
 			rate_button_2.value = 0;
@@ -315,23 +309,31 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 		rate_button_4.value = 0;
 		rate_button_5.value = 0;
 
-		rate_button = Button.new(~firstview, Rect(~firstviewboundsWIDTH/2.08, ~firstviewboundsHEIGHT/3.6428571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["Rate",Color.white,Color.black]]).action_({arg button;
-			~net_change_mult = ~net_change_mult_array.at(0);
-			rate_button_1.value = 1;
-			rate_button_2.value = 0;
-			rate_button_3.value = 0;
-			rate_button_4.value = 0;
-			rate_button_5.value = 0;
+		rate_button = Button.new(~firstview, Rect(~firstviewboundsWIDTH/2.08, ~firstviewboundsHEIGHT/4.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["Rate",Color.white,Color.black]]).action_({arg button;
+
+			if(((~rate_selection_start != nil) and: (~rate_selection_end != nil)), {
+				q = FileReader.read(Document.current.dir++"/other_program_files/ddbot_machine_learning_on_off.scd");
+				2.do({q = q.at(0)});
+				q = q.asInteger;
+				if(q == 1, {~machine_learning_func.value;});
+				("\npiece rated:\nx"++(~net_change_mult)++" points\n").postln;
+				~net_change_mult = ~net_change_mult_array.at(0);
+				rate_button_1.value = 1;
+				rate_button_2.value = 0;
+				rate_button_3.value = 0;
+				rate_button_4.value = 0;
+				rate_button_5.value = 0;
+			}, {("\npiece not rated.\nplease select section\nof piece using\nthe range slider\nin order to rate.").postln;});
 		});
 		rate_button_5.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		ratepiecetext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/3.028571428571, ~firstviewboundsWIDTH/1.7, ~firstviewboundsHEIGHT/21.85));
+		ratepiecetext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/3.44571428571, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/14.55));
 		ratepiecetext.background=Color.white;
-		ratepiecetext.string = "^rate piece above by clicking on rating before stopping a running piece";
+		ratepiecetext.string = "^rate current piece by manipulating the range slider just below, clicking on a xpt rating above, and clicking "++"Rate".quote++".";
 		ratepiecetext.font = Font(size: ~firstviewboundsWIDTH/55);
 
 
-		rangeslider = EZRanger(~firstview, bounds: (Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.558571428571, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/21.85)), controlSpec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"), action: {
+		rangeslider = EZRanger(~firstview, bounds: (Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.63571428571, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/21.85)), controlSpec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"), action: {
 			|rangeselect|
 			var rate_selection_start1;
 			~rate_selection_start = (rangeselect.value.at(0)*(~instrument_1_full_pseq_array.size/~piecedur_secs));
@@ -347,7 +349,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 
 		if(~piece_position == nil, {~piece_position = 0});
 
-		timeslider = EZSlider(~firstview,  bounds: (Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.258571428571, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/21.85)), controlSpec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"), action: {
+		timeslider = EZSlider(~firstview,  bounds: (Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.2801428571, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/21.85)), controlSpec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"), action: {
 			|timeselect|
 			var selection1;
 			~piece_position = timeselect.value*(~instrument_1_full_pseq_array.size/~piecedur_secs);
@@ -359,9 +361,14 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 		});
 		timeslider.setColors(Color.grey,Color.white);
 
+		timeslidertext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.0228571, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/22.55));
+		timeslidertext.background=Color.white;
+		timeslidertext.string = "^jump to location in current piece by using the slider just above";
+		timeslidertext.font = Font(size: ~firstviewboundsWIDTH/55);
 
 
-		quicknewpiecebutton = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.9422222222222, ~firstviewboundsWIDTH/6.1454545454545, ~firstviewboundsHEIGHT/21.85)).states_([["quick new piece",Color.white,Color.black],["quick new piece",Color.white,Color.black]]).action_({arg button;
+
+		quicknewpiecebutton = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.79222222222, ~firstviewboundsWIDTH/6.1454545454545, ~firstviewboundsHEIGHT/21.85)).states_([["quick new piece",Color.white,Color.black],["quick new piece",Color.white,Color.black]]).action_({arg button;
 
 			~quicknewpiecebutton = 1;
 
@@ -374,7 +381,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 		});
 		quicknewpiecebutton.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		quicknewpiecebutton_revert = Button.new(~firstview, Rect(~firstviewboundsWIDTH/5.4, ~firstviewboundsHEIGHT/1.9422222222222, ~firstviewboundsWIDTH/7.9454545454545, ~firstviewboundsHEIGHT/21.85)).states_([["revert piece",Color.white,Color.black],["revert piece",Color.white,Color.black]]).action_({arg button;
+		quicknewpiecebutton_revert = Button.new(~firstview, Rect(~firstviewboundsWIDTH/5.4, ~firstviewboundsHEIGHT/1.79222222222, ~firstviewboundsWIDTH/7.9454545454545, ~firstviewboundsHEIGHT/21.85)).states_([["revert piece",Color.white,Color.black],["revert piece",Color.white,Color.black]]).action_({arg button;
 
 			~quicknewpiecebutton = 1;
 
@@ -404,7 +411,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 		if(~will_record == 1, {~recordtext.string = "^all pieces WILL be recorded"; recordbutton.value = 1;},
 			{~recordtext.string = "^all pieces will NOT be recorded"; recordbutton.value = 0;});
 
-		piecedurationstatictext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.4022222222222 /*~firstviewboundsHEIGHT/6.2428571428571*/, ~firstviewboundsWIDTH/2.7, ~firstviewboundsHEIGHT/21.85));
+		piecedurationstatictext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.502222222222 /*~firstviewboundsHEIGHT/6.2428571428571*/, ~firstviewboundsWIDTH/2.7, ~firstviewboundsHEIGHT/21.85));
 		piecedurationstatictext.background=Color.white;
 		piecedurationstatictext.string = if(~fullpiecedur != nil, {~fullpiecedur}, {"piece length - --:-- mins"});
 		piecedurationstatictext.font = Font(size: ~firstviewboundsWIDTH/48);
@@ -592,7 +599,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 		~number_of_instruments.do(r = 0; {
 			r=r+1;
 			~inst_num = r;
-			(if(~rate_selection_start != nil, {~rate_selection_end-~rate_selection_start}, {0})).do(x = (-1); {
+			(if(((~rate_selection_start != nil) and: (~rate_selection_end != nil)), {~rate_selection_end-~rate_selection_start}, {0})).do(x = (-1); {
 				x=x+1;
 				j = ("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1));
 				v = ("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+x);
@@ -616,6 +623,8 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 					/*~diff1
 					~diff2
 					~diff3*/
+
+					~diff1.post;
 
 					/*("/other_program_files/ddbot_interval_weights/"++(~player_array.wrapAt(r-1))++"__"++(~diff2)++"_"++(~diff3)++"_weights.scd").asString.postln;
 					*/
@@ -667,7 +676,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 		~number_of_instruments.do(r = 0; {
 			r=r+1;
 			~inst_num = r;
-			(if(~rate_selection_start != nil, {~rate_selection_end-~rate_selection_start}, {0})).do(x = (-1); {
+			(if(((~rate_selection_start != nil) and: (~rate_selection_end != nil)), {~rate_selection_end-~rate_selection_start}, {0})).do(x = (-1); {
 				x=x+1;
 				j = ("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1));
 				v = ("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+x);
@@ -707,6 +716,8 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 						o=o+1;
 						while({("length"++(o)).asSymbol.envirGet > 64}, {("length"++(o)).asSymbol.envirPut(("length"++(o)).asSymbol.envirGet/2).round});
 					});
+
+					~length1.post;
 
 					/*~diff1
 					~diff2
@@ -778,6 +789,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 
 		/*("player_"++(w)++"__"++(0)++"_"++(0)++"_"++(0)++"_time_weights").asSymbol.envirGet*/
 
+
 	};
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -822,6 +834,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 
 					("instrument_"++(~inst_num)++"_array_part_"++(~part_num)).asSymbol.envirPut(
 						("instrument_"++(~inst_num)++"_array_part_"++(~part_num)).asSymbol.envirGet.add(
+
 							if(~dna_clock == ("dna_clock_"++(~inst_num)++"_choice").asSymbol.envirGet, {
 
 								("dna_clock_"++(~inst_num)).asSymbol.envirPut(0);
@@ -1092,25 +1105,27 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 
 	// RUN/PLAY PIECE
 
+
+	~klangarray1 = {Array.rand(3, 0, 20);};
+
+	~number_of_instruments.do(x = 0; {
+		SynthDef("synth"++(x=x+1), {arg freq = 432, freq1 = 60, amp = 0.1, detun = 1.006, ffreq = 800, rq = 1, gt = 1;
+			var sig;
+			sig = Mix(DynKlang.ar(`[ [freq]++~klangarray1.value+freq, nil, nil ], 1, 0) * 0.05);
+			sig = RLPF.ar(sig, ffreq, rq);
+			sig = sig * EnvGen.kr(
+				Env.adsr(0.01, 0.1, 0.6, 0.1),
+				gt
+			);
+
+			Out.ar(0, sig!2);
+		}).add;
+	});
+
 	~run_piece_func = {
 
 		(
 
-			~klangarray1 = {Array.rand(3, 0, 20);};
-
-			~number_of_instruments.do(x = 0; {
-				SynthDef("synth"++(x=x+1), {arg freq = 432, freq1 = 60, amp = 0.1, detun = 1.006, ffreq = 800, rq = 1, gt = 1;
-					var sig;
-					sig = Mix(DynKlang.ar(`[ [freq]++~klangarray1.value+freq, nil, nil ], 1, 0) * 0.05);
-					sig = RLPF.ar(sig, ffreq, rq);
-					sig = sig * EnvGen.kr(
-						Env.adsr(0.01, 0.1, 0.6, 0.1),
-						gt
-					);
-
-					Out.ar(0, sig!2);
-				}).add;
-			});
 
 			/*SynthDef(\bass_synth1, {arg freq = 432, freq1 = 60, amp = 0.1, detun = 1.006, ffreq = 800, rq = 1, gt = 1;
 			var sig;
@@ -1197,7 +1212,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 			});
 			});*/
 
-			s = Server.default;
+
 
 			~note_net_points = 0;
 
@@ -1211,16 +1226,16 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 
 					if(~will_record == 1, {
 						thisProcess.platform.recordingsDir = (Document.current.dir++"/other_stuff_(recordings_etc)/duranduranbot_recordings");
-						s.record;
+						Server.default.record;
 						1.wait;
 					});
 
 					"piece currently running".postln;
 
-					s.makeBundle(s.latency, {
+					Server.default.makeBundle(Server.default.latency, {
 
-						~number_of_instruments.do(x = 0; {("duranduranbotsynth"++(x=x+1)).asSymbol.envirPut(
-							Synth("synth"++(x), [freq: ("instrument_"++(x)++"_full_pseq_array").asSymbol.envirGet.at(~piece_position)]);
+						~number_of_instruments.do(~x = 0; {("duranduranbotsynth"++(~x=~x+1)).asSymbol.envirPut(
+							Synth("synth"++(~x), [freq: ("instrument_"++(~x)++"_full_pseq_array").asSymbol.envirGet.at(~piece_position)]);
 
 						);});
 
@@ -1281,10 +1296,10 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 
 					~piece_position = ~piece_position + 1;
 
-					s.makeBundle(s.latency, {
+					Server.default.makeBundle(Server.default.latency, {
 
-						~number_of_instruments.do(x = 0; {("duranduranbotsynth"++(x=x+1)).asSymbol.envirGet.set(
-							\freq, ("instrument_"++(x)++"_full_pseq_array").asSymbol.envirGet.at(~piece_position);
+						~number_of_instruments.do(~x = 0; {("duranduranbotsynth"++(~x=~x+1)).asSymbol.envirGet.set(
+							\freq, ("instrument_"++(~x)++"_full_pseq_array").asSymbol.envirGet.at(~piece_position);
 
 						);});
 
@@ -1321,7 +1336,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 			});
 
 
-			s.makeBundle(s.latency, {
+			Server.default.makeBundle(Server.default.latency, {
 				/*	~timer_routine.start;*/
 				~duranduranbot_routine.start;
 			});
