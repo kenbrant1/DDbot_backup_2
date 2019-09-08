@@ -1121,7 +1121,7 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 										*/
 										~fullpiecedur = ("piece length - "++(~piecedur_secs.asInteger.asString)++" secs ("++(~dd_mins.asInteger.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asInteger.asString)++" mins)");
 										piecedurationstatictext.string = ~fullpiecedur;
-										("\npiece duration: \n"++((~dd_mins.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asString))++" minutes";).postln;
+										("\npiece duration: \n"++((~dd_mins.asInteger.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asInteger.asString))++" minutes";).postln;
 										rangeslider.set(spec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"), initVal: [0,if(~piecedur_secs != nil, {~piecedur_secs}, {0})]);
 										timeslider.set(spec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"));
 										~rate_selection_start = 0;
