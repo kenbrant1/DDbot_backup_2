@@ -708,15 +708,17 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 		~number_of_instruments.do(r = 0; {
 			r=r+1;
 			~inst_num = r;
-			(~rate_selection_end-~rate_selection_start).do(x = (-1); {
+			(~rate_selection_end-~rate_selection_start).do(x = 0; {
 				x=x+1;
 				j = ("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1));
 				v = ("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+x);
 				if(v != j, {k = 0; c = (~rate_selection_start+(x)); u = 0;
+					"sdf".postln;
 					while({
 						("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(c=c-1) ==
 						("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1))
 					}, {k = k +1});
+					"sdf".postln;
 					~length2 = k;
 					k = 0; c = (~rate_selection_start+(x));
 					while({
