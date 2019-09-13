@@ -15,7 +15,7 @@ above, and click on "Evaluate File".
 
 if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 ~bit_duration = 1/16;
-if(~auto_select_diff == nil, {~auto_select_diff = 20;});
+if(~auto_select_diff == nil, {~auto_select_diff = 10;});
 
 ~duranduranbot_GUI_func = {
 
@@ -305,11 +305,11 @@ if(~auto_select_diff == nil, {~auto_select_diff = 20;});
 			2.do({q = q.at(0)});
 			q = q.asInteger;
 			if(q == 1, {~machine_learning_func.value;});
-			("\nlast 30 secs rated:\nx"++(~net_change_mult)++" points\n").postln;
+			("\nlast "++(~auto_select_diff)++" secs rated:\nx"++(~net_change_mult)++" points\n").postln;
 		});
 		rate_button_5.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		if(~net_change_mult == nil, {rate_button_4.valueAction = 0;}, {
+		if(~net_change_mult == nil, {rate_button_5.valueAction = 0;}, {
 			case
 			{~net_change_mult == ~net_change_mult_array.at(0);}{rate_button_1.value = 1;}
 			{~net_change_mult == ~net_change_mult_array.at(1);}{rate_button_2.value = 1;}
