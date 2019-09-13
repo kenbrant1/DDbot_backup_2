@@ -350,7 +350,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;});
 			~piece_position = timeselect.value*(~instrument_1_full_pseq_array.size/~piecedur_secs); // works
 			selection1 = ~piece_position.roundUp;
 			if(selection1 != ~piece_position, {~piece_position = selection1-1});
-			if(timeslider.value >= 30, {rangeslider.valueAction = [timeslider.value-30, timeslider.value]}, {rangeslider.valueAction = [0, timeslider.value]});
+			if(timeslider.value >= ~auto_select_diff, {rangeslider.valueAction = [timeslider.value-~auto_select_diff, timeslider.value]}, {rangeslider.valueAction = [0, timeslider.value]});
 			/*timeselect.value.postln;
 			~piece_position.postln;*/
 
