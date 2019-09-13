@@ -15,6 +15,7 @@ above, and click on "Evaluate File".
 
 if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 ~bit_duration = 1/16;
+if(~auto_select_diff == nil, {~auto_select_diff = 20;});
 
 ~duranduranbot_GUI_func = {
 
@@ -317,7 +318,6 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;});
 			{~net_change_mult == ~net_change_mult_array.at(4);}{rate_button_5.value = 1;};
 		});
 
-		if(~auto_select_diff == nil, {~auto_select_diff = 30;});
 
 		ratepiecetext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/3.44571428571, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/14.55));
 		ratepiecetext.background=Color.white;
