@@ -872,12 +872,14 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;});
 
 					("instrument_"++(~inst_num)++"_array_part_"++(~part_num)).asSymbol.envirPut(
 						("instrument_"++(~inst_num)++"_array_part_"++(~part_num)).asSymbol.envirGet.add(
-
+/*if(~inst_num == 3, {("dna_clock_"++(3)++"_choice").asSymbol.envirGet.postln});*/
 							if(~dna_clock == ("dna_clock_"++(~inst_num)++"_choice").asSymbol.envirGet, {
 
 								("dna_clock_"++(~inst_num)).asSymbol.envirPut(0);
 
+/*if(~inst_num == 3, {("instrument_"++(3)++"_freq").asSymbol.envirGet.postln;});*/
 
+								if(~inst_num == 3, {("dna_clock_"++(3)++"_choice").asSymbol.envirGet});
 									("instrument_"++(~inst_num)++"_if_zero").asSymbol.envirPut("false");
 
 									//find new interval for current instrument
@@ -938,6 +940,8 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;});
 
 									~put1 = ("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet;
 
+								/*if(~inst_num == 3, {("instrument_"++(3)++"_freq").asSymbol.envirGet.postln;});*/
+
 							},
 							{
 								~put1 = if(("instrument_"++(~inst_num)++"_if_zero").asSymbol.envirGet == "false", {("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet;}, {0});
@@ -990,8 +994,6 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;});
 
 							1.do({
 
-								(~number_of_instruments).do(s = 0; {("dna_clock_"++(s=s+1)).asSymbol.envirPut(("dna_clock_"++(s)).asSymbol.envirGet+1);});
-
 								1.do(x = 0; {("instrument_"++(x=x+1)++"_if_zero").asSymbol.envirPut("false");});
 
 								("instrument_1_array_part_"++(~part_num)).asSymbol.envirPut(
@@ -1027,11 +1029,11 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;});
 
 							(~part_bit_size-1).do({
 
-								~number_of_instruments.do(s = 0; {("dna_clock_"++(s=s+1)).asSymbol.envirPut(("dna_clock_"++(s)).asSymbol.envirGet+1);});
-								~number_of_instruments.do(s = 0; {
-									s=s+1;
-									~dna_clock = ("dna_clock_"++(s)).asSymbol.envirGet;
-									~inst_num = s;
+								~number_of_instruments.do(n = 0; {("dna_clock_"++(n=n+1)).asSymbol.envirPut(("dna_clock_"++(n)).asSymbol.envirGet+1);});
+								~number_of_instruments.do(n = 0; {
+									n=n+1;
+									~dna_clock = ("dna_clock_"++(n)).asSymbol.envirGet;
+									~inst_num = n;
 									~inst_clock_func.value;
 								});
 							});
@@ -1043,11 +1045,11 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;});
 
 								~part_bit_size.do({
 
-									~number_of_instruments.do(s = 0; {("dna_clock_"++(s=s+1)).asSymbol.envirPut(("dna_clock_"++(s)).asSymbol.envirGet+1);});
-									~number_of_instruments.do(s = 0; {
-										s=s+1;
-										~dna_clock = ("dna_clock_"++(s)).asSymbol.envirGet;
-										~inst_num = s;
+									~number_of_instruments.do(n = 0; {("dna_clock_"++(n=n+1)).asSymbol.envirPut(("dna_clock_"++(n)).asSymbol.envirGet+1);});
+									~number_of_instruments.do(n = 0; {
+										n=n+1;
+										~dna_clock = ("dna_clock_"++(n)).asSymbol.envirGet;
+										~inst_num = n;
 										~inst_clock_func.value;
 									});
 								});
@@ -1067,7 +1069,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;});
 									~number_of_instruments.do(x = 0; {("instrument_"++(x=x+1)++"_full_pseq_array").asSymbol.envirPut([]);});
 
 									/*
-									("instrument_"++(2)++"_full_pseq_array").asSymbol.envirGet.at(1).size
+									("instrument_"++(1)++"_full_pseq_array").asSymbol.envirGet.at(5800).size
 									*/
 
 									~number_of_instruments.do(x = 0; {
