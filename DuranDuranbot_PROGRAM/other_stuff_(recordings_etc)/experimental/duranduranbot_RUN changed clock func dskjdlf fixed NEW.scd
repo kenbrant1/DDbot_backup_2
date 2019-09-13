@@ -249,7 +249,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;});
 
 		~net_change_mult_array = [2, 4, 6, 8, 12];
 
-		rate_button_1 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/4.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x2 pts",Color.white,Color.black], ["x2 pts",Color.black,Color.green]]).action_({arg button;
+		rate_button_1 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/9.88, ~firstviewboundsHEIGHT/3.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x2 pts",Color.white,Color.black], ["x2 pts",Color.black,Color.green]]).action_({arg button;
 			~net_change_mult = ~net_change_mult_array.at(0);
 			rate_button_1.value = 1;
 			rate_button_2.value = 0;
@@ -259,7 +259,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;});
 		});
 		rate_button_1.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		rate_button_2 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/9.88, ~firstviewboundsHEIGHT/4.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x4 pts",Color.white,Color.black], ["x4 pts",Color.black,Color.green]]).action_({arg button;
+		rate_button_2 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/5.29, ~firstviewboundsHEIGHT/3.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x4 pts",Color.white,Color.black], ["x4 pts",Color.black,Color.green]]).action_({arg button;
 			~net_change_mult = ~net_change_mult_array.at(1);
 			rate_button_1.value = 0;
 			rate_button_2.value = 1;
@@ -269,7 +269,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;});
 		});
 		rate_button_2.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		rate_button_3 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/5.29, ~firstviewboundsHEIGHT/4.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x6 pts",Color.white,Color.black], ["x6 pts",Color.black,Color.green]]).action_({arg button;
+		rate_button_3 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/3.62, ~firstviewboundsHEIGHT/3.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x6 pts",Color.white,Color.black], ["x6 pts",Color.black,Color.green]]).action_({arg button;
 			~net_change_mult = ~net_change_mult_array.at(2);
 			rate_button_1.value = 0;
 			rate_button_2.value = 0;
@@ -279,7 +279,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;});
 		});
 		rate_button_3.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		rate_button_4 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/3.62, ~firstviewboundsHEIGHT/4.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x8 pts",Color.white,Color.black], ["x8 pts",Color.black,Color.green]]).action_({arg button;
+		rate_button_4 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/2.75, ~firstviewboundsHEIGHT/3.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x8 pts",Color.white,Color.black], ["x8 pts",Color.black,Color.green]]).action_({arg button;
 			~net_change_mult = ~net_change_mult_array.at(3);
 			rate_button_1.value = 0;
 			rate_button_2.value = 0;
@@ -289,7 +289,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;});
 		});
 		rate_button_4.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		rate_button_5 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/2.75, ~firstviewboundsHEIGHT/4.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x12 pts",Color.white,Color.black], ["x12 pts",Color.black,Color.green]]).action_({arg button;
+		rate_button_5 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/2.2, ~firstviewboundsHEIGHT/3.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x12 pts",Color.white,Color.black], ["x12 pts",Color.black,Color.green]]).action_({arg button;
 			~net_change_mult = ~net_change_mult_array.at(4);
 			rate_button_1.value = 0;
 			rate_button_2.value = 0;
@@ -299,7 +299,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;});
 		});
 		rate_button_5.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		rate_button = Button.new(~firstview, Rect(~firstviewboundsWIDTH/2.08, ~firstviewboundsHEIGHT/4.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["Rate",Color.white,Color.black]]).action_({arg button;
+		rate_button = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/3.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["Rate",Color.white,Color.black]]).action_({arg button;
 
 			q = FileReader.read(Document.current.dir++"/other_program_files/ddbot_machine_learning_on_off.scd");
 			2.do({q = q.at(0)});
@@ -319,12 +319,12 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;});
 		});
 
 
-		ratepiecetext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/3.44571428571, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/14.55));
+		ratepiecetext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.74571428571, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/14.55));
 		ratepiecetext.background=Color.white;
 		ratepiecetext.string = "^rate last "++(~auto_select_diff)++" seconds from current position in piece by clicking on a xpt rating above, and clicking "++"Rate".quote++". A higher point number equals a higher rating.";
 		ratepiecetext.font = Font(size: ~firstviewboundsWIDTH/55);
 
-		rangeslider = EZRanger(~firstview, bounds: (Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.63571428571, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/21.85)), controlSpec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"), action: {
+		rangeslider = EZRanger(~firstview, bounds: (Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.1951428571, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/21.85)), controlSpec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"), action: {
 			|rangeselect|
 			var rate_selection_start1;
 			~rate_selection_start = (rangeselect.value.at(0)*(~instrument_1_full_pseq_array.size/~piecedur_secs));
@@ -344,7 +344,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;});
 
 		if(~piece_position == nil, {~piece_position = 0});
 
-		timeslider = EZSlider(~firstview,  bounds: (Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.2801428571, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/21.85)), controlSpec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"), action: {
+		timeslider = EZSlider(~firstview,  bounds: (Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.95222222222, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/21.85)), controlSpec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"), action: {
 			|timeselect|
 			var selection1;
 			~piece_position = timeselect.value*(~instrument_1_full_pseq_array.size/~piecedur_secs); // works
@@ -361,15 +361,15 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;});
 
 		/*if(~pause_piece == 0, {~piece_position = 0});*/
 
-		timeslidertext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.0228571, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/22.55));
+		timeslidertext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.77222222222, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/22.55));
 		timeslidertext.background=Color.white;
 		timeslidertext.string = "^jump to location in current piece by using the slider just above";
 		timeslidertext.font = Font(size: ~firstviewboundsWIDTH/55);
 
 
-		quicknewpiecebutton = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.79222222222, ~firstviewboundsWIDTH/6.1454545454545, ~firstviewboundsHEIGHT/21.85)).states_([["quick new piece",Color.white,Color.black],["quick new piece",Color.white,Color.black]]).action_({arg button;
+		quicknewpiecebutton = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/4.228571428571, ~firstviewboundsWIDTH/6.1454545454545, ~firstviewboundsHEIGHT/21.85)).states_([["quick new piece",Color.white,Color.black],["quick new piece",Color.white,Color.black]]).action_({arg button;
 			var quicknewpiecewait;
-			quicknewpiecewait = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.0228571, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/22.55));
+			quicknewpiecewait = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/9.5, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/22.55));
 			quicknewpiecewait.background_(Color.white);
 			quicknewpiecewait.stringColor_(Color.black);
 			quicknewpiecewait.string = "please wait";
@@ -385,7 +385,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;});
 		});
 		quicknewpiecebutton.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		quicknewpiecebutton_revert = Button.new(~firstview, Rect(~firstviewboundsWIDTH/5.4, ~firstviewboundsHEIGHT/1.79222222222, ~firstviewboundsWIDTH/7.9454545454545, ~firstviewboundsHEIGHT/21.85)).states_([["revert piece",Color.white,Color.black],["revert piece",Color.white,Color.black]]).action_({arg button;
+		quicknewpiecebutton_revert = Button.new(~firstview, Rect(~firstviewboundsWIDTH/5.4, ~firstviewboundsHEIGHT/4.228571428571, ~firstviewboundsWIDTH/7.9454545454545, ~firstviewboundsHEIGHT/21.85)).states_([["revert piece",Color.white,Color.black],["revert piece",Color.white,Color.black]]).action_({arg button;
 			var quicknewpiecewait;
 			quicknewpiecewait = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.0228571, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/22.55));
 			quicknewpiecewait.background_(Color.white);
