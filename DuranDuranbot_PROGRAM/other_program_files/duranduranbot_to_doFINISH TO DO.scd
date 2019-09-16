@@ -277,3 +277,6 @@ if(~dna_clock == ~dna_index_choice.asInteger, {~dna_clock = 0; ~dna_index_choice
 // or... :P.... just do both harmony and time machine learning... seperately... no neural nets... no track
 
 // ^^^... and doesn't matter who is playing what during note choice.
+
+
+// allow "mixing" of different DDbot data. like say from different people who have used it.
