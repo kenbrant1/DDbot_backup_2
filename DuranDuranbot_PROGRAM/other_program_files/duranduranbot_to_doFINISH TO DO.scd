@@ -280,3 +280,5 @@ if(~dna_clock == ~dna_index_choice.asInteger, {~dna_clock = 0; ~dna_index_choice
 
 
 // allow "mixing" of different DDbot data. like say from different people who have used it.
+
+// make all weight file one file. use number system - like, 12*4+1 or something.
