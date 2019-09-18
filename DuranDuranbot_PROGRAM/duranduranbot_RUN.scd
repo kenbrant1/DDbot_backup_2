@@ -605,7 +605,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;});
 		/*~dna_choice_array = [~bit_duration*1, ~bit_duration*2, ~bit_duration*4, ~bit_duration*8, ~bit_duration*16, ~bit_duration*32, ~bit_duration*64];*/
 		/*~time_array = [0.25, 1, 2, 4];*/
 		~dna_choice_array_num = (1..~dna_choice_array.size);
-		~net_change = 0.0001;
+		~net_change = 0.01;
 
 		/*("instrument_"++(1)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x)).postln
 
@@ -698,6 +698,40 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;});
 		v=v+1; v.postln;
 		});
 		});
+		});*/
+
+
+		// (~net_change*12)
+		// y=0.083333333333333
+		// [ y=y+(0.01*12), 0.083333333333333, 0.083333333333333, 0.083333333333333,
+		// 	0.083333333333333, 0.083333333333333, 0.083333333333333, 0.083333333333333,
+		// 0.083333333333333, 0.083333333333333, 0.083333333333333, 0.083333333333333 ].normalizeSum
+
+		/*
+		x=Array.fill(~interval_array.size, {1/~interval_array.size}).normalizeSum;*/
+
+
+	/*	~number_of_instruments.do(w = 0; v = 0; {
+			w=w+1;
+			(~interval_array.size+1).do(y = (-1); {
+				y=y+1;
+				(~interval_array.size+1).do(z = (-1); {
+					z=z+1;
+					(~time_array.size+1).do(a = (-1); {
+						a=a+1;
+						(~time_array.size+1).do(b = (-1); {
+							b=b+1;
+							(~time_array.size+1).do(c = (-1); {
+								("player_"++(w)++"__"++(y)++"_"++(z)++"__"++(a)++"_"++(b)++"_"++(c=c+1)).asSymbol.envirPut(Array.fill(~interval_array.size, {1/~interval_array.size}).normalizeSum;);
+								g = File(Document.current.dir++"/other_program_files/ddbot_weights/player_"++(w)++"__"++(y)++"_"++(z)++"__"++(a)++"_"++(b)++"_"++(c)++".scd", "w");
+								~interval_array.size.do(s = (-1); {g.write(("player_"++(w)++"__"++(y)++"_"++(z)++"__"++(a)++"_"++(b)++"_"++(c)).asSymbol.envirGet.at(s=s+1).asString++" ");});
+								g.close;
+								v=v+1; v.postln;
+							});
+						});
+					});
+				});
+			});
 		});*/
 
 
@@ -861,7 +895,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;});
 	~piece_generator_func = {
 
 		// THERE IS A POINT TO USING BIT-BY-BIT CIRCULAR COMPOSITION ( https://scsynth.org/t/bit-by-bit-circular-composition/1107 )
-		// Not using it, DDbot player can't compose based on everyone else, for the player isn't composing is parallel.
+		// Not using it, DDbot player can't compose based on everyone else, for the player isn't composing in parallel.
 		// Players NEED to be composing in parallel with everyone else... On the "same track".
 
 		(
@@ -937,7 +971,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;});
 
 									//find new bit duration for current instrument
 
-									(~number_of_instruments+1).do(e = 0; {
+									(~number_of_instruments).do(e = 0; {
 										e=e+1;
 										case
 									{(("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_choice").asSymbol.envirGet*~bit_duration >= ~time_array.at(0)) and: (("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_choice").asSymbol.envirGet*~bit_duration <= ~time_array.at(1))}{if((("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_choice").asSymbol.envirGet*~bit_duration < (~time_array.at(0)+~time_array.at(1)/2)), {("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_place").asSymbol.envirPut(0)}, {("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_place").asSymbol.envirPut(1)})}
