@@ -286,5 +286,5 @@ if(~dna_clock == ~dna_index_choice.asInteger, {~dna_clock = 0; ~dna_index_choice
 
 // combine all variable into one. (if interval and time, etc)... lots of arrays
 
-// if using LOTS of different variables (like - intervals combined with times) ... use the highest points for rating as possible, so
-// to train DDbot as qucikly as possible.
+
+// how to use dictionaries - create a dictionary from the arrays file.... then, rewrite the file from the dictionary.
