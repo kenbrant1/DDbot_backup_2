@@ -13,7 +13,7 @@ above, and click on "Evaluate File".
 
 // GUI
 
-if(~number_of_instruments == nil, {~number_of_instruments = 3;});
+if(~number_of_instruments == nil, {~number_of_instruments = 3;}); //do not change
 ~bit_duration = 1/16;
 if(~auto_select_diff == nil, {~auto_select_diff = 10;});
 
@@ -895,7 +895,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;});
 	~piece_generator_func = {
 
 		// THERE IS A POINT TO USING BIT-BY-BIT CIRCULAR COMPOSITION ( https://scsynth.org/t/bit-by-bit-circular-composition/1107 )
-		// Not using it, DDbot player can't compose based on everyone else, for the player isn't composing in parallel.
+		// Not using it, DDbot player can't compose based on everyone else, for the player isn't composing is parallel.
 		// Players NEED to be composing in parallel with everyone else... On the "same track".
 
 		(
@@ -937,7 +937,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;});
 
 /*if(~inst_num == 3, {("instrument_"++(3)++"_freq").asSymbol.envirGet.postln;});*/
 
-								if(~inst_num == 3, {("dna_clock_"++(3)++"_choice").asSymbol.envirGet});
+							/*	if(~inst_num == 3, {("dna_clock_"++(3)++"_choice").asSymbol.envirGet});*/
 									("instrument_"++(~inst_num)++"_if_zero").asSymbol.envirPut("false");
 
 									//find new interval for current instrument
