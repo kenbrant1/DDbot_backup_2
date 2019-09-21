@@ -565,7 +565,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 
 		firstviewtext4 = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/7.528571428571, ~firstviewboundsWIDTH/1.0285714285714, ~firstviewboundsHEIGHT/0.54625));
 		firstviewtext4.background=maincolor;
-		firstviewtext4.string = "HOW TO PLAY A PIECE\n\nPlay a DuranDuranbot piece by clicking the "++"generate piece".quote++"  button on the Main Page, and then by clicking the "++"play piece".quote++"  button. Once random seeds are input into the program on the front page (the very first page of this program), you only need to generate a song once using the same random seeds. If you click on the "++"generate piece".quote++"  button more than once without inputting new random seeds the same piece will always be generated. To generate a new piece, you can go back to the first page and input new random seeds, or you can do this automatically by clicking on the "++"new random seeds".quote++" button across from the "++"generate piece".quote++" button on the right side of the main page. Or, you can quickly generate a new piece based on entirely new random seeds by simply clicking on the "++"quick new piece".quote++" button a few sets of buttons below the "++"generate piece".quote++" button. \n\nMACHINE LEARNING\n\nMachine learning is enabled by default, but you can disable it on the main page. Using the machine learning function allows for DuranDuranbot to learn what you prefer to hear in a piece by rating a piece, and to become better at composing music for you. On the Main Page, you can rate a piece by clicking on any of the point ratings and clicking "++"Rate".quote++". The rating system is currently set to rate the last "++(~auto_select_diff)++" seconds from your current position in the piece designated by where the time slider is positioned... Doing all of this will train DuranDuranbot how to compose music.";
+		firstviewtext4.string = "HOW TO PLAY A PIECE\n\nPlay a DuranDuranbot piece by clicking the "++"generate piece".quote++"  button on the Main Page, and then by clicking the "++"play piece".quote++"  button. Once random seeds are input into the program on the front page (the very first page of this program), you only need to generate a song once using the same random seeds. If you click on the "++"generate piece".quote++"  button more than once without inputting new random seeds the same piece will always be generated. To generate a new piece, you can go back to the first page and input new random seeds, or you can do this automatically by clicking on the "++"new random seeds".quote++" button across from the "++"generate piece".quote++" button on the right side of the main page. Or, you can quickly generate a new piece based on entirely new random seeds by simply clicking on the "++"quick new piece".quote++" button a few sets of buttons below the "++"generate piece".quote++" button. \n\nMACHINE LEARNING\n\nMachine learning is enabled by default, but you can disable it on the main page. Using the machine learning function allows for DuranDuranbot to learn what you prefer to hear in a piece by rating a piece, and to become better at composing music for you. On the Main Page, you can rate a piece by clicking on any of the point ratings and clicking "++"Rate".quote++". The rating system is currently set to rate the last "++(~auto_select_diff)++" seconds from your current position in the piece designated by where the time slider is positioned... Doing all of this will train DuranDuranbot how to compose music. All training data will be saved to the DuranDuranbot "++"ddbot_training_data".quote++" folder for future use.";
 		firstviewtext4.align = \topLeft;
 		firstviewtext4.font = Font(size: ~firstviewboundsWIDTH/51.428571428571);
 
@@ -674,13 +674,13 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 
 						("inst"++(r)++" "++(~diff1)++" ").post;
 
-						/*("/other_program_files/ddbot_interval_weights/"++(~player_array.wrapAt(r-1))++"__"++(~diff2)++"_"++(~diff3)++"_weights.scd").asString.postln;
+						/*("/other_program_files/ddbot_training_data/ddbot_interval_weights/"++(~player_array.wrapAt(r-1))++"__"++(~diff2)++"_"++(~diff3)++"_weights.scd").asString.postln;
 						*/
-						h = FileReader.read(Document.current.dir++"/other_program_files/ddbot_interval_weights/"++(~player_array.wrapAt(r-1))++"__"++(~diff2)++"_"++(~diff3)++"_weights.scd", false, true);
+						h = FileReader.read(Document.current.dir++"/other_program_files/ddbot_training_data/ddbot_interval_weights/"++(~player_array.wrapAt(r-1))++"__"++(~diff2)++"_"++(~diff3)++"_weights.scd", false, true);
 						h = h.flatten.asFloat;
 						h.put(~diff1-1, (h.at(~diff1-1) + (~net_change*~net_change_mult)));
 						h = h.normalizeSum;
-						g = File(Document.current.dir++"/other_program_files/ddbot_interval_weights/"++(~player_array.wrapAt(r-1))++"__"++(~diff2)++"_"++(~diff3)++"_weights.scd", "w");
+						g = File(Document.current.dir++"/other_program_files/ddbot_training_data/ddbot_interval_weights/"++(~player_array.wrapAt(r-1))++"__"++(~diff2)++"_"++(~diff3)++"_weights.scd", "w");
 						~interval_array.size.do(s = (-1); {g.write(h.at(s=s+1).asString++" ");});
 						g.close;
 					});
@@ -694,7 +694,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 		y=y+1;
 		(~interval_array.size+1).do(z = (-1); {
 		("player_"++(w)++"__"++(y)++"_"++(z=z+1)++"_weights").asSymbol.envirPut(Array.fill(~interval_array.size, {1/~interval_array.size}).normalizeSum;);
-		g = File(Document.current.dir++"/other_program_files/ddbot_interval_weights/player_"++(w)++"__"++(y)++"_"++(z)++"_weights.scd", "w");
+		g = File(Document.current.dir++"/other_program_files/ddbot_training_data/ddbot_interval_weights/player_"++(w)++"__"++(y)++"_"++(z)++"_weights.scd", "w");
 		~interval_array.size.do(s = (-1); {g.write(("player_"++(w)++"__"++(y)++"_"++(z)++"_weights").asSymbol.envirGet.at(s=s+1).asString++" ");});
 		g.close;
 		v=v+1; v.postln;
@@ -849,13 +849,13 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 						// don't think ~lengthplace matters with players. doesn't work like that in inst_clock_func.
 
 						(""++(~length1)++" ").post;
-						/*("/other_program_files/ddbot_time_weights/"++(~player_array.wrapAt(r-1))++"__"++(~lengthplace2)++"_"++(~lengthplace3)++"_"++(~lengthplace4)++"_time_weights.scd").asString.postln;
+						/*("/other_program_files/ddbot_training_data/ddbot_time_weights/"++(~player_array.wrapAt(r-1))++"__"++(~lengthplace2)++"_"++(~lengthplace3)++"_"++(~lengthplace4)++"_time_weights.scd").asString.postln;
 						*/
-						h = FileReader.read(Document.current.dir++"/other_program_files/ddbot_time_weights/"++(~player_array.wrapAt(r-1))++"__"++(~lengthplace2)++"_"++(~lengthplace3)++"_"++(~lengthplace4)++"_time_weights.scd", false, true);
+						h = FileReader.read(Document.current.dir++"/other_program_files/ddbot_training_data/ddbot_time_weights/"++(~player_array.wrapAt(r-1))++"__"++(~lengthplace2)++"_"++(~lengthplace3)++"_"++(~lengthplace4)++"_time_weights.scd", false, true);
 						h = h.flatten.asFloat;
 						h.put(~lengthplace1, (h.at(~lengthplace1) + (~net_change*~net_change_mult)));
 						h = h.normalizeSum;
-						g = File(Document.current.dir++"/other_program_files/ddbot_time_weights/"++(~player_array.wrapAt(r-1))++"__"++(~lengthplace2)++"_"++(~lengthplace3)++"_"++(~lengthplace4)++"_time_weights.scd", "w");
+						g = File(Document.current.dir++"/other_program_files/ddbot_training_data/ddbot_time_weights/"++(~player_array.wrapAt(r-1))++"__"++(~lengthplace2)++"_"++(~lengthplace3)++"_"++(~lengthplace4)++"_time_weights.scd", "w");
 						~dna_choice_array.size.do(s = (-1); {g.write(h.at(s=s+1).asString++" ");});
 						g.close;
 					});
@@ -873,7 +873,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 		y=y+1;
 		(~time_array.size+1).do(z = (-1); {
 		("player_"++(w)++"__"++(x)++"_"++(y)++"_"++(z=z+1)++"_time_weights").asSymbol.envirPut(Array.fill(~dna_choice_array.size, {1/~dna_choice_array.size}).normalizeSum;);
-		g = File(Document.current.dir++"/other_program_files/ddbot_time_weights/player_"++(w)++"__"++(x)++"_"++(y)++"_"++(z)++"_time_weights.scd", "w");
+		g = File(Document.current.dir++"/other_program_files/ddbot_training_data/ddbot_time_weights/player_"++(w)++"__"++(x)++"_"++(y)++"_"++(z)++"_time_weights.scd", "w");
 		~dna_choice_array.size.do(s = (-1); {g.write(("player_"++(w)++"__"++(x)++"_"++(y)++"_"++(z)++"_time_weights").asSymbol.envirGet.at(s=s+1).asString++" ");});
 		g.close;
 		v=v+1; v.postln;
@@ -966,7 +966,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 										("clock_diff_"++(u)).asSymbol.envirPut(("clock_diff_"++(u)).asSymbol.envirGet.round.asInteger;);
 									});
 
-									~intv_weights = FileReader.read(Document.current.dir++"/other_program_files/ddbot_interval_weights/"++(~player_array.wrapAt(~inst_num-1))++"__"++(~clock_diff_1)++"_"++(~clock_diff_2)++"_weights.scd", false, true);
+									~intv_weights = FileReader.read(Document.current.dir++"/other_program_files/ddbot_training_data/ddbot_interval_weights/"++(~player_array.wrapAt(~inst_num-1))++"__"++(~clock_diff_1)++"_"++(~clock_diff_2)++"_weights.scd", false, true);
 									~intv_weights = ~intv_weights.flatten.asFloat;
 									~intv_weights = ~intv_weights.normalizeSum;
 									~new_interval = ~interval_array.wchoose(~intv_weights);
@@ -1000,7 +1000,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 									("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+2))++"_place").asSymbol.envirGet
 									*/
 
-									~time_weights = FileReader.read(Document.current.dir++"/other_program_files/ddbot_time_weights/"++(~player_array.wrapAt(~inst_num-1))++"__"++(("dna_clock_"++(~inst_array.wrapAt(~inst_num-1))++"_place").asSymbol.envirGet)++"_"++(("dna_clock_"++(~inst_array.wrapAt(~inst_num))++"_place").asSymbol.envirGet)++"_"++(("dna_clock_"++(~inst_array.wrapAt(~inst_num+1))++"_place").asSymbol.envirGet)++"_time_weights.scd", false, true);
+									~time_weights = FileReader.read(Document.current.dir++"/other_program_files/ddbot_training_data/ddbot_time_weights/"++(~player_array.wrapAt(~inst_num-1))++"__"++(("dna_clock_"++(~inst_array.wrapAt(~inst_num-1))++"_place").asSymbol.envirGet)++"_"++(("dna_clock_"++(~inst_array.wrapAt(~inst_num))++"_place").asSymbol.envirGet)++"_"++(("dna_clock_"++(~inst_array.wrapAt(~inst_num+1))++"_place").asSymbol.envirGet)++"_time_weights.scd", false, true);
 									~time_weights = ~time_weights.flatten.asFloat;
 									~time_weights = ~time_weights.normalizeSum;
 									~new_time = ~dna_choice_array.wchoose(~time_weights);
