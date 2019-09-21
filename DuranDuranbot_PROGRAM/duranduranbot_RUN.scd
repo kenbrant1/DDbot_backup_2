@@ -11,11 +11,13 @@ above, and click on "Evaluate File".
 
 */
 
+////////////////////////////////////////////////////////////////////////////////////////
+
 // GUI
 
 if(~number_of_instruments == nil, {~number_of_instruments = 3;}); //do not change
 ~bit_duration = 1/16;
-if(~auto_select_diff == nil, {~auto_select_diff = 10;});
+if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of seconds to rate a piece from current time backwards
 
 ~duranduranbot_GUI_func = {
 
@@ -23,7 +25,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;});
 	randseedviewtext3, numerologynameEZText1, numerologynameEZText2, numerologynameEZText3, numerologynameviewtext1, numerologynameviewtext2, numerologynameviewtext3,
 	generatepiecebutton, playbutton, enterdatabasebutton, recordbutton, songtitletext, songtitlestatictext, piecedurationstatictext, machinelearningbutton, machinelearningtext,
 	onestarbutton,twostarbutton,threestarbutton,fourstarbutton,fivestarbutton, quicknewpiecebutton, quicknewpiecebutton_revert, quicknewpiecewait,
-	rate_button_1,rate_button_2,rate_button_3,rate_button_4,rate_button_5,rate_button_6, rate_button,ratepiecetext, rangeslider,timeslider,timeslidertext,
+	rate_button_1,rate_button_2,rate_button_3,rate_button_4,rate_button_5,rate_button_6, rate_button,ratepiecetext,ratedonetext, rangeslider,timeslider,timeslidertext,
 	rate_selectionstatictext,ctrlperiodtext,
 	closeddbotbutton;
 	w = Window("DuranDuranbot",
@@ -885,6 +887,14 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;});
 
 
 		if(~pause_piece == 1, {~playbutton.valueAction = 1});
+
+		ratedonetext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/3.063829787234, ~firstviewboundsHEIGHT/4.228571428571, ~firstviewboundsWIDTH/4.04545454545, ~firstviewboundsHEIGHT/21.85));
+		ratedonetext.background=Color.white;
+		ratedonetext.stringColor_(Color.black);
+		ratedonetext.string = "PIECE SELECTION RATED";
+		ratedonetext.font = Font(size: ~firstviewboundsWIDTH/55);
+
+		AppClock.sched(3, {ratedonetext.close;});
 
 	};
 
