@@ -18,6 +18,7 @@ above, and click on "Evaluate File".
 if(~number_of_instruments == nil, {~number_of_instruments = 3;}); //do not change
 ~bit_duration = 1/16;
 if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of seconds to rate a piece from current time backwards
+~rate_button_default = 8; // set default point rating at boot. Use point numbers. ex - 1, 2, 4, 8, or 16
 
 ~duranduranbot_GUI_func = {
 
@@ -123,9 +124,9 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 		randseedviewtext3.font = Font(size: ~firstviewboundsWIDTH/48);
 
 
-		firstviewtext3 = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.3215725806452, ~firstviewboundsWIDTH/1.0285714285714, ~firstviewboundsHEIGHT/21.85));
+		firstviewtext3 = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.415725806452, ~firstviewboundsWIDTH/1.0285714285714, ~firstviewboundsHEIGHT/10.85));
 		firstviewtext3.background=maincolor;
-		firstviewtext3.string = "Or you can do none of that, and autogenerate all of those things by clicking on "++"next".quote++" below...";
+		firstviewtext3.string = "Or you can do none of that, and autogenerate all of those things by clicking on "++"next".quote++" below... Which you have to do regardless :)...";
 		firstviewtext3.align = \topLeft;
 		firstviewtext3.font = Font(size: ~firstviewboundsWIDTH/48);
 
@@ -249,9 +250,9 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 
 		if(~duranduranbot_routine.isPlaying == true, {~playbutton.value = 1; ~stopbuttonfunc.value}, {~playbutton.value = 0});
 
-		~net_change_mult_array = [2, 4, 6, 8, 12];
+		~net_change_mult_array = [1, 2, 4, 8, 16];
 
-		rate_button_1 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/9.88, ~firstviewboundsHEIGHT/3.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x2 pts",Color.white,Color.black], ["x2 pts",Color.black,Color.green]]).action_({arg button;
+		rate_button_1 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/9.88, ~firstviewboundsHEIGHT/3.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x1 pts",Color.white,Color.black], ["x1 pts",Color.black,Color.green]]).action_({arg button;
 			~net_change_mult = ~net_change_mult_array.at(0);
 			rate_button_1.value = 1;
 			rate_button_2.value = 0;
@@ -261,7 +262,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 		});
 		rate_button_1.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		rate_button_2 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/5.29, ~firstviewboundsHEIGHT/3.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x4 pts",Color.white,Color.black], ["x4 pts",Color.black,Color.green]]).action_({arg button;
+		rate_button_2 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/5.29, ~firstviewboundsHEIGHT/3.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x2 pts",Color.white,Color.black], ["x2 pts",Color.black,Color.green]]).action_({arg button;
 			~net_change_mult = ~net_change_mult_array.at(1);
 			rate_button_1.value = 0;
 			rate_button_2.value = 1;
@@ -271,7 +272,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 		});
 		rate_button_2.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		rate_button_3 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/3.62, ~firstviewboundsHEIGHT/3.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x6 pts",Color.white,Color.black], ["x6 pts",Color.black,Color.green]]).action_({arg button;
+		rate_button_3 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/3.62, ~firstviewboundsHEIGHT/3.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x4 pts",Color.white,Color.black], ["x4 pts",Color.black,Color.green]]).action_({arg button;
 			~net_change_mult = ~net_change_mult_array.at(2);
 			rate_button_1.value = 0;
 			rate_button_2.value = 0;
@@ -291,7 +292,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 		});
 		rate_button_4.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		rate_button_5 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/2.2, ~firstviewboundsHEIGHT/3.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x12 pts",Color.white,Color.black], ["x12 pts",Color.black,Color.green]]).action_({arg button;
+		rate_button_5 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/2.2, ~firstviewboundsHEIGHT/3.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["x16 pts",Color.white,Color.black], ["x16 pts",Color.black,Color.green]]).action_({arg button;
 			~net_change_mult = ~net_change_mult_array.at(4);
 			rate_button_1.value = 0;
 			rate_button_2.value = 0;
@@ -311,7 +312,14 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 		});
 		rate_button_5.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		if(~net_change_mult == nil, {rate_button_5.valueAction = 0;}, {
+		if(~net_change_mult == nil, {
+			case
+			{~rate_button_default == ~net_change_mult_array.at(0);}{rate_button_1.valueAction = 0;}
+			{~rate_button_default == ~net_change_mult_array.at(1);}{rate_button_2.valueAction = 0;}
+			{~rate_button_default == ~net_change_mult_array.at(2);}{rate_button_3.valueAction = 0;}
+			{~rate_button_default == ~net_change_mult_array.at(3);}{rate_button_4.valueAction = 0;}
+			{~rate_button_default == ~net_change_mult_array.at(4);}{rate_button_5.valueAction = 0;}
+			}, {
 			case
 			{~net_change_mult == ~net_change_mult_array.at(0);}{rate_button_1.value = 1;}
 			{~net_change_mult == ~net_change_mult_array.at(1);}{rate_button_2.value = 1;}
@@ -323,7 +331,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 
 		ratepiecetext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.74571428571, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/14.55));
 		ratepiecetext.background=Color.white;
-		ratepiecetext.string = "^rate last "++(~auto_select_diff)++" seconds from current position in piece by clicking on a xpt rating above, and clicking "++"Rate".quote++". A higher point number equals a higher rating.";
+		ratepiecetext.string = "^rate last "++(~auto_select_diff)++" seconds from current position in piece by clicking on a xpt rating above, and clicking "++"Rate".quote++". Higher point # = faster training, but less fine-tuning.";
 		ratepiecetext.font = Font(size: ~firstviewboundsWIDTH/55);
 
 		rangeslider = EZRanger(~firstview, bounds: (Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.1951428571, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/21.85)), controlSpec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"), action: {
@@ -565,9 +573,9 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 
 		firstviewtext4 = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/7.528571428571, ~firstviewboundsWIDTH/1.0285714285714, ~firstviewboundsHEIGHT/0.54625));
 		firstviewtext4.background=maincolor;
-		firstviewtext4.string = "HOW TO PLAY A PIECE\n\nPlay a DuranDuranbot piece by clicking the "++"generate piece".quote++"  button on the Main Page, and then by clicking the "++"play piece".quote++"  button. Once random seeds are input into the program on the front page (the very first page of this program), you only need to generate a song once using the same random seeds. If you click on the "++"generate piece".quote++"  button more than once without inputting new random seeds the same piece will always be generated. To generate a new piece, you can go back to the first page and input new random seeds, or you can do this automatically by clicking on the "++"new random seeds".quote++" button across from the "++"generate piece".quote++" button on the right side of the main page. Or, you can quickly generate a new piece based on entirely new random seeds by simply clicking on the "++"quick new piece".quote++" button a few sets of buttons below the "++"generate piece".quote++" button. \n\nMACHINE LEARNING\n\nMachine learning is enabled by default, but you can disable it on the main page. Using the machine learning function allows for DuranDuranbot to learn what you prefer to hear in a piece by rating a piece, and to become better at composing music for you. On the Main Page, you can rate a piece by clicking on any of the point ratings and clicking "++"Rate".quote++". The rating system is currently set to rate the last "++(~auto_select_diff)++" seconds from your current position in the piece designated by where the time slider is positioned... Doing all of this will train DuranDuranbot how to compose music. All training data will be saved to the DuranDuranbot "++"ddbot_training_data".quote++" folder for future use.";
+		firstviewtext4.string = "HOW TO PLAY A PIECE\n\nPlay a DuranDuranbot piece by clicking the "++"generate piece".quote++"  button on the Main Page, and then by clicking the "++"play piece".quote++"  button. Once random seeds are input into the program on the front page (the very first page of this program), you only need to generate a song once using the same random seeds. If you click on the "++"generate piece".quote++"  button more than once without inputting new random seeds the same piece will always be generated. To generate a new piece, you can go back to the first page and input new random seeds, or you can do this automatically by clicking on the "++"new random seeds".quote++" button across from the "++"generate piece".quote++" button on the right side of the main page. Or, you can quickly generate a new piece based on entirely new random seeds by simply clicking on the "++"quick new piece".quote++" button a few sets of buttons below the "++"generate piece".quote++" button. \n\nMACHINE LEARNING\n\nMachine learning is enabled by default, but you can disable it on the main page. Using the machine learning function allows for you to teach DuranDuranbot what you prefer to hear in a piece by rating a piece, and for it become better at composing music for you. On the Main Page, you can rate a piece by clicking on any of the point ratings and clicking "++"Rate".quote++". The rating system is currently set to rate the last "++(~auto_select_diff)++" seconds from your current position in the piece designated by where the time slider is positioned... Doing all of this will train DuranDuranbot how to compose music. All training data will be saved to the DuranDuranbot "++"ddbot_training_data".quote++" folder for future use. Rating system works using weighted distribution. x16 pts - 80% weight for variable in 5 rates. x8 pts - 10 rates. x4 pts - 20 rates.... etc. Higher rating points equals faster training, but less fine-tuning.";
 		firstviewtext4.align = \topLeft;
-		firstviewtext4.font = Font(size: ~firstviewboundsWIDTH/51.428571428571);
+		firstviewtext4.font = Font(size: ~firstviewboundsWIDTH/51.2571428571);
 
 	};
 
@@ -607,7 +615,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 		/*~dna_choice_array = [~bit_duration*1, ~bit_duration*2, ~bit_duration*4, ~bit_duration*8, ~bit_duration*16, ~bit_duration*32, ~bit_duration*64];*/
 		/*~time_array = [0.25, 1, 2, 4];*/
 		~dna_choice_array_num = (1..~dna_choice_array.size);
-		~net_change = 0.01;
+		~net_change = 0.048;
 
 		/*("instrument_"++(1)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x)).postln
 
@@ -672,7 +680,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 						~diff2
 						~diff3*/
 
-						("inst"++(r)++" "++(~diff1)++" ").post;
+						(""++(~diff1)++" ").post;
 
 						/*("/other_program_files/ddbot_training_data/ddbot_interval_weights/"++(~player_array.wrapAt(r-1))++"__"++(~diff2)++"_"++(~diff3)++"_weights.scd").asString.postln;
 						*/
@@ -703,14 +711,13 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 		});*/
 
 
-		// (~net_change*12)
-		// y=0.083333333333333
-		// [ y=y+(0.01*12), 0.083333333333333, 0.083333333333333, 0.083333333333333,
-		// 	0.083333333333333, 0.083333333333333, 0.083333333333333, 0.083333333333333,
-		// 0.083333333333333, 0.083333333333333, 0.083333333333333, 0.083333333333333 ].normalizeSum
+		/*(~net_change*24);
+		y=0.083333333333333;
+		[ y=y+(~net_change*8), 0.083333333333333, 0.083333333333333, 0.083333333333333,
+			0.083333333333333, 0.083333333333333, 0.083333333333333, 0.083333333333333,
+			0.083333333333333, 0.083333333333333, 0.083333333333333, 0.083333333333333 ].normalizeSum;
 
-		/*
-		x=Array.fill(~interval_array.size, {1/~interval_array.size}).normalizeSum;*/
+		*/
 
 
 	/*	~number_of_instruments.do(w = 0; v = 0; {
@@ -888,13 +895,14 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 
 		if(~pause_piece == 1, {~playbutton.valueAction = 1});
 
+		if(ratedonetext != nil, {ratedonetext.close; ratedonetext = nil;});
 		ratedonetext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/3.063829787234, ~firstviewboundsHEIGHT/4.228571428571, ~firstviewboundsWIDTH/4.04545454545, ~firstviewboundsHEIGHT/21.85));
 		ratedonetext.background=Color.white;
 		ratedonetext.stringColor_(Color.black);
 		ratedonetext.string = "PIECE SELECTION RATED";
 		ratedonetext.font = Font(size: ~firstviewboundsWIDTH/55);
 
-		AppClock.sched(3, {ratedonetext.close;});
+		AppClock.sched(3, {if(ratedonetext != nil, {ratedonetext.close; ratedonetext = nil;});});
 
 	};
 
