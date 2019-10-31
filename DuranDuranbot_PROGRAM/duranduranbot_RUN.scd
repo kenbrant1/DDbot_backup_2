@@ -4,10 +4,40 @@
 Hello!
 
 To run this program... simply click once anywhere on this page,
-and press "cmd/ctrl - enter" on your keyboard.
+and press "ctrl - enter"/"cmd - return" on your keyboard.
 
 And if that does not work for some reason, click on the "Language" tab
 above, and click on "Evaluate File".
+
+...
+
+This AI music bot is designed to be trained. "Straight out of the box" it
+produces random sounds; but you can train it to sound according to
+your preferences. More information on how to train DuranDuranbot
+and how it learns can be found inside the "click here for instructions" page link
+found on the "Main Page" of the program after running it.
+
+...
+
+*If something goes wrong* - you can kill all sounds and processes by hitting "cmd/ctrl - period" on
+your keyboard... and if that doesn't work... you can reboot the interpreter
+by clicking on the "Language" tab and clicking "Reboot Interpreter", or by highlighting and evaluating (thisProcess.platform.recompile);
+and pressing "ctrl - enter"/"cmd - return". Doing this is also beneficial as a restarting or "clean up" method.
+
+...
+
+As of SuperCollider version 3.10.2 this program has been tested to work.
+If this program doesn't work for some reason or has bugs, you can try an older version of SuperCollider,
+.. or you can try to fix the issue(s) :) <3
+
+...
+
+DuranDuranbot, and any file packaged with it, is in the public domain.
+Anyone is able to use or edit them in any way, for any purpose.
+
+...
+
+contact email: ken_brant@ymail.com or kenbrant7@gmail.com
 
 */
 
@@ -17,8 +47,8 @@ above, and click on "Evaluate File".
 
 if(~number_of_instruments == nil, {~number_of_instruments = 3;}); //do not change
 ~bit_duration = 1/16;
-if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of seconds to rate a piece from current time backwards
-~rate_button_default = 8; // set default point rating at boot. Use point numbers. ex - 1, 2, 4, 8, or 16
+if(~auto_select_diff == nil, {~auto_select_diff = 8;}); // range of number of seconds to rate a piece from current time backwards
+~rate_button_default = 8; // set default point rating at boot. Available point numbers - 1, 2, 4, 8, or 16
 
 ~duranduranbot_GUI_func = {
 
@@ -26,7 +56,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 	randseedviewtext3, numerologynameEZText1, numerologynameEZText2, numerologynameEZText3, numerologynameviewtext1, numerologynameviewtext2, numerologynameviewtext3,
 	generatepiecebutton, playbutton, enterdatabasebutton, recordbutton, songtitletext, songtitlestatictext, piecedurationstatictext, machinelearningbutton, machinelearningtext,
 	onestarbutton,twostarbutton,threestarbutton,fourstarbutton,fivestarbutton, quicknewpiecebutton, quicknewpiecebutton_revert, quicknewpiecewait,
-	rate_button_1,rate_button_2,rate_button_3,rate_button_4,rate_button_5,rate_button_6, rate_button,ratepiecetext,ratedonetext, rangeslider,timeslider,timeslidertext,
+	rate_button_1,rate_button_2,rate_button_3,rate_button_4,rate_button_5,rate_button_6, rate_button,ratepiecetext,ratedonetext, /*rangeslider,*/timeslider,timeslidertext,
 	rate_selectionstatictext,ctrlperiodtext,
 	closeddbotbutton;
 	w = Window("DuranDuranbot",
@@ -44,14 +74,14 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 		~firstviewboundsHEIGHT = ~firstview.bounds.height;
 
 
-		firstviewtext1 = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/43.7, ~firstviewboundsWIDTH/1.0285714285714, ~firstviewboundsHEIGHT/3.4774535809019));
+		firstviewtext1 = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/43.7, ~firstviewboundsWIDTH/1.0285714285714, ~firstviewboundsHEIGHT/2.9774535809019));
 		firstviewtext1.background=maincolor;
 		firstviewtext1.string = "Hello. This is DuranDuranbot. \n\nTo enhance the creativity of this AI bot... please consider providing it with some personal creative inspiration of yours by entering 3 number values into the 3 fields below, numerical values up to 8 digits long, and hit Enter. Consider writing down the 3 values you gave it to be able to replicate exactly the music made by this AI in this specific instance at a later date - although they will still be saved in the "++"duranduranbot_saved_random _seeds.scd".quote++" file, accessible on the next page.";
 		firstviewtext1.align = \topLeft;
 		firstviewtext1.font = Font(size: ~firstviewboundsWIDTH/48);
 
 
-		randseedEZText1 = TextField(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/3, ~firstviewboundsWIDTH/4.2352941176471, ~firstviewboundsHEIGHT/21.85));
+		randseedEZText1 = TextField(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.6, ~firstviewboundsWIDTH/4.2352941176471, ~firstviewboundsHEIGHT/21.85));
 		randseedEZText1.string = "random seed 1";
 		randseedEZText1.background_(Color.black);
 		randseedEZText1.stringColor_(Color.white);
@@ -69,7 +99,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 			});
 		};
 
-		randseedEZText2 = TextField(~firstview, Rect(~firstviewboundsWIDTH/3.7894736842105, ~firstviewboundsHEIGHT/3, ~firstviewboundsWIDTH/4.2352941176471, ~firstviewboundsHEIGHT/21.85));
+		randseedEZText2 = TextField(~firstview, Rect(~firstviewboundsWIDTH/3.7894736842105, ~firstviewboundsHEIGHT/2.6, ~firstviewboundsWIDTH/4.2352941176471, ~firstviewboundsHEIGHT/21.85));
 		randseedEZText2.string = "random seed 2";
 		randseedEZText2.background_(Color.black);
 		randseedEZText2.stringColor_(Color.white);
@@ -87,7 +117,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 			});
 		};
 
-		randseedEZText3 = TextField(~firstview, Rect(~firstviewboundsWIDTH/1.8947368421053, ~firstviewboundsHEIGHT/3, ~firstviewboundsWIDTH/4.2352941176471, ~firstviewboundsHEIGHT/21.85));
+		randseedEZText3 = TextField(~firstview, Rect(~firstviewboundsWIDTH/1.8947368421053, ~firstviewboundsHEIGHT/2.6, ~firstviewboundsWIDTH/4.2352941176471, ~firstviewboundsHEIGHT/21.85));
 		randseedEZText3.string = "random seed 3";
 		randseedEZText3.background_(Color.black);
 		randseedEZText3.stringColor_(Color.white);
@@ -105,19 +135,19 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 			});
 		};
 
-		randseedviewtext1 = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.6063618290258, ~firstviewboundsWIDTH/4.2352941176471, ~firstviewboundsHEIGHT/21.85));
+		randseedviewtext1 = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.26, ~firstviewboundsWIDTH/4.2352941176471, ~firstviewboundsHEIGHT/21.85));
 		randseedviewtext1.background=maincolor;
 		randseedviewtext1.string = if(~randseed_1 != nil, {~randseed_1.asString++" entered"}, {"number not entered"});
 		randseedviewtext1.align = \topLeft;
 		randseedviewtext1.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		randseedviewtext2 = StaticText(~firstview, Rect(~firstviewboundsWIDTH/3.7894736842105,~firstviewboundsHEIGHT/2.6063618290258, ~firstviewboundsWIDTH/4.2352941176471, ~firstviewboundsHEIGHT/21.85));
+		randseedviewtext2 = StaticText(~firstview, Rect(~firstviewboundsWIDTH/3.7894736842105,~firstviewboundsHEIGHT/2.26, ~firstviewboundsWIDTH/4.2352941176471, ~firstviewboundsHEIGHT/21.85));
 		randseedviewtext2.background=maincolor;
 		randseedviewtext2.string = if(~randseed_2 != nil, {~randseed_2.asString++" entered"}, {"number not entered"});
 		randseedviewtext2.align = \topLeft;
 		randseedviewtext2.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		randseedviewtext3 = StaticText(~firstview, Rect(~firstviewboundsWIDTH/1.8947368421053, ~firstviewboundsHEIGHT/2.6063618290258, ~firstviewboundsWIDTH/4.2352941176471, ~firstviewboundsHEIGHT/21.85));
+		randseedviewtext3 = StaticText(~firstview, Rect(~firstviewboundsWIDTH/1.8947368421053, ~firstviewboundsHEIGHT/2.26, ~firstviewboundsWIDTH/4.2352941176471, ~firstviewboundsHEIGHT/21.85));
 		randseedviewtext3.background=maincolor;
 		randseedviewtext3.string = if(~randseed_3 != nil, {~randseed_3.asString++" entered"}, {"number not entered"});
 		randseedviewtext3.align = \topLeft;
@@ -302,7 +332,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 		});
 		rate_button_5.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		rate_button = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/3.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["Rate",Color.white,Color.black]]).action_({arg button;
+		rate_button = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/3.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21.85)).states_([["Rate",Color.white,Color.blue]]).action_({arg button;
 
 			q = FileReader.read(Document.current.dir++"/other_program_files/ddbot_machine_learning_on_off.scd");
 			2.do({q = q.at(0)});
@@ -319,7 +349,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 			{~rate_button_default == ~net_change_mult_array.at(2);}{rate_button_3.valueAction = 0;}
 			{~rate_button_default == ~net_change_mult_array.at(3);}{rate_button_4.valueAction = 0;}
 			{~rate_button_default == ~net_change_mult_array.at(4);}{rate_button_5.valueAction = 0;}
-			}, {
+		}, {
 			case
 			{~net_change_mult == ~net_change_mult_array.at(0);}{rate_button_1.value = 1;}
 			{~net_change_mult == ~net_change_mult_array.at(1);}{rate_button_2.value = 1;}
@@ -329,23 +359,23 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 		});
 
 
-		ratepiecetext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.74571428571, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/14.55));
+		ratepiecetext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.67571428571, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/14.55));
 		ratepiecetext.background=Color.white;
 		ratepiecetext.string = "^rate last "++(~auto_select_diff)++" seconds from current position in piece by clicking on a xpt rating above, and clicking "++"Rate".quote++". Higher point # = faster training, but less fine-tuning.";
 		ratepiecetext.font = Font(size: ~firstviewboundsWIDTH/55);
 
-		rangeslider = EZRanger(~firstview, bounds: (Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.1951428571, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/21.85)), controlSpec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"), action: {
-			|rangeselect|
-			var rate_selection_start1;
-			~rate_selection_start = (rangeselect.value.at(0)*(~instrument_1_full_pseq_array.size/~piecedur_secs));
-			rate_selection_start1 = ~rate_selection_start.roundUp;
-			if(rate_selection_start1 != ~rate_selection_start, {~rate_selection_start = rate_selection_start1-1});
-			~rate_selection_end = (rangeselect.value.at(1)*(~instrument_1_full_pseq_array.size/~piecedur_secs)).roundUp;
-			/*rangeselect.value.postln;*/
+		/*rangeslider = EZRanger(~firstview, bounds: (Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.1951428571, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/21.85)), controlSpec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"), action: {
+		|rangeselect|
+		var rate_selection_start1;
+		~rate_selection_start = (rangeselect.value.at(0)*(~instrument_1_full_pseq_array.size/~piecedur_secs));
+		rate_selection_start1 = ~rate_selection_start.roundUp;
+		if(rate_selection_start1 != ~rate_selection_start, {~rate_selection_start = rate_selection_start1-1});
+		~rate_selection_end = (rangeselect.value.at(1)*(~instrument_1_full_pseq_array.size/~piecedur_secs)).roundUp;
+		/*rangeselect.value.postln;*/
 
 		}, initVal: [0,if(~piecedur_secs != nil, {~piecedur_secs}, {0})]);
 		rangeslider.setColors(Color.grey,Color.white, Color.grey(0.7),Color.grey, Color.white, Color.yellow);
-		rangeslider.font = Font(size: ~firstviewboundsWIDTH/55);
+		rangeslider.font = Font(size: ~firstviewboundsWIDTH/55);*/
 
 		/*rate_selectionstatictext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.502222222222 /*~firstviewboundsHEIGHT/6.2428571428571*/, ~firstviewboundsWIDTH/2.7, ~firstviewboundsHEIGHT/21.85));
 		rate_selectionstatictext.background=Color.white;
@@ -354,24 +384,29 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 
 		if(~piece_position == nil, {~piece_position = 0});
 
-		timeslider = EZSlider(~firstview,  bounds: (Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.95222222222, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/21.85)), controlSpec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"), action: {
+		timeslider = EZSlider(~firstview,  bounds: (Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.073, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/21.85)), controlSpec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"), action: {
 			|timeselect|
 			var selection1;
 			~piece_position = timeselect.value*(~instrument_1_full_pseq_array.size/~piecedur_secs); // works
 			selection1 = ~piece_position.roundUp;
 			if(selection1 != ~piece_position, {~piece_position = selection1-1});
-			if(timeslider.value >= ~auto_select_diff, {rangeslider.valueAction = [timeslider.value-~auto_select_diff, timeslider.value]}, {rangeslider.valueAction = [0, timeslider.value]});
-			/*timeselect.value.postln;
+			/*if(timeslider.value >= ~auto_select_diff, {rangeslider.valueAction = [timeslider.value-~auto_select_diff, timeslider.value]}, {rangeslider.valueAction = [0, timeslider.value]});
+			*//*timeselect.value.postln;
 			~piece_position.postln;*/
+			if((~piecedur_secs_zero+1) != timeselect.value, {
+				~piecedur_secs_zero = timeselect.value;
+				~fullpiecedur_change = ((~piecedur_secs - ~piecedur_secs_zero)/60);
+				~dd_secs = ((~fullpiecedur_change-(~dd_mins = ~fullpiecedur_change.roundUp-1))*60).roundUp;
+			});
 
 		});
 		timeslider.setColors(Color.grey,Color.white);
 
-		if(~pause_piece != nil, {if(~pause_piece != 1,timeslider.valueAction = 0; {rangeslider.valueAction = [0, if(~piecedur_secs != nil, {~piecedur_secs}, {0});]});});
+		if(~pause_piece != nil, {if(~pause_piece != 1,timeslider.valueAction = 0; {/*rangeslider.valueAction = [0, if(~piecedur_secs != nil, {~piecedur_secs}, {0});]*/nil});});
 
 		/*if(~pause_piece == 0, {~piece_position = 0});*/
 
-		timeslidertext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.77222222222, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/22.55));
+		timeslidertext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.84, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/22.55));
 		timeslidertext.background=Color.white;
 		timeslidertext.string = "^jump to location in current piece by using the slider just above";
 		timeslidertext.font = Font(size: ~firstviewboundsWIDTH/55);
@@ -397,7 +432,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 
 		quicknewpiecebutton_revert = Button.new(~firstview, Rect(~firstviewboundsWIDTH/5.4, ~firstviewboundsHEIGHT/4.228571428571, ~firstviewboundsWIDTH/7.9454545454545, ~firstviewboundsHEIGHT/21.85)).states_([["revert piece",Color.white,Color.black],["revert piece",Color.white,Color.black]]).action_({arg button;
 			var quicknewpiecewait;
-			quicknewpiecewait = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.0228571, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/22.55));
+			quicknewpiecewait = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/9.5, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/22.55));
 			quicknewpiecewait.background_(Color.white);
 			quicknewpiecewait.stringColor_(Color.black);
 			quicknewpiecewait.string = "please wait";
@@ -482,12 +517,10 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 				"*make sure to hit "++"generate piece".quote++" to generate a new piece based on the new seeds"}, {""}));
 			z.postln;
 			currentrandomseedstrext.string = z;
-
-
 		});
 		reversenewrandomseedsbutton.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		currentrandomseedstrext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/1.4173228346457, ~firstviewboundsHEIGHT/4.6, ~firstviewboundsWIDTH/4, ~firstviewboundsHEIGHT/3.6416666666667));
+		currentrandomseedstrext = TextView(~firstview, Rect(~firstviewboundsWIDTH/1.4173228346457, ~firstviewboundsHEIGHT/4.6, ~firstviewboundsWIDTH/3.56, ~firstviewboundsHEIGHT/2.6));
 		currentrandomseedstrext.background=maincolor;
 		currentrandomseedstrext.string ="Current random seeds:\n"++
 		"randseed 1 - "++~randseed_1++"\n"++
@@ -495,10 +528,10 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 		"randseed 3 - "++~randseed_3.asString++(if(~quicknewpiecebutton != 1, {
 			"\n(also posted in post window)"++"\n"++
 			"*make sure to hit "++"generate piece".quote++" to generate a new piece based on the new seeds"}, {""}));
-		currentrandomseedstrext.align = \topLeft;
+		/*currentrandomseedstrext.align = \topLeft;*/
 		currentrandomseedstrext.font = Font(size: ~firstviewboundsWIDTH/58.384615384615);
 
-		see_saved_seeds_file_button = Button.new(~firstview, Rect(~firstviewboundsWIDTH/1.4173228346457, ~firstviewboundsHEIGHT/1.9422222222222, ~firstviewboundsWIDTH/4, ~firstviewboundsHEIGHT/21.85)).states_([["see saved random seeds",Color.white,Color.black],["see saved random seeds",Color.white,Color.black]]).action_({arg button;
+		see_saved_seeds_file_button = Button.new(~firstview, Rect(~firstviewboundsWIDTH/1.4173228346457, ~firstviewboundsHEIGHT/1.6, ~firstviewboundsWIDTH/4, ~firstviewboundsHEIGHT/21.85)).states_([["see saved random seeds",Color.white,Color.black],["see saved random seeds",Color.white,Color.black]]).action_({arg button;
 
 			h = Document.open(Document.current.dir++"/duranduranbot_saved_random_seeds.scd");
 
@@ -571,13 +604,51 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 		firstviewtext3.align = \topLeft;
 		firstviewtext3.font = Font(size: ~firstviewboundsWIDTH/65.454545454545);
 
-		firstviewtext4 = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/7.528571428571, ~firstviewboundsWIDTH/1.0285714285714, ~firstviewboundsHEIGHT/0.54625));
+		firstviewtext4 = TextView(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/7.528571428571, ~firstviewboundsWIDTH/1.0285714285714, ~firstviewboundsHEIGHT/1.2));
 		firstviewtext4.background=maincolor;
-		firstviewtext4.string = "HOW TO PLAY A PIECE\n\nPlay a DuranDuranbot piece by clicking the "++"generate piece".quote++"  button on the Main Page, and then by clicking the "++"play piece".quote++"  button. Once random seeds are input into the program on the front page (the very first page of this program), you only need to generate a song once using the same random seeds. If you click on the "++"generate piece".quote++"  button more than once without inputting new random seeds the same piece will always be generated. To generate a new piece, you can go back to the first page and input new random seeds, or you can do this automatically by clicking on the "++"new random seeds".quote++" button across from the "++"generate piece".quote++" button on the right side of the main page. Or, you can quickly generate a new piece based on entirely new random seeds by simply clicking on the "++"quick new piece".quote++" button a few sets of buttons below the "++"generate piece".quote++" button. \n\nMACHINE LEARNING\n\nMachine learning is enabled by default, but you can disable it on the main page. Using the machine learning function allows for you to teach DuranDuranbot what you prefer to hear in a piece by rating a piece, and for it become better at composing music for you. On the Main Page, you can rate a piece by clicking on any of the point ratings and clicking "++"Rate".quote++". The rating system is currently set to rate the last "++(~auto_select_diff)++" seconds from your current position in the piece designated by where the time slider is positioned... Doing all of this will train DuranDuranbot how to compose music. All training data will be saved to the DuranDuranbot "++"ddbot_training_data".quote++" folder for future use. Rating system works using weighted distribution. x16 pts - 80% weight for variable in 5 rates. x8 pts - 10 rates. x4 pts - 20 rates.... etc. Higher rating points equals faster training, but less fine-tuning.";
-		firstviewtext4.align = \topLeft;
-		firstviewtext4.font = Font(size: ~firstviewboundsWIDTH/51.2571428571);
+		firstviewtext4.string = "(Scroll down for more)\n\nHOW TO PLAY A PIECE\n\nPlay a DuranDuranbot piece by clicking the "++"generate piece".quote++"  button on the Main Page, and then by clicking the "++"play piece".quote++"  button. Once random seeds are input into the program on the front page (the very first page of this program), you only need to generate a song once using the same random seeds. If you click on the "++"generate piece".quote++"  button more than once without inputting new random seeds the same piece will always be generated. To generate a new piece, you can go back to the first page and input new random seeds, or you can do this automatically by clicking on the "++"new random seeds".quote++" button across from the "++"generate piece".quote++" button on the right side of the main page. Or, you can quickly generate a new piece based on entirely new random seeds by simply clicking on the "++"quick new piece".quote++" button a few sets of buttons below the "++"generate piece".quote++" button. \n\nMACHINE LEARNING\n\nMachine learning is enabled by default, but you can disable it on the main page. Using the machine learning function allows for you to teach DuranDuranbot what you prefer to hear in a piece by rating a piece, and for it become better at composing music for you. On the Main Page, you can rate a piece by clicking on any of the point ratings and clicking "++"Rate".quote++". The rating system is currently set to rate the last "++(~auto_select_diff)++" seconds from your current position in the piece designated by where the time slider is positioned... Doing all of this will train DuranDuranbot how to compose music. All training data will be saved to the DuranDuranbot "++"ddbot_training_data".quote++" folder for future use.\n\nDDbot's machine learning system utilizes mathematical weights to compose/learn to compose music. For instance, a piece compostition variable might be a note interval, and each note interval (1 step, 2 steps) would have a weight assigned to it in a given situation... and DDbot would choose an interval by comparing the weight values of each interval in a given situation, *tending* to choose a higher weighted variable using weighted probability. When you rate a section of a piece while using DDbot, a variable in a given situation is rewarded with points as to increase the value of it's weight. The more points you give a variable, the more chance it will be used in a piece composition. How powerful each xpt rating is - x16 pts is 80% weighted chance for variable in 5 reward instances for that variable... x8 pts is 80% weighted chance for variable in 10 reward instances. x4 pts is 80% weighted chance for variable in 20 reward instances.... and so on in that same pattern. Put simply, a higher rating point value equals faster training of DDbot, but less fine-tuning.\n\n\n\nIf you have any questions, please feel free to contact -\n\nken_brant@ymail.com\n\nor\n\nkenbrant7@gmail.com";
+		firstviewtext4.font = Font(size: ~firstviewboundsWIDTH/48);
 
 	};
+
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	// HOTKEYS
+
+	~spacebar_unicode = 32; //pause DDbot
+
+	w.view.keyDownAction = { arg view, char, modifiers, unicode, keycode;
+		[char, modifiers, unicode, keycode];
+
+		//pause/unpause synth
+		if(unicode == ~spacebar_unicode, {
+			if(~duranduranbot_routine.isPlaying == true, {
+				if(~pause_piece == 0, {~playbutton.valueAction = 0});
+				if(~pause_piece == 1, {~playbutton.valueAction = 1});
+			});
+		});
+	};
+
+	//To find key codes in post window... Hightlight the function and its parenthesis (without the /* and */) in red below,
+	//and press "ctrl - enter" or "cmd - return" - then a small window called "test" will pop up in the taskbar...
+	//Press the "type" button inside of the window, then press anywhere on the keyboard to find
+	//the key codes in the right-hand side post window. Layout: [unicode, keycode, modifiers]. It is either a unicode
+	//or a keycode. Do not permanently delete the /* and */ characters, or else the
+	//program will not run.
+
+	/*
+
+	(
+	var win = Window(\test, Rect(10, 100, 100, 50)),
+	btn = Button(win, Rect(5, 5, 90, 40)).states_([["type"]]);
+	btn.keyDownAction =
+	{ arg view, char, modifiers, unicode, keycode;
+	["unicode:"+unicode, "keycode:"+keycode, "modifiers:"+modifiers].postln;
+	};
+	win.front;
+	)
+
+	*/
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -617,27 +688,30 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 		~dna_choice_array_num = (1..~dna_choice_array.size);
 		~net_change = 0.048;
 
-		/*("instrument_"++(1)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x)).postln
+		/*
+		x=0; 128.do({("instrument_"++(1)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x=x+1)).postln});
+		x=0; 128.do({("instrument_"++(2)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x=x+1)).postln})
+		x=0; 128.do({("instrument_"++(3)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x=x+1)).postln})
 
 		("instrument_"++(1)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1)).postln;
 		("instrument_"++(2)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1)).postln;
 		("instrument_"++(3)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1)).postln;*/
 
 		/*("instrument_"++(1)++"_full_pseq_array_midi").asSymbol.envirPut(
-			[56,56,56,56,56,56,56,56,56,56,76,76,76,76,76,76,0,0,0,0,0,0,0,0,66,66,66,66,66,66,66,66,66,66,66,66,66,66,66]
+		[56,56,56,56,56,56,56,56,56,56,76,76,76,76,76,76,0,0,0,0,0,0,0,0,66,66,66,66,66,66,66,66,66,66,66,66,66,66,66]
 		);
 		("instrument_"++(2)++"_full_pseq_array_midi").asSymbol.envirPut(
-			[45,45,45,45,45,45,45,0,0,0,0,0,0,0,0,0,0,68,68,68,68,68,68,68,68,68,55,55,55,55,75,75,75,75,75,75,75,75]
+		[45,45,45,45,45,45,45,0,0,0,0,0,0,0,0,0,0,68,68,68,68,68,68,68,68,68,55,55,55,55,75,75,75,75,75,75,75,75]
 		);
 		("instrument_"++(3)++"_full_pseq_array_midi").asSymbol.envirPut(
-			[87,87,87,87,87,87,87,87,87,96,96,96,96,96,96,0,0,0,0,0,0,79,79,79,79,75,75,75,75,75,75,75,71,71,71,71,71,71]
+		[87,87,87,87,87,87,87,87,87,96,96,96,96,96,96,0,0,0,0,0,0,79,79,79,79,75,75,75,75,75,75,75,71,71,71,71,71,71]
 		);
 		~number_of_instruments = 3;
 		~rate_selection_start = 0;
 		~rate_selection_end = ("instrument_"++(1)++"_full_pseq_array_midi").asSymbol.envirGet - 1;
 		~inst_array = [1,2,3];*/
 
-
+		/*~machine_learning_func.value;*/
 
 
 		// create back up func. write to 2 different folders.
@@ -647,14 +721,14 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 			("intervals written -").post;
 			("\n").post;
 
-			~number_of_instruments.do(r = 0; {
+			~number_of_instruments.do(r = 0; {var freqmidinum;
 				r=r+1;
 				~inst_num = r;
 				(~rate_selection_end-~rate_selection_start).do(x = 0; {
 					x=x+1;
 					j = ("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1));
 					v = ("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+x);
-					if(((v != j) and: (v != 0) and: (j != 0) and: (j != nil)), {
+					if(((v != j) and: (v != 0) and: (j != 0) and: (j != nil)), {freqmidinum = v;
 						u = 0;
 						("diff"++(u=u+1)).asSymbol.envirPut(
 							e = v - j;
@@ -680,15 +754,15 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 						~diff2
 						~diff3*/
 
-						(""++(~diff1)++" ").post;
+						((r.asString)++"-"++(freqmidinum.asString)++"-"++(~diff1)++" ").post;
 
-						/*("/other_program_files/ddbot_training_data/ddbot_interval_weights/"++(~player_array.wrapAt(r-1))++"__"++(~diff2)++"_"++(~diff3)++"_weights.scd").asString.postln;
+						/*("/other_program_files/ddbot_training_data_folder/ddbot_training_data_current/ddbot_interval_weights/"++(~player_array.wrapAt(r-1))++"__"++(~diff2)++"_"++(~diff3)++"_weights.scd").asString.postln;
 						*/
-						h = FileReader.read(Document.current.dir++"/other_program_files/ddbot_training_data/ddbot_interval_weights/"++(~player_array.wrapAt(r-1))++"__"++(~diff2)++"_"++(~diff3)++"_weights.scd", false, true);
+						h = FileReader.read(Document.current.dir++"/other_program_files/ddbot_training_data_folder/ddbot_training_data_current/ddbot_interval_weights/"++(~player_array.wrapAt(r-1))++"__"++(~diff2)++"_"++(~diff3)++"_weights.scd", false, true);
 						h = h.flatten.asFloat;
 						h.put(~diff1-1, (h.at(~diff1-1) + (~net_change*~net_change_mult)));
 						h = h.normalizeSum;
-						g = File(Document.current.dir++"/other_program_files/ddbot_training_data/ddbot_interval_weights/"++(~player_array.wrapAt(r-1))++"__"++(~diff2)++"_"++(~diff3)++"_weights.scd", "w");
+						g = File(Document.current.dir++"/other_program_files/ddbot_training_data_folder/ddbot_training_data_current/ddbot_interval_weights/"++(~player_array.wrapAt(r-1))++"__"++(~diff2)++"_"++(~diff3)++"_weights.scd", "w");
 						~interval_array.size.do(s = (-1); {g.write(h.at(s=s+1).asString++" ");});
 						g.close;
 					});
@@ -702,7 +776,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 		y=y+1;
 		(~interval_array.size+1).do(z = (-1); {
 		("player_"++(w)++"__"++(y)++"_"++(z=z+1)++"_weights").asSymbol.envirPut(Array.fill(~interval_array.size, {1/~interval_array.size}).normalizeSum;);
-		g = File(Document.current.dir++"/other_program_files/ddbot_training_data/ddbot_interval_weights/player_"++(w)++"__"++(y)++"_"++(z)++"_weights.scd", "w");
+		g = File(Document.current.dir++"/other_program_files/ddbot_training_data_folder/ddbot_training_data_current/ddbot_interval_weights/player_"++(w)++"__"++(y)++"_"++(z)++"_weights.scd", "w");
 		~interval_array.size.do(s = (-1); {g.write(("player_"++(w)++"__"++(y)++"_"++(z)++"_weights").asSymbol.envirGet.at(s=s+1).asString++" ");});
 		g.close;
 		v=v+1; v.postln;
@@ -714,33 +788,33 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 		/*(~net_change*24);
 		y=0.083333333333333;
 		[ y=y+(~net_change*8), 0.083333333333333, 0.083333333333333, 0.083333333333333,
-			0.083333333333333, 0.083333333333333, 0.083333333333333, 0.083333333333333,
-			0.083333333333333, 0.083333333333333, 0.083333333333333, 0.083333333333333 ].normalizeSum;
+		0.083333333333333, 0.083333333333333, 0.083333333333333, 0.083333333333333,
+		0.083333333333333, 0.083333333333333, 0.083333333333333, 0.083333333333333 ].normalizeSum;
 
 		*/
 
 
-	/*	~number_of_instruments.do(w = 0; v = 0; {
-			w=w+1;
-			(~interval_array.size+1).do(y = (-1); {
-				y=y+1;
-				(~interval_array.size+1).do(z = (-1); {
-					z=z+1;
-					(~time_array.size+1).do(a = (-1); {
-						a=a+1;
-						(~time_array.size+1).do(b = (-1); {
-							b=b+1;
-							(~time_array.size+1).do(c = (-1); {
-								("player_"++(w)++"__"++(y)++"_"++(z)++"__"++(a)++"_"++(b)++"_"++(c=c+1)).asSymbol.envirPut(Array.fill(~interval_array.size, {1/~interval_array.size}).normalizeSum;);
-								g = File(Document.current.dir++"/other_program_files/ddbot_weights/player_"++(w)++"__"++(y)++"_"++(z)++"__"++(a)++"_"++(b)++"_"++(c)++".scd", "w");
-								~interval_array.size.do(s = (-1); {g.write(("player_"++(w)++"__"++(y)++"_"++(z)++"__"++(a)++"_"++(b)++"_"++(c)).asSymbol.envirGet.at(s=s+1).asString++" ");});
-								g.close;
-								v=v+1; v.postln;
-							});
-						});
-					});
-				});
-			});
+		/*	~number_of_instruments.do(w = 0; v = 0; {
+		w=w+1;
+		(~interval_array.size+1).do(y = (-1); {
+		y=y+1;
+		(~interval_array.size+1).do(z = (-1); {
+		z=z+1;
+		(~time_array.size+1).do(a = (-1); {
+		a=a+1;
+		(~time_array.size+1).do(b = (-1); {
+		b=b+1;
+		(~time_array.size+1).do(c = (-1); {
+		("player_"++(w)++"__"++(y)++"_"++(z)++"__"++(a)++"_"++(b)++"_"++(c=c+1)).asSymbol.envirPut(Array.fill(~interval_array.size, {1/~interval_array.size}).normalizeSum;);
+		g = File(Document.current.dir++"/other_program_files/ddbot_weights/player_"++(w)++"__"++(y)++"_"++(z)++"__"++(a)++"_"++(b)++"_"++(c)++".scd", "w");
+		~interval_array.size.do(s = (-1); {g.write(("player_"++(w)++"__"++(y)++"_"++(z)++"__"++(a)++"_"++(b)++"_"++(c)).asSymbol.envirGet.at(s=s+1).asString++" ");});
+		g.close;
+		v=v+1; v.postln;
+		});
+		});
+		});
+		});
+		});
 		});*/
 
 
@@ -768,14 +842,15 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 			("bit durations written -").post;
 			("\n").post;
 
-			1.do(r = 0; {
+			~number_of_instruments.do(r = 0; {var freqmidinum;
 				r=r+1;
 				~inst_num = r;
 				(~rate_selection_end-~rate_selection_start).do(x = 0; {
 					x=x+1;
 					j = ("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1));
 					v = ("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+x);
-					if(v != j, {k = 0; c = (~rate_selection_start+(x)); u = 0;
+					if(v != j, {freqmidinum = v;
+						k = 0; c = (~rate_selection_start+(x)); u = 0;
 						while({
 							("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(c=c-1) ==
 							("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1))
@@ -807,13 +882,12 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 							t=t-1;
 						});
 
-
 						/*~length1.postln;*/
 						/*~length1
 						~length2
 						~length3
 						~length4
-*/
+						*/
 						/*~diff1
 						~diff2
 						~diff3*/
@@ -855,14 +929,15 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 
 						// don't think ~lengthplace matters with players. doesn't work like that in inst_clock_func.
 
-						(""++(~length1)++" ").post;
-						/*("/other_program_files/ddbot_training_data/ddbot_time_weights/"++(~player_array.wrapAt(r-1))++"__"++(~lengthplace2)++"_"++(~lengthplace3)++"_"++(~lengthplace4)++"_time_weights.scd").asString.postln;
+						((r.asString)++"-"++(freqmidinum.asString)++"-"++(~length1)++" ").post;
+
+						/*("/other_program_files/ddbot_training_data_folder/ddbot_training_data_current/ddbot_time_weights/"++(~player_array.wrapAt(r-1))++"__"++(~lengthplace2)++"_"++(~lengthplace3)++"_"++(~lengthplace4)++"_time_weights.scd").asString.postln;
 						*/
-						h = FileReader.read(Document.current.dir++"/other_program_files/ddbot_training_data/ddbot_time_weights/"++(~player_array.wrapAt(r-1))++"__"++(~lengthplace2)++"_"++(~lengthplace3)++"_"++(~lengthplace4)++"_time_weights.scd", false, true);
+						h = FileReader.read(Document.current.dir++"/other_program_files/ddbot_training_data_folder/ddbot_training_data_current/ddbot_time_weights/"++(~player_array.wrapAt(r-1))++"__"++(~lengthplace2)++"_"++(~lengthplace3)++"_"++(~lengthplace4)++"_time_weights.scd", false, true);
 						h = h.flatten.asFloat;
 						h.put(~lengthplace1, (h.at(~lengthplace1) + (~net_change*~net_change_mult)));
 						h = h.normalizeSum;
-						g = File(Document.current.dir++"/other_program_files/ddbot_training_data/ddbot_time_weights/"++(~player_array.wrapAt(r-1))++"__"++(~lengthplace2)++"_"++(~lengthplace3)++"_"++(~lengthplace4)++"_time_weights.scd", "w");
+						g = File(Document.current.dir++"/other_program_files/ddbot_training_data_folder/ddbot_training_data_current/ddbot_time_weights/"++(~player_array.wrapAt(r-1))++"__"++(~lengthplace2)++"_"++(~lengthplace3)++"_"++(~lengthplace4)++"_time_weights.scd", "w");
 						~dna_choice_array.size.do(s = (-1); {g.write(h.at(s=s+1).asString++" ");});
 						g.close;
 					});
@@ -880,7 +955,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 		y=y+1;
 		(~time_array.size+1).do(z = (-1); {
 		("player_"++(w)++"__"++(x)++"_"++(y)++"_"++(z=z+1)++"_time_weights").asSymbol.envirPut(Array.fill(~dna_choice_array.size, {1/~dna_choice_array.size}).normalizeSum;);
-		g = File(Document.current.dir++"/other_program_files/ddbot_training_data/ddbot_time_weights/player_"++(w)++"__"++(x)++"_"++(y)++"_"++(z)++"_time_weights.scd", "w");
+		g = File(Document.current.dir++"/other_program_files/ddbot_training_data_folder/ddbot_training_data_current/ddbot_time_weights/player_"++(w)++"__"++(x)++"_"++(y)++"_"++(z)++"_time_weights.scd", "w");
 		~dna_choice_array.size.do(s = (-1); {g.write(("player_"++(w)++"__"++(x)++"_"++(y)++"_"++(z)++"_time_weights").asSymbol.envirGet.at(s=s+1).asString++" ");});
 		g.close;
 		v=v+1; v.postln;
@@ -893,16 +968,18 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 
 
 
-		if(~pause_piece == 1, {~playbutton.valueAction = 1});
+		AppClock.sched(0.5, {
+			if(~pause_piece == 1, {~playbutton.valueAction = 1});
 
-		if(ratedonetext != nil, {ratedonetext.close; ratedonetext = nil;});
-		ratedonetext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/3.063829787234, ~firstviewboundsHEIGHT/4.228571428571, ~firstviewboundsWIDTH/4.04545454545, ~firstviewboundsHEIGHT/21.85));
-		ratedonetext.background=Color.white;
-		ratedonetext.stringColor_(Color.black);
-		ratedonetext.string = "PIECE SELECTION RATED";
-		ratedonetext.font = Font(size: ~firstviewboundsWIDTH/55);
+			if(ratedonetext != nil, {ratedonetext.close; ratedonetext = nil;});
+			ratedonetext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/3.063829787234, ~firstviewboundsHEIGHT/4.228571428571, ~firstviewboundsWIDTH/4.04545454545, ~firstviewboundsHEIGHT/21.85));
+			ratedonetext.background=Color.white;
+			ratedonetext.stringColor_(Color.black);
+			ratedonetext.string = "PIECE SELECTION RATED";
+			ratedonetext.font = Font(size: ~firstviewboundsWIDTH/55);
 
-		AppClock.sched(3, {if(ratedonetext != nil, {ratedonetext.close; ratedonetext = nil;});});
+			AppClock.sched(3, {if(ratedonetext != nil, {ratedonetext.close; ratedonetext = nil;});});
+		});
 
 	};
 
@@ -913,7 +990,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 	~piece_generator_func = {
 
 		// THERE IS A POINT TO USING BIT-BY-BIT CIRCULAR COMPOSITION ( https://scsynth.org/t/bit-by-bit-circular-composition/1107 )
-		// Not using it, DDbot player can't compose based on everyone else, for the player isn't composing is parallel.
+		// Not using it, DDbot player can't compose based on everyone else, for the player isn't composing in parallel.
 		// Players NEED to be composing in parallel with everyone else... On the "same track".
 
 		(
@@ -948,50 +1025,50 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 
 					("instrument_"++(~inst_num)++"_array_part_"++(~part_num)).asSymbol.envirPut(
 						("instrument_"++(~inst_num)++"_array_part_"++(~part_num)).asSymbol.envirGet.add(
-/*if(~inst_num == 3, {("dna_clock_"++(3)++"_choice").asSymbol.envirGet.postln});*/
+							/*if(~inst_num == 3, {("dna_clock_"++(3)++"_choice").asSymbol.envirGet.postln});*/
 							if(~dna_clock == ("dna_clock_"++(~inst_num)++"_choice").asSymbol.envirGet, {
 
 								("dna_clock_"++(~inst_num)).asSymbol.envirPut(0);
 
-/*if(~inst_num == 3, {("instrument_"++(3)++"_freq").asSymbol.envirGet.postln;});*/
+								/*if(~inst_num == 3, {("instrument_"++(3)++"_freq").asSymbol.envirGet.postln;});*/
 
-							/*	if(~inst_num == 3, {("dna_clock_"++(3)++"_choice").asSymbol.envirGet});*/
-									("instrument_"++(~inst_num)++"_if_zero").asSymbol.envirPut("false");
+								/*	if(~inst_num == 3, {("dna_clock_"++(3)++"_choice").asSymbol.envirGet});*/
+								("instrument_"++(~inst_num)++"_if_zero").asSymbol.envirPut("false");
 
-									//find new interval for current instrument
+								//find new interval for current instrument
 
-									~clock_diff_1 = ("instrument_"++(~inst_array.wrapAt(~inst_num-1))++"_freq").asSymbol.envirGet - ("instrument_"++(~inst_array.wrapAt(~inst_num))++"_freq").asSymbol.envirGet;
-									if(~clock_diff_1.isFloat == true, {~clock_diff_1 = ~clock_diff_1.round});
-									if(~clock_diff_1.isNegative == true, {~clock_diff_1 = ~clock_diff_1.neg});
-									while({~clock_diff_1 > 12}, {~clock_diff_1 = ~clock_diff_1 - 12});
-									~clock_diff_2 = ("instrument_"++(~inst_array.wrapAt(~inst_num-1))++"_freq").asSymbol.envirGet - ("instrument_"++(~inst_array.wrapAt(~inst_num+1))++"_freq").asSymbol.envirGet;
-									if(~clock_diff_2.isFloat == true, {~clock_diff_2 = ~clock_diff_2.round});
-									if(~clock_diff_2.isNegative == true, {~clock_diff_2 = ~clock_diff_2.neg});
-									while({~clock_diff_2 > 12}, {~clock_diff_2 = ~clock_diff_2 - 12});
+								~clock_diff_1 = ("instrument_"++(~inst_array.wrapAt(~inst_num-1))++"_freq").asSymbol.envirGet - ("instrument_"++(~inst_array.wrapAt(~inst_num))++"_freq").asSymbol.envirGet;
+								if(~clock_diff_1.isFloat == true, {~clock_diff_1 = ~clock_diff_1.round});
+								if(~clock_diff_1.isNegative == true, {~clock_diff_1 = ~clock_diff_1.neg});
+								while({~clock_diff_1 > 12}, {~clock_diff_1 = ~clock_diff_1 - 12});
+								~clock_diff_2 = ("instrument_"++(~inst_array.wrapAt(~inst_num-1))++"_freq").asSymbol.envirGet - ("instrument_"++(~inst_array.wrapAt(~inst_num+1))++"_freq").asSymbol.envirGet;
+								if(~clock_diff_2.isFloat == true, {~clock_diff_2 = ~clock_diff_2.round});
+								if(~clock_diff_2.isNegative == true, {~clock_diff_2 = ~clock_diff_2.neg});
+								while({~clock_diff_2 > 12}, {~clock_diff_2 = ~clock_diff_2 - 12});
 
-									(~number_of_instruments-1).do(u = 0; {
-										u=u+1;
-										("clock_diff_"++(u)).asSymbol.envirPut(("clock_diff_"++(u)).asSymbol.envirGet.round.asInteger;);
-									});
+								(~number_of_instruments-1).do(u = 0; {
+									u=u+1;
+									("clock_diff_"++(u)).asSymbol.envirPut(("clock_diff_"++(u)).asSymbol.envirGet.round.asInteger;);
+								});
 
-									~intv_weights = FileReader.read(Document.current.dir++"/other_program_files/ddbot_training_data/ddbot_interval_weights/"++(~player_array.wrapAt(~inst_num-1))++"__"++(~clock_diff_1)++"_"++(~clock_diff_2)++"_weights.scd", false, true);
-									~intv_weights = ~intv_weights.flatten.asFloat;
-									~intv_weights = ~intv_weights.normalizeSum;
-									~new_interval = ~interval_array.wchoose(~intv_weights);
-									~new_interval = [~new_interval, ~new_interval.neg].choose;
+								~intv_weights = FileReader.read(Document.current.dir++"/other_program_files/ddbot_training_data_folder/ddbot_training_data_current/ddbot_interval_weights/"++(~player_array.wrapAt(~inst_num-1))++"__"++(~clock_diff_1)++"_"++(~clock_diff_2)++"_weights.scd", false, true);
+								~intv_weights = ~intv_weights.flatten.asFloat;
+								~intv_weights = ~intv_weights.normalizeSum;
+								~new_interval = ~interval_array.wchoose(~intv_weights);
+								~new_interval = [~new_interval, ~new_interval.neg].choose;
 
-									("instrument_"++(~inst_num)++"_freq").asSymbol.envirPut(("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet + ~new_interval);
+								("instrument_"++(~inst_num)++"_freq").asSymbol.envirPut(("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet + ~new_interval);
 
-									if(((("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet > 90) or: (("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet < 55)), {
-										while({("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet > 90}, {("instrument_"++(~inst_num)++"_freq").asSymbol.envirPut(("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet-12)});
-										while({("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet < 55}, {("instrument_"++(~inst_num)++"_freq").asSymbol.envirPut(("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet+12)});
-									});
+								if(((("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet > 90) or: (("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet < 55)), {
+									while({("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet > 90}, {("instrument_"++(~inst_num)++"_freq").asSymbol.envirPut(("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet-12)});
+									while({("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet < 55}, {("instrument_"++(~inst_num)++"_freq").asSymbol.envirPut(("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet+12)});
+								});
 
-									//find new bit duration for current instrument
+								//find new bit duration for current instrument
 
-									(~number_of_instruments).do(e = 0; {
-										e=e+1;
-										case
+								(~number_of_instruments).do(e = 0; {
+									e=e+1;
+									case
 									{(("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_choice").asSymbol.envirGet*~bit_duration >= ~time_array.at(0)) and: (("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_choice").asSymbol.envirGet*~bit_duration <= ~time_array.at(1))}{if((("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_choice").asSymbol.envirGet*~bit_duration < (~time_array.at(0)+~time_array.at(1)/2)), {("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_place").asSymbol.envirPut(0)}, {("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_place").asSymbol.envirPut(1)})}
 									{(("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_choice").asSymbol.envirGet*~bit_duration >= ~time_array.at(1)) and: (("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_choice").asSymbol.envirGet*~bit_duration <= ~time_array.at(2))}{if((("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_choice").asSymbol.envirGet*~bit_duration < (~time_array.at(1)+~time_array.at(2)/2)), {("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_place").asSymbol.envirPut(1)}, {("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_place").asSymbol.envirPut(2)})}
 									{(("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_choice").asSymbol.envirGet*~bit_duration >= ~time_array.at(2)) and: (("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_choice").asSymbol.envirGet*~bit_duration <= ~time_array.at(3))}{if((("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_choice").asSymbol.envirGet*~bit_duration < (~time_array.at(2)+~time_array.at(3)/2)), {("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_place").asSymbol.envirPut(2)}, {("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_place").asSymbol.envirPut(3)})}
@@ -1000,22 +1077,22 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 									{(("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_choice").asSymbol.envirGet*~bit_duration >= ~time_array.at(5)) and: (("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_choice").asSymbol.envirGet*~bit_duration <= ~time_array.at(6))}{if((("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_choice").asSymbol.envirGet*~bit_duration < (~time_array.at(5)+~time_array.at(6)/2)), {("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_place").asSymbol.envirPut(5)}, {("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_place").asSymbol.envirPut(6)})}
 									{(("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_choice").asSymbol.envirGet*~bit_duration >= ~time_array.at(6)) and: (("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_choice").asSymbol.envirGet*~bit_duration <= ~time_array.at(7))}{if((("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_choice").asSymbol.envirGet*~bit_duration < (~time_array.at(6)+~time_array.at(7)/2)), {("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_place").asSymbol.envirPut(6)}, {("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_place").asSymbol.envirPut(7)})}
 									{(("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_choice").asSymbol.envirGet*~bit_duration >= ~time_array.at(7))}{("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+e))++"_place").asSymbol.envirPut(7)};
-									});
+								});
 
 
-									/*
-									("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+2))++"_choice").asSymbol.envirGet
-									("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+2))++"_place").asSymbol.envirGet
-									*/
+								/*
+								("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+2))++"_choice").asSymbol.envirGet
+								("dna_clock_"++(~inst_array.wrapAt(~inst_num-1+2))++"_place").asSymbol.envirGet
+								*/
 
-									~time_weights = FileReader.read(Document.current.dir++"/other_program_files/ddbot_training_data/ddbot_time_weights/"++(~player_array.wrapAt(~inst_num-1))++"__"++(("dna_clock_"++(~inst_array.wrapAt(~inst_num-1))++"_place").asSymbol.envirGet)++"_"++(("dna_clock_"++(~inst_array.wrapAt(~inst_num))++"_place").asSymbol.envirGet)++"_"++(("dna_clock_"++(~inst_array.wrapAt(~inst_num+1))++"_place").asSymbol.envirGet)++"_time_weights.scd", false, true);
-									~time_weights = ~time_weights.flatten.asFloat;
-									~time_weights = ~time_weights.normalizeSum;
-									~new_time = ~dna_choice_array.wchoose(~time_weights);
+								~time_weights = FileReader.read(Document.current.dir++"/other_program_files/ddbot_training_data_folder/ddbot_training_data_current/ddbot_time_weights/"++(~player_array.wrapAt(~inst_num-1))++"__"++(("dna_clock_"++(~inst_array.wrapAt(~inst_num-1))++"_place").asSymbol.envirGet)++"_"++(("dna_clock_"++(~inst_array.wrapAt(~inst_num))++"_place").asSymbol.envirGet)++"_"++(("dna_clock_"++(~inst_array.wrapAt(~inst_num+1))++"_place").asSymbol.envirGet)++"_time_weights.scd", false, true);
+								~time_weights = ~time_weights.flatten.asFloat;
+								~time_weights = ~time_weights.normalizeSum;
+								~new_time = ~dna_choice_array.wchoose(~time_weights);
 
-									("dna_clock_"++(~inst_num)++"_choice").asSymbol.envirPut(~new_time);
+								("dna_clock_"++(~inst_num)++"_choice").asSymbol.envirPut(~new_time);
 
-									~put1 = ("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet;
+								~put1 = ("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet;
 
 								/*if(~inst_num == 3, {("instrument_"++(3)++"_freq").asSymbol.envirGet.postln;});*/
 
@@ -1050,7 +1127,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 					thisThread.randSeed = ~randseed_2;
 
 					~part_bit_size = 64;
-					~max_number_of_parts = 200; //max 100 parts. random probability choice decreases linearly from "~max_number_of_parts" value to 1.
+					~max_number_of_parts = 200; //max 200 parts. random probability choice decreases linearly from "~max_number_of_parts" value to 1.
 					~number_of_parts_in_piece = (~max_number_of_parts.linrand - ~max_number_of_parts).neg;
 
 					~create_piece_routine = Routine({
@@ -1175,8 +1252,8 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 										~fullpiecedur = ("piece length - "++(~piecedur_secs.asInteger.asString)++" secs ("++(~dd_mins.asInteger.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asInteger.asString)++" mins)");
 										piecedurationstatictext.string = ~fullpiecedur;
 										("\npiece duration: \n"++((~dd_mins.asInteger.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asInteger.asString))++" minutes";).postln;
-										rangeslider.set(spec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"), initVal: [0,if(~piecedur_secs != nil, {~piecedur_secs}, {0})]);
-										timeslider.set(spec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"));
+										/*rangeslider.set(spec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"), initVal: [0,if(~piecedur_secs != nil, {~piecedur_secs}, {0})]);
+										*/timeslider.set(spec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"));
 										~rate_selection_start = 0;
 										~rate_selection_end = ("instrument_"++(1)++"_full_pseq_array").asSymbol.envirGet.size;
 									});
@@ -1229,6 +1306,30 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 			Out.ar(0, sig!2);
 		}).add;
 	});
+
+	/*~piecedur_secs.postln;
+	~number_of_instruments.do(x = 0; {
+	SynthDef("synth"++(x=x+1), {
+	arg freq = 500, mRatio = 1, cRatio = 1, index = 1, iScale = 5, amp = 0.2, atk = 0.01, rel = 300, cAtk = 4, cRel = (-4), pan = 0;
+	var car, mod, env, iEnv;
+	iEnv = EnvGen.kr(
+	Env.new(
+	[index, index * iScale, index],
+	[atk, rel],
+	[cAtk, cRel]
+	)
+	);
+	env = EnvGen.kr(
+	Env.perc(atk, rel, curve: [cAtk, cRel])/*,
+	doneAction: 2*/
+	);
+	mod = SinOsc.ar(freq * mRatio, mul: freq * mRatio * iEnv);
+	car = SinOsc.ar(freq * cRatio + mod) * env * amp;
+	car = Pan2.ar(car, pan);
+	Out.ar(0, car);
+	}).add;
+	});*/
+
 
 	~run_piece_func = {
 
@@ -1328,6 +1429,28 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 				~dd_secs = ((~fullpiecedur1-(~dd_mins = ~fullpiecedur1.roundUp-1))*60).roundUp;
 				~piecedur_secs = (~dd_mins*60)+~dd_secs;
 				~piecedur_secs_zero = 0;
+				~bit_timer_func = {
+					~rate_selection_end = ~piece_position;
+					~rate_selection_start = ~piece_position-(~auto_select_diff/~bit_duration);
+					if(~rate_selection_start.isNegative == true, {~rate_selection_start = 0;});
+					bit_timer = bit_timer + 1;
+					if(bit_timer == 16, {
+						AppClock.sched(0, {
+							timeslider.valueAction = (~piecedur_secs_zero = timeslider.value+1);
+							~dd_secs = ~dd_secs-1;
+							if(~dd_secs == (-1), {~dd_mins = ~dd_mins-1; ~dd_secs = 59;});
+							piecedurationstatictext.string = ("piece length - "++(~piecedur_secs_zero.asInteger.asString)++" secs ("++(~dd_mins.asInteger.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asInteger.asString)++" mins)");
+							/*if(timeslider.value >= ~auto_select_diff, {rangeslider.valueAction = [timeslider.value-~auto_select_diff, timeslider.value]}, {rangeslider.valueAction = [0, timeslider.value]});
+							*//*if(~piecedur_secs_zero >= (~piecedur_secs), {~stop_func.value; "piece finished".postln; piecedurationstatictext.string = if(~fullpiecedur != nil, {~fullpiecedur}, {"piece length - --:-- mins"});})
+							*/if(~piece_position == ~instrument_1_full_pseq_array.size, {
+								AppClock.sched(~bit_duration*4, {
+									~stop_func.value; "piece finished".postln; piecedurationstatictext.string = if(~fullpiecedur != nil, {~fullpiecedur}, {"piece length - --:-- mins"});
+								});
+							});
+						});
+						bit_timer = 0;
+					});
+				};
 
 				1.do({
 
@@ -1378,24 +1501,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 						~duranduranbotsynth3.set(\freq, ~instrument_3_full_pseq_array.at(x));*/
 					});
 
-					~rate_selection_end = ~piece_position;
-					~rate_selection_start = ~piece_position-(~auto_select_diff/~bit_duration);
-					if(~rate_selection_start.isNegative == true, {~rate_selection_start = 0;});
-
-					bit_timer = bit_timer + 1;
-					if(bit_timer == 16, {
-						AppClock.sched(0, {
-							timeslider.valueAction = timeslider.value+1;
-							~piecedur_secs_zero = ~piecedur_secs_zero+1;
-							~dd_secs = ~dd_secs-1;
-							if(~dd_secs == (-1), {~dd_mins = ~dd_mins-1; ~dd_secs = 59;});
-							piecedurationstatictext.string = ("piece length - "++(~piecedur_secs_zero.asInteger.asString)++" secs ("++(~dd_mins.asInteger.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asInteger.asString)++" mins)");
-							if(timeslider.value >= ~auto_select_diff, {rangeslider.valueAction = [timeslider.value-~auto_select_diff, timeslider.value]}, {rangeslider.valueAction = [0, timeslider.value]});
-
-						});
-						bit_timer = 0;
-
-					});
+					~bit_timer_func.value;
 
 					~bit_duration.wait;
 
@@ -1418,24 +1524,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 						*/
 					});
 
-					~rate_selection_end = ~piece_position;
-					~rate_selection_start = ~piece_position-(~auto_select_diff/~bit_duration);
-					if(~rate_selection_start.isNegative == true, {~rate_selection_start = 0;});
-
-					bit_timer = bit_timer + 1;
-					if(bit_timer == 16, {
-						AppClock.sched(0, {
-							timeslider.valueAction = timeslider.value+1;
-							~piecedur_secs_zero = ~piecedur_secs_zero+1;
-							~dd_secs = ~dd_secs-1;
-							if(~dd_secs == (-1), {~dd_mins = ~dd_mins-1; ~dd_secs = 59;});
-							piecedurationstatictext.string = ("piece length - "++(~piecedur_secs_zero.asInteger.asString)++" secs ("++(~dd_mins.asInteger.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asInteger.asString)++" mins)");
-							if(timeslider.value >= ~auto_select_diff, {rangeslider.valueAction = [timeslider.value-~auto_select_diff, timeslider.value]}, {rangeslider.valueAction = [0, timeslider.value]});
-
-						});
-						bit_timer = 0;
-
-					});
+					~bit_timer_func.value;
 
 					~bit_duration.wait;
 
@@ -1465,7 +1554,28 @@ if(~auto_select_diff == nil, {~auto_select_diff = 10;}); // range of number of s
 
 };
 
-if(Server.default.serverRunning == false, {s.boot; s.waitForBoot({~duranduranbot_GUI_func.value;});}, {~duranduranbot_GUI_func.value;});
+if((FileReader.read(Document.current.dir++"/other_program_files/ddbot_training_data_folder/ddbot_training_data_current/ddbot_interval_weights/player_1__0_0_weights.scd", false, true) != nil) or:
+	(FileReader.read(Document.current.dir++"/other_program_files/ddbot_training_data_folder/ddbot_training_data_current/ddbot_time_weights/player_1__0_0_0_time_weights.scd", false, true) != nil),
+	{if(Server.default.serverRunning == false, {s.boot; s.waitForBoot({~duranduranbot_GUI_func.value;});}, {~duranduranbot_GUI_func.value;});},
+	{
+		w = Window("DuranDuranbot",
+			Rect(Window.availableBounds.width/4, Window.availableBounds.height/4, Window.availableBounds.width/2, Window.availableBounds.height/2),
+			resizable: true, border:true);
+
+		~firstview = View(w, Rect(0, 0, w.bounds.width, w.bounds.height));
+		/*view.clearOnRefresh = false;*/
+		~firstview.background = Color.white;
+		~firstviewboundsWIDTH = ~firstview.bounds.width;
+		~firstviewboundsHEIGHT = ~firstview.bounds.height;
+
+		a = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/43.7, ~firstviewboundsWIDTH/1.0285714285714, ~firstviewboundsHEIGHT/3.4774535809019));
+		a.background = Color.white;
+		a.string = "Some program files were not detected. Please make sure that the -entire- DuranDuranbot.zip file has been -fully- extracted to a location on your computer... and then open the "++"duranduranbot_RUN.scd".quote++" from within that extracted DuranDuranbot folder.";
+		a.align = \topLeft;
+		a.font = Font(size: ~firstviewboundsWIDTH/48);
+
+		w.front;
+});
 
 /*~duranduranbot_GUI_func.value;*/
 
