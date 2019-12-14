@@ -1229,22 +1229,6 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 				x = 0;
 				~inst_array = Array.fill(~number_of_instruments, {x=x+1});
 
-				// I NEED DDBOT TO SOUND *KINDA ROBOTIC, AND KINDA HUMAN*
-
-
-				// Top level -
-				// Generate one random chord. Having nothing to do with time, generate follow up chords in the sequence using ML data.
-				// Level 3 -
-				// For each chord in above level sequence, do same thing as top level.
-				// Level 2 -
-				// " "
-				// Level 1 (when ~create_piece_function fires) -
-				// For each chord
-
-				// For now... override
-
-				~number_of_instruments.do(x = 0; {("duranduranbotsynth"++(x=x+1)).asSymbol.envirGet.set(\freq, 0);});
-
 				~inst_clock_func = {
 
 					("instrument_"++(~inst_num)++"_array_part_"++(~part_num)).asSymbol.envirPut(
