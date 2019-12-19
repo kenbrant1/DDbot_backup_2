@@ -65,6 +65,14 @@ contact email: ken_brant@ymail.com or kenbrant7@gmail.com
 // Run composition process for same amount of time....... Hierarchical compoisition. Have "base" chords with composition
 // in between. Use same "base" chord progression over and over again. Number of base chords could be as many as you want.
 // Maybe even have base chords for the base chord progression.
+//
+// Have DDbot machine learn preferences in that^
+
+// KEY TO SUCCESSFUL AI - Allow for most machine learning in the least amount of time. ML in lots of different things.
+// (ex - not just note transitions, etc..... but also *literally* everything else.
+// Again - Make the most machine learning in the least amount of time.
+
+// Current bugs - every time go to main page while piece is playing, the piece goes to it's beginning for a slight moment then goes back to current position.
 
 ////////////////////////////////////////////////////////////////////////////////////////
 
@@ -75,9 +83,24 @@ if(~number_of_instruments == nil, {~number_of_instruments = 3;}); //do not chang
 if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of seconds to rate a piece from current time backwards. defualt is 5.
 ~rate_button_default = 8; // set default point rating at boot. Available point numbers - 1, 2, 4, 8, or 16
 
+if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", false, true) != nil, {
+	case
+	{FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", false, true).flatten.at(0) == 0.asString}{
+		~backgroundcolor = Color.black;
+		~stringcolor = Color.white;
+	}
+	{FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", false, true).flatten.at(0) == 1.asString}{
+		~backgroundcolor = Color.white;
+		~stringcolor = Color.black;
+	};
+}, {
+	~backgroundcolor = Color.black;
+	~stringcolor = Color.white;
+});
+
 ~duranduranbot_GUI_func = {
 
-	var w, /*~firstview,*/ firstviewtext1, firstviewtext2, firstviewtext3, firstviewtext4, firstviewtext5, firstviewtext6, firstviewnextbutton, mainview, mainviewtext, maincolor, randseedEZText1, randseedEZText2, randseedEZText3, randseed_1_make, randseed_2_make, randseed_3_make, randseedviewtext1,randseedviewtext2,
+	var w, /*~firstview,*/ firstviewtext1, firstviewtext2, firstviewtext3, firstviewtext4, firstviewtext5, firstviewtext6, firstviewnextbutton, mainview, mainviewtext, randseedEZText1, randseedEZText2, randseedEZText3, randseed_1_make, randseed_2_make, randseed_3_make, randseedviewtext1,randseedviewtext2,
 	randseedviewtext3, numerologynameEZText1, numerologynameEZText2, numerologynameEZText3, numerologynameviewtext1, numerologynameviewtext2, numerologynameviewtext3,
 	generatepiecebutton, playbutton, enterdatabasebutton, recordbutton, songtitletext, songtitlestatictext, piecedurationstatictext, machinelearningbutton, machinelearningtext,
 	onestarbutton,twostarbutton,threestarbutton,fourstarbutton,fivestarbutton, quicknewpiecebutton, quicknewpiecebutton_revert, quicknewpiecewait,
@@ -88,19 +111,18 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 		Rect(Window.availableBounds.width*(1/4.4), Window.availableBounds.height*(1/4.5), Window.availableBounds.width*((4.5-2)/4.5), Window.availableBounds.height*((4.5-2)/4.5)),
 		resizable: true, border:true);
 
-	maincolor = Color.white;
-
 	~front_page_func = {
 
 		~firstview = View(w, Rect(0, 0, w.bounds.width, w.bounds.height));
 		/*view.clearOnRefresh = false;*/
-		~firstview.background = maincolor;
+		~firstview.background = ~backgroundcolor;
 		~firstviewboundsWIDTH = ~firstview.bounds.width;
 		~firstviewboundsHEIGHT = ~firstview.bounds.height;
 
 
 		firstviewtext1 = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/43.7, ~firstviewboundsWIDTH/1.0285714285714, ~firstviewboundsHEIGHT/2.9774535809019));
-		firstviewtext1.background=maincolor;
+		firstviewtext1.background=~backgroundcolor;
+		firstviewtext1.stringColor_(~stringcolor);
 		firstviewtext1.string = "Hello. This is DuranDuranbot. \n\nTo enhance the creativity of this AI bot... please consider providing it with some personal creative inspiration of yours by entering 3 number values into the 3 fields below, numerical values up to 8 digits long, and hit Enter. Consider writing down the 3 values you gave it to be able to replicate exactly the music made by this AI in this specific instance at a later date - although they will still be saved in the "++"duranduranbot_saved_random _seeds.scd".quote++" file, accessible on the next page.";
 		firstviewtext1.align = \topLeft;
 		firstviewtext1.font = Font(size: ~firstviewboundsWIDTH/48);
@@ -108,8 +130,8 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 
 		randseedEZText1 = TextField(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.6, ~firstviewboundsWIDTH/4.2352941176471, ~firstviewboundsHEIGHT/21));
 		randseedEZText1.string = "Random Seed 1";
-		randseedEZText1.background_(Color.black);
-		randseedEZText1.stringColor_(Color.white);
+		randseedEZText1.background_(~backgroundcolor);
+		randseedEZText1.stringColor_(~stringcolor);
 		randseedEZText1.font = Font(size: ~firstviewboundsWIDTH/48);
 		randseedEZText1.action = {
 			randseed_1_make = randseedEZText1.value;
@@ -126,8 +148,8 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 
 		randseedEZText2 = TextField(~firstview, Rect(~firstviewboundsWIDTH/3.7894736842105, ~firstviewboundsHEIGHT/2.6, ~firstviewboundsWIDTH/4.2352941176471, ~firstviewboundsHEIGHT/21));
 		randseedEZText2.string = "Random Seed 2";
-		randseedEZText2.background_(Color.black);
-		randseedEZText2.stringColor_(Color.white);
+		randseedEZText2.background_(~backgroundcolor);
+		randseedEZText2.stringColor_(~stringcolor);
 		randseedEZText2.font = Font(size: ~firstviewboundsWIDTH/48);
 		randseedEZText2.action = {
 			randseed_2_make = randseedEZText2.value;
@@ -144,8 +166,8 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 
 		randseedEZText3 = TextField(~firstview, Rect(~firstviewboundsWIDTH/1.8947368421053, ~firstviewboundsHEIGHT/2.6, ~firstviewboundsWIDTH/4.2352941176471, ~firstviewboundsHEIGHT/21));
 		randseedEZText3.string = "Random Seed 3";
-		randseedEZText3.background_(Color.black);
-		randseedEZText3.stringColor_(Color.white);
+		randseedEZText3.background_(~backgroundcolor);
+		randseedEZText3.stringColor_(~stringcolor);
 		randseedEZText3.font = Font(size: ~firstviewboundsWIDTH/48);
 		randseedEZText3.action = {
 			randseed_3_make = randseedEZText3.value;
@@ -161,31 +183,35 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 		};
 
 		randseedviewtext1 = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.26, ~firstviewboundsWIDTH/4.2352941176471, ~firstviewboundsHEIGHT/21));
-		randseedviewtext1.background=maincolor;
+		randseedviewtext1.background=~backgroundcolor;
+		randseedviewtext1.stringColor_(~stringcolor);
 		randseedviewtext1.string = if(~randseed_1 != nil, {~randseed_1.asString++" entered"}, {"number not entered"});
 		randseedviewtext1.align = \topLeft;
 		randseedviewtext1.font = Font(size: ~firstviewboundsWIDTH/48);
 
 		randseedviewtext2 = StaticText(~firstview, Rect(~firstviewboundsWIDTH/3.7894736842105,~firstviewboundsHEIGHT/2.26, ~firstviewboundsWIDTH/4.2352941176471, ~firstviewboundsHEIGHT/21));
-		randseedviewtext2.background=maincolor;
+		randseedviewtext2.background=~backgroundcolor;
+		randseedviewtext2.stringColor_(~stringcolor);
 		randseedviewtext2.string = if(~randseed_2 != nil, {~randseed_2.asString++" entered"}, {"number not entered"});
 		randseedviewtext2.align = \topLeft;
 		randseedviewtext2.font = Font(size: ~firstviewboundsWIDTH/48);
 
 		randseedviewtext3 = StaticText(~firstview, Rect(~firstviewboundsWIDTH/1.8947368421053, ~firstviewboundsHEIGHT/2.26, ~firstviewboundsWIDTH/4.2352941176471, ~firstviewboundsHEIGHT/21));
-		randseedviewtext3.background=maincolor;
+		randseedviewtext3.background=~backgroundcolor;
+		randseedviewtext3.stringColor_(~stringcolor);
 		randseedviewtext3.string = if(~randseed_3 != nil, {~randseed_3.asString++" entered"}, {"number not entered"});
 		randseedviewtext3.align = \topLeft;
 		randseedviewtext3.font = Font(size: ~firstviewboundsWIDTH/48);
 
 
 		firstviewtext3 = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.415725806452, ~firstviewboundsWIDTH/1.0285714285714, ~firstviewboundsHEIGHT/10.85));
-		firstviewtext3.background=maincolor;
+		firstviewtext3.background=~backgroundcolor;
+		firstviewtext3.stringColor_(~stringcolor);
 		firstviewtext3.string = "Or you can do none of that, and autogenerate all of those things by clicking on "++"Next".quote++" below... Which you have to do regardless :)...";
 		firstviewtext3.align = \topLeft;
 		firstviewtext3.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		firstviewnextbutton = Button.new(~firstview, Rect(~firstviewboundsWIDTH/1.2, ~firstviewboundsHEIGHT/1.2116451016636, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/10.925)).states_([["Next",Color.white,Color.black],["Next",Color.white,Color.black]]).action_({arg button;
+		firstviewnextbutton = Button.new(~firstview, Rect(~firstviewboundsWIDTH/1.2, ~firstviewboundsHEIGHT/1.2116451016636, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/10.925)).states_([["Next",~stringcolor,~backgroundcolor],["Next",~stringcolor,~backgroundcolor]]).action_({arg button;
 
 			if(~randseed_1 == nil, {~randseed_1 =  99999999.rand;});
 			if(~randseed_2 == nil, {~randseed_2 =  99999999.rand;});
@@ -205,34 +231,36 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 
 		~firstview = View(w, Rect(0, 0, w.bounds.width, w.bounds.height));
 		/*view.clearOnRefresh = false;*/
-		~firstview.background = maincolor;
+		~firstview.background = ~backgroundcolor;
 		~firstviewboundsWIDTH = ~firstview.bounds.width;
 		~firstviewboundsHEIGHT = ~firstview.bounds.height;
 
 		firstviewtext1 = StaticText(~firstview, Rect(~firstviewboundsWIDTH/2.2857142857143, ~firstviewboundsHEIGHT/43.7, ~firstviewboundsWIDTH/8, ~firstviewboundsHEIGHT/21));
-		firstviewtext1.background=maincolor;
+		firstviewtext1.background=~backgroundcolor;
+		firstviewtext1.stringColor_(~stringcolor);
 		firstviewtext1.string = "Main Page";
 		firstviewtext1.align = \topLeft;
 		firstviewtext1.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		firstviewtext2 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/43.7, ~firstviewboundsWIDTH/16, ~firstviewboundsHEIGHT/21)).states_([["Back",Color.white,Color.black],["Back",Color.white,Color.black]]).action_({arg button;
+		firstviewtext2 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/43.7, ~firstviewboundsWIDTH/16, ~firstviewboundsHEIGHT/21)).states_([["Back",~stringcolor,~backgroundcolor],["Back",~stringcolor,~backgroundcolor]]).action_({arg button;
 			~firstview.close;
 			~front_page_func.value;
 		});
-		firstviewtext2.background=Color.grey;
+
 		firstviewtext2.string = "Back";
 		firstviewtext2.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		firstviewtext3 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/1.3584905660377, ~firstviewboundsHEIGHT/43.7, ~firstviewboundsWIDTH/4, ~firstviewboundsHEIGHT/21)).states_([["Click Here For Instructions",Color.white,Color.black],["Click Here For Instructions",Color.white,Color.black]]).action_({arg button;
+		firstviewtext3 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/1.3584905660377, ~firstviewboundsHEIGHT/43.7, ~firstviewboundsWIDTH/3.8, ~firstviewboundsHEIGHT/21)).states_([["Click Here For Instructions",~stringcolor,~backgroundcolor],["Click Here For Instructions",~stringcolor,~backgroundcolor]]).action_({arg button;
 			~instructions_page_func.value;
 
 		});
 		firstviewtext3.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		generatepiecebutton = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/6.2428571428571, ~firstviewboundsWIDTH/6.5454545454545, ~firstviewboundsHEIGHT/21)).states_([["Generate Piece",Color.white,Color.black],["Generate Piece",Color.white,Color.black]]).action_({arg button;
+		generatepiecebutton = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/6.2428571428571, ~firstviewboundsWIDTH/6.5454545454545, ~firstviewboundsHEIGHT/21)).states_([["Generate Piece",~stringcolor,~backgroundcolor],["Generate Piece",~stringcolor,~backgroundcolor]]).action_({arg button;
 			var piecegenerated;
 			~piecegenerated = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/9.5, ~firstviewboundsWIDTH/6.2608695652174, ~firstviewboundsWIDTH/36));
-			~piecegenerated.background=maincolor;
+			~piecegenerated.background=~backgroundcolor;
+			~piecegenerated.stringColor_(~stringcolor);
 			"Please Wait".postln;
 			~piecegenerated.font = Font(size: ~firstviewboundsWIDTH/55);
 			~piecegenerated.string = "Please Wait";/*
@@ -247,7 +275,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 		~play_visible_func_verify*/
 
 		~playbutton_func = {
-			~playbutton = Button.new(~firstview, Rect(~firstviewboundsWIDTH/5.1063829787234, ~firstviewboundsHEIGHT/6.2428571428571, ~firstviewboundsWIDTH/8, ~firstviewboundsHEIGHT/21)).states_([["Play Piece",Color.white,Color.black],["Pause Piece",Color.white,Color.black]]).action_({arg button;
+			~playbutton = Button.new(~firstview, Rect(~firstviewboundsWIDTH/4.95, ~firstviewboundsHEIGHT/6.2428571428571, ~firstviewboundsWIDTH/8, ~firstviewboundsHEIGHT/21)).states_([["Play Piece",~stringcolor,~backgroundcolor],["Pause Piece",~stringcolor,~backgroundcolor]]).action_({arg button;
 				var pause_piece;
 				if(button.value == 1, {
 					if(~pause_piece != 1, {
@@ -269,8 +297,9 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 			});
 			~playbutton.font = Font(size: ~firstviewboundsWIDTH/48);
 			/*};*/
-			~arrow = StaticText(~firstview, Rect(~firstviewboundsWIDTH/5.9016393442623, ~firstviewboundsHEIGHT/6.2428571428571, ~firstviewboundsWIDTH/36, ~firstviewboundsHEIGHT/21));
-			~arrow.background=maincolor;
+			~arrow = StaticText(~firstview, Rect(~firstviewboundsWIDTH/5.7016393442623, ~firstviewboundsHEIGHT/6.2428571428571, ~firstviewboundsWIDTH/40, ~firstviewboundsHEIGHT/21));
+			~arrow.background=~backgroundcolor;
+			~arrow.stringColor_(~stringcolor);
 			~arrow.string = "---";
 			~arrow.font = Font(size: ~firstviewboundsWIDTH/48);
 		};
@@ -296,7 +325,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 			~playbutton.string = "Play Piece";
 		};
 
-		~stopbuttonfunc = {~stopbutton = Button.new(~firstview, Rect(~firstviewboundsWIDTH/3.063829787234, ~firstviewboundsHEIGHT/6.2428571428571, ~firstviewboundsWIDTH/8, ~firstviewboundsHEIGHT/21)).states_([["Stop piece",Color.white,Color.black]]).action_({arg button;
+		~stopbuttonfunc = {~stopbutton = Button.new(~firstview, Rect(~firstviewboundsWIDTH/2.93, ~firstviewboundsHEIGHT/6.2428571428571, ~firstviewboundsWIDTH/8, ~firstviewboundsHEIGHT/21)).states_([["Stop piece",~stringcolor,~backgroundcolor]]).action_({arg button;
 			~stop_func.value;
 		});
 
@@ -307,7 +336,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 
 		~net_change_mult_array = [1, 2, 4, 8, 16];
 
-		rate_button_1 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/5.29, ~firstviewboundsHEIGHT/3.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21)).states_([["x1 pts",Color.white,Color.black], ["x1 pts",Color.black,Color.green]]).action_({arg button;
+		rate_button_1 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/5.29, ~firstviewboundsHEIGHT/3.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21)).states_([["x1 pts",~stringcolor,~backgroundcolor], ["x1 pts",~stringcolor,Color.blue]]).action_({arg button;
 			~net_change_mult = ~net_change_mult_array.at(0);
 			rate_button_1.value = 1;
 			rate_button_2.value = 0;
@@ -317,7 +346,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 		});
 		rate_button_1.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		rate_button_2 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/3.62, ~firstviewboundsHEIGHT/3.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21)).states_([["x2 pts",Color.white,Color.black], ["x2 pts",Color.black,Color.green]]).action_({arg button;
+		rate_button_2 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/3.62, ~firstviewboundsHEIGHT/3.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21)).states_([["x2 pts",~stringcolor,~backgroundcolor], ["x2 pts",~stringcolor,Color.blue]]).action_({arg button;
 			~net_change_mult = ~net_change_mult_array.at(1);
 			rate_button_1.value = 0;
 			rate_button_2.value = 1;
@@ -327,7 +356,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 		});
 		rate_button_2.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		rate_button_3 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/2.75, ~firstviewboundsHEIGHT/3.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21)).states_([["x4 pts",Color.white,Color.black], ["x4 pts",Color.black,Color.green]]).action_({arg button;
+		rate_button_3 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/2.75, ~firstviewboundsHEIGHT/3.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21)).states_([["x4 pts",~stringcolor,~backgroundcolor], ["x4 pts",~stringcolor,Color.blue]]).action_({arg button;
 			~net_change_mult = ~net_change_mult_array.at(2);
 			rate_button_1.value = 0;
 			rate_button_2.value = 0;
@@ -337,7 +366,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 		});
 		rate_button_3.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		rate_button_4 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/2.22, ~firstviewboundsHEIGHT/3.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21)).states_([["x8 pts",Color.white,Color.black], ["x8 pts",Color.black,Color.green]]).action_({arg button;
+		rate_button_4 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/2.22, ~firstviewboundsHEIGHT/3.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21)).states_([["x8 pts",~stringcolor,~backgroundcolor], ["x8 pts",~stringcolor,Color.blue]]).action_({arg button;
 			~net_change_mult = ~net_change_mult_array.at(3);
 			rate_button_1.value = 0;
 			rate_button_2.value = 0;
@@ -347,7 +376,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 		});
 		rate_button_4.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		rate_button_5 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/1.855, ~firstviewboundsHEIGHT/3.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21)).states_([["x16 pts",Color.white,Color.black], ["x16 pts",Color.black,Color.green]]).action_({arg button;
+		rate_button_5 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/1.855, ~firstviewboundsHEIGHT/3.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21)).states_([["x16 pts",~stringcolor,~backgroundcolor], ["x16 pts",~stringcolor,Color.blue]]).action_({arg button;
 			~net_change_mult = ~net_change_mult_array.at(4);
 			rate_button_1.value = 0;
 			rate_button_2.value = 0;
@@ -357,7 +386,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 		});
 		rate_button_5.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		rate_button = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/3.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21)).states_([["Rate",Color.white,Color.blue]]).action_({arg button;
+		rate_button = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/3.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21)).states_([["Rate",~backgroundcolor,Color.green]]).action_({arg button;
 
 			if(~duranduranbot_routine.isPlaying == true, {
 				q = FileReader.read(Document.current.dir++"/other_program_files/ddbot_machine_learning_on_off.scd");
@@ -369,8 +398,8 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 				"pice must be running to rate".postln;
 				if(ratedonetext != nil, {ratedonetext.close; ratedonetext = nil;});
 				ratedonetext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/3.063829787234, ~firstviewboundsHEIGHT/4.228571428571, ~firstviewboundsWIDTH/3.3, ~firstviewboundsHEIGHT/21));
-				ratedonetext.background=Color.white;
-				ratedonetext.stringColor_(Color.black);
+				ratedonetext.background=~backgroundcolor;
+				ratedonetext.stringColor_(~stringcolor);
 				ratedonetext.string = "PIECE MUST BE RUNNING TO RATE";
 				ratedonetext.font = Font(size: ~firstviewboundsWIDTH/55);
 
@@ -395,13 +424,14 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 			{~net_change_mult == ~net_change_mult_array.at(4);}{rate_button_5.value = 1;};
 		});
 
-		rate_revert_button = Button.new(~firstview, Rect(~firstviewboundsWIDTH/9.88, ~firstviewboundsHEIGHT/3.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21)).states_([["Revert Rate",Color.black,Color.white]]).action_({arg button;
+		rate_revert_button = Button.new(~firstview, Rect(~firstviewboundsWIDTH/9.88, ~firstviewboundsHEIGHT/3.228571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21)).states_([["Revert Rate",~stringcolor,~backgroundcolor]]).action_({arg button;
 			~ml_revert_func.value;
 		});
 		rate_revert_button.font = Font(size: ~firstviewboundsWIDTH/68);
 
 		ratepiecetext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.67571428571, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/12));
-		ratepiecetext.background=maincolor;
+		ratepiecetext.background=~backgroundcolor;
+		ratepiecetext.stringColor_(~stringcolor);
 		ratepiecetext.string = "^rate last "++(~auto_select_diff)++" seconds from current position in piece by clicking on a xpt rating above, and clicking "++"Rate".quote++". Higher point # = faster training, but less fine-tuning.";
 		ratepiecetext.font = Font(size: ~firstviewboundsWIDTH/55);
 
@@ -415,11 +445,11 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 		/*rangeselect.value.postln;*/
 
 		}, initVal: [0,if(~piecedur_secs != nil, {~piecedur_secs}, {0})]);
-		rangeslider.setColors(Color.grey,Color.white, Color.grey(0.7),Color.grey, Color.white, Color.yellow);
+		rangeslider.setColors(~stringcolor,~stringcolor, ~stringcolor(0.7),~stringcolor, ~stringcolor, Color.yellow);
 		rangeslider.font = Font(size: ~firstviewboundsWIDTH/55);*/
 
 		/*rate_selectionstatictext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.502222222222 /*~firstviewboundsHEIGHT/6.2428571428571*/, ~firstviewboundsWIDTH/2.7, ~firstviewboundsHEIGHT/21));
-		rate_selectionstatictext.background=Color.white;
+		rate_selectionstatictext.background=~stringcolor;
 		rate_selectionstatictext.string = if(~fullpiecedur != nil, {~fullpiecedur}, {"piece length - --:-- mins"});
 		rate_selectionstatictext.font = Font(size: ~firstviewboundsWIDTH/48);*/
 
@@ -441,26 +471,28 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 			});
 
 		});
-		timeslider.setColors(Color.grey,Color.white);
+		timeslider.setColors(~stringcolor,~stringcolor);
 
 		if(~pause_piece != nil, {if(~pause_piece != 1,timeslider.valueAction = 0; {/*rangeslider.valueAction = [0, if(~piecedur_secs != nil, {~piecedur_secs}, {0});]*/nil});});
 
 		/*if(~pause_piece == 0, {~piece_position = 0});*/
 
 		timeslidertext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.84, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/22.55));
-		timeslidertext.background=Color.white;
+		timeslidertext.background=~backgroundcolor;
+		timeslidertext.stringColor=~stringcolor;
 		timeslidertext.string = "^Jump to location in current piece by using the slider just above";
 		timeslidertext.font = Font(size: ~firstviewboundsWIDTH/55);
 
 
-		quicknewpiecebutton = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/4.228571428571, ~firstviewboundsWIDTH/6.1454545454545, ~firstviewboundsHEIGHT/21)).states_([["Quick New Piece",Color.white,Color.black],["Quick New Piece",Color.white,Color.black]]).action_({arg button;
+		quicknewpiecebutton = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/4.228571428571, ~firstviewboundsWIDTH/6.1454545454545, ~firstviewboundsHEIGHT/21)).states_([["Quick New Piece",~stringcolor,~backgroundcolor],["Quick New Piece",~stringcolor,~backgroundcolor]]).action_({arg button;
 			var quicknewpiecewait;
-			quicknewpiecewait = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/9.5, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/22.55));
-			quicknewpiecewait.background_(Color.white);
-			quicknewpiecewait.stringColor_(Color.black);
+			quicknewpiecewait = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/9.5, ~firstviewboundsWIDTH/6.2608695, ~firstviewboundsHEIGHT/22.55));
+			quicknewpiecewait.background_(~backgroundcolor);
+			quicknewpiecewait.stringColor_(~stringcolor);
 			quicknewpiecewait.string = "please wait";
 			quicknewpiecewait.font = Font(size: ~firstviewboundsWIDTH/55);
 			"please wait".postln;
+			if(~piecegenerated != nil, {~piecegenerated.close});
 			~quicknewpiecebutton = 1;
 			{if(~duranduranbot_routine.isPlaying == true, {~stop_func.value});}.value;
 			AppClock.sched(0, {
@@ -471,12 +503,13 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 		});
 		quicknewpiecebutton.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		quicknewpiecebutton_revert = Button.new(~firstview, Rect(~firstviewboundsWIDTH/5.4, ~firstviewboundsHEIGHT/4.228571428571, ~firstviewboundsWIDTH/7.9454545454545, ~firstviewboundsHEIGHT/21)).states_([["Revert Piece",Color.white,Color.black],["Revert Piece",Color.white,Color.black]]).action_({arg button;
+		quicknewpiecebutton_revert = Button.new(~firstview, Rect(~firstviewboundsWIDTH/5.4, ~firstviewboundsHEIGHT/4.228571428571, ~firstviewboundsWIDTH/7.9454545454545, ~firstviewboundsHEIGHT/21)).states_([["Revert Piece",~stringcolor,~backgroundcolor],["Revert Piece",~stringcolor,~backgroundcolor]]).action_({arg button;
 			var quicknewpiecewait;
-			quicknewpiecewait = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/9.5, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/22.55));
-			quicknewpiecewait.background_(Color.white);
-			quicknewpiecewait.stringColor_(Color.black);
+			quicknewpiecewait = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/9.5, ~firstviewboundsWIDTH/6.2608695, ~firstviewboundsHEIGHT/22.55));
+			quicknewpiecewait.background_(~stringcolor);
+			quicknewpiecewait.stringColor_(~stringcolor);
 			quicknewpiecewait.string = "Please Wait";
+			if(~piecegenerated != nil, {~piecegenerated.close});
 			quicknewpiecewait.font = Font(size: ~firstviewboundsWIDTH/55);
 			"please wait".postln;
 			~quicknewpiecebutton = 1;
@@ -491,7 +524,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 		});
 		quicknewpiecebutton_revert.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		recordbutton = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.2822222222222, ~firstviewboundsWIDTH/9, ~firstviewboundsHEIGHT/21)).states_([["Record Off",Color.white,Color.black],["Record On",Color.black,Color.red]]).action_({arg button;
+		recordbutton = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.2822222222222, ~firstviewboundsWIDTH/9, ~firstviewboundsHEIGHT/21)).states_([["Record Off",~stringcolor,~backgroundcolor],["Record On",~backgroundcolor,Color.red]]).action_({arg button;
 			if(button.value == 1, {
 				~recordtext.string = "^All pieces WILL be recorded";
 				~will_record = 1;
@@ -501,7 +534,8 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 		recordbutton.font = Font(size: ~firstviewboundsWIDTH/48);
 
 		~recordtext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.2, ~firstviewboundsWIDTH/2.2, ~firstviewboundsHEIGHT/21));
-		~recordtext.background=Color.white;
+		~recordtext.background=~backgroundcolor;
+		~recordtext.stringColor=~stringcolor;
 		~recordtext.string = "^All pieces will NOT be recorded";
 		~recordtext.font = Font(size: ~firstviewboundsWIDTH/55);
 
@@ -509,17 +543,18 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 			{~recordtext.string = "^All pieces will NOT be recorded"; recordbutton.value = 0;});
 
 		piecedurationstatictext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.502222222222 /*~firstviewboundsHEIGHT/6.2428571428571*/, ~firstviewboundsWIDTH/2.7, ~firstviewboundsHEIGHT/21));
-		piecedurationstatictext.background=Color.white;
+		piecedurationstatictext.background=~backgroundcolor;
+		piecedurationstatictext.stringColor=~stringcolor;
 		piecedurationstatictext.string = if(~fullpiecedur != nil, {~fullpiecedur}, {"Piece Length - --:-- mins"});
 		piecedurationstatictext.font = Font(size: ~firstviewboundsWIDTH/48);
 
 		/*ctrlperiodtext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/1.4173228346457, ~firstviewboundsHEIGHT/13.5, ~firstviewboundsWIDTH/3.5, ~firstviewboundsHEIGHT/4.37));
-		ctrlperiodtext.background=maincolor;
+		ctrlperiodtext.background=~backgroundcolor;
 		ctrlperiodtext.string = "*Important Note*... You can kill all processes by hitting "++"cmd/ctrl - period".quote++"on your keyboard.";
 		ctrlperiodtext.align = \topLeft;
 		ctrlperiodtext.font = Font(size: ~firstviewboundsWIDTH/70.454545454545);*/
 
-		newrandomseedsbutton = Button.new(~firstview, Rect(~firstviewboundsWIDTH/1.4173228346457, ~firstviewboundsHEIGHT/6.2428571428571, ~firstviewboundsWIDTH/5.1428571428571, ~firstviewboundsHEIGHT/21)).states_([["New Random Seeds",Color.white,Color.black],["New Random Seeds",Color.white,Color.black]]).action_({arg button;
+		newrandomseedsbutton = Button.new(~firstview, Rect(~firstviewboundsWIDTH/1.4173228346457, ~firstviewboundsHEIGHT/6.2428571428571, ~firstviewboundsWIDTH/5.1428571428571, ~firstviewboundsHEIGHT/21)).states_([["New Random Seeds",~stringcolor,~backgroundcolor],["New Random Seeds",~stringcolor,~backgroundcolor]]).action_({arg button;
 			~randseed_1_backup = ~randseed_1;
 			~randseed_2_backup = ~randseed_2;
 			~randseed_3_backup = ~randseed_3;
@@ -535,11 +570,13 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 				"*make sure to hit "++"generate piece".quote++" to generate a new piece based on the new seeds"}, {""}));
 			z.postln;
 			currentrandomseedstrext.string = z;
+			currentrandomseedstrext.background=~backgroundcolor;
+			currentrandomseedstrext.stringColor=~stringcolor;
 
 		});
 		newrandomseedsbutton.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		reversenewrandomseedsbutton = Button.new(~firstview, Rect(~firstviewboundsWIDTH/1.1059907834101, ~firstviewboundsHEIGHT/6.2428571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21)).states_([["Revert",Color.white,Color.black],["Revert",Color.white,Color.black]]).action_({arg button;
+		reversenewrandomseedsbutton = Button.new(~firstview, Rect(~firstviewboundsWIDTH/1.1059907834101, ~firstviewboundsHEIGHT/6.2428571428571, ~firstviewboundsWIDTH/12, ~firstviewboundsHEIGHT/21)).states_([["Revert",~stringcolor,~backgroundcolor],["Revert",~stringcolor,~backgroundcolor]]).action_({arg button;
 			~randseed_1_backup2 = ~randseed_1;
 			~randseed_2_backup2 = ~randseed_2;
 			~randseed_3_backup2 = ~randseed_3;
@@ -558,11 +595,13 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 				"*make sure to hit "++"generate piece".quote++" to generate a new piece based on the new seeds"}, {""}));
 			z.postln;
 			currentrandomseedstrext.string = z;
+			currentrandomseedstrext.background=~backgroundcolor;
+			currentrandomseedstrext.stringColor=~stringcolor;
 		});
 		reversenewrandomseedsbutton.font = Font(size: ~firstviewboundsWIDTH/48);
 
 		currentrandomseedstrext = TextView(~firstview, Rect(~firstviewboundsWIDTH/1.4173228346457, ~firstviewboundsHEIGHT/4.6, ~firstviewboundsWIDTH/3.56, ~firstviewboundsHEIGHT/2.6));
-		currentrandomseedstrext.background=maincolor;
+		currentrandomseedstrext.background=~backgroundcolor;
 		currentrandomseedstrext.string ="Current random seeds:\n"++
 		"randseed 1 - "++~randseed_1++"\n"++
 		"randseed 2 - "++~randseed_2++"\n"++
@@ -570,9 +609,10 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 			"\n(also posted in post window)"++"\n"++
 			"*make sure to hit "++"generate piece".quote++" to generate a new piece based on the new seeds"}, {""}));
 		/*currentrandomseedstrext.align = \topLeft;*/
+		currentrandomseedstrext.stringColor=~stringcolor;
 		currentrandomseedstrext.font = Font(size: ~firstviewboundsWIDTH/58.384615384615);
 
-		see_saved_seeds_file_button = Button.new(~firstview, Rect(~firstviewboundsWIDTH/1.4173228346457, ~firstviewboundsHEIGHT/1.6, ~firstviewboundsWIDTH/4, ~firstviewboundsHEIGHT/21)).states_([["See Saved Random Seeds",Color.white,Color.black],["See Saved Random Seeds",Color.white,Color.black]]).action_({arg button;
+		see_saved_seeds_file_button = Button.new(~firstview, Rect(~firstviewboundsWIDTH/1.4173228346457, ~firstviewboundsHEIGHT/1.6, ~firstviewboundsWIDTH/4, ~firstviewboundsHEIGHT/21)).states_([["See Saved Random Seeds",~stringcolor,~backgroundcolor],["See Saved Random Seeds",~stringcolor,~backgroundcolor]]).action_({arg button;
 
 			h = Document.open(Document.current.dir++"/duranduranbot_saved_random_seeds.scd");
 
@@ -581,7 +621,7 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 		see_saved_seeds_file_button.font = Font(size: ~firstviewboundsWIDTH/48);
 
 
-		machinelearningbutton = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.12, ~firstviewboundsWIDTH/4.2, ~firstviewboundsHEIGHT/21)).states_([["Machine Learning Is ON",Color.white,Color.black],["Machine Learning Is OFF",Color.white,Color.black]]).action_({arg button;
+		machinelearningbutton = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.12, ~firstviewboundsWIDTH/4.2, ~firstviewboundsHEIGHT/21)).states_([["Machine Learning Is ON",~stringcolor,~backgroundcolor],["Machine Learning Is OFF",~stringcolor,~backgroundcolor]]).action_({arg button;
 			if(button.value == 1, {
 				g = File(Document.current.dir++"/other_program_files/ddbot_machine_learning_on_off.scd", "w");
 				g.write("0");
@@ -596,7 +636,8 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 		machinelearningbutton.font = Font(size: ~firstviewboundsWIDTH/48);
 
 		machinelearningtext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.06, ~firstviewboundsWIDTH/2, ~firstviewboundsHEIGHT/21));
-		machinelearningtext.background=Color.white;
+		machinelearningtext.background=~backgroundcolor;
+		machinelearningtext.stringColor=~stringcolor;
 		machinelearningtext.string = "^More info about machine learning on "++"instructions".quote++" page";
 		machinelearningtext.font = Font(size: ~firstviewboundsWIDTH/55);
 
@@ -605,13 +646,14 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 		q = q.asInteger;
 		if(q == 1, {machinelearningbutton.value = 0;});
 
-		training_settings_page_button = Button.new(~firstview, Rect(~firstviewboundsWIDTH/1.4173228346457, ~firstviewboundsHEIGHT/1.45, ~firstviewboundsWIDTH/4, ~firstviewboundsHEIGHT/21)).states_([["Player Settings",Color.white,Color.black]]).action_({arg button;
-		~player_settings_page_func.value;
+		training_settings_page_button = Button.new(~firstview, Rect(~firstviewboundsWIDTH/1.4173228346457, ~firstviewboundsHEIGHT/1.45, ~firstviewboundsWIDTH/4, ~firstviewboundsHEIGHT/21)).states_([["Player Settings",~stringcolor,~backgroundcolor]]).action_({arg button;
+			~player_settings_page_func.value;
 		});
 		training_settings_page_button.font = Font(size: ~firstviewboundsWIDTH/48);
 
 		playerchoicetext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/2.73, ~firstviewboundsHEIGHT/12, ~firstviewboundsWIDTH/3, ~firstviewboundsHEIGHT/21));
-		playerchoicetext.background=maincolor;
+		playerchoicetext.background=~backgroundcolor;
+		playerchoicetext.stringColor=~stringcolor;
 		playerchoicetext.string = "Current Player(s) - "++(
 			case
 			{FileReader.read(Document.current.dir++"/other_program_files/which_players.scd", false, true).flatten.at(0) == 0.asString}{"All Players"}
@@ -622,7 +664,44 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 		playerchoicetext.align = \topLeft;
 		playerchoicetext.font = Font(size: ~firstviewboundsWIDTH/55);
 
-		closeddbotbutton = Button.new(~firstview, Rect(~firstviewboundsWIDTH/1.2, ~firstviewboundsHEIGHT/1.1, ~firstviewboundsWIDTH/7.5, ~firstviewboundsHEIGHT/21)).states_([["Close DD'bot",Color.white,Color.black],["Close DD'bot",Color.white,Color.black]]).action_({arg button;
+		~color_menu = PopUpMenu(~firstview, Rect(~firstviewboundsWIDTH/1.4173228346457, ~firstviewboundsHEIGHT/1.33, ~firstviewboundsWIDTH/4, ~firstviewboundsHEIGHT/21));
+		~color_menu.items = [
+			"GUI color - "++(
+				case
+				{FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", false, true).flatten.at(0) == 0.asString}{"Black"}
+				{FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", false, true).flatten.at(0) == 1.asString}{"White"};
+			),
+			"Black", "White"];
+		~color_menu.background_(~backgroundcolor);
+		~color_menu.stringColor_(~stringcolor);
+		~color_menu.value = FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", false, true);
+		~color_menu.action = { arg menu;
+			g = File(Document.current.dir++"/other_program_files/gui_color.scd", "w");
+			g.write(
+				case
+				{~color_menu.value == 0}{nil}
+				{~color_menu.value == 1}{"0".asString}
+				{~color_menu.value == 2}{"1".asString};
+
+			);
+			g.close;
+			case
+			{~color_menu.value == 0}{nil}
+			{~color_menu.value == 1}{
+				~backgroundcolor = Color.black;
+				~stringcolor = Color.white;
+			}
+			{~color_menu.value == 2}{
+				~backgroundcolor = Color.white;
+				~stringcolor = Color.black;
+			};
+			w.close;
+			~duranduranbot_GUI_func.value;
+			~main_page_func.value;
+		};
+		~color_menu.font = Font(size: ~firstviewboundsWIDTH/48);
+
+		closeddbotbutton = Button.new(~firstview, Rect(~firstviewboundsWIDTH/1.2, ~firstviewboundsHEIGHT/1.1, ~firstviewboundsWIDTH/7.5, ~firstviewboundsHEIGHT/21)).states_([["Close DD'bot",~stringcolor,~backgroundcolor],["Close DD'bot",~stringcolor,~backgroundcolor]]).action_({arg button;
 			~stop_func.value;
 			Server.freeAll;
 			w.close;
@@ -637,33 +716,36 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 
 		~firstview = View(w, Rect(0, 0, w.bounds.width, w.bounds.height));
 		/*view.clearOnRefresh = false;*/
-		~firstview.background = maincolor;
+		~firstview.background = ~backgroundcolor;
 		~firstviewboundsWIDTH = ~firstview.bounds.width;
 		~firstviewboundsHEIGHT = ~firstview.bounds.height;
 
 		firstviewtext1 = StaticText(~firstview, Rect(~firstviewboundsWIDTH/2.2857142857143, ~firstviewboundsHEIGHT/43.7, ~firstviewboundsWIDTH/8, ~firstviewboundsHEIGHT/21));
-		firstviewtext1.background=maincolor;
+		firstviewtext1.background=~backgroundcolor;
+		firstviewtext1.stringColor=~stringcolor;
 		firstviewtext1.string = "Instructions";
 		firstviewtext1.align = \topLeft;
 		firstviewtext1.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		firstviewtext2 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/43.7, ~firstviewboundsWIDTH/16, ~firstviewboundsHEIGHT/21)).states_([["back",Color.white,Color.black],["back",Color.white,Color.black]]).action_({arg button;
+		firstviewtext2 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/43.7, ~firstviewboundsWIDTH/16, ~firstviewboundsHEIGHT/21)).states_([["back",~stringcolor,~backgroundcolor],["back",~stringcolor,~backgroundcolor]]).action_({arg button;
 			~firstview.close;
 			~main_page_func.value;
 		});
-		firstviewtext2.background=Color.grey;
+		firstviewtext2.background=~stringcolor;
 		firstviewtext2.string = "Back";
 		firstviewtext2.font = Font(size: ~firstviewboundsWIDTH/48);
 
 		firstviewtext3 = StaticText(~firstview, Rect(~firstviewboundsWIDTH/1.5652173913043, ~firstviewboundsHEIGHT/43.7, ~firstviewboundsWIDTH/2.88, ~firstviewboundsHEIGHT/4.37));
-		firstviewtext3.background=maincolor;
+		firstviewtext3.background=~backgroundcolor;
+		firstviewtext3.stringColor=~stringcolor;
 		firstviewtext3.string = "*Important Note*... You can kill all sounds and processes by hitting "++"cmd/ctrl - period".quote++"on your keyboard.";
 		firstviewtext3.align = \topLeft;
 		firstviewtext3.font = Font(size: ~firstviewboundsWIDTH/65.454545454545);
 
 		firstviewtext4 = TextView(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/7.528571428571, ~firstviewboundsWIDTH/1.0285714285714, ~firstviewboundsHEIGHT/1.2));
-		firstviewtext4.background=maincolor;
-		firstviewtext4.string = "(Scroll down for more)\n\nHOW TO PLAY A PIECE\n\nPlay a DuranDuranbot piece by clicking the "++"generate piece".quote++"  button on the Main Page, and then by clicking the "++"play piece".quote++"  button. Once random seeds are input into the program on the front page (the very first page of this program), you only need to generate a song once using the same random seeds. If you click on the "++"generate piece".quote++"  button more than once without inputting new random seeds the same piece will always be generated. To generate a new piece, you can go back to the first page and input new random seeds, or you can do this automatically by clicking on the "++"new random seeds".quote++" button across from the "++"generate piece".quote++" button on the right side of the main page. Or, you can quickly generate a new piece based on entirely new random seeds by simply clicking on the "++"quick new piece".quote++" button a few sets of buttons below the "++"generate piece".quote++" button. \n\nMACHINE LEARNING\n\nMachine learning is enabled by default, but you can disable it on the main page. Using the machine learning function allows for you to teach DuranDuranbot what you prefer to hear in a piece by rating a piece, and for it become better at composing music for you. On the Main Page, you can rate a piece by clicking on any of the point ratings and clicking "++"Rate".quote++". The rating system is currently set to rate the last "++(~auto_select_diff)++" seconds from your current position in the piece designated by where the time slider is positioned... Doing all of this will train DuranDuranbot how to compose music. All training data will be saved to the DuranDuranbot "++"ddbot_training_data".quote++" folder for future use. (Side Note: You can hybridize the training data of numerous DD'bots as well by going into the DD'bot training folder.)\n\nDDbot's machine learning system utilizes mathematical weights to compose/learn to compose music. For instance, a piece compostition variable might be a note interval, and each note interval (1 step, 2 steps) would have a weight assigned to it in a given situation... and DDbot would choose an interval by comparing the weight values of each interval in a given situation, *tending* to choose a higher weighted variable using weighted probability. When you rate a section of a piece while using DDbot, a variable in a given situation is rewarded with points as to increase the value of it's weight. The more points you give a variable, the more chance it will be used in a piece composition. How powerful each xpt rating is - x16 pts is 80% weighted chance for variable in 5 reward instances for that variable... x8 pts is 80% weighted chance for variable in 10 reward instances. x4 pts is 80% weighted chance for variable in 20 reward instances.... and so on in that same pattern. Put simply, a higher rating point value equals faster training of DDbot, but less fine-tuning.\n\nPLAYER SETTINGS\n\nBy clicking the "++"Player Settings".quote++" button on the Main Page, you can choose which player(s) you can traget to compose music and be trained.\n\n\n\nIf you have any questions, please feel free to contact -\n\nken_brant@ymail.com\n\nor\n\nkenbrant7@gmail.com";
+		firstviewtext4.background=~backgroundcolor;
+		firstviewtext4.string = "(Scroll down for more)\n\nHOW TO PLAY A PIECE\n\nPlay a DuranDuranbot piece by clicking the "++"generate piece".quote++"  button on the Main Page, and then by clicking the "++"play piece".quote++"  button. Once random seeds are input into the program on the front page (the very first page of this program), you only need to generate a song once using the same random seeds. If you click on the "++"generate piece".quote++"  button more than once without inputting new random seeds the same piece will always be generated. To generate a new piece, you can go back to the first page and input new random seeds, or you can do this automatically by clicking on the "++"new random seeds".quote++" button across from the "++"generate piece".quote++" button on the right side of the main page. Or, you can quickly generate a new piece based on entirely new random seeds by simply clicking on the "++"quick new piece".quote++" button a few sets of buttons below the "++"generate piece".quote++" button. \n\nMACHINE LEARNING\n\nMachine learning is enabled by default, but you can disable it on the main page. Using the machine learning function allows for you to teach DuranDuranbot what you prefer to hear in a piece by rating a piece, and for it become better at composing music for you. On the Main Page, you can rate a piece by clicking on any of the point ratings and clicking "++"Rate".quote++". The rating system is currently set to rate the last "++(~auto_select_diff)++" seconds from your current position in the piece designated by where the time slider is positioned... Doing all of this will train DuranDuranbot how to compose music. All training data will be saved to the DuranDuranbot "++"ddbot_training_data".quote++" folder for future use. (Side Note: You can hybridize the training data of numerous DD'bots as well by going into the DD'bot training folder.)\n\nDDbot's machine learning system utilizes mathematical weights to compose/learn to compose music. For instance, a piece compostition variable might be a note interval, and each note interval (1 step, 2 steps) would have a weight assigned to it in a given situation... and DDbot would choose an interval by comparing the weight values of each interval in a given situation, *tending* to choose a higher weighted variable using weighted probability. When you rate a section of a piece while using DDbot, a variable in a given situation is rewarded with points as to increase the value of it's weight. The more points you give a variable, the more chance it will be used in a piece composition. How powerful each xpt rating is - x16 pts is 80% weighted chance for variable in 5 reward instances for that variable... x8 pts is 80% weighted chance for variable in 10 reward instances. x4 pts is 80% weighted chance for variable in 20 reward instances.... and so on in that same pattern. Put simply, a higher rating point value equals faster training of DDbot, but less fine-tuning.\n\nPLAYER SETTINGS\n\nBy clicking the "++"Player Settings".quote++" button on the Main Page, you can choose which player(s) you can traget to compose music and be trained.\n\nCURRENT BUGS\n\n- Every time you click on a link to the main page while piece is playing, the piece goes to it's beginning for a slight moment then goes back to current position.\n\n\n\nIf you have any questions, please feel free to contact -\n\nken_brant@ymail.com\n\nor\n\nkenbrant7@gmail.com";
+		firstviewtext4.stringColor=~stringcolor;
 		firstviewtext4.font = Font(size: ~firstviewboundsWIDTH/48);
 
 	};
@@ -674,28 +756,28 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 
 		~firstview = View(w, Rect(0, 0, w.bounds.width, w.bounds.height));
 		/*view.clearOnRefresh = false;*/
-		~firstview.background = maincolor;
+		~firstview.background = ~backgroundcolor;
 		~firstviewboundsWIDTH = ~firstview.bounds.width;
 		~firstviewboundsHEIGHT = ~firstview.bounds.height;
 
 		firstviewtext1 = StaticText(~firstview, Rect(~firstviewboundsWIDTH/2.2857142857143, ~firstviewboundsHEIGHT/43.7, ~firstviewboundsWIDTH/5, ~firstviewboundsHEIGHT/21));
-		firstviewtext1.background=maincolor;
+		firstviewtext1.background=~backgroundcolor;
+		firstviewtext1.stringColor=~stringcolor;
 		firstviewtext1.string = "Player Settings";
 		firstviewtext1.align = \topLeft;
 		firstviewtext1.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		firstviewtext2 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/43.7, ~firstviewboundsWIDTH/16, ~firstviewboundsHEIGHT/21)).states_([["back",Color.white,Color.black],["back",Color.white,Color.black]]).action_({arg button;
+		firstviewtext2 = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/43.7, ~firstviewboundsWIDTH/16, ~firstviewboundsHEIGHT/21)).states_([["back",~stringcolor,~backgroundcolor],["back",~stringcolor,~backgroundcolor]]).action_({arg button;
 			~firstview.close;
 			~main_page_func.value;
 		});
-		firstviewtext2.background=Color.grey;
 		firstviewtext2.string = "Back";
 		firstviewtext2.font = Font(size: ~firstviewboundsWIDTH/48);
 
 
 		~players_menu = PopUpMenu(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/3, ~firstviewboundsWIDTH/4, ~firstviewboundsHEIGHT/21));
 		~players_menu.items = [
-			"Current = "++(
+			"Current - "++(
 				case
 				{FileReader.read(Document.current.dir++"/other_program_files/which_players.scd", false, true).flatten.at(0) == 0.asString}{"All Players"}
 				{FileReader.read(Document.current.dir++"/other_program_files/which_players.scd", false, true).flatten.at(0) == 1.asString}{"Player 1"}
@@ -703,8 +785,8 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 				{FileReader.read(Document.current.dir++"/other_program_files/which_players.scd", false, true).flatten.at(0) == 3.asString}{"Player 3"};
 			),
 			"All Players", "Player 1", "Player 2", "Player 3"];
-		~players_menu.background_(Color.black);
-		~players_menu.stringColor_(Color.white);
+		~players_menu.background_(~backgroundcolor);
+		~players_menu.stringColor_(~stringcolor);
 		~players_menu.value = FileReader.read(Document.current.dir++"/other_program_files/which_players.scd", false, true);
 		~players_menu.action = { arg menu;
 			g = File(Document.current.dir++"/other_program_files/which_players.scd", "w");
@@ -722,7 +804,8 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 		~players_menu.font = Font(size: ~firstviewboundsWIDTH/48);
 
 		firstviewtext4 = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/7.528571428571, ~firstviewboundsWIDTH/1.0285714285714, ~firstviewboundsHEIGHT/6.5));
-		firstviewtext4.background=maincolor;
+		firstviewtext4.background=~backgroundcolor;
+		firstviewtext4.stringColor=~stringcolor;
 		firstviewtext4.string = "Click on the pop-up menu below to choose which player(s) will compose and be trained. This is useful for a more targeted composition and training... or less targeted. By selecting an option from the pop-up menu below, you are making that the default setting.";
 		firstviewtext4.align = \topLeft;
 		firstviewtext4.font = Font(size: ~firstviewboundsWIDTH/48);
@@ -1110,8 +1193,8 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 
 			if(ratedonetext != nil, {ratedonetext.close; ratedonetext = nil;});
 			ratedonetext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/3.063829787234, ~firstviewboundsHEIGHT/4.228571428571, ~firstviewboundsWIDTH/4.04545454545, ~firstviewboundsHEIGHT/21));
-			ratedonetext.background=Color.white;
-			ratedonetext.stringColor_(Color.black);
+			ratedonetext.background=~backgroundcolor;
+			ratedonetext.stringColor_(~stringcolor);
 			ratedonetext.string = "PIECE SELECTION RATED";
 			ratedonetext.font = Font(size: ~firstviewboundsWIDTH/55);
 
@@ -1182,8 +1265,8 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 
 			if(ratedonetext != nil, {ratedonetext.close; ratedonetext = nil;});
 			ratedonetext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/3.063829787234, ~firstviewboundsHEIGHT/4.228571428571, ~firstviewboundsWIDTH/4.04545454545, ~firstviewboundsHEIGHT/21));
-			ratedonetext.background=Color.white;
-			ratedonetext.stringColor_(Color.black);
+			ratedonetext.background=~stringcolor;
+			ratedonetext.stringColor_(~backgroundcolor);
 			ratedonetext.string = "RATES REVERTED";
 			ratedonetext.font = Font(size: ~firstviewboundsWIDTH/55);
 
@@ -1242,6 +1325,8 @@ if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of se
 				// For each chord
 
 				// For now... override
+
+				// Have DDbot machine learn preferences in that^
 
 				~number_of_instruments.do(x = 0; {("duranduranbotsynth"++(x=x+1)).asSymbol.envirGet.set(\freq, 0);});
 
@@ -1788,12 +1873,12 @@ if((FileReader.read(Document.current.dir++"/other_program_files/ddbot_training_d
 
 		~firstview = View(w, Rect(0, 0, w.bounds.width, w.bounds.height));
 		/*view.clearOnRefresh = false;*/
-		~firstview.background = Color.white;
+		~firstview.background = ~stringcolor;
 		~firstviewboundsWIDTH = ~firstview.bounds.width;
 		~firstviewboundsHEIGHT = ~firstview.bounds.height;
 
 		a = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/43.7, ~firstviewboundsWIDTH/1.0285714285714, ~firstviewboundsHEIGHT/3.4774535809019));
-		a.background = Color.white;
+		a.background = ~stringcolor;
 		a.string = "Some program files were not detected. Please make sure that the -entire- DuranDuranbot.zip file has been -fully- extracted to a location on your computer... and then open the "++"duranduranbot_RUN.scd".quote++" from within that extracted DuranDuranbot folder.";
 		a.align = \topLeft;
 		a.font = Font(size: ~firstviewboundsWIDTH/48);
