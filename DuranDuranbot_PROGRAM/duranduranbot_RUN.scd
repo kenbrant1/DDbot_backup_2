@@ -69,8 +69,11 @@ contact email: ken_brant@ymail.com or kenbrant7@gmail.com
 // Have DDbot machine learn preferences in that^ (meaning in the structure of heirarhy, etc)
 //
 // HAVE DDBOT THINK DURAING COMPOSITION! - Use ML data to make 1st and last note of a "verse". Create rest of verse
-// by using ML data from both first and last note, meet in middle, "compromise" in middle, then "compromise"
+// by using ML data from both first and last note, meet in middle, "compromise" in middle, then "compromise" based on that
 // back to the first and last notes. This is the AI REALLY composing! THINKING!
+// STILL use rest of hieriarchil structure. Notes will change, but structure will stay the same. Notes will only change
+// on the "bottom" level.
+
 
 // KEY TO SUCCESSFUL AI - Allow for most machine learning in the least amount of time. ML in lots of different things.
 // (ex - not just note transitions, etc..... but also *literally* everything else.
