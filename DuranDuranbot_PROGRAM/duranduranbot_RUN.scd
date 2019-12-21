@@ -73,6 +73,10 @@ contact email: ken_brant@ymail.com or kenbrant7@gmail.com
 // back to the first and last notes. This is the AI REALLY composing! THINKING!
 // STILL use rest of hieriarchil structure. Notes will change, but structure will stay the same. Notes will only change
 // on the "bottom" level.
+//
+// Or RATHER - Have beginning of first and last note create their own "sequence" for the length of the verse,
+// then "blend" the sequences by putting overlapping them on top of each other... find middle ground
+// of each note... bit by bit.
 
 
 // KEY TO SUCCESSFUL AI - Allow for most machine learning in the least amount of time. ML in lots of different things.
