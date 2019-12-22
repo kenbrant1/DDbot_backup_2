@@ -77,6 +77,11 @@ contact email: ken_brant@ymail.com or kenbrant7@gmail.com
 // Or RATHER - Have beginning of first and last note create their own "sequence" for the length of the verse,
 // then "blend" the sequences by putting overlapping them on top of each other... find middle ground
 // of each note... bit by bit.
+//
+// When "blending" two notes, use machine learning in case it results in decimal.
+//
+// Create 1st chord sequence and 2nd chord sequence, blend, then use same 2nd chord sequence for 2nd and 3rd chord
+// sequence blend.
 
 
 // KEY TO SUCCESSFUL AI - Allow for most machine learning in the least amount of time. ML in lots of different things.
