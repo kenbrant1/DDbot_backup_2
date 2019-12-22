@@ -82,6 +82,9 @@ contact email: ken_brant@ymail.com or kenbrant7@gmail.com
 //
 // Create 1st chord sequence and 2nd chord sequence, blend, then use same 2nd chord sequence for 2nd and 3rd chord
 // sequence blend.
+//
+// HOW TO OVERLAP SEQUENCES - Example: Create 1st and 2nd sequences, overlap them, "blend" EVERY NOTE - including
+// "original" starting chords... then create NEW sequence for the 2nd chord, and do the same.
 
 
 // KEY TO SUCCESSFUL AI - Allow for most machine learning in the least amount of time. ML in lots of different things.
