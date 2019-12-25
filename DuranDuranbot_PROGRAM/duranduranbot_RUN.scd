@@ -697,14 +697,15 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 		if(q == 1, {machinelearningbutton.value = 0;});
 
 		loadscorebuttonbutton = Button.new(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.16, ~firstviewboundsWIDTH/5.8, ~firstviewboundsHEIGHT/21)).states_([["Load Saved Score",~stringcolor,~backgroundcolor]]).action_({arg button;
-			~saved_piece_loaded = 1;
-			~loaded_score.value;
-			if(~duranduranbot_routine.isPlaying == true, {~stop_func.value;});
-			generatepiecebutton.valueAction = 1;
+
 			if(~loaded_score.value == nil, {
 				loadscoretext.string = "Paste score in top of "++"duranduranbot_RUN.scd".quote++" file in "++"~loaded_score".quote++" function.";
 				AppClock.sched(5, {loadscoretext.string = "Load a saved score here. Then press "++"Play Piece".quote++".";});
 			}, {
+				~saved_piece_loaded = 1;
+				~loaded_score.value;
+				if(~duranduranbot_routine.isPlaying == true, {~stop_func.value;});
+				generatepiecebutton.valueAction = 1;
 				loadscoretext.string = "Score has been loaded. Press "++"Play Piece".quote++" to run.";
 				AppClock.sched(5, {loadscoretext.string = "Load a saved score here. Then press "++"Play Piece".quote++".";});
 			});
