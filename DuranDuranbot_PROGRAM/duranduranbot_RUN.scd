@@ -116,6 +116,8 @@ contact email: ken_brant@ymail.com or kenbrant7@gmail.com
 // "original" starting chords... then create NEW sequence for the 2nd chord, and do the same.
 //
 // DO ML on length of sequences too
+//
+// Do overlap... then use the overlap result in next sequence, overlapping that with next generated sequence.
 
 
 // KEY TO SUCCESSFUL AI - Allow for most machine learning in the least amount of time. ML in lots of different things.
