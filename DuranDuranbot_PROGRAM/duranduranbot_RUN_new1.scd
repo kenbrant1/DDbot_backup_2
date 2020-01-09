@@ -1242,19 +1242,19 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 						o.size.do({
 							~number_of_instruments.do(n = 0; {
 								n=n+1;
-								("instrument_"++(n=n+1)++"_array_2").asSymbol.envirPut(("instrument_"++(n)++"_array").asSymbol.envirGet)});
+								("instrument_"++(n)++"_array_2").asSymbol.envirPut(("instrument_"++(n)++"_array").asSymbol.envirGet)});
 						});
 
 						~number_of_instruments.do(n = 0; {("instrument_"++(n=n+1)++"_full").asSymbol.envirPut([]);});
 
 
-						("instrument_"++(1)++"_array_1").asSymbol.envirGet;
-						("instrument_"++(2)++"_array_1").asSymbol.envirGet;
-						("instrument_"++(3)++"_array_1").asSymbol.envirGet;
+						("instrument_"++(1)++"_array_2").asSymbol.envirGet;
+						("instrument_"++(2)++"_array_2").asSymbol.envirGet;
+						("instrument_"++(3)++"_array_2").asSymbol.envirGet;
 
-						("instrument_"++(1)++"_array_1").asSymbol.envirGet.size;
-						("instrument_"++(2)++"_array_1").asSymbol.envirGet.size;
-						("instrument_"++(3)++"_array_1").asSymbol.envirGet.size;
+						("instrument_"++(1)++"_array_2").asSymbol.envirGet.size;
+						("instrument_"++(2)++"_array_2").asSymbol.envirGet.size;
+						("instrument_"++(3)++"_array_2").asSymbol.envirGet.size;
 
 						(o = exprand(4, 16).round).do({
 
