@@ -1122,17 +1122,17 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 			" 2".post;
 
-			//Piece creation in parts. Only reason to have parts is to determine length of piece.
+			//Piece creation
 
 			(
 
 				~create_piece_function = {
 
-					thisThread.randSeed = ~randseed_2;
+				/*	thisThread.randSeed = ~randseed_2;
 
 					~part_bit_size = 64;
 					~max_number_of_parts = 200; //max 200 parts. random probability choice decreases linearly from "~max_number_of_parts" value to 1.
-					~number_of_parts_in_piece = (~max_number_of_parts.linrand - ~max_number_of_parts).neg;
+					~number_of_parts_in_piece = (~max_number_of_parts.linrand - ~max_number_of_parts).neg;*/
 
 					// I NEED DDBOT TO SOUND *KINDA ROBOTIC, AND KINDA HUMAN*
 
@@ -1154,8 +1154,6 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 					// generate top-level chords
 
 					thisThread.randSeed = ~randseed_2;
-
-					~number_of_instruments.do(n = 0; {("instrument_"++(n=n+1)++"_full").asSymbol.envirPut([]);});
 
 					~number_of_instruments.do(n = 0; {
 						~inst_num = (n=n+1);
@@ -1204,7 +1202,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 					~number_of_instruments.do(n = 0; {("instrument_"++(n=n+1)++"_full").asSymbol.envirPut([]);});
 
-					(~top_level_notes_1_full.size).do(x = (-1); ~part_num = 0; {
+					(~top_level_notes_1_full.size-1).do(x = (-1); ~part_num = 0; {
 						x=x+1;
 						~part_num = ~part_num + 1;
 
@@ -1245,7 +1243,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 						~number_of_instruments.do(n = 0; {
 							n=n+1;
-							o.size.do(i = (-1); {
+							o.do(i = (-1); {
 								i=i+1;
 								u = ((("instrument_"++(n)++"_array_1").asSymbol.envirGet.at(i) + ("instrument_"++(n)++"_array_2").asSymbol.envirGet.at(i)) / 2).round;
 								("instrument_"++(n)++"_array_blended").asSymbol.envirPut(("instrument_"++(n)++"_array_blended").asSymbol.envirGet.add(u.value));
@@ -1255,10 +1253,13 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 						~number_of_instruments.do(n = 0; {
 							n=n+1;
 							("instrument_"++(n)++"_full").asSymbol.envirPut(("instrument_"++(n)++"_full").asSymbol.envirGet.add(("instrument_"++(n)++"_array_blended").asSymbol.envirGet;));
+							("instrument_"++(n)++"_full").asSymbol.envirPut(("instrument_"++(n)++"_full").asSymbol.envirGet.flatten);
 						});
 
 					});
 
+
+					("instrument_"++(2)++"_full").asSymbol.envirGet;
 
 
 					/*	("instrument_"++(1)++"_array_2").asSymbol.envirGet;
@@ -1274,8 +1275,9 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 
 
-				/*	~create_piece_routine = Routine({
+				~create_piece_routine = Routine({
 
+						/*
 						thisThread.randSeed = ~randseed_3;
 
 						~number_of_instruments.do(x = 0; {
@@ -1363,8 +1365,8 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 								h = 0.midicps;
 
 								1.do({
-
-									~number_of_instruments.do(x = 0; {("instrument_"++(x=x+1)++"_full").asSymbol.envirPut([]);});
+/*
+									~number_of_instruments.do(x = 0; {("instrument_"++(x=x+1)++"_full").asSymbol.envirPut([]);});*/
 
 									/*
 									("instrument_"++(1)++"_full").asSymbol.envirGet.at(5800).size
@@ -1374,8 +1376,8 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 										~number_of_instruments.do(x = 0; {
 											x=x+1;
-											~number_of_parts_in_piece.do(y = 0; {("instrument_"++(x)++"_full").asSymbol.envirPut(("instrument_"++(x)++"_full").asSymbol.envirGet.add(("instrument_"++(x)++"_array_part_"++(y=y+1)).asSymbol.envirGet););});
-											("instrument_"++(x)++"_full").asSymbol.envirPut(("instrument_"++(x)++"_full").asSymbol.envirGet.flatten);
+											/*~number_of_parts_in_piece.do(y = 0; {("instrument_"++(x)++"_full").asSymbol.envirPut(("instrument_"++(x)++"_full").asSymbol.envirGet.add(("instrument_"++(x)++"_array_part_"++(y=y+1)).asSymbol.envirGet););});
+											*/("instrument_"++(x)++"_full").asSymbol.envirPut(("instrument_"++(x)++"_full").asSymbol.envirGet.flatten);
 											("instrument_"++(x)++"_full_midi").asSymbol.envirPut(("instrument_"++(x)++"_full").asSymbol.envirGet);
 											("instrument_"++(x)++"_full").asSymbol.envirPut(("instrument_"++(x)++"_full").asSymbol.envirGet.midicps);
 											("instrument_"++(x)++"_full").asSymbol.envirPut(("instrument_"++(x)++"_full").asSymbol.envirGet.replace(h, 0));
