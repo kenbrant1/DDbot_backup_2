@@ -1128,7 +1128,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 				~create_piece_function = {
 
-				/*	thisThread.randSeed = ~randseed_2;
+					/*	thisThread.randSeed = ~randseed_2;
 
 					~part_bit_size = 64;
 					~max_number_of_parts = 200; //max 200 parts. random probability choice decreases linearly from "~max_number_of_parts" value to 1.
@@ -1202,26 +1202,44 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 					~number_of_instruments.do(n = 0; {("instrument_"++(n=n+1)++"_full").asSymbol.envirPut([]);});
 
+					~composition_setting = 1;
+
 					(~top_level_notes_1_full.size-1).do(x = (-1); ~part_num = 0; {
 						x=x+1;
 						~part_num = ~part_num + 1;
 
-						// "put" top level chords into ~instrument_x_freq's
 
-						~number_of_instruments.do(n = 0; {
-							n=n+1;
-							("instrument_"++(n)++"_freq").asSymbol.envirPut(("top_level_notes_"++(n)++"_full").asSymbol.envirGet.at(x).asInteger);
+						if(x > 0, {
+
+							~number_of_instruments.do(n = 0; {
+								n=n+1;
+								("instrument_"++(n)++"_array_1").asSymbol.envirPut(
+									case
+									{~composition_setting == 1}{("instrument_"++(n)++"_array_2").asSymbol.envirGet;}
+									{~composition_setting == 2}{("instrument_"++(n)++"_array_blended").asSymbol.envirGet;};
+								);
+							});
+						}, {
+
+							// "put" top level chords into ~instrument_x_freq's
+
+							~number_of_instruments.do(n = 0; {
+								n=n+1;
+								("instrument_"++(n)++"_freq").asSymbol.envirPut(("top_level_notes_"++(n)++"_full").asSymbol.envirGet.at(x).asInteger);
+							});
+
+							// run composition process with times/durations
+
+							~number_of_instruments.do(n = 0; {
+								n=n+1;
+								("instrument_"++(n)++"_array").asSymbol.envirPut([]);
+								("instrument_"++(n)++"_array_1").asSymbol.envirPut([]);
+							});
+							(o = (exprand(4, 16).round)/~bit_duration).do({~inst_clock_func.value});
+							~number_of_instruments.do(n = 0; {("instrument_"++(n=n+1)++"_array_1").asSymbol.envirPut(("instrument_"++(n)++"_array").asSymbol.envirGet)});
+
 						});
 
-						// run composition process with times/durations
-
-						~number_of_instruments.do(n = 0; {
-							n=n+1;
-							("instrument_"++(n)++"_array").asSymbol.envirPut([]);
-							("instrument_"++(n)++"_array_1").asSymbol.envirPut([]);
-						});
-						(o = (exprand(4, 16).round)/~bit_duration).do({~inst_clock_func.value});
-						~number_of_instruments.do(n = 0; {("instrument_"++(n=n+1)++"_array_1").asSymbol.envirPut(("instrument_"++(n)++"_array").asSymbol.envirGet)});
 
 						~number_of_instruments.do(n = 0; {
 							n=n+1;
@@ -1259,30 +1277,30 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 					});
 
 
-				/*	("instrument_"++(2)++"_full").asSymbol.envirGet;*/
+					/*	("instrument_"++(2)++"_full").asSymbol.envirGet;*/
 
 
 					/*	("instrument_"++(1)++"_array_2").asSymbol.envirGet;
-						("instrument_"++(2)++"_array_2").asSymbol.envirGet;
-						("instrument_"++(3)++"_array_2").asSymbol.envirGet;
+					("instrument_"++(2)++"_array_2").asSymbol.envirGet;
+					("instrument_"++(3)++"_array_2").asSymbol.envirGet;
 
-						("instrument_"++(1)++"_array_2").asSymbol.envirGet.size;
-						("instrument_"++(2)++"_array_2").asSymbol.envirGet.size;
-						("instrument_"++(3)++"_array_2").asSymbol.envirGet.size;
-*/
-
-
+					("instrument_"++(1)++"_array_2").asSymbol.envirGet.size;
+					("instrument_"++(2)++"_array_2").asSymbol.envirGet.size;
+					("instrument_"++(3)++"_array_2").asSymbol.envirGet.size;
+					*/
 
 
 
-				~create_piece_routine = Routine({
+
+
+					~create_piece_routine = Routine({
 
 						/*
 						thisThread.randSeed = ~randseed_3;
 
 						~number_of_instruments.do(x = 0; {
-							x=x+1;
-							~number_of_parts_in_piece.do(y = 0; {("instrument_"++(x)++"_array_part_"++(y=y+1)).asSymbol.envirPut([]);});
+						x=x+1;
+						~number_of_parts_in_piece.do(y = 0; {("instrument_"++(x)++"_array_part_"++(y=y+1)).asSymbol.envirPut([]);});
 						});
 
 						~number_of_instruments.do(y = 0; {("dna_clock_"++(y=y+1)).asSymbol.envirPut(0);});
@@ -1292,68 +1310,68 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 						1.do({~part_num = 1;
 
-							1.do({
+						1.do({
 
-								~number_of_instruments.do(x = 0; {("instrument_"++(x=x+1)++"_if_zero").asSymbol.envirPut("false");});
+						~number_of_instruments.do(x = 0; {("instrument_"++(x=x+1)++"_if_zero").asSymbol.envirPut("false");});
 
-								("instrument_1_array_part_"++(~part_num)).asSymbol.envirPut(
-									("instrument_1_array_part_"++(~part_num)).asSymbol.envirGet.add(~instrument_1_freq = ~freqmap2.choose)
-								);
-								("instrument_2_array_part_"++(~part_num)).asSymbol.envirPut(
-									("instrument_2_array_part_"++(~part_num)).asSymbol.envirGet.add(~instrument_2_freq = ~freqmap2.choose)
-								);
-								("instrument_3_array_part_"++(~part_num)).asSymbol.envirPut(
-									("instrument_3_array_part_"++(~part_num)).asSymbol.envirGet.add(~instrument_3_freq = ~freqmap2.choose)
-								);
+						("instrument_1_array_part_"++(~part_num)).asSymbol.envirPut(
+						("instrument_1_array_part_"++(~part_num)).asSymbol.envirGet.add(~instrument_1_freq = ~freqmap2.choose)
+						);
+						("instrument_2_array_part_"++(~part_num)).asSymbol.envirPut(
+						("instrument_2_array_part_"++(~part_num)).asSymbol.envirGet.add(~instrument_2_freq = ~freqmap2.choose)
+						);
+						("instrument_3_array_part_"++(~part_num)).asSymbol.envirPut(
+						("instrument_3_array_part_"++(~part_num)).asSymbol.envirGet.add(~instrument_3_freq = ~freqmap2.choose)
+						);
 
-								("dna_clock_"++(1)++"_choice").asSymbol.envirPut(~dna_choice_array.choose);
-								("dna_clock_"++(2)++"_choice").asSymbol.envirPut(~dna_choice_array.choose);
-								("dna_clock_"++(3)++"_choice").asSymbol.envirPut(~dna_choice_array.choose);
-								/*
-								("dna_clock_"++(3)++"_choice").asSymbol.envirGet*/
+						("dna_clock_"++(1)++"_choice").asSymbol.envirPut(~dna_choice_array.choose);
+						("dna_clock_"++(2)++"_choice").asSymbol.envirPut(~dna_choice_array.choose);
+						("dna_clock_"++(3)++"_choice").asSymbol.envirPut(~dna_choice_array.choose);
+						/*
+						("dna_clock_"++(3)++"_choice").asSymbol.envirGet*/
 
-								/*(~number_of_instruments-1).do(x = 1; {
-								("instrument_"++(x=x+1)++"_freq").asSymbol.envirPut(0);
-								("dna_clock_"++(x)++"_choice").asSymbol.envirPut(0);/*
-								("dna_clock_"++(2)++"_choice").asSymbol.envirGet <~time_array.at(0)           (0);*/
-								});*/
+						/*(~number_of_instruments-1).do(x = 1; {
+						("instrument_"++(x=x+1)++"_freq").asSymbol.envirPut(0);
+						("dna_clock_"++(x)++"_choice").asSymbol.envirPut(0);/*
+						("dna_clock_"++(2)++"_choice").asSymbol.envirGet <~time_array.at(0)           (0);*/
+						});*/
 
-								/*(~number_of_instruments-1).do(s = 0; {("dna_clock_"++(s=s+1)).asSymbol.envirPut(("dna_clock_"++(s)).asSymbol.envirGet+1);});
-								(~number_of_instruments-1).do(s = 1; {
-								s=s+1;
-								~dna_clock = ("dna_clock_"++(s)).asSymbol.envirGet;
-								~inst_num = s;
-								~inst_clock_func.value;
-								});*/
-							});
+						/*(~number_of_instruments-1).do(s = 0; {("dna_clock_"++(s=s+1)).asSymbol.envirPut(("dna_clock_"++(s)).asSymbol.envirGet+1);});
+						(~number_of_instruments-1).do(s = 1; {
+						s=s+1;
+						~dna_clock = ("dna_clock_"++(s)).asSymbol.envirGet;
+						~inst_num = s;
+						~inst_clock_func.value;
+						});*/
+						});
 
-							(~part_bit_size-1).do({
+						(~part_bit_size-1).do({
 
-								~number_of_instruments.do(n = 0; {("dna_clock_"++(n=n+1)).asSymbol.envirPut(("dna_clock_"++(n)).asSymbol.envirGet+1);});
-								~number_of_instruments.do(n = 0; {
-									n=n+1;
-									~dna_clock = ("dna_clock_"++(n)).asSymbol.envirGet;
-									~inst_num = n;
-									~inst_clock_func.value;
-								});
-							});
+						~number_of_instruments.do(n = 0; {("dna_clock_"++(n=n+1)).asSymbol.envirPut(("dna_clock_"++(n)).asSymbol.envirGet+1);});
+						~number_of_instruments.do(n = 0; {
+						n=n+1;
+						~dna_clock = ("dna_clock_"++(n)).asSymbol.envirGet;
+						~inst_num = n;
+						~inst_clock_func.value;
+						});
+						});
 						});
 
 						(~number_of_parts_in_piece).do({
 
-							1.do({~part_num = ~part_num + 1;
+						1.do({~part_num = ~part_num + 1;
 
-								~part_bit_size.do({
+						~part_bit_size.do({
 
-									~number_of_instruments.do(n = 0; {("dna_clock_"++(n=n+1)).asSymbol.envirPut(("dna_clock_"++(n)).asSymbol.envirGet+1);});
-									~number_of_instruments.do(n = 0; {
-										n=n+1;
-										~dna_clock = ("dna_clock_"++(n)).asSymbol.envirGet;
-										~inst_num = n;
-										~inst_clock_func.value;
-									});
-								});
-							});
+						~number_of_instruments.do(n = 0; {("dna_clock_"++(n=n+1)).asSymbol.envirPut(("dna_clock_"++(n)).asSymbol.envirGet+1);});
+						~number_of_instruments.do(n = 0; {
+						n=n+1;
+						~dna_clock = ("dna_clock_"++(n)).asSymbol.envirGet;
+						~inst_num = n;
+						~inst_clock_func.value;
+						});
+						});
+						});
 						});*/
 
 						" 3".postln;
@@ -1365,7 +1383,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 								h = 0.midicps;
 
 								1.do({
-/*
+									/*
 									~number_of_instruments.do(x = 0; {("instrument_"++(x=x+1)++"_full").asSymbol.envirPut([]);});*/
 
 									/*
