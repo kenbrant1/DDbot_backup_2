@@ -1259,7 +1259,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 					});
 
 
-					("instrument_"++(2)++"_full").asSymbol.envirGet;
+				/*	("instrument_"++(2)++"_full").asSymbol.envirGet;*/
 
 
 					/*	("instrument_"++(1)++"_array_2").asSymbol.envirGet;
