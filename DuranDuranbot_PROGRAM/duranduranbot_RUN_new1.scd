@@ -1223,7 +1223,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 					};
 
-					~composition_setting = 1;
+					~composition_setting = 2;
 
 
 					//compose action
@@ -1240,7 +1240,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 									n=n+1;
 									("instrument_"++(n)++"_array_1").asSymbol.envirPut(
 										case
-										{~composition_setting == 2}{("instrument_"++(n)++"_array_2").asSymbol.envirGet;}
+										{~composition_setting == 2}{("instrument_"++(n)++"_array_2_forwards").asSymbol.envirGet;}
 										{~composition_setting == 3}{("instrument_"++(n)++"_array_blended").asSymbol.envirGet;};
 									);
 								});
@@ -1262,6 +1262,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 						~number_of_instruments.do(n = 0; {("instrument_"++(n=n+1)++"_array_2").asSymbol.envirPut(("instrument_"++(n)++"_array").asSymbol.envirGet)});
 
 						// reverse array 2, then blend
+						~number_of_instruments.do(n = 0; {("instrument_"++(n=n+1)++"_array_2_forwards").asSymbol.envirPut(("instrument_"++(n)++"_array_2").asSymbol.envirGet)});
 						~number_of_instruments.do(n = 0; {("instrument_"++(n=n+1)++"_array_2").asSymbol.envirPut(("instrument_"++(n)++"_array_2").asSymbol.envirGet.reverse)});
 
 						~number_of_instruments.do(n = 0; {n=n+1; ("instrument_"++(n)++"_array_blended").asSymbol.envirPut([]);});
