@@ -51,9 +51,9 @@ contact email: ken_brant@ymail.com or kenbrant7@gmail.com
 	// paste score from score file here, within the encapsulating brackets.
 	// example -
 	/*
-	~instrument_1_full_pseq_array_midi = [ 79,79,79,79,79,79,79,79,79,80,80,80,80,80,80,80,80...... etc..... ];
-	~instrument_2_full_pseq_array_midi = [ 79,79,79,79,79,79,79,79,79,80,80,80,80,80,80,80,80...... etc..... ];
-	~instrument_3_full_pseq_array_midi = [ 79,79,79,79,79,79,79,79,79,80,80,80,80,80,80,80,80...... etc..... ];
+	~instrument_1_full_midi = [ 79,79,79,79,79,79,79,79,79,80,80,80,80,80,80,80,80...... etc..... ];
+	~instrument_2_full_midi = [ 79,79,79,79,79,79,79,79,79,80,80,80,80,80,80,80,80...... etc..... ];
+	~instrument_3_full_midi = [ 79,79,79,79,79,79,79,79,79,80,80,80,80,80,80,80,80...... etc..... ];
 	*/
 	// Then load DuranDuranbot by pressing "ctrl - enter"/"cmd - return" on your keyboard, and
 	// go to the bottom of the "Main Page" and click on the button "Load Saved Score",
@@ -490,10 +490,10 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 		/*rangeslider = EZRanger(~firstview, bounds: (Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.1951428571, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/21)), controlSpec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"), action: {
 		|rangeselect|
 		var rate_selection_start1;
-		~rate_selection_start = (rangeselect.value.at(0)*(~instrument_1_full_pseq_array.size/~piecedur_secs));
+		~rate_selection_start = (rangeselect.value.at(0)*(~instrument_1_full.size/~piecedur_secs));
 		rate_selection_start1 = ~rate_selection_start.roundUp;
 		if(rate_selection_start1 != ~rate_selection_start, {~rate_selection_start = rate_selection_start1-1});
-		~rate_selection_end = (rangeselect.value.at(1)*(~instrument_1_full_pseq_array.size/~piecedur_secs)).roundUp;
+		~rate_selection_end = (rangeselect.value.at(1)*(~instrument_1_full.size/~piecedur_secs)).roundUp;
 		/*rangeselect.value.postln;*/
 
 		}, initVal: [0,if(~piecedur_secs != nil, {~piecedur_secs}, {0})]);
@@ -510,7 +510,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 		timeslider = EZSlider(~firstview,  bounds: (Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.073, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/21)), controlSpec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"), action: {
 			|timeselect|
 			var selection1;
-			~piece_position = timeselect.value*(~instrument_1_full_pseq_array.size/~piecedur_secs); // works
+			~piece_position = timeselect.value*(~instrument_1_full.size/~piecedur_secs); // works
 			selection1 = ~piece_position.roundUp;
 			if(selection1 != ~piece_position, {~piece_position = selection1-1});
 			/*if(timeslider.value >= ~auto_select_diff, {rangeslider.valueAction = [timeslider.value-~auto_select_diff, timeslider.value]}, {rangeslider.valueAction = [0, timeslider.value]});
@@ -785,19 +785,19 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 			~re = Routine({
 				~number_of_instruments.do(x = 0; {
 					g = File(Document.current.dir++"/other_program_files/ddbot_saved_scores/score_"++(z)++".scd", "a");
-					g.write("\n~instrument_"++(x=x+1)++"_full_pseq_array_midi = [ ");
+					g.write("\n~instrument_"++(x=x+1)++"_full_midi = [ ");
 					g.close;
 					0.25.wait;
 					y = (-1);
 					g = File(Document.current.dir++"/other_program_files/ddbot_saved_scores/score_"++(z)++".scd", "a");
-					(("instrument_"++(x)++"_full_pseq_array_midi").asSymbol.envirGet.size-1).do({
-						g.write((("instrument_"++(x)++"_full_pseq_array_midi").asSymbol.envirGet.at(y=y+1)).asString++", ");
+					(("instrument_"++(x)++"_full_midi").asSymbol.envirGet.size-1).do({
+						g.write((("instrument_"++(x)++"_full_midi").asSymbol.envirGet.at(y=y+1)).asString++", ");
 
 					});
 					g.close;
 					0.25.wait;
 					g = File(Document.current.dir++"/other_program_files/ddbot_saved_scores/score_"++(z)++".scd", "a");
-					g.write((("instrument_"++(x)++"_full_pseq_array_midi").asSymbol.envirGet.at(y=y+1)).asString++" ];");
+					g.write((("instrument_"++(x)++"_full_midi").asSymbol.envirGet.at(y=y+1)).asString++" ];");
 					g.close;
 				});
 				"score saved".postln;
@@ -1193,7 +1193,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 					*/
 
 
-					// generate botton-level chords/piece
+					// generate bottom-level chords/piece
 
 					thisThread.randSeed = ~randseed_3;
 
@@ -1201,6 +1201,8 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 					~number_of_instruments.do(n = 0; {("dna_clock_"++(n=n+1)++"_choice").asSymbol.envirPut(~dna_choice_array.choose)});
 					~number_of_instruments.do(x = 0; {("instrument_"++(x=x+1)++"_if_zero").asSymbol.envirPut("false");});
 					/*~number_of_instruments.do(n = 0; {("bottom_level_notes_"++(n=n+1)).asSymbol.envirPut([])});*/
+
+					~number_of_instruments.do(n = 0; {("instrument_"++(n=n+1)++"_full").asSymbol.envirPut([]);});
 
 					(~top_level_notes_1_full.size).do(x = (-1); ~part_num = 0; {
 						x=x+1;
@@ -1239,37 +1241,40 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 						// reverse array 2, then blend
 						~number_of_instruments.do(n = 0; {("instrument_"++(n=n+1)++"_array_2").asSymbol.envirPut(("instrument_"++(n)++"_array_2").asSymbol.envirGet.reverse)});
 
-						o.size.do({
-							~number_of_instruments.do(n = 0; {
-								n=n+1;
-								("instrument_"++(n)++"_array_2").asSymbol.envirPut(("instrument_"++(n)++"_array").asSymbol.envirGet)});
+						~number_of_instruments.do(n = 0; {n=n+1; ("instrument_"++(n)++"_array_blended").asSymbol.envirPut([]);});
+
+						~number_of_instruments.do(n = 0; {
+							n=n+1;
+							o.size.do(i = (-1); {
+								i=i+1;
+								u = ((("instrument_"++(n)++"_array_1").asSymbol.envirGet.at(i) + ("instrument_"++(n)++"_array_2").asSymbol.envirGet.at(i)) / 2).round;
+								("instrument_"++(n)++"_array_blended").asSymbol.envirPut(("instrument_"++(n)++"_array_blended").asSymbol.envirGet.add(u.value));
+							});
 						});
 
-						~number_of_instruments.do(n = 0; {("instrument_"++(n=n+1)++"_full").asSymbol.envirPut([]);});
+						~number_of_instruments.do(n = 0; {
+							n=n+1;
+							("instrument_"++(n)++"_full").asSymbol.envirPut(("instrument_"++(n)++"_full").asSymbol.envirGet.add(("instrument_"++(n)++"_array_blended").asSymbol.envirGet;));
+						});
+
+					});
 
 
-						("instrument_"++(1)++"_array_2").asSymbol.envirGet;
+
+					/*	("instrument_"++(1)++"_array_2").asSymbol.envirGet;
 						("instrument_"++(2)++"_array_2").asSymbol.envirGet;
 						("instrument_"++(3)++"_array_2").asSymbol.envirGet;
 
 						("instrument_"++(1)++"_array_2").asSymbol.envirGet.size;
 						("instrument_"++(2)++"_array_2").asSymbol.envirGet.size;
 						("instrument_"++(3)++"_array_2").asSymbol.envirGet.size;
-
-						(o = exprand(4, 16).round).do({
-
-							~number_of_instruments.do(n = 0; {
-								~inst_num = (n=n+1);
-								~note_generator_func.value;
-								("bottom_level_notes_"++(~inst_array.wrapAt(~inst_num-1))).asSymbol.envirPut(("bottom_level_notes_"++(~inst_array.wrapAt(~inst_num-1))).asSymbol.envirGet.add(("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet;););
-							});
-						});
-					});
+*/
 
 
 
 
-					~create_piece_routine = Routine({
+
+				/*	~create_piece_routine = Routine({
 
 						thisThread.randSeed = ~randseed_3;
 
@@ -1347,7 +1352,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 									});
 								});
 							});
-						});
+						});*/
 
 						" 3".postln;
 						//create pseq arrays function
@@ -1359,27 +1364,27 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 								1.do({
 
-									~number_of_instruments.do(x = 0; {("instrument_"++(x=x+1)++"_full_pseq_array").asSymbol.envirPut([]);});
+									~number_of_instruments.do(x = 0; {("instrument_"++(x=x+1)++"_full").asSymbol.envirPut([]);});
 
 									/*
-									("instrument_"++(1)++"_full_pseq_array").asSymbol.envirGet.at(5800).size
+									("instrument_"++(1)++"_full").asSymbol.envirGet.at(5800).size
 									*/
 
 									if(~saved_piece_loaded != 1, {
 
 										~number_of_instruments.do(x = 0; {
 											x=x+1;
-											~number_of_parts_in_piece.do(y = 0; {("instrument_"++(x)++"_full_pseq_array").asSymbol.envirPut(("instrument_"++(x)++"_full_pseq_array").asSymbol.envirGet.add(("instrument_"++(x)++"_array_part_"++(y=y+1)).asSymbol.envirGet););});
-											("instrument_"++(x)++"_full_pseq_array").asSymbol.envirPut(("instrument_"++(x)++"_full_pseq_array").asSymbol.envirGet.flatten);
-											("instrument_"++(x)++"_full_pseq_array_midi").asSymbol.envirPut(("instrument_"++(x)++"_full_pseq_array").asSymbol.envirGet);
-											("instrument_"++(x)++"_full_pseq_array").asSymbol.envirPut(("instrument_"++(x)++"_full_pseq_array").asSymbol.envirGet.midicps);
-											("instrument_"++(x)++"_full_pseq_array").asSymbol.envirPut(("instrument_"++(x)++"_full_pseq_array").asSymbol.envirGet.replace(h, 0));
+											~number_of_parts_in_piece.do(y = 0; {("instrument_"++(x)++"_full").asSymbol.envirPut(("instrument_"++(x)++"_full").asSymbol.envirGet.add(("instrument_"++(x)++"_array_part_"++(y=y+1)).asSymbol.envirGet););});
+											("instrument_"++(x)++"_full").asSymbol.envirPut(("instrument_"++(x)++"_full").asSymbol.envirGet.flatten);
+											("instrument_"++(x)++"_full_midi").asSymbol.envirPut(("instrument_"++(x)++"_full").asSymbol.envirGet);
+											("instrument_"++(x)++"_full").asSymbol.envirPut(("instrument_"++(x)++"_full").asSymbol.envirGet.midicps);
+											("instrument_"++(x)++"_full").asSymbol.envirPut(("instrument_"++(x)++"_full").asSymbol.envirGet.replace(h, 0));
 										});
 									}, {
 										~number_of_instruments.do(x = 0; {
 											x=x+1;
-											("instrument_"++(x)++"_full_pseq_array").asSymbol.envirPut(("instrument_"++(x)++"_full_pseq_array_midi").asSymbol.envirGet.midicps);
-											("instrument_"++(x)++"_full_pseq_array").asSymbol.envirPut(("instrument_"++(x)++"_full_pseq_array").asSymbol.envirGet.replace(h, 0));
+											("instrument_"++(x)++"_full").asSymbol.envirPut(("instrument_"++(x)++"_full_midi").asSymbol.envirGet.midicps);
+											("instrument_"++(x)++"_full").asSymbol.envirPut(("instrument_"++(x)++"_full").asSymbol.envirGet.replace(h, 0));
 										});
 										~saved_piece_loaded = 0;
 									});
@@ -1395,7 +1400,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 									});
 
 									AppClock.sched(0, {
-										~fullpiecedur1 = ((~piecedur_secs = (("instrument_"++(1)++"_full_pseq_array").asSymbol.envirGet.size*~bit_duration).round)/60);
+										~fullpiecedur1 = ((~piecedur_secs = (("instrument_"++(1)++"_full").asSymbol.envirGet.size*~bit_duration).round)/60);
 										~dd_secs = ((~fullpiecedur1-(~dd_mins = ~fullpiecedur1.roundUp-1))*60).roundUp;
 										/*~fullpiecedur = ("piece length - "++(~dd_mins.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asString)++" mins");
 										*/
@@ -1405,7 +1410,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 										/*rangeslider.set(spec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"), initVal: [0,if(~piecedur_secs != nil, {~piecedur_secs}, {0})]);
 										*/timeslider.set(spec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"));
 										~rate_selection_start = 0;
-										~rate_selection_end = ("instrument_"++(1)++"_full_pseq_array").asSymbol.envirGet.size;
+										~rate_selection_end = ("instrument_"++(1)++"_full").asSymbol.envirGet.size;
 									});
 
 									if(~quicknewpiecebutton == 1, {
@@ -1454,26 +1459,26 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 		~net_change = 0.048;
 
 		/*
-		x=0; 128.do({("instrument_"++(1)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x=x+1)).postln});
-		x=0; 128.do({("instrument_"++(2)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x=x+1)).postln})
-		x=0; 128.do({("instrument_"++(3)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x=x+1)).postln})
+		x=0; 128.do({("instrument_"++(1)++"_full_midi").asSymbol.envirGet.at(~rate_selection_start+(x=x+1)).postln});
+		x=0; 128.do({("instrument_"++(2)++"_full_midi").asSymbol.envirGet.at(~rate_selection_start+(x=x+1)).postln})
+		x=0; 128.do({("instrument_"++(3)++"_full_midi").asSymbol.envirGet.at(~rate_selection_start+(x=x+1)).postln})
 
-		("instrument_"++(1)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1)).postln;
-		("instrument_"++(2)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1)).postln;
-		("instrument_"++(3)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1)).postln;*/
+		("instrument_"++(1)++"_full_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1)).postln;
+		("instrument_"++(2)++"_full_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1)).postln;
+		("instrument_"++(3)++"_full_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1)).postln;*/
 
-		/*("instrument_"++(1)++"_full_pseq_array_midi").asSymbol.envirPut(
+		/*("instrument_"++(1)++"_full_midi").asSymbol.envirPut(
 		[56,56,56,56,56,56,56,56,56,56,76,76,76,76,76,76,0,0,0,0,0,0,0,0,66,66,66,66,66,66,66,66,66,66,66,66,66,66,66]
 		);
-		("instrument_"++(2)++"_full_pseq_array_midi").asSymbol.envirPut(
+		("instrument_"++(2)++"_full_midi").asSymbol.envirPut(
 		[45,45,45,45,45,45,45,0,0,0,0,0,0,0,0,0,0,68,68,68,68,68,68,68,68,68,55,55,55,55,75,75,75,75,75,75,75,75]
 		);
-		("instrument_"++(3)++"_full_pseq_array_midi").asSymbol.envirPut(
+		("instrument_"++(3)++"_full_midi").asSymbol.envirPut(
 		[87,87,87,87,87,87,87,87,87,96,96,96,96,96,96,0,0,0,0,0,0,79,79,79,79,75,75,75,75,75,75,75,71,71,71,71,71,71]
 		);
 		~number_of_instruments = 3;
 		~rate_selection_start = 0;
-		~rate_selection_end = ("instrument_"++(1)++"_full_pseq_array_midi").asSymbol.envirGet - 1;
+		~rate_selection_end = ("instrument_"++(1)++"_full_midi").asSymbol.envirGet - 1;
 		~inst_array = [1,2,3];*/
 
 		/*~machine_learning_func.value;*/
@@ -1494,8 +1499,8 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 				~inst_num = r;
 				(~rate_selection_end-~rate_selection_start).do(x = 0; {
 					x=x+1;
-					j = ("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1));
-					v = ("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+x);
+					j = ("instrument_"++(~inst_num)++"_full_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1));
+					v = ("instrument_"++(~inst_num)++"_full_midi").asSymbol.envirGet.at(~rate_selection_start+x);
 					if(((v != j) and: (v != 0) and: (j != 0) and: (j != nil)), {freqmidinum = v;
 						u = 0;
 						("interval_diff"++(u=u+1)).asSymbol.envirPut(
@@ -1506,7 +1511,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 						);
 						(~number_of_instruments-1).do(t = 1; {
 							("interval_diff"++(u=u+1)).asSymbol.envirPut(
-								e = j - ("instrument_"++(~inst_array.wrapAt(~inst_num-(t=t-1)))++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1));
+								e = j - ("instrument_"++(~inst_array.wrapAt(~inst_num-(t=t-1)))++"_full_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1));
 								if(e.isNegative == true, {e = e.neg});
 								while({e > 12}, {e = e - 12});
 								e.value;
@@ -1599,19 +1604,19 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 
 
-		("instrument_"++(1)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x)).postln
+		("instrument_"++(1)++"_full_midi").asSymbol.envirGet.at(~rate_selection_start+(x)).postln
 
-		("instrument_"++(1)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1)).postln;
-		("instrument_"++(2)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1)).postln;
-		("instrument_"++(3)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1)).postln;*/
+		("instrument_"++(1)++"_full_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1)).postln;
+		("instrument_"++(2)++"_full_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1)).postln;
+		("instrument_"++(3)++"_full_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1)).postln;*/
 
 
 		// do it where it counts number of bits per note... for each inst... then scan last note of same inst, as well as the notes
 		// of other inst at time of start of new note for current inst
 
-		/*("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(y=y-1);
+		/*("instrument_"++(~inst_num)++"_full_midi").asSymbol.envirGet.at(y=y-1);
 
-		("instrument_"++(~inst_array.wrapAt(~inst_num-(t)))++"_full_pseq_array_midi").asSymbol.envirGet.at(y=y+1);*/
+		("instrument_"++(~inst_array.wrapAt(~inst_num-(t)))++"_full_midi").asSymbol.envirGet.at(y=y+1);*/
 
 		~savenum = 0;
 
@@ -1625,35 +1630,35 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 				~inst_num = r;
 				(~rate_selection_end-~rate_selection_start).do(x = 0; {
 					x=x+1;
-					j = ("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1));
-					v = ("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+x);
+					j = ("instrument_"++(~inst_num)++"_full_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1));
+					v = ("instrument_"++(~inst_num)++"_full_midi").asSymbol.envirGet.at(~rate_selection_start+x);
 					if(v != j, {freqmidinum = v;
 						k = 0; c = (~rate_selection_start+(x)); u = 0;
 						while({
-							("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(c=c-1) ==
-							("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1))
+							("instrument_"++(~inst_num)++"_full_midi").asSymbol.envirGet.at(c=c-1) ==
+							("instrument_"++(~inst_num)++"_full_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1))
 						}, {k = k +1});
 						~length2 = k;
 						k = 0; c = (~rate_selection_start+(x));
 						while({
-							("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(c=c+1) ==
-							("instrument_"++(~inst_num)++"_full_pseq_array_midi").asSymbol.envirGet.at(c-1)
+							("instrument_"++(~inst_num)++"_full_midi").asSymbol.envirGet.at(c=c+1) ==
+							("instrument_"++(~inst_num)++"_full_midi").asSymbol.envirGet.at(c-1)
 						}, {k = k +1});
 						~length1 = k+1;
 						(~number_of_instruments-1).do(t = 0; u = 2; {
 							q = x-1;
-							d = ("instrument_"++(~inst_array.wrapAt(~inst_num-(t)))++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(q-1));
-							f = ("instrument_"++(~inst_array.wrapAt(~inst_num-(t)))++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+q);
+							d = ("instrument_"++(~inst_array.wrapAt(~inst_num-(t)))++"_full_midi").asSymbol.envirGet.at(~rate_selection_start+(q-1));
+							f = ("instrument_"++(~inst_array.wrapAt(~inst_num-(t)))++"_full_midi").asSymbol.envirGet.at(~rate_selection_start+q);
 							while({f == d}, {
 								q=q-1;
-								d = ("instrument_"++(~inst_array.wrapAt(~inst_num-(t)))++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+(q-1));
-								f = ("instrument_"++(~inst_array.wrapAt(~inst_num-(t)))++"_full_pseq_array_midi").asSymbol.envirGet.at(~rate_selection_start+q);
+								d = ("instrument_"++(~inst_array.wrapAt(~inst_num-(t)))++"_full_midi").asSymbol.envirGet.at(~rate_selection_start+(q-1));
+								f = ("instrument_"++(~inst_array.wrapAt(~inst_num-(t)))++"_full_midi").asSymbol.envirGet.at(~rate_selection_start+q);
 							});
 							c = (~rate_selection_start+(q+1));
 							k = 0;
 							while({
-								("instrument_"++(~inst_array.wrapAt(~inst_num-(t)))++"_full_pseq_array_midi").asSymbol.envirGet.at(c=c+1) ==
-								("instrument_"++(~inst_array.wrapAt(~inst_num-(t)))++"_full_pseq_array_midi").asSymbol.envirGet.at(c-1)
+								("instrument_"++(~inst_array.wrapAt(~inst_num-(t)))++"_full_midi").asSymbol.envirGet.at(c=c+1) ==
+								("instrument_"++(~inst_array.wrapAt(~inst_num-(t)))++"_full_midi").asSymbol.envirGet.at(c-1)
 							}, {k = k +1});
 							k=k+2;
 							("length"++(u=u+1)).asSymbol.envirPut(k);
@@ -1995,7 +2000,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 							piecedurationstatictext.string = ("Piece Length - "++(~piecedur_secs_zero.asInteger.asString)++" secs ("++(~dd_mins.asInteger.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asInteger.asString)++" mins)");
 							/*if(timeslider.value >= ~auto_select_diff, {rangeslider.valueAction = [timeslider.value-~auto_select_diff, timeslider.value]}, {rangeslider.valueAction = [0, timeslider.value]});
 							*//*if(~piecedur_secs_zero >= (~piecedur_secs), {~stop_func.value; "piece finished".postln; piecedurationstatictext.string = if(~fullpiecedur != nil, {~fullpiecedur}, {"piece length - --:-- mins"});})
-							*/if(~piece_position == ~instrument_1_full_pseq_array.size, {
+							*/if(~piece_position == ~instrument_1_full.size, {
 								AppClock.sched(~bit_duration*4, {
 									~stop_func.value; "piece finished".postln; piecedurationstatictext.string = if(~fullpiecedur != nil, {~fullpiecedur}, {"Piece Length - --:-- mins"});
 								});
@@ -2018,7 +2023,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 					Server.default.makeBundle(Server.default.latency, {
 
 						~number_of_instruments.do(~x = 0; {("duranduranbotsynth"++(~x=~x+1)).asSymbol.envirPut(
-							Synth("synth"++(~x), [freq: ("instrument_"++(~x)++"_full_pseq_array").asSymbol.envirGet.at(~piece_position)]);
+							Synth("synth"++(~x), [freq: ("instrument_"++(~x)++"_full").asSymbol.envirGet.at(~piece_position)]);
 
 						);});
 
@@ -2029,29 +2034,29 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 						{~inst_1 == "bass"}{\synth1}
 						{~inst_1 == "keys"}{\synth2}
 						{~inst_1 == "vocal"}{\synth3};
-						), [freq: ~instrument_1_full_pseq_array_mirrored.at(i)]);
+						), [freq: ~instrument_1_full_mirrored.at(i)]);
 						~duranduranbotsynth2_m = Synth(
 						(
 						case
 						{~inst_2 == "bass"}{\synth1}
 						{~inst_2 == "keys"}{\synth2}
 						{~inst_2 == "vocal"}{\synth3};
-						), [freq: ~instrument_2_full_pseq_array_mirrored.at(i)]);
+						), [freq: ~instrument_2_full_mirrored.at(i)]);
 						~duranduranbotsynth3_m = Synth(
 						(
 						case
 						{~inst_3 == "bass"}{\synth1}
 						{~inst_3 == "keys"}{\synth2}
 						{~inst_3 == "vocal"}{\synth3};
-						), [freq: ~instrument_3_full_pseq_array_mirrored.at(i)]);*/
+						), [freq: ~instrument_3_full_mirrored.at(i)]);*/
 
 
 						/*~duranduranbotsynth1 = ~synth.value;
 						~duranduranbotsynth2 = ~synth.value;
 						~duranduranbotsynth3 = ~synth.value;
-						~duranduranbotsynth1.set(\freq, ~instrument_1_full_pseq_array.at(x));
-						~duranduranbotsynth2.set(\freq, ~instrument_2_full_pseq_array.at(x));
-						~duranduranbotsynth3.set(\freq, ~instrument_3_full_pseq_array.at(x));*/
+						~duranduranbotsynth1.set(\freq, ~instrument_1_full.at(x));
+						~duranduranbotsynth2.set(\freq, ~instrument_2_full.at(x));
+						~duranduranbotsynth3.set(\freq, ~instrument_3_full.at(x));*/
 					});
 
 					~bit_timer_func.value;
@@ -2060,20 +2065,20 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 				});
 
-				(~instrument_1_full_pseq_array.size-1).do({
+				(~instrument_1_full.size-1).do({
 
 					~piece_position = ~piece_position + 1;
 
 					Server.default.makeBundle(Server.default.latency, {
 
 						~number_of_instruments.do(~x = 0; {("duranduranbotsynth"++(~x=~x+1)).asSymbol.envirGet.set(
-							\freq, ("instrument_"++(~x)++"_full_pseq_array").asSymbol.envirGet.at(~piece_position);
+							\freq, ("instrument_"++(~x)++"_full").asSymbol.envirGet.at(~piece_position);
 
 						);});
 
-						/*~duranduranbotsynth1_m.set(\freq, ~instrument_1_full_pseq_array_mirrored.at(i));
-						~duranduranbotsynth2_m.set(\freq, ~instrument_2_full_pseq_array_mirrored.at(i));
-						~duranduranbotsynth3_m.set(\freq, ~instrument_3_full_pseq_array_mirrored.at(i));
+						/*~duranduranbotsynth1_m.set(\freq, ~instrument_1_full_mirrored.at(i));
+						~duranduranbotsynth2_m.set(\freq, ~instrument_2_full_mirrored.at(i));
+						~duranduranbotsynth3_m.set(\freq, ~instrument_3_full_mirrored.at(i));
 						*/
 					});
 
