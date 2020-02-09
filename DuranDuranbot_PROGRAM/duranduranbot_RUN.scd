@@ -61,8 +61,23 @@ contact email: ken_brant@ymail.com or kenbrant7@gmail.com
 
 	// *Paste score here*
 
+	~instrument_1_full_midi = [ 83, 83, 83, 83, 85, 85, 85, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 83, 83, 83, 83, 83, 80, 80, 80, 80, 80, 81, 81, 81, 81, 81, 80, 80, 80, 80, 80, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 82, 82, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 78, 78, 78, 78, 78, 76, 76, 76, 76, 76, 76, 76, 76, 76, 78, 77, 77, 77, 77, 72, 74, 74, 74, 74, 79, 79, 79, 79, 79, 79, 79, 79, 79, 80, 80, 80, 76, 76, 76, 76, 76, 76, 76, 76, 76, 70, 70, 70, 70, 70, 70, 70, 70, 70, 68, 68, 68, 69, 69, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 77, 77, 77, 76, 76, 76, 76, 76, 76, 76, 76, 76, 79, 77, 77, 76, 76, 76, 78, 78, 78, 78, 78, 78, 78, 78, 78, 84, 84, 84, 84, 84, 84, 84, 84, 84, 88, 88, 88, 87, 87, 87, 87, 87, 87, 84, 84, 84, 79, 79, 79, 79, 79, 84, 84, 84, 84, 84, 82, 82, 82, 82, 80, 80, 80, 84, 84, 86, 86, 86, 86, 86, 86, 86, 86, 87, 87, 85, 85, 81, 81, 81, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 83, 83, 83, 83, 83, 83, 83, 83, 83, 84, 85, 85, 76, 76, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 78, 78, 77, 81, 81, 76, 76, 71, 71, 71, 70, 70, 70, 70, 70, 69, 69, 69, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 70, 71, 71, 71, 71, 71, 71, 71, 73, 73, 73, 73, 73, 75, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 79, 79, 79, 79, 79, 77, 77, 77, 77, 77, 77, 77, 77, 77, 76, 76, 76, 76, 76, 76, 76, 76, 76, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 83, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 86, 87, 87, 87, 87, 81, 81, 81, 81, 80, 80, 80, 80, 80, 80, 80, 80, 80, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 74, 74, 74, 74, 74, 74, 74, 73, 73, 73, 73, 73, 73, 73, 73, 73, 72, 72, 72, 72, 72, 73, 73, 73, 73, 73, 70, 70, 70, 68, 68, 68, 68, 68, 68, 68, 68, 68, 66, 66, 66, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 71, 71, 71, 71, 71, 73, 73, 74, 74, 74, 74, 74, 74, 74, 70, 70, 70, 70, 70, 70, 70, 69, 69, 66, 66, 69, 69, 69, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 63, 63, 63, 65, 65, 65, 65, 65, 65, 65, 65, 65, 67, 67, 67, 70, 70, 70, 70, 70, 69, 69, 69, 69, 69, 70, 70, 70, 70, 70, 70, 70, 70, 70, 71, 71, 71, 71, 71, 71, 71, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 70, 70, 70, 70, 70, 70, 70, 70, 71, 71, 71, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68 ];
+~instrument_2_full_midi = [ 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 66, 66, 66, 66, 66, 66, 66, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 66, 66, 66, 66, 66, 66, 66, 66, 66, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 70, 70, 70, 70, 70, 70, 70, 71, 71, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 64, 64, 64, 64, 64, 64, 66, 66, 66, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 73, 73, 73, 73, 73, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 66, 66, 66, 65, 65, 65, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 73, 73, 73, 73, 73, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 66, 66, 66, 66, 66, 66, 66, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 74, 74, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 72, 72, 72, 72, 72, 72, 72, 68, 68, 68, 68, 68, 68, 68, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 65, 65, 65, 65, 65, 65, 65, 65, 65, 63, 63, 63, 63, 63, 63, 63, 63, 63, 68, 68, 68, 68, 68, 68, 68, 70, 70, 70, 71, 71, 71, 71, 71, 71, 71, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 62, 62, 62, 62, 62, 62, 62, 62, 62, 61, 61, 61, 60, 60, 65, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 57, 57, 57, 57, 57, 58, 58, 58, 58, 58, 58, 58, 58, 62, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 69, 69, 69, 69, 69, 69, 69, 69, 69, 71, 71, 71, 71, 71, 71, 71, 71, 71, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65 ];
+	/*t = 165;
+	~instrument_1_full_midi.at(t=t+1);*/
 
+	/*t =158;
+	t=t+1;
+	~instrument_1_full_midi.at(x=x+1;)
 
+	t =158;
+
+	(
+	~number_of_instruments.do(~x = 0; {("duranduranbotsynth"++(~x=~x+1)).asSymbol.envirPut(
+	Synth("synth"++(~x), [freq: ("instrument_"++(~x)++"_full").asSymbol.envirGet.at(t=t+1)]);
+	)});
+	~piece_position;
+	);*/
 
 
 
@@ -130,6 +145,7 @@ contact email: ken_brant@ymail.com or kenbrant7@gmail.com
 
 // GUI
 
+if(~amp == nil, {~amp = 1;});
 if(~bit_duration == nil, {~bit_duration_default = 6; ~bit_duration = FileReader.read(Document.current.dir++"/other_program_files/bit_speed.scd", false, true).flatten.at(0).asString.asFloat;});
 if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of seconds to rate a piece from current time backwards. defualt is 5.
 if(~rate_button_default == nil, {~rate_button_default = 8;}); // set default point rating at boot. Available point numbers - 1, 2, 4, 8, or 16
@@ -157,7 +173,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 	var w, /*~firstview,*/ firstviewtext1, firstviewtext2, firstviewtext3, firstviewtext4, firstviewtext5, firstviewtext6, firstviewnextbutton, mainview, mainviewtext, randseedEZText1, randseedEZText2, randseedEZText3, randseed_1_make, randseed_2_make, randseed_3_make, randseedviewtext1,randseedviewtext2,
 	randseedviewtext3, numerologynameEZText1, numerologynameEZText2, numerologynameEZText3, numerologynameviewtext1, numerologynameviewtext2, numerologynameviewtext3,
-	generatepiecebutton, playbutton, enterdatabasebutton, recordbutton, songtitletext, songtitlestatictext, piecedurationstatictext,newpieceautobutton,newpieceautotext, machinelearningbutton, machinelearningtext,loadscorebuttonbutton,loadscoretext,
+	generatepiecebutton, playbutton, enterdatabasebutton, recordbutton, songtitletext, songtitlestatictext, piecedurationstatictext,piecepositionstatictext,looptextfield_1,looptextfield_2,loopsetbutton,stoploopbutton,looptextfield_3,newpieceautobutton,newpieceautotext, machinelearningbutton, machinelearningtext,loadscorebuttonbutton,loadscoretext,
 	onestarbutton,twostarbutton,threestarbutton,fourstarbutton,fivestarbutton, quicknewpiecebutton, quicknewpiecebutton_revert, quicknewpiecewait,
 	rate_button_1,rate_button_2,rate_button_3,rate_button_4,rate_button_5,rate_button_6, rate_button,rate_revert_button,ratepiecetext,ratedonetext, /*rangeslider,*/timeslider,timeslidertext,
 	rate_selectionstatictext,ctrlperiodtext,training_settings_page_button,playerchoicetext,save_current_piece_button,playerspeedtextfield,playerspeedtextfield2,
@@ -337,13 +353,18 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 						~seedscheck = 1;
 						~stopbuttonfunc.value;
 						~run_piece_func.value;
-					}, {/*~timer_routine.resume;*/ ~duranduranbot_routine.resume; "Piece Resumed".postln; if(~will_record == 1, {s.record;});});
+					}, {/*~timer_routine.resume;*/
+						~amp = 1;
+						Server.default.makeBundle(Server.default.latency, {~number_of_instruments.do(j = 0; {("duranduranbotsynth"++(j=j+1)).asSymbol.envirGet.set(\amp, ~amp);});});
+						~duranduranbot_routine.resume; "Piece Resumed".postln; if(~will_record == 1, {s.record;});});
 					~pause_piece = 0;
 				}, {
 					/*~timer_routine.pause;*/
+					Server.default.makeBundle(Server.default.latency, {~number_of_instruments.do(j = 0; {("duranduranbotsynth"++(j=j+1)).asSymbol.envirGet.set(\amp, 0);});});
+
 					~duranduranbot_routine.pause;
-					Server.default.makeBundle(Server.default.latency, {~number_of_instruments.do(x = 0; {("duranduranbotsynth"++(x=x+1)).asSymbol.envirGet.set(\freq, 0);});});
-					"Piece Paused".postln;
+					/*Server.default.makeBundle(Server.default.latency, {~number_of_instruments.do(x = 0; {("duranduranbotsynth"++(x=x+1)).asSymbol.envirGet.set(\freq, 0);});});
+					*/"Piece Paused".postln;
 					if(~will_record == 1, {s.pauseRecording;});
 					~pause_piece = 1;
 					~playbutton.string = "Resume";
@@ -367,8 +388,8 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 		~stop_func = {
 			AppClock.sched(0, {
 				/*~timer_routine.stop;*/
-				Server.default.makeBundle(Server.default.latency, {~number_of_instruments.do(~x = 0; {("duranduranbotsynth"++(~x=~x+1)).asSymbol.envirGet.set(\freq, 0);});});
-				if(~will_record == 1, {s.stopRecording;});
+				/*Server.default.makeBundle(Server.default.latency, {~number_of_instruments.do(j = 0; {("duranduranbotsynth"++(j=j+1)).asSymbol.envirGet.set(\amp, 0);});});
+			*/	if(~will_record == 1, {s.stopRecording;});
 				/*~piece_position = 0;*/
 				timeslider.valueAction = 0;
 				"piece stopped".postln;
@@ -600,11 +621,132 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 		if(~will_record == 1, {~recordtext.string = "All pieces WILL be recorded"; recordbutton.value = 1;},
 			{~recordtext.string = "All pieces will NOT be recorded"; recordbutton.value = 0;});
 
-		piecedurationstatictext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.6 /*~firstviewboundsHEIGHT/6.2428571428571*/, ~firstviewboundsWIDTH/2.7, ~firstviewboundsHEIGHT/21));
+		piecedurationstatictext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.65 /*~firstviewboundsHEIGHT/6.2428571428571*/, ~firstviewboundsWIDTH/2.95, ~firstviewboundsHEIGHT/21));
 		piecedurationstatictext.background=~backgroundcolor;
 		piecedurationstatictext.stringColor=~stringcolor;
 		piecedurationstatictext.string = if(~fullpiecedur != nil, {~fullpiecedur}, {"Piece Length - --:-- mins"});
 		piecedurationstatictext.font = Font(size: ~firstviewboundsWIDTH/48);
+
+		piecepositionstatictext = StaticText(~firstview, Rect((~firstviewboundsWIDTH/72)+(~firstviewboundsWIDTH/2.95)+4, ~firstviewboundsHEIGHT/1.65 /*~firstviewboundsHEIGHT/6.2428571428571*/, ~firstviewboundsWIDTH/2.7, ~firstviewboundsHEIGHT/21));
+		piecepositionstatictext.background=~backgroundcolor;
+		piecepositionstatictext.stringColor=~stringcolor;
+		piecepositionstatictext.string = if(~instrument_1_full_midi != nil, {(
+			"Bit pos. "++(~piece_position.asInteger.asString)++" Midi "++(
+				case
+				{~number_of_instruments == 2}{(~instrument_1_full_midi.at(~piece_position).asString)++" "++(~instrument_2_full_midi.at(~piece_position).asString)}
+				{~number_of_instruments == 3}{(~instrument_1_full_midi.at(~piece_position).asString)++" "++(~instrument_2_full_midi.at(~piece_position).asString)++" "++(~instrument_3_full_midi.at(~piece_position).asString)};
+			)
+		)}, {"Bit pos. -- Midi --"});
+		piecepositionstatictext.font = Font(size: ~firstviewboundsWIDTH/48);
+
+		if(~pos_1 == nil, {~pos_1 = 0});
+		if(~pos_2 == nil, {~pos_2 = 0});
+
+		looptextfield_1 = TextField(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.47, ~firstviewboundsWIDTH/10, ~firstviewboundsHEIGHT/21));
+		looptextfield_1.string = ~pos_1.asString;
+		looptextfield_1.background_(~backgroundcolor);
+		looptextfield_1.stringColor_(~stringcolor);
+		looptextfield_1.font = Font(size: ~firstviewboundsWIDTH/48);
+		looptextfield_1.action = {
+			~sdfk = looptextfield_1.value.asInteger;
+			/*	~pos_1 = looptextfield_1.value.asInteger;*/
+			if(~sdfk.value.isInteger == true, {~pos_1 = ~sdfk.value.asInteger;}, {looptextfield_1.string = "integer".asString;});
+			looptextfield_1.string = ~pos_1.asString;
+		};
+
+		looptextfield_2 = TextField(~firstview, Rect(~firstviewboundsWIDTH/8, ~firstviewboundsHEIGHT/1.47, ~firstviewboundsWIDTH/10, ~firstviewboundsHEIGHT/21));
+		looptextfield_2.string = ~pos_2.asString;
+		looptextfield_2.background_(~backgroundcolor);
+		looptextfield_2.stringColor_(~stringcolor);
+		looptextfield_2.font = Font(size: ~firstviewboundsWIDTH/48);
+		looptextfield_2.action = {
+			~sdfk = looptextfield_2.value.asInteger;
+			if(~sdfk.value.isInteger == true, {~pos_2 = ~sdfk.value.asInteger;}, {looptextfield_2.string = "integer".asString;});
+			looptextfield_2.string = ~pos_2.asString;
+		};
+
+		/*~loop_creator_func = {
+
+			if(("instrument_"++(1)++"_full_midi_before").asSymbol.envirGet == nil, {
+				~number_of_instruments.do(t = 0; {
+					t=t+1;
+					("instrument_"++(t)++"_full_midi_before").asSymbol.envirPut(("instrument_"++(t)++"_full_midi").asSymbol.envirGet;);
+				});
+			});
+
+			(
+				h = 0.midicps;
+				z = ~pos_1 - ~pos_2;
+				if(z.isNegative == true, {z = z.neg;});
+				z=z+1;
+				~number_of_instruments.do(t = 0; {
+					t=t+1;
+					("loop_new_array"++(t)).asSymbol.envirPut([]);
+					z.do(q = ~pos_1; {
+						("loop_new_array"++(t)).asSymbol.envirPut(
+							("loop_new_array"++(t)).asSymbol.envirGet.add(("instrument_"++(t)++"_full_midi").asSymbol.envirGet.at(q););
+
+						);
+						q=q+1;
+					});
+
+					("instrument_"++(t)++"_full_midi").asSymbol.envirPut(("loop_new_array"++(t)).asSymbol.envirGet;);
+
+				});
+			);
+
+			~saved_piece_loaded = 1;
+			~create_pseq_arrays_func.value;
+
+		};
+
+		/*~instrument_2_full_midi.size
+		~instrument_2_full_midi.at(167)
+		~instrument_2_full.at(167)
+		~instrument_2_full.size*/
+
+		loopsetbutton =  Button.new(~firstview, Rect(~firstviewboundsWIDTH/4.3, ~firstviewboundsHEIGHT/1.47, ~firstviewboundsWIDTH/10, ~firstviewboundsHEIGHT/21)).states_([["Set Loop",~stringcolor,~backgroundcolor]]).action_({arg button;
+			~loop_on = 1;
+			if(~duranduranbot_routine.isPlaying == true, {~stop_func.value;});
+			~loop_creator_func.value;
+		});
+
+		stoploopbutton =  Button.new(~firstview, Rect(~firstviewboundsWIDTH/2.9, ~firstviewboundsHEIGHT/1.47, ~firstviewboundsWIDTH/10, ~firstviewboundsHEIGHT/21)).states_([["Stop Loop",~stringcolor,~backgroundcolor]]).action_({arg button;
+			~loop_on = 0;
+			~number_of_instruments.do(t = 0; {
+			t=t+1;
+			("instrument_"++(t)++"_full_midi").asSymbol.envirPut(("instrument_"++(t)++"_full_midi_before").asSymbol.envirGet;);
+			("instrument_"++(t)++"_full_midi_before").asSymbol.envirPut(nil);
+			});
+
+			if(~duranduranbot_routine.isPlaying == true, {~stop_func.value;});
+			~saved_piece_loaded = 1;
+			~create_pseq_arrays_func.value;
+		});*/
+
+		if(~loop_on == nil, {~loop_on = 0});
+
+		loopsetbutton =  Button.new(~firstview, Rect(~firstviewboundsWIDTH/4.3, ~firstviewboundsHEIGHT/1.47, ~firstviewboundsWIDTH/8.5, ~firstviewboundsHEIGHT/21)).states_([["Loop is OFF",~stringcolor,~backgroundcolor],["Loop is ON",~stringcolor,~backgroundcolor]]).action_({arg button;
+
+			if(button.value == 1, {~loop_on = 1;}, {~loop_on = 0;});
+			/*if(~duranduranbot_routine.isPlaying == true, {~stop_func.value;});
+			~loop_creator_func.value;*/
+		});
+
+		if(~loop_on == 1, {loopsetbutton.value = 1}, {loopsetbutton.value = 0});
+
+		if(~num_loops == nil, {~num_loops = 24});
+
+		looptextfield_3 = TextField(~firstview, Rect(~firstviewboundsWIDTH/2.2, ~firstviewboundsHEIGHT/1.47, ~firstviewboundsWIDTH/10, ~firstviewboundsHEIGHT/21));
+		looptextfield_3.string = ~num_loops.asString;
+		looptextfield_3.background_(~backgroundcolor);
+		looptextfield_3.stringColor_(~stringcolor);
+		looptextfield_3.font = Font(size: ~firstviewboundsWIDTH/48);
+		looptextfield_3.action = {
+			~sdfk = looptextfield_3.value.asInteger;
+			if(~sdfk.value.isInteger == true, {~num_loops = ~sdfk.value.asInteger;}, {looptextfield_3.string = "integer".asString;});
+			looptextfield_3.string = ~num_loops.asString;
+		};
 
 		/*ctrlperiodtext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/1.4173228346457, ~firstviewboundsHEIGHT/13.5, ~firstviewboundsWIDTH/3.5, ~firstviewboundsHEIGHT/4.37));
 		ctrlperiodtext.background=~backgroundcolor;
@@ -813,7 +955,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 			"please wait".postln;
 			g = File(Document.current.dir++"/other_program_files/ddbot_saved_scores/score_"++(z=((Date.getDate.format("%d_%m_%Y__%H_%M_%S").asString)))++".scd", "w");
-			g.write("Copy and paste the entire 3 lines below in the "++"Load Saved Score".quote++" section in the top of the "++"duranduranbot_RUN.scd".quote++" file");
+			g.write("// Copy and paste the all lines below in the "++"Load Saved Score".quote++" section in the top of the "++"duranduranbot_RUN.scd".quote++" file");
 			g.close;
 			~re = Routine({
 				~number_of_instruments.do(x = 0; {
@@ -885,7 +1027,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 		firstviewtext4 = TextView(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/7.528571428571, ~firstviewboundsWIDTH/1.0285714285714, ~firstviewboundsHEIGHT/1.2));
 		firstviewtext4.background=~backgroundcolor;
-		firstviewtext4.string = "(Scroll down for more)\n\nHOW TO PLAY A PIECE\n\nPlay a DuranDuranbot piece by clicking the "++"generate piece".quote++"  button on the Main Page, and then by clicking the "++"play piece".quote++"  button. Once random seeds are input into the program on the front page (the very first page of this program), you only need to generate a song once using the same random seeds. If you click on the "++"generate piece".quote++"  button more than once without inputting new random seeds the same piece will always be generated. To generate a new piece, you can go back to the first page and input new random seeds, or you can do this automatically by clicking on the "++"new random seeds".quote++" button across from the "++"generate piece".quote++" button on the right side of the main page. Or, you can quickly generate a new piece based on entirely new random seeds by simply clicking on the "++"quick new piece".quote++" button a few sets of buttons below the "++"generate piece".quote++" button. \n\nMACHINE LEARNING\n\nMachine learning is enabled by default, but you can disable it on the main page. Using the machine learning function allows for you to teach DuranDuranbot what you prefer to hear in a piece by rating a piece, and for it become better at composing music for you. On the Main Page, you can rate a piece by clicking on any of the point ratings and clicking "++"Rate".quote++". The rating system is currently set to rate the last "++(~auto_select_diff)++" seconds from your current position in the piece designated by where the time slider is positioned... Doing all of this will train DuranDuranbot how to compose music. All training data will be saved to the DuranDuranbot "++"ddbot_training_data".quote++" folder for future use. (Side Note: You can hybridize the training data of numerous DD'bots as well by going into the DD'bot training folder.)\n\nDDbot's machine learning system utilizes mathematical weights to compose/learn to compose music. For instance, a piece compostition variable might be a note interval, and each note interval (1 step, 2 steps) would have a weight assigned to it in a given situation... and DDbot would choose an interval by comparing the weight values of each interval in a given situation, *tending* to choose a higher weighted variable using weighted probability. When you rate a section of a piece while using DDbot, a variable in a given situation is rewarded with points as to increase the value of it's weight. The more points you give a variable, the more chance it will be used in a piece composition. How powerful each xpt rating is - x16 pts is 80% weighted chance for variable in 5 reward instances for that variable... x8 pts is 80% weighted chance for variable in 10 reward instances. x4 pts is 80% weighted chance for variable in 20 reward instances.... and so on in that same pattern. Put simply, a higher rating point value equals faster training of DDbot, but less fine-tuning.\n\nPLAYER SETTINGS\n\nBy clicking the "++"Player Settings".quote++" button on the Main Page, you can choose which player(s) you can traget to compose music and be trained.\n\nCURRENT BUGS\n\n- Every time you click on a link to the main page while piece is playing, the piece goes to it's beginning for a slight moment then goes back to current position.\n\n\n\nIf you have any questions, please feel free to contact -\n\nken_brant@ymail.com\n\nor\n\nkenbrant7@gmail.com";
+		firstviewtext4.string = "(Scroll down for more)\n\nHOW TO PLAY A PIECE\n\nPlay a DuranDuranbot piece by clicking the "++"generate piece".quote++"  button on the Main Page, and then by clicking the "++"play piece".quote++"  button. Once random seeds are input into the program on the front page (the very first page of this program), you only need to generate a song once using the same random seeds. If you click on the "++"generate piece".quote++"  button more than once without inputting new random seeds the same piece will always be generated. To generate a new piece, you can go back to the first page and input new random seeds, or you can do this automatically by clicking on the "++"new random seeds".quote++" button across from the "++"generate piece".quote++" button on the right side of the main page. Or, you can quickly generate a new piece based on entirely new random seeds by simply clicking on the "++"quick new piece".quote++" button a few sets of buttons below the "++"generate piece".quote++" button. \n\nMACHINE LEARNING\n\nMachine learning is enabled by default, but you can disable it on the main page. Using the machine learning function allows for you to teach DuranDuranbot what you prefer to hear in a piece by rating a piece, and for it become better at composing music for you. On the Main Page, you can rate a piece by clicking on any of the point ratings and clicking "++"Rate".quote++". The rating system is currently set to rate the last "++(~auto_select_diff)++" seconds from your current position in the piece designated by where the time slider is positioned... Doing all of this will train DuranDuranbot how to compose music. All training data will be saved to the DuranDuranbot "++"ddbot_training_data".quote++" folder for future use. (Side Note: You can hybridize the training data of numerous DD'bots as well by going into the DD'bot training folder.)\n\nDDbot's machine learning system utilizes mathematical weights to compose/learn to compose music. For instance, a piece compostition variable might be a note interval, and each note interval (1 step, 2 steps) would have a weight assigned to it in a given situation... and DDbot would choose an interval by comparing the weight values of each interval in a given situation, *tending* to choose a higher weighted variable using weighted probability. When you rate a section of a piece while using DDbot, a variable in a given situation is rewarded with points as to increase the value of it's weight. The more points you give a variable, the more chance it will be used in a piece composition. How powerful each xpt rating is - x16 pts is 80% weighted chance for variable in 5 reward instances for that variable... x8 pts is 80% weighted chance for variable in 10 reward instances. x4 pts is 80% weighted chance for variable in 20 reward instances.... and so on in that same pattern. Put simply, a higher rating point value equals faster training of DDbot, but less fine-tuning.\n\nPLAYER SETTINGS\n\nBy clicking the "++"Player Settings".quote++" button on the Main Page, you can choose which player(s) you can traget to compose music and be trained.\n\nLOOPING\n\nCurrently unmarked - 1st text box is starting bit position, 2nd text box is ending bit position. Last text box is how many loops.\n\nCURRENT BUGS\n\n- Every time you click on a link to the main page while piece is playing, the piece goes to it's beginning for a slight moment then goes back to current position.\n\n\n\nIf you have any questions, please feel free to contact -\n\nken_brant@ymail.com\n\nor\n\nkenbrant7@gmail.com";
 		firstviewtext4.stringColor=~stringcolor;
 		firstviewtext4.font = Font(size: ~firstviewboundsWIDTH/48);
 
@@ -932,17 +1074,17 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 			playerspeedtextfield2.string = "Current - "++(~bit_duration.reciprocal)++" bits per second ... Input how fast "++"bits".quote++" are cycled through. Then press "++"Enter/Return".quote++". Original default is "++(~bit_duration_default)++".";
 
 			/*AppClock.sched(0, {
-				~fullpiecedur1 = ((~piecedur_secs = (("instrument_"++(1)++"_full").asSymbol.envirGet.size*~bit_duration).round)/60);
-				~dd_secs = ((~fullpiecedur1-(~dd_mins = ~fullpiecedur1.roundUp-1))*60).roundUp;
-				/*~fullpiecedur = ("piece length - "++(~dd_mins.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asString)++" mins");
-				*/
-				~fullpiecedur = ("Piece Length - "++(~piecedur_secs.asInteger.asString)++" secs ("++(~dd_mins.asInteger.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asInteger.asString)++" mins)");
-				piecedurationstatictext.string = ~fullpiecedur;
-				("\npiece duration: \n"++((~dd_mins.asInteger.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asInteger.asString))++" minutes";).postln;
-				/*rangeslider.set(spec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"), initVal: [0,if(~piecedur_secs != nil, {~piecedur_secs}, {0})]);
-				*/timeslider.set(spec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"));
-				~rate_selection_start = 0;
-				~rate_selection_end = ("instrument_"++(1)++"_full").asSymbol.envirGet.size;
+			~fullpiecedur1 = ((~piecedur_secs = (("instrument_"++(1)++"_full").asSymbol.envirGet.size*~bit_duration).round)/60);
+			~dd_secs = ((~fullpiecedur1-(~dd_mins = ~fullpiecedur1.roundUp-1))*60).roundUp;
+			/*~fullpiecedur = ("piece length - "++(~dd_mins.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asString)++" mins");
+			*/
+			~fullpiecedur = ("Piece Length - "++(~piecedur_secs.asInteger.asString)++" secs ("++(~dd_mins.asInteger.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asInteger.asString)++" mins)");
+			piecedurationstatictext.string = ~fullpiecedur;
+			("\npiece duration: \n"++((~dd_mins.asInteger.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asInteger.asString))++" minutes";).postln;
+			/*rangeslider.set(spec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"), initVal: [0,if(~piecedur_secs != nil, {~piecedur_secs}, {0})]);
+			*/timeslider.set(spec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"));
+			~rate_selection_start = 0;
+			~rate_selection_end = ("instrument_"++(1)++"_full").asSymbol.envirGet.size;
 			});*/
 			/*randseedviewtext1.string = if(randseed_1_make.isNumber == true, {
 			randseed_1_make = randseed_1_make.asFloat; randseed_1_make.postln; ~randseed_1 = randseed_1_make; ~save_random_seeds_func.value; ~randseed_1.asString++" entered";}, {
@@ -1721,51 +1863,6 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 		~savenum_interval = ~savenum;
 
 
-		/*
-
-		****************************BE CAREFUL*******************************
-		Training data resets
-
-
-		j = 2;
-		j.do(w = 0; v = 0; {
-		w=w+1;
-		(~interval_array.size+1).do(c = (-1); {
-		c=c+1;
-		(~interval_array.size+1).do(z = (-1); {
-		("player_"++(w)++"__"++(c)++"__"++(z=z+1)++"_weights").asSymbol.envirPut(Array.fill(~interval_array.size, {1/~interval_array.size}).normalizeSum;);
-		g = File(Document.current.dir++"/other_program_files/ddbot_training_data_folder/ddbot_training_data_current_"++(j.asString)++"_inst/ddbot_interval_weights/player_"++(w)++"_interval_weights/"++(c)++"__"++(z)++"_weights.scd", "w");
-		~interval_array.size.do(s = (-1); {g.write(("player_"++(w)++"__"++(c)++"__"++(z)++"_weights").asSymbol.envirGet.at(s=s+1).asString++" ");});
-		g.close;
-		v=v+1;
-		});
-		});
-		v.postln;
-		});
-
-		///////////////////////////////////////////
-
-		j = 3;
-		j.do(w = 0; v = 0; {
-		w=w+1;
-		(~interval_array.size+1).do(c = (-1); {
-		c=c+1;
-		(~interval_array.size+1).do(y = (-1); {
-		y=y+1;
-		(~interval_array.size+1).do(z = (-1); {
-		("player_"++(w)++"__"++(c)++"__"++(y)++"_"++(z=z+1)++"_weights").asSymbol.envirPut(Array.fill(~interval_array.size, {1/~interval_array.size}).normalizeSum;);
-		g = File(Document.current.dir++"/other_program_files/ddbot_training_data_folder/ddbot_training_data_current_"++(j.asString)++"_inst/ddbot_interval_weights/player_"++(w)++"_interval_weights/"++(c)++"__"++(y)++"_"++(z)++"_weights.scd", "w");
-		~interval_array.size.do(s = (-1); {g.write(("player_"++(w)++"__"++(c)++"__"++(y)++"_"++(z)++"_weights").asSymbol.envirGet.at(s=s+1).asString++" ");});
-		g.close;
-		v=v+1;
-		});
-		});
-		});
-		v.postln;
-		});
-
-		*/
-
 
 
 
@@ -1778,29 +1875,6 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 		*/
 
-
-		/*	~number_of_instruments.do(w = 0; v = 0; {
-		w=w+1;
-		(~interval_array.size+1).do(y = (-1); {
-		y=y+1;
-		(~interval_array.size+1).do(z = (-1); {
-		z=z+1;
-		(~time_array.size+1).do(a = (-1); {
-		a=a+1;
-		(~time_array.size+1).do(b = (-1); {
-		b=b+1;
-		(~time_array.size+1).do(c = (-1); {
-		("player_"++(w)++"__"++(y)++"_"++(z)++"__"++(a)++"_"++(b)++"_"++(c=c+1)).asSymbol.envirPut(Array.fill(~interval_array.size, {1/~interval_array.size}).normalizeSum;);
-		g = File(Document.current.dir++"/other_program_files/ddbot_weights/player_"++(w)++"__"++(y)++"_"++(z)++"__"++(a)++"_"++(b)++"_"++(c)++".scd", "w");
-		~interval_array.size.do(s = (-1); {g.write(("player_"++(w)++"__"++(y)++"_"++(z)++"__"++(a)++"_"++(b)++"_"++(c)).asSymbol.envirGet.at(s=s+1).asString++" ");});
-		g.close;
-		v=v+1; v.postln;
-		});
-		});
-		});
-		});
-		});
-		});*/
 
 
 
@@ -1948,50 +2022,6 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 
 
-
-		/*
-		****************************BE CAREFUL*******************************
-		Training data resets
-
-
-		j = 2;
-		j.do(w = 0; v = 0; {
-		w=w+1;
-		(~time_array.size+1).do(x = (-1); {
-		x=x+1;
-		(~time_array.size+1).do(z = (-1); {
-		("player_"++(w)++"__"++(x)++"_"++(z=z+1)++"_time_weights").asSymbol.envirPut(Array.fill(~dna_choice_array.size, {1/~dna_choice_array.size}).normalizeSum;);
-		g = File(Document.current.dir++"/other_program_files/ddbot_training_data_folder/ddbot_training_data_current_"++(j.asString)++"_inst/ddbot_time_weights/player_"++(w)++"_time_weights/"++(x)++"_"++(z)++"_time_weights.scd", "w");
-		~dna_choice_array.size.do(s = (-1); {g.write(("player_"++(w)++"__"++(x)++"_"++(z)++"_time_weights").asSymbol.envirGet.at(s=s+1).asString++" ");});
-		g.close;
-		v=v+1;
-		});
-		});
-		v.postln;
-		});
-
-		////////////////////////////////////////
-
-		j = 3;
-		j.do(w = 0; v = 0; {
-		w=w+1;
-		(~time_array.size+1).do(x = (-1); {
-		x=x+1;
-		(~time_array.size+1).do(y = (-1); {
-		y=y+1;
-		(~time_array.size+1).do(z = (-1); {
-		("player_"++(w)++"__"++(x)++"_"++(y)++"_"++(z=z+1)++"_time_weights").asSymbol.envirPut(Array.fill(~dna_choice_array.size, {1/~dna_choice_array.size}).normalizeSum;);
-		g = File(Document.current.dir++"/other_program_files/ddbot_training_data_folder/ddbot_training_data_current_"++(j.asString)++"_inst/ddbot_time_weights/player_"++(w)++"_time_weights/"++(x)++"_"++(y)++"_"++(z)++"_time_weights.scd", "w");
-		~dna_choice_array.size.do(s = (-1); {g.write(("player_"++(w)++"__"++(x)++"_"++(y)++"_"++(z)++"_time_weights").asSymbol.envirGet.at(s=s+1).asString++" ");});
-		g.close;
-		v=v+1;
-		});
-		});
-		});
-		v.postln;
-		});
-		*/
-
 		/*("player_"++(w)++"__"++(0)++"_"++(0)++"_"++(0)++"_time_weights").asSymbol.envirGet*/
 
 
@@ -2087,26 +2117,26 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 	// RUN/PLAY PIECE
 
 
-/*	~klangarray1 = {Array.rand(3, 0, 20);};
+	/*	~klangarray1 = {Array.rand(3, 0, 20);};
 
 	~number_of_instruments.do(x = 0; {
-		SynthDef("synth"++(x=x+1), {arg freq = 432, freq1 = 60, amp = 0.1, detun = 1.006, ffreq = 800, rq = 1, gt = 1;
-			var sig;
-			sig = Mix(DynKlang.ar(`[ [freq]++~klangarray1.value+freq, nil, nil ], 1, 0) * 0.05);
-			sig = RLPF.ar(sig, ffreq, rq);
-			sig = sig * EnvGen.kr(
-				Env.adsr(0.01, 0.1, 0.6, 0.1),
-				gt
-			);
+	SynthDef("synth"++(x=x+1), {arg freq = 432, freq1 = 60, amp = 0.1, detun = 1.006, ffreq = 800, rq = 1, gt = 1;
+	var sig;
+	sig = Mix(DynKlang.ar(`[ [freq]++~klangarray1.value+freq, nil, nil ], 1, 0) * 0.05);
+	sig = RLPF.ar(sig, ffreq, rq);
+	sig = sig * EnvGen.kr(
+	Env.adsr(0.01, 0.1, 0.6, 0.1),
+	gt
+	);
 
-			Out.ar(0, sig!2);
-		}).play;
+	Out.ar(0, sig!2);
+	}).play;
 	});*/
 
 	if(~buffer == nil, {~buffer = Buffer.read(s, Document.current.dir++"/other_program_files/samples/Alesis-Sanctuary-QCard-Promenade-C3-loop5.wav");});
 
 	~number_of_instruments.do(x = 0; {
-	SynthDef("synth"++(x=x+1), {| out = 0, bufnum = 0, freq = 1 |
+		SynthDef("synth"++(x=x+1), {arg out = 0, bufnum = 0, freq = 1, amp = 1;
 			var sig;
 			sig = PlayBuf.ar(1, ~buffer, freq/73.midicps, startPos: 0, loop: 1);
 			sig = BBandPass.ar(sig, freq: freq, bw: 1.6, mul: 1, add: 0);
@@ -2116,17 +2146,17 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 			/*sig = LPZ2.ar(sig, mul: 1, add: 0);*/
 			/*sig = BPZ2.ar(sig, mul: 1, add: 0);*/
 
-			Out.ar(0, sig!2);
+			Out.ar(0, ((sig.dup)*amp));
 		}).add;
-		});
+	});
 
 	/*{ SinOsc.ar(73.midicps, 0, 0.5) }.play;*/
 
 	/*SynthDef("synth1", {| out = 0, bufnum = 0, freq = 1 |
-			var sig;
-			sig = PlayBuf.ar(1, ~buffer, freq/73.midicps, startPos: 0, loop: 1);
-			Out.ar(1, sig!2);
-		}).play;*/
+	var sig;
+	sig = PlayBuf.ar(1, ~buffer, freq/73.midicps, startPos: 0, loop: 1);
+	Out.ar(1, sig!2);
+	}).play;*/
 
 
 
@@ -2245,140 +2275,317 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 			});*/
 
 
-			~duranduranbot_routine = Task({var bit_timer;
 
-				bit_timer = 0;
-				~dd_secs = ((~fullpiecedur1-(~dd_mins = ~fullpiecedur1.roundUp-1))*60).roundUp;
-				~piecedur_secs = (~dd_mins*60)+~dd_secs;
-				~piecedur_secs_zero = 0;
-				~bit_dur_rec = ~bit_duration.reciprocal;
+			case
+			{~loop_on == 0}{
 
-				~bit_timer_func = {
-					~rate_selection_end = ~piece_position;
-					~rate_selection_start = ~piece_position-(~auto_select_diff/~bit_duration);
-					if(~rate_selection_start.isNegative == true, {~rate_selection_start = 0;});
-					bit_timer = bit_timer + 1;
-					if(bit_timer >= ~bit_dur_rec, {
+				~duranduranbot_routine = Task({var bit_timer;
+
+					bit_timer = 0;
+					~dd_secs = ((~fullpiecedur1-(~dd_mins = ~fullpiecedur1.roundUp-1))*60).roundUp;
+					~piecedur_secs = (~dd_mins*60)+~dd_secs;
+					~piecedur_secs_zero = 0;
+					~bit_dur_rec = ~bit_duration.reciprocal;
+
+					~bit_timer_func = {
+						~rate_selection_end = ~piece_position;
+						~rate_selection_start = ~piece_position-(~auto_select_diff/~bit_duration);
+						if(~rate_selection_start.isNegative == true, {~rate_selection_start = 0;});
+
 						AppClock.sched(0, {
-							timeslider.valueAction = (~piecedur_secs_zero = timeslider.value+1);
-							~dd_secs = ~dd_secs-1;
-							if(~dd_secs == (-1), {~dd_mins = ~dd_mins-1; ~dd_secs = 59;});
-							piecedurationstatictext.string = ("Piece Length - "++(~piecedur_secs_zero.asInteger.asString)++" secs ("++(~dd_mins.asInteger.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asInteger.asString)++" mins)");
-							/*if(timeslider.value >= ~auto_select_diff, {rangeslider.valueAction = [timeslider.value-~auto_select_diff, timeslider.value]}, {rangeslider.valueAction = [0, timeslider.value]});
-							*//*if(~piecedur_secs_zero >= (~piecedur_secs), {~stop_func.value; "piece finished".postln; piecedurationstatictext.string = if(~fullpiecedur != nil, {~fullpiecedur}, {"piece length - --:-- mins"});})
-							*//*if(~piece_position == ~instrument_1_full.size, {
-							AppClock.sched(~bit_duration*4, {
-							~stop_func.value; "piece finished".postln; piecedurationstatictext.string = if(~fullpiecedur != nil, {~fullpiecedur}, {"Piece Length - --:-- mins"});
-							});
-							});*/
+							piecepositionstatictext.string = (
+								"Bit pos. "++(~piece_position.asInteger.asString)++" Midi "++(
+									case
+									{~number_of_instruments == 2}{(~instrument_1_full_midi.at(~piece_position).asString)++" "++(~instrument_2_full_midi.at(~piece_position).asString)}
+									{~number_of_instruments == 3}{(~instrument_1_full_midi.at(~piece_position).asString)++" "++(~instrument_2_full_midi.at(~piece_position).asString)++" "++(~instrument_3_full_midi.at(~piece_position).asString)};
+								)
+							);
 						});
-						bit_timer = 0;
+
+						bit_timer = bit_timer + 1;
+						if(bit_timer >= ~bit_dur_rec, {
+							AppClock.sched(0, {
+								timeslider.valueAction = (~piecedur_secs_zero = timeslider.value+1);
+								~dd_secs = ~dd_secs-1;
+								if(~dd_secs == (-1), {~dd_mins = ~dd_mins-1; ~dd_secs = 59;});
+								piecedurationstatictext.string = ("Piece Length - "++(~piecedur_secs_zero.asInteger.asString)++" secs ("++(~dd_mins.asInteger.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asInteger.asString)++" mins)");
+								/*if(timeslider.value >= ~auto_select_diff, {rangeslider.valueAction = [timeslider.value-~auto_select_diff, timeslider.value]}, {rangeslider.valueAction = [0, timeslider.value]});
+								*//*if(~piecedur_secs_zero >= (~piecedur_secs), {~stop_func.value; "piece finished".postln; piecedurationstatictext.string = if(~fullpiecedur != nil, {~fullpiecedur}, {"piece length - --:-- mins"});})
+								*//*if(~piece_position == ~instrument_1_full.size, {
+								AppClock.sched(~bit_duration*4, {
+								~stop_func.value; "piece finished".postln; piecedurationstatictext.string = if(~fullpiecedur != nil, {~fullpiecedur}, {"Piece Length - --:-- mins"});
+								});
+								});*/
+							});
+							bit_timer = 0;
+						});
+					};
+
+					~piece_position = 0;
+
+					1.do({
+
+						if(~will_record == 1, {
+							thisProcess.platform.recordingsDir = (Document.current.dir++"/other_stuff_(recordings_etc)/duranduranbot_recordings");
+							Server.default.record;
+							1.wait;
+						});
+
+						"piece currently running".postln;
+
+						Server.default.makeBundle(Server.default.latency, {
+
+							~number_of_instruments.do(~x = 0; {("duranduranbotsynth"++(~x=~x+1)).asSymbol.envirPut(
+								Synth("synth"++(~x), [freq: ("instrument_"++(~x)++"_full").asSymbol.envirGet.at(~piece_position)]);
+
+							);});
+
+
+							/*~duranduranbotsynth1_m = Synth(
+							(
+							case
+							{~inst_1 == "bass"}{\synth1}
+							{~inst_1 == "keys"}{\synth2}
+							{~inst_1 == "vocal"}{\synth3};
+							), [freq: ~instrument_1_full_mirrored.at(i)]);
+							~duranduranbotsynth2_m = Synth(
+							(
+							case
+							{~inst_2 == "bass"}{\synth1}
+							{~inst_2 == "keys"}{\synth2}
+							{~inst_2 == "vocal"}{\synth3};
+							), [freq: ~instrument_2_full_mirrored.at(i)]);
+							~duranduranbotsynth3_m = Synth(
+							(
+							case
+							{~inst_3 == "bass"}{\synth1}
+							{~inst_3 == "keys"}{\synth2}
+							{~inst_3 == "vocal"}{\synth3};
+							), [freq: ~instrument_3_full_mirrored.at(i)]);*/
+
+
+							/*~duranduranbotsynth1 = ~synth.value;
+							~duranduranbotsynth2 = ~synth.value;
+							~duranduranbotsynth3 = ~synth.value;
+							~duranduranbotsynth1.set(\freq, ~instrument_1_full.at(x));
+							~duranduranbotsynth2.set(\freq, ~instrument_2_full.at(x));
+							~duranduranbotsynth3.set(\freq, ~instrument_3_full.at(x));*/
+						});
+
+						~bit_timer_func.value;
+
+						~bit_duration.wait;
+
 					});
-				};
 
-				~piece_position = 0;
+					inf.do({
 
-				1.do({
+						~piece_position = ~piece_position + 1;
 
-					if(~will_record == 1, {
-						thisProcess.platform.recordingsDir = (Document.current.dir++"/other_stuff_(recordings_etc)/duranduranbot_recordings");
-						Server.default.record;
+						Server.default.makeBundle(Server.default.latency, {
+
+							~number_of_instruments.do(~x = 0; {("duranduranbotsynth"++(~x=~x+1)).asSymbol.envirGet.set(
+								\freq, ("instrument_"++(~x)++"_full").asSymbol.envirGet.at(~piece_position);
+
+							);});
+
+							/*~duranduranbotsynth1_m.set(\freq, ~instrument_1_full_mirrored.at(i));
+							~duranduranbotsynth2_m.set(\freq, ~instrument_2_full_mirrored.at(i));
+							~duranduranbotsynth3_m.set(\freq, ~instrument_3_full_mirrored.at(i));
+							*/
+						});
+
+						~bit_timer_func.value;
+
+						/*t=170;
+						~instrument_2_full_midi.at(t=t-1)*/
+
+
+						~bit_duration.wait;
+						/*
+						~piece_position.postln;*/
+
+						//
+						// ("pp "++~piece_position.value++" bit_timer "++bit_timer.value).postln;
+
+						/*~piece_position.postln;*/
+
+						if(~piece_position >= (~instrument_1_full.size-1), {
+							var amp = ~amp;
+							100.do({~number_of_instruments.do({
+
+								~amp = ~amp - (~amp/25);
+								Server.default.makeBundle(Server.default.latency, {
+									~number_of_instruments.do(j = 0; {("duranduranbotsynth"++(j=j+1)).asSymbol.envirGet.set(
+										\amp, ~amp
+									);});
+								});
+									0.01.wait;});});
+								Server.default.makeBundle(Server.default.latency, {
+									~number_of_instruments.do(j = 0; {("duranduranbotsynth"++(j=j+1)).asSymbol.envirGet.set(
+										\amp, 0
+									);});
+								});
+							~amp = 1;
+							1.wait; ~stop_func.value; "piece finished".postln;
+							if((FileReader.read(Document.current.dir++"/other_program_files/autonewpiece.scd", false, true).flatten.at(0) == 1.asString), {AppClock.sched(0, {quicknewpiecebutton.valueAction = 0;});});
+						});
+
+					});
+				});
+
+			}
+			{~loop_on == 1}{
+
+				if(~will_record == 1, {
+							thisProcess.platform.recordingsDir = (Document.current.dir++"/other_stuff_(recordings_etc)/duranduranbot_recordings");
+							Server.default.record;
+						});
+
+				~duranduranbot_routine = Task({var bit_timer, numberofloops = 0;
+
+					bit_timer = 0;
+					~dd_secs = ((~fullpiecedur1-(~dd_mins = ~fullpiecedur1.roundUp-1))*60).roundUp;
+					~piecedur_secs = (~dd_mins*60)+~dd_secs;
+					~piecedur_secs_zero = 0;
+					~bit_dur_rec = ~bit_duration.reciprocal;
+
+					~bit_timer_func = {
+						~rate_selection_end = ~piece_position;
+						~rate_selection_start = ~piece_position-(~auto_select_diff/~bit_duration);
+						if(~rate_selection_start.isNegative == true, {~rate_selection_start = 0;});
+
+						AppClock.sched(0, {
+							piecepositionstatictext.string = (
+								"Bit pos. "++(~piece_position.asInteger.asString)++" Midi "++(
+									case
+									{~number_of_instruments == 2}{(~instrument_1_full_midi.at(~piece_position).asString)++" "++(~instrument_2_full_midi.at(~piece_position).asString)}
+									{~number_of_instruments == 3}{(~instrument_1_full_midi.at(~piece_position).asString)++" "++(~instrument_2_full_midi.at(~piece_position).asString)++" "++(~instrument_3_full_midi.at(~piece_position).asString)};
+								)
+							);
+						});
+
+						bit_timer = bit_timer + 1;
+						if(bit_timer >= ~bit_dur_rec, {
+							AppClock.sched(0, {
+								timeslider.valueAction = (~piecedur_secs_zero = timeslider.value+1);
+								~dd_secs = ~dd_secs-1;
+								if(~dd_secs == (-1), {~dd_mins = ~dd_mins-1; ~dd_secs = 59;});
+								piecedurationstatictext.string = ("Piece Length - "++(~piecedur_secs_zero.asInteger.asString)++" secs ("++(~dd_mins.asInteger.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asInteger.asString)++" mins)");
+								/*if(timeslider.value >= ~auto_select_diff, {rangeslider.valueAction = [timeslider.value-~auto_select_diff, timeslider.value]}, {rangeslider.valueAction = [0, timeslider.value]});
+								*//*if(~piecedur_secs_zero >= (~piecedur_secs), {~stop_func.value; "piece finished".postln; piecedurationstatictext.string = if(~fullpiecedur != nil, {~fullpiecedur}, {"piece length - --:-- mins"});})
+								*//*if(~piece_position == ~instrument_1_full.size, {
+								AppClock.sched(~bit_duration*4, {
+								~stop_func.value; "piece finished".postln; piecedurationstatictext.string = if(~fullpiecedur != nil, {~fullpiecedur}, {"Piece Length - --:-- mins"});
+								});
+								});*/
+							});
+							bit_timer = 0;
+						});
+					};
+
+					~piece_position = ~pos_1;
+
+					1.do({
+
 						1.wait;
+
+						Server.default.makeBundle(Server.default.latency, {
+
+							~number_of_instruments.do(~x = 0; {("duranduranbotsynth"++(~x=~x+1)).asSymbol.envirPut(
+								Synth("synth"++(~x), [freq: ("instrument_"++(~x)++"_full").asSymbol.envirGet.at(~piece_position)]);
+
+							);});
+
+
+						});
+
+						/*~bit_timer_func.value;*/
+
+						~bit_duration.wait;
+
 					});
 
-					"piece currently running".postln;
+					inf.do({
 
-					Server.default.makeBundle(Server.default.latency, {
+						~piece_position = ~piece_position + 1;
 
-						~number_of_instruments.do(~x = 0; {("duranduranbotsynth"++(~x=~x+1)).asSymbol.envirPut(
-							Synth("synth"++(~x), [freq: ("instrument_"++(~x)++"_full").asSymbol.envirGet.at(~piece_position)]);
+						Server.default.makeBundle(Server.default.latency, {
 
-						);});
+							~number_of_instruments.do(~x = 0; {("duranduranbotsynth"++(~x=~x+1)).asSymbol.envirGet.set(
+								\freq, ("instrument_"++(~x)++"_full").asSymbol.envirGet.at(~piece_position);
 
+							);});
 
-						/*~duranduranbotsynth1_m = Synth(
-						(
-						case
-						{~inst_1 == "bass"}{\synth1}
-						{~inst_1 == "keys"}{\synth2}
-						{~inst_1 == "vocal"}{\synth3};
-						), [freq: ~instrument_1_full_mirrored.at(i)]);
-						~duranduranbotsynth2_m = Synth(
-						(
-						case
-						{~inst_2 == "bass"}{\synth1}
-						{~inst_2 == "keys"}{\synth2}
-						{~inst_2 == "vocal"}{\synth3};
-						), [freq: ~instrument_2_full_mirrored.at(i)]);
-						~duranduranbotsynth3_m = Synth(
-						(
-						case
-						{~inst_3 == "bass"}{\synth1}
-						{~inst_3 == "keys"}{\synth2}
-						{~inst_3 == "vocal"}{\synth3};
-						), [freq: ~instrument_3_full_mirrored.at(i)]);*/
+							/*~duranduranbotsynth1_m.set(\freq, ~instrument_1_full_mirrored.at(i));
+							~duranduranbotsynth2_m.set(\freq, ~instrument_2_full_mirrored.at(i));
+							~duranduranbotsynth3_m.set(\freq, ~instrument_3_full_mirrored.at(i));
+							*/
+						});
 
+					/*	~bit_timer_func.value;
+*/
+						AppClock.sched(0, {
+							piecepositionstatictext.string = (
+								"Bit pos. "++(~piece_position.asInteger.asString)++" Midi "++(
+									case
+									{~number_of_instruments == 2}{(~instrument_1_full_midi.at(~piece_position).asString)++" "++(~instrument_2_full_midi.at(~piece_position).asString)}
+									{~number_of_instruments == 3}{(~instrument_1_full_midi.at(~piece_position).asString)++" "++(~instrument_2_full_midi.at(~piece_position).asString)++" "++(~instrument_3_full_midi.at(~piece_position).asString)};
+								)
+							);
+						});
 
-						/*~duranduranbotsynth1 = ~synth.value;
-						~duranduranbotsynth2 = ~synth.value;
-						~duranduranbotsynth3 = ~synth.value;
-						~duranduranbotsynth1.set(\freq, ~instrument_1_full.at(x));
-						~duranduranbotsynth2.set(\freq, ~instrument_2_full.at(x));
-						~duranduranbotsynth3.set(\freq, ~instrument_3_full.at(x));*/
+						/*t=170;
+						~instrument_2_full_midi.at(t=t-1)*/
+
+						if(~loop_on == 1, {if(~piece_position == ~pos_2;, {~piece_position = ~pos_1; numberofloops=numberofloops+1});});
+
+						~bit_duration.wait;
+						/*
+						~piece_position.postln;*/
+
+						//
+						// ("pp "++~piece_position.value++" bit_timer "++bit_timer.value).postln;
+
+						/*~piece_position.postln;*/
+
+						if(numberofloops >= ~num_loops, {
+							var amp = ~amp;
+							100.do({~number_of_instruments.do({
+
+								~amp = ~amp - (~amp/25);
+								Server.default.makeBundle(Server.default.latency, {
+									~number_of_instruments.do(j = 0; {("duranduranbotsynth"++(j=j+1)).asSymbol.envirGet.set(
+										\amp, ~amp
+									);});
+								});
+									0.01.wait;});});
+								Server.default.makeBundle(Server.default.latency, {
+									~number_of_instruments.do(j = 0; {("duranduranbotsynth"++(j=j+1)).asSymbol.envirGet.set(
+										\amp, 0
+									);});
+								});
+							~amp = 1;
+							1.wait; ~stop_func.value; "piece finished".postln;
+							if((FileReader.read(Document.current.dir++"/other_program_files/autonewpiece.scd", false, true).flatten.at(0) == 1.asString), {AppClock.sched(0, {quicknewpiecebutton.valueAction = 0;});});
+						});
+
 					});
-
-					~bit_timer_func.value;
-
-					~bit_duration.wait;
 
 				});
 
-				(~instrument_1_full.size-1).do({
+			};
 
-					~piece_position = ~piece_position + 1;
-
-					Server.default.makeBundle(Server.default.latency, {
-
-						~number_of_instruments.do(~x = 0; {("duranduranbotsynth"++(~x=~x+1)).asSymbol.envirGet.set(
-							\freq, ("instrument_"++(~x)++"_full").asSymbol.envirGet.at(~piece_position);
-
-						);});
-
-						/*~duranduranbotsynth1_m.set(\freq, ~instrument_1_full_mirrored.at(i));
-						~duranduranbotsynth2_m.set(\freq, ~instrument_2_full_mirrored.at(i));
-						~duranduranbotsynth3_m.set(\freq, ~instrument_3_full_mirrored.at(i));
-						*/
-					});
-
-					~bit_timer_func.value;
-
-					~bit_duration.wait;
-					//
-					// ("pp "++~piece_position.value++" bit_timer "++bit_timer.value).postln;
-
-					/*~piece_position.postln;*/
-
-					if(~piece_position >= ~instrument_1_full.size, {
-						Server.default.makeBundle(Server.default.latency, {~number_of_instruments.do(~x = 0; {("duranduranbotsynth"++(~x=~x+1)).asSymbol.envirGet.set(\freq, 0);});});
-						1.wait; ~stop_func.value; "piece finished".postln;
-						if((FileReader.read(Document.current.dir++"/other_program_files/autonewpiece.scd", false, true).flatten.at(0) == 1.asString), {AppClock.sched(0, {quicknewpiecebutton.valueAction = 0;});});
-					});
-
-				});
-
-				1.wait;
-				~stop_func.value; "piece finished".postln;
-				if((FileReader.read(Document.current.dir++"/other_program_files/autonewpiece.scd", false, true).flatten.at(0) == 1.asString), {AppClock.sched(0, {quicknewpiecebutton.valueAction = 0;});});
-
-			});
 
 			Server.default.makeBundle(Server.default.latency, {
 				/*	~timer_routine.start;*/
-				~duranduranbot_routine.start;
+				~duranduranbot_routine.play;
 			});
 
 		);
 	};
+
+
 
 
 
