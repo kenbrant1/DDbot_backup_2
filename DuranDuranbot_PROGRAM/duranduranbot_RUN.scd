@@ -2123,10 +2123,12 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 	if(~buffer == nil, {~buffer = Buffer.read(s, Document.current.dir++"/other_program_files/samples/Alesis-Sanctuary-QCard-Promenade-C3-loop5.wav");});
 
+	~vd_midi = 73; //base note for audio file - for equalizing volume/amplitude. default is 73.
+
 	~number_of_instruments.do(x = 0; {
 		SynthDef("synth"++(x=x+1), {arg out = 0, bufnum = 0, freq = 1, amp = 1;
 			var sig;
-			sig = PlayBuf.ar(1, ~buffer, freq/73.midicps, startPos: 0, loop: 1);
+			sig = PlayBuf.ar(1, ~buffer, freq/~vd_midi.midicps, startPos: 0, loop: 1);
 			sig = BBandPass.ar(sig, freq: freq, bw: 1.6, mul: 1, add: 0);
 			/*sig = BPF.ar(sig, freq: freq, rq: 1.3, mul: 1, add: 0);*/
 			/*sig = BLowPass.ar(sig, freq: freq, rq: 4, mul: 1, add: 0);*/
@@ -2262,8 +2264,6 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 			});
 			});*/
 
-			~vd_midi = 73; //base note for audio file - for equalizing volume/amplitude. default is 73.
-
 			~init_start_func = {
 
 				Server.default.makeBundle(Server.default.latency, {
@@ -2391,7 +2391,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 						~init_start_func.value;
 
-						~bit_timer_func.value;
+						if(~will_record != 1, {~bit_timer_func.value;});
 
 						~bit_duration.wait;
 
@@ -2403,7 +2403,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 						~init_func.value;
 
-						~bit_timer_func.value;
+						if(~will_record != 1, {~bit_timer_func.value;});
 
 						/*t=170;
 						~instrument_2_full_midi.at(t=t-1)*/
@@ -2435,7 +2435,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 								);});
 							});
 							~amp = 1;
-							1.wait; ~stop_func.value; "piece finished".postln;
+							1.wait; if(~will_record == 1, {Server.default.stopRecording;}); ~stop_func.value; "piece finished".postln;
 							if((FileReader.read(Document.current.dir++"/other_program_files/autonewpiece.scd", false, true).flatten.at(0) == 1.asString), {AppClock.sched(0, {quicknewpiecebutton.valueAction = 0;});});
 						});
 
@@ -2555,7 +2555,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 								);});
 							});
 							~amp = 1;
-							1.wait; ~stop_func.value; "piece finished".postln;
+							1.wait; if(~will_record == 1, {Server.default.stopRecording;}); ~stop_func.value; "piece finished".postln;
 							if((FileReader.read(Document.current.dir++"/other_program_files/autonewpiece.scd", false, true).flatten.at(0) == 1.asString), {AppClock.sched(0, {quicknewpiecebutton.valueAction = 0;});});
 						});
 
