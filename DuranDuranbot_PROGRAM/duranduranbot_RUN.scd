@@ -61,23 +61,11 @@ contact email: ken_brant@ymail.com or kenbrant7@gmail.com
 
 	// *Paste score here*
 
-	~instrument_1_full_midi = [ 83, 83, 83, 83, 85, 85, 85, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 83, 83, 83, 83, 83, 80, 80, 80, 80, 80, 81, 81, 81, 81, 81, 80, 80, 80, 80, 80, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 82, 82, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 78, 78, 78, 78, 78, 76, 76, 76, 76, 76, 76, 76, 76, 76, 78, 77, 77, 77, 77, 72, 74, 74, 74, 74, 79, 79, 79, 79, 79, 79, 79, 79, 79, 80, 80, 80, 76, 76, 76, 76, 76, 76, 76, 76, 76, 70, 70, 70, 70, 70, 70, 70, 70, 70, 68, 68, 68, 69, 69, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 77, 77, 77, 76, 76, 76, 76, 76, 76, 76, 76, 76, 79, 77, 77, 76, 76, 76, 78, 78, 78, 78, 78, 78, 78, 78, 78, 84, 84, 84, 84, 84, 84, 84, 84, 84, 88, 88, 88, 87, 87, 87, 87, 87, 87, 84, 84, 84, 79, 79, 79, 79, 79, 84, 84, 84, 84, 84, 82, 82, 82, 82, 80, 80, 80, 84, 84, 86, 86, 86, 86, 86, 86, 86, 86, 87, 87, 85, 85, 81, 81, 81, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 83, 83, 83, 83, 83, 83, 83, 83, 83, 84, 85, 85, 76, 76, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 78, 78, 77, 81, 81, 76, 76, 71, 71, 71, 70, 70, 70, 70, 70, 69, 69, 69, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 70, 71, 71, 71, 71, 71, 71, 71, 73, 73, 73, 73, 73, 75, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 79, 79, 79, 79, 79, 77, 77, 77, 77, 77, 77, 77, 77, 77, 76, 76, 76, 76, 76, 76, 76, 76, 76, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 83, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 86, 87, 87, 87, 87, 81, 81, 81, 81, 80, 80, 80, 80, 80, 80, 80, 80, 80, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 74, 74, 74, 74, 74, 74, 74, 73, 73, 73, 73, 73, 73, 73, 73, 73, 72, 72, 72, 72, 72, 73, 73, 73, 73, 73, 70, 70, 70, 68, 68, 68, 68, 68, 68, 68, 68, 68, 66, 66, 66, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 71, 71, 71, 71, 71, 73, 73, 74, 74, 74, 74, 74, 74, 74, 70, 70, 70, 70, 70, 70, 70, 69, 69, 66, 66, 69, 69, 69, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 63, 63, 63, 65, 65, 65, 65, 65, 65, 65, 65, 65, 67, 67, 67, 70, 70, 70, 70, 70, 69, 69, 69, 69, 69, 70, 70, 70, 70, 70, 70, 70, 70, 70, 71, 71, 71, 71, 71, 71, 71, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 70, 70, 70, 70, 70, 70, 70, 70, 71, 71, 71, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68 ];
-~instrument_2_full_midi = [ 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 66, 66, 66, 66, 66, 66, 66, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 66, 66, 66, 66, 66, 66, 66, 66, 66, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 70, 70, 70, 70, 70, 70, 70, 71, 71, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 64, 64, 64, 64, 64, 64, 66, 66, 66, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 73, 73, 73, 73, 73, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 66, 66, 66, 65, 65, 65, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 73, 73, 73, 73, 73, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 66, 66, 66, 66, 66, 66, 66, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 74, 74, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 72, 72, 72, 72, 72, 72, 72, 68, 68, 68, 68, 68, 68, 68, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 65, 65, 65, 65, 65, 65, 65, 65, 65, 63, 63, 63, 63, 63, 63, 63, 63, 63, 68, 68, 68, 68, 68, 68, 68, 70, 70, 70, 71, 71, 71, 71, 71, 71, 71, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 62, 62, 62, 62, 62, 62, 62, 62, 62, 61, 61, 61, 60, 60, 65, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 57, 57, 57, 57, 57, 58, 58, 58, 58, 58, 58, 58, 58, 62, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 69, 69, 69, 69, 69, 69, 69, 69, 69, 71, 71, 71, 71, 71, 71, 71, 71, 71, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65 ];
-	/*t = 165;
-	~instrument_1_full_midi.at(t=t+1);*/
+	// Copy and paste the all lines below in the "Load Saved Score" section in the top of the "duranduranbot_RUN.scd" file
+	~instrument_1_full_midi = [ 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 66, 66, 66, 66, 66, 66, 66, 66, 66, 69, 69, 69, 69, 69, 69, 69, 69, 69, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 64, 63, 63, 63, 63, 63, 63, 63, 63, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 73, 73, 73, 73, 73, 73, 73, 73, 73, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 64, 64, 64, 64, 64, 64, 64, 64, 66, 66, 66, 66, 66, 67, 67, 67, 67, 67, 67, 67, 73, 73, 73, 73, 73, 73, 73, 73, 73, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75 ];
+	~instrument_2_full_midi = [ 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 71, 71, 71, 71, 71, 66, 66, 62, 62, 67, 67, 67, 67, 67, 68, 68, 68, 68, 68, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 62, 62, 62, 62, 62, 62, 62, 62, 64, 64, 64, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 64, 64, 64, 64, 64, 64, 64, 64, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60 ];
 
-	/*t =158;
-	t=t+1;
-	~instrument_1_full_midi.at(x=x+1;)
 
-	t =158;
-
-	(
-	~number_of_instruments.do(~x = 0; {("duranduranbotsynth"++(~x=~x+1)).asSymbol.envirPut(
-	Synth("synth"++(~x), [freq: ("instrument_"++(~x)++"_full").asSymbol.envirGet.at(t=t+1)]);
-	)});
-	~piece_position;
-	);*/
 
 
 
@@ -146,8 +134,8 @@ contact email: ken_brant@ymail.com or kenbrant7@gmail.com
 // GUI
 
 if(~amp == nil, {~amp = 1;});
-if(~bit_duration == nil, {~bit_duration_default = 6; ~bit_duration = FileReader.read(Document.current.dir++"/other_program_files/bit_speed.scd", false, true).flatten.at(0).asString.asFloat;});
-if(~auto_select_diff == nil, {~auto_select_diff = 5;}); // range in number of seconds to rate a piece from current time backwards. defualt is 5.
+if(~bit_duration == nil, {~bit_duration_default = 7; ~bit_duration = FileReader.read(Document.current.dir++"/other_program_files/bit_speed.scd", false, true).flatten.at(0).asString.asFloat;});
+if(~auto_select_diff == nil, {~auto_select_diff = 7;}); // range in number of seconds to rate a piece from current time backwards. defualt is 7.
 if(~rate_button_default == nil, {~rate_button_default = 8;}); // set default point rating at boot. Available point numbers - 1, 2, 4, 8, or 16
 
 case
@@ -389,8 +377,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 			AppClock.sched(0, {
 				/*~timer_routine.stop;*/
 				/*Server.default.makeBundle(Server.default.latency, {~number_of_instruments.do(j = 0; {("duranduranbotsynth"++(j=j+1)).asSymbol.envirGet.set(\amp, 0);});});
-			*/	if(~will_record == 1, {s.stopRecording;});
-				/*~piece_position = 0;*/
+				*/	/*~piece_position = 0;*/
 				timeslider.valueAction = 0;
 				"piece stopped".postln;
 				~fullpiecedur2 = ~fullpiecedur;
@@ -400,6 +387,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 				~playbutton.string = "Play Piece";
 				Server.default.makeBundle(Server.default.latency, {~number_of_instruments.do(x = 0; {("duranduranbotsynth"++(x=x+1)).asSymbol.envirGet.free;});});
 				~duranduranbot_routine.stop;
+				if(~will_record == 1, {s.stopRecording;});
 				Server.freeAll;
 			});
 		};
@@ -667,36 +655,36 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 		/*~loop_creator_func = {
 
-			if(("instrument_"++(1)++"_full_midi_before").asSymbol.envirGet == nil, {
-				~number_of_instruments.do(t = 0; {
-					t=t+1;
-					("instrument_"++(t)++"_full_midi_before").asSymbol.envirPut(("instrument_"++(t)++"_full_midi").asSymbol.envirGet;);
-				});
-			});
+		if(("instrument_"++(1)++"_full_midi_before").asSymbol.envirGet == nil, {
+		~number_of_instruments.do(t = 0; {
+		t=t+1;
+		("instrument_"++(t)++"_full_midi_before").asSymbol.envirPut(("instrument_"++(t)++"_full_midi").asSymbol.envirGet;);
+		});
+		});
 
-			(
-				h = 0.midicps;
-				z = ~pos_1 - ~pos_2;
-				if(z.isNegative == true, {z = z.neg;});
-				z=z+1;
-				~number_of_instruments.do(t = 0; {
-					t=t+1;
-					("loop_new_array"++(t)).asSymbol.envirPut([]);
-					z.do(q = ~pos_1; {
-						("loop_new_array"++(t)).asSymbol.envirPut(
-							("loop_new_array"++(t)).asSymbol.envirGet.add(("instrument_"++(t)++"_full_midi").asSymbol.envirGet.at(q););
+		(
+		h = 0.midicps;
+		z = ~pos_1 - ~pos_2;
+		if(z.isNegative == true, {z = z.neg;});
+		z=z+1;
+		~number_of_instruments.do(t = 0; {
+		t=t+1;
+		("loop_new_array"++(t)).asSymbol.envirPut([]);
+		z.do(q = ~pos_1; {
+		("loop_new_array"++(t)).asSymbol.envirPut(
+		("loop_new_array"++(t)).asSymbol.envirGet.add(("instrument_"++(t)++"_full_midi").asSymbol.envirGet.at(q););
 
-						);
-						q=q+1;
-					});
+		);
+		q=q+1;
+		});
 
-					("instrument_"++(t)++"_full_midi").asSymbol.envirPut(("loop_new_array"++(t)).asSymbol.envirGet;);
+		("instrument_"++(t)++"_full_midi").asSymbol.envirPut(("loop_new_array"++(t)).asSymbol.envirGet;);
 
-				});
-			);
+		});
+		);
 
-			~saved_piece_loaded = 1;
-			~create_pseq_arrays_func.value;
+		~saved_piece_loaded = 1;
+		~create_pseq_arrays_func.value;
 
 		};
 
@@ -706,22 +694,22 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 		~instrument_2_full.size*/
 
 		loopsetbutton =  Button.new(~firstview, Rect(~firstviewboundsWIDTH/4.3, ~firstviewboundsHEIGHT/1.47, ~firstviewboundsWIDTH/10, ~firstviewboundsHEIGHT/21)).states_([["Set Loop",~stringcolor,~backgroundcolor]]).action_({arg button;
-			~loop_on = 1;
-			if(~duranduranbot_routine.isPlaying == true, {~stop_func.value;});
-			~loop_creator_func.value;
+		~loop_on = 1;
+		if(~duranduranbot_routine.isPlaying == true, {~stop_func.value;});
+		~loop_creator_func.value;
 		});
 
 		stoploopbutton =  Button.new(~firstview, Rect(~firstviewboundsWIDTH/2.9, ~firstviewboundsHEIGHT/1.47, ~firstviewboundsWIDTH/10, ~firstviewboundsHEIGHT/21)).states_([["Stop Loop",~stringcolor,~backgroundcolor]]).action_({arg button;
-			~loop_on = 0;
-			~number_of_instruments.do(t = 0; {
-			t=t+1;
-			("instrument_"++(t)++"_full_midi").asSymbol.envirPut(("instrument_"++(t)++"_full_midi_before").asSymbol.envirGet;);
-			("instrument_"++(t)++"_full_midi_before").asSymbol.envirPut(nil);
-			});
+		~loop_on = 0;
+		~number_of_instruments.do(t = 0; {
+		t=t+1;
+		("instrument_"++(t)++"_full_midi").asSymbol.envirPut(("instrument_"++(t)++"_full_midi_before").asSymbol.envirGet;);
+		("instrument_"++(t)++"_full_midi_before").asSymbol.envirPut(nil);
+		});
 
-			if(~duranduranbot_routine.isPlaying == true, {~stop_func.value;});
-			~saved_piece_loaded = 1;
-			~create_pseq_arrays_func.value;
+		if(~duranduranbot_routine.isPlaying == true, {~stop_func.value;});
+		~saved_piece_loaded = 1;
+		~create_pseq_arrays_func.value;
 		});*/
 
 		if(~loop_on == nil, {~loop_on = 0});
@@ -2274,7 +2262,75 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 			});
 			});*/
 
+			~vd_midi = 73; //base note for audio file - for equalizing volume/amplitude. default is 73.
 
+			~init_start_func = {
+
+				Server.default.makeBundle(Server.default.latency, {
+
+					~number_of_instruments.do(~x = 0; {("duranduranbotsynth"++(~x=~x+1)).asSymbol.envirGet.set(
+						\amp, (~amp - ((("instrument_"++(~x)++"_full_midi").asSymbol.envirGet.at(~piece_position) - ~vd_midi)/~vd_midi))
+					);
+					});
+
+					~number_of_instruments.do(~x = 0; {("duranduranbotsynth"++(~x=~x+1)).asSymbol.envirPut(
+						Synth("synth"++(~x), [freq: ("instrument_"++(~x)++"_full").asSymbol.envirGet.at(~piece_position)]);
+
+					);});
+
+
+					/*~duranduranbotsynth1_m = Synth(
+					(
+					case
+					{~inst_1 == "bass"}{\synth1}
+					{~inst_1 == "keys"}{\synth2}
+					{~inst_1 == "vocal"}{\synth3};
+					), [freq: ~instrument_1_full_mirrored.at(i)]);
+					~duranduranbotsynth2_m = Synth(
+					(
+					case
+					{~inst_2 == "bass"}{\synth1}
+					{~inst_2 == "keys"}{\synth2}
+					{~inst_2 == "vocal"}{\synth3};
+					), [freq: ~instrument_2_full_mirrored.at(i)]);
+					~duranduranbotsynth3_m = Synth(
+					(
+					case
+					{~inst_3 == "bass"}{\synth1}
+					{~inst_3 == "keys"}{\synth2}
+					{~inst_3 == "vocal"}{\synth3};
+					), [freq: ~instrument_3_full_mirrored.at(i)]);*/
+
+
+					/*~duranduranbotsynth1 = ~synth.value;
+					~duranduranbotsynth2 = ~synth.value;
+					~duranduranbotsynth3 = ~synth.value;
+					~duranduranbotsynth1.set(\freq, ~instrument_1_full.at(x));
+					~duranduranbotsynth2.set(\freq, ~instrument_2_full.at(x));
+					~duranduranbotsynth3.set(\freq, ~instrument_3_full.at(x));*/
+				});
+			};
+
+			~init_func = {
+
+				Server.default.makeBundle(Server.default.latency, {
+
+					~number_of_instruments.do(~x = 0; {("duranduranbotsynth"++(~x=~x+1)).asSymbol.envirGet.set(
+						\amp, (~amp - ((("instrument_"++(~x)++"_full_midi").asSymbol.envirGet.at(~piece_position) - ~vd_midi)/~vd_midi))
+					);
+					});
+					~number_of_instruments.do(~x = 0; {("duranduranbotsynth"++(~x=~x+1)).asSymbol.envirGet.set(
+						\freq, ("instrument_"++(~x)++"_full").asSymbol.envirGet.at(~piece_position);
+
+					);});
+
+					/*~duranduranbotsynth1_m.set(\freq, ~instrument_1_full_mirrored.at(i));
+					~duranduranbotsynth2_m.set(\freq, ~instrument_2_full_mirrored.at(i));
+					~duranduranbotsynth3_m.set(\freq, ~instrument_3_full_mirrored.at(i));
+					*/
+				});
+
+			};
 
 			case
 			{~loop_on == 0}{
@@ -2333,44 +2389,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 						"piece currently running".postln;
 
-						Server.default.makeBundle(Server.default.latency, {
-
-							~number_of_instruments.do(~x = 0; {("duranduranbotsynth"++(~x=~x+1)).asSymbol.envirPut(
-								Synth("synth"++(~x), [freq: ("instrument_"++(~x)++"_full").asSymbol.envirGet.at(~piece_position)]);
-
-							);});
-
-
-							/*~duranduranbotsynth1_m = Synth(
-							(
-							case
-							{~inst_1 == "bass"}{\synth1}
-							{~inst_1 == "keys"}{\synth2}
-							{~inst_1 == "vocal"}{\synth3};
-							), [freq: ~instrument_1_full_mirrored.at(i)]);
-							~duranduranbotsynth2_m = Synth(
-							(
-							case
-							{~inst_2 == "bass"}{\synth1}
-							{~inst_2 == "keys"}{\synth2}
-							{~inst_2 == "vocal"}{\synth3};
-							), [freq: ~instrument_2_full_mirrored.at(i)]);
-							~duranduranbotsynth3_m = Synth(
-							(
-							case
-							{~inst_3 == "bass"}{\synth1}
-							{~inst_3 == "keys"}{\synth2}
-							{~inst_3 == "vocal"}{\synth3};
-							), [freq: ~instrument_3_full_mirrored.at(i)]);*/
-
-
-							/*~duranduranbotsynth1 = ~synth.value;
-							~duranduranbotsynth2 = ~synth.value;
-							~duranduranbotsynth3 = ~synth.value;
-							~duranduranbotsynth1.set(\freq, ~instrument_1_full.at(x));
-							~duranduranbotsynth2.set(\freq, ~instrument_2_full.at(x));
-							~duranduranbotsynth3.set(\freq, ~instrument_3_full.at(x));*/
-						});
+						~init_start_func.value;
 
 						~bit_timer_func.value;
 
@@ -2382,18 +2401,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 						~piece_position = ~piece_position + 1;
 
-						Server.default.makeBundle(Server.default.latency, {
-
-							~number_of_instruments.do(~x = 0; {("duranduranbotsynth"++(~x=~x+1)).asSymbol.envirGet.set(
-								\freq, ("instrument_"++(~x)++"_full").asSymbol.envirGet.at(~piece_position);
-
-							);});
-
-							/*~duranduranbotsynth1_m.set(\freq, ~instrument_1_full_mirrored.at(i));
-							~duranduranbotsynth2_m.set(\freq, ~instrument_2_full_mirrored.at(i));
-							~duranduranbotsynth3_m.set(\freq, ~instrument_3_full_mirrored.at(i));
-							*/
-						});
+						~init_func.value;
 
 						~bit_timer_func.value;
 
@@ -2420,12 +2428,12 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 										\amp, ~amp
 									);});
 								});
-									0.01.wait;});});
-								Server.default.makeBundle(Server.default.latency, {
-									~number_of_instruments.do(j = 0; {("duranduranbotsynth"++(j=j+1)).asSymbol.envirGet.set(
-										\amp, 0
-									);});
-								});
+								0.01.wait;});});
+							Server.default.makeBundle(Server.default.latency, {
+								~number_of_instruments.do(j = 0; {("duranduranbotsynth"++(j=j+1)).asSymbol.envirGet.set(
+									\amp, 0
+								);});
+							});
 							~amp = 1;
 							1.wait; ~stop_func.value; "piece finished".postln;
 							if((FileReader.read(Document.current.dir++"/other_program_files/autonewpiece.scd", false, true).flatten.at(0) == 1.asString), {AppClock.sched(0, {quicknewpiecebutton.valueAction = 0;});});
@@ -2438,9 +2446,9 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 			{~loop_on == 1}{
 
 				if(~will_record == 1, {
-							thisProcess.platform.recordingsDir = (Document.current.dir++"/other_stuff_(recordings_etc)/duranduranbot_recordings");
-							Server.default.record;
-						});
+					thisProcess.platform.recordingsDir = (Document.current.dir++"/other_stuff_(recordings_etc)/duranduranbot_recordings");
+					Server.default.record;
+				});
 
 				~duranduranbot_routine = Task({var bit_timer, numberofloops = 0;
 
@@ -2490,15 +2498,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 						1.wait;
 
-						Server.default.makeBundle(Server.default.latency, {
-
-							~number_of_instruments.do(~x = 0; {("duranduranbotsynth"++(~x=~x+1)).asSymbol.envirPut(
-								Synth("synth"++(~x), [freq: ("instrument_"++(~x)++"_full").asSymbol.envirGet.at(~piece_position)]);
-
-							);});
-
-
-						});
+						~init_start_func.value;
 
 						/*~bit_timer_func.value;*/
 
@@ -2510,21 +2510,10 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 						~piece_position = ~piece_position + 1;
 
-						Server.default.makeBundle(Server.default.latency, {
+						~init_func.value;
 
-							~number_of_instruments.do(~x = 0; {("duranduranbotsynth"++(~x=~x+1)).asSymbol.envirGet.set(
-								\freq, ("instrument_"++(~x)++"_full").asSymbol.envirGet.at(~piece_position);
-
-							);});
-
-							/*~duranduranbotsynth1_m.set(\freq, ~instrument_1_full_mirrored.at(i));
-							~duranduranbotsynth2_m.set(\freq, ~instrument_2_full_mirrored.at(i));
-							~duranduranbotsynth3_m.set(\freq, ~instrument_3_full_mirrored.at(i));
-							*/
-						});
-
-					/*	~bit_timer_func.value;
-*/
+						/*	~bit_timer_func.value;
+						*/
 						AppClock.sched(0, {
 							piecepositionstatictext.string = (
 								"Bit pos. "++(~piece_position.asInteger.asString)++" Midi "++(
@@ -2559,12 +2548,12 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 										\amp, ~amp
 									);});
 								});
-									0.01.wait;});});
-								Server.default.makeBundle(Server.default.latency, {
-									~number_of_instruments.do(j = 0; {("duranduranbotsynth"++(j=j+1)).asSymbol.envirGet.set(
-										\amp, 0
-									);});
-								});
+								0.01.wait;});});
+							Server.default.makeBundle(Server.default.latency, {
+								~number_of_instruments.do(j = 0; {("duranduranbotsynth"++(j=j+1)).asSymbol.envirGet.set(
+									\amp, 0
+								);});
+							});
 							~amp = 1;
 							1.wait; ~stop_func.value; "piece finished".postln;
 							if((FileReader.read(Document.current.dir++"/other_program_files/autonewpiece.scd", false, true).flatten.at(0) == 1.asString), {AppClock.sched(0, {quicknewpiecebutton.valueAction = 0;});});
