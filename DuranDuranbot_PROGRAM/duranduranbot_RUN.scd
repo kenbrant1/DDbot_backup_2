@@ -62,12 +62,8 @@ contact email: ken_brant@ymail.com or kenbrant7@gmail.com
 	// *Paste score here*
 
 	// Copy and paste the all lines below in the "Load Saved Score" section in the top of the "duranduranbot_RUN.scd" file
-	~instrument_1_full_midi = [ 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 66, 66, 66, 66, 66, 66, 66, 66, 66, 69, 69, 69, 69, 69, 69, 69, 69, 69, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 64, 63, 63, 63, 63, 63, 63, 63, 63, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 73, 73, 73, 73, 73, 73, 73, 73, 73, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 64, 64, 64, 64, 64, 64, 64, 64, 66, 66, 66, 66, 66, 67, 67, 67, 67, 67, 67, 67, 73, 73, 73, 73, 73, 73, 73, 73, 73, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75 ];
-	~instrument_2_full_midi = [ 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 71, 71, 71, 71, 71, 66, 66, 62, 62, 67, 67, 67, 67, 67, 68, 68, 68, 68, 68, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 62, 62, 62, 62, 62, 62, 62, 62, 64, 64, 64, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 64, 64, 64, 64, 64, 64, 64, 64, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60 ];
-
-
-
-
+	~instrument_1_full_midi = [ 52, 52, 52, 52, 52, 52, 52, 52, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 63, 63, 63, 63, 63, 63, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 47, 47, 47, 47, 47, 47, 47, 47, 47, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 56, 56, 56, 56, 56, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 60, 60, 60, 60, 60, 60, 60, 60, 60, 61, 61, 61, 61, 61, 61, 61, 61, 59, 59, 59, 59, 59, 59, 59, 59, 59, 55, 55, 55, 55, 52, 52, 54, 54, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 58, 58, 58, 58, 58, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 55, 55, 55, 55, 55, 55, 55, 54, 54, 54, 54, 54, 54, 54, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 50, 50, 50, 50, 50, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 46, 46, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 57, 57, 57, 57, 57, 57, 57, 57, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 53, 53, 53, 53, 53, 52, 52, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 54, 57, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 60, 60, 60, 60, 60, 60, 60, 60, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 56, 56, 56, 56, 56, 56, 56, 56, 56, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 52, 52, 52, 52, 52, 52, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 54, 54, 54, 53, 53, 53, 51, 51, 52, 52, 52, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 53, 53, 53, 53, 53, 53, 51, 51, 51, 51, 51, 53, 53, 53, 53, 53, 53, 51, 51, 51, 51, 51, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 53, 53, 53, 53, 53, 53, 53, 53, 58, 58, 58, 58, 58, 58, 58, 58, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 62, 62, 62, 62, 62, 62, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 58, 58, 58, 53, 53, 53, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 56, 56, 56, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 56, 56, 56, 55, 55, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 52, 52, 52, 57, 57, 57, 63, 59, 59, 59, 59, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 57, 57, 57, 57, 57, 57, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 58, 58, 52, 52, 52, 53, 53, 53, 53, 53, 51, 51, 51, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 54, 54, 54, 54, 54, 53, 53, 53, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 52, 52, 52, 52, 52, 53, 53, 53, 53, 53, 53, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 57, 57, 57, 57, 57, 56, 56, 56, 62, 62, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 58, 58, 58, 55, 55, 55, 55, 55, 55, 55, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 54, 54, 54, 54, 54, 54, 54, 54, 50, 50, 50, 50, 50, 50, 50, 50, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 54, 54, 54, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 56, 56, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 60, 60, 60, 60, 60, 60, 60, 60, 60, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 54, 54, 54, 54, 54, 54, 54, 54, 54, 59, 59, 59, 57, 57, 57, 56, 56, 56, 56, 56, 56, 56, 56, 56, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 53, 53, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 51, 51, 51, 51, 51, 51, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 51, 51, 51, 51, 51, 51, 51, 51, 51, 54, 52, 52, 52, 52, 52, 52, 52, 52, 53, 53, 53, 53, 53, 53, 53, 53, 53, 55, 55, 55, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 55, 55, 55, 55, 55, 55 ];
+	~instrument_2_full_midi = [ 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 72, 72, 72, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 69, 69, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 70, 70, 70, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 57, 57, 57, 57, 57, 57, 57, 57, 64, 64, 64, 64, 64, 64, 64, 64, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 64, 64, 64, 61, 61, 61, 55, 55, 55, 59, 59, 59, 58, 58, 58, 55, 55, 55, 55, 55, 55, 57, 57, 57, 61, 61, 61, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 64, 64, 64, 60, 63, 63, 61, 61, 61, 61, 61, 61, 64, 64, 64, 65, 65, 65, 61, 61, 61, 67, 67, 67, 70, 70, 70, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 68, 68, 68, 68, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 67, 67, 67, 66, 66, 66, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 59, 59, 59, 56, 56, 56, 58, 58, 59, 59, 59, 59, 59, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 63, 63, 63, 63, 63, 63, 63, 63, 63, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 62, 62, 62, 62, 62, 62, 62, 62, 62, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 63, 63, 63, 63, 63, 63, 63, 63, 63, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 67, 67, 67, 67, 67, 67, 65, 65, 65, 69, 69, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 66, 66, 66, 66, 66, 66, 66, 66, 66, 68, 68, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 67, 67, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 63, 63, 63, 58, 58, 58, 58, 58, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 60, 60, 60, 58, 58, 58, 59, 59, 59, 60, 60, 55, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 58, 58, 58, 57, 57, 57, 57, 57, 57, 58, 58, 58, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 57, 57, 57, 57, 57, 61, 61, 61, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 57, 57, 58, 58, 58, 58, 58, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 66, 66, 66, 66, 66, 68, 68, 68, 68, 68, 68, 68, 68, 68, 63, 63, 62, 58, 58, 58, 58, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 61, 61, 61, 61, 61, 60, 60, 63, 69, 69, 69, 69, 69, 69, 64, 64, 64, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 65, 65, 65, 65, 65, 66, 66, 70, 70, 70, 70, 70, 70, 70, 70, 70, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 70, 70, 70, 70, 70, 70, 66, 66, 66, 66, 66, 66, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 63, 63, 63, 68, 68, 68, 68, 68, 68, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 64, 64, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 63, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 65, 67, 67, 66, 66, 66, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 72, 72, 72, 72, 72, 72, 72, 72, 72, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 65, 65, 65, 65, 65, 65, 61, 61, 61, 61, 60, 60, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 63, 63, 63, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 65, 65, 65, 65, 65, 65, 65, 65, 65, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 57, 57, 57, 57, 57, 58, 58, 58, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 72, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 67, 67, 67, 67, 67, 68, 68, 68, 68, 68, 68, 68, 68, 66, 67, 67, 67, 67, 67, 67, 67, 66, 66, 66, 66, 66, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 61, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 65, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 59, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56 ];
 
 };
 
@@ -133,30 +129,6 @@ contact email: ken_brant@ymail.com or kenbrant7@gmail.com
 
 // GUI
 
-if(~amp == nil, {~amp = 1;});
-if(~bit_duration == nil, {~bit_duration_default = 7; ~bit_duration = FileReader.read(Document.current.dir++"/other_program_files/bit_speed.scd", false, true).flatten.at(0).asString.asFloat;});
-if(~auto_select_diff == nil, {~auto_select_diff = 7;}); // range in number of seconds to rate a piece from current time backwards. defualt is 7.
-if(~rate_button_default == nil, {~rate_button_default = 8;}); // set default point rating at boot. Available point numbers - 1, 2, 4, 8, or 16
-
-case
-{FileReader.read(Document.current.dir++"/other_program_files/numberofvoices.scd", false, true).flatten.at(0) == 2.asString}{~number_of_instruments = 2}
-{FileReader.read(Document.current.dir++"/other_program_files/numberofvoices.scd", false, true).flatten.at(0) == 3.asString}{~number_of_instruments = 3};
-
-if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", false, true) != nil, {
-	case
-	{FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", false, true).flatten.at(0) == 0.asString}{
-		~backgroundcolor = Color.black;
-		~stringcolor = Color.white;
-	}
-	{FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", false, true).flatten.at(0) == 1.asString}{
-		~backgroundcolor = Color.white;
-		~stringcolor = Color.black;
-	};
-}, {
-	~backgroundcolor = Color.black;
-	~stringcolor = Color.white;
-});
-
 ~duranduranbot_GUI_func = {
 
 	var w, /*~firstview,*/ firstviewtext1, firstviewtext2, firstviewtext3, firstviewtext4, firstviewtext5, firstviewtext6, firstviewnextbutton, mainview, mainviewtext, randseedEZText1, randseedEZText2, randseedEZText3, randseed_1_make, randseed_2_make, randseed_3_make, randseedviewtext1,randseedviewtext2,
@@ -164,8 +136,35 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 	generatepiecebutton, playbutton, enterdatabasebutton, recordbutton, songtitletext, songtitlestatictext, piecedurationstatictext,piecepositionstatictext,looptextfield_1,looptextfield_2,loopsetbutton,stoploopbutton,looptextfield_3,newpieceautobutton,newpieceautotext, machinelearningbutton, machinelearningtext,loadscorebuttonbutton,loadscoretext,
 	onestarbutton,twostarbutton,threestarbutton,fourstarbutton,fivestarbutton, quicknewpiecebutton, quicknewpiecebutton_revert, quicknewpiecewait,
 	rate_button_1,rate_button_2,rate_button_3,rate_button_4,rate_button_5,rate_button_6, rate_button,rate_revert_button,ratepiecetext,ratedonetext, /*rangeslider,*/timeslider,timeslidertext,
-	rate_selectionstatictext,ctrlperiodtext,training_settings_page_button,playerchoicetext,save_current_piece_button,playerspeedtextfield,playerspeedtextfield2,
+	rate_selectionstatictext,ctrlperiodtext,training_settings_page_button,playerchoicetext,save_current_piece_button,playerspeedtextfield,playerspeedtextfield2,rate_time_range_textfield,rate_time_range_textfield2,
 	closeddbotbutton;
+
+	if(~amp == nil, {~amp = 1;});
+	if(~bit_duration == nil, {~bit_duration_default = 9; ~bit_duration = FileReader.read(Document.current.dir++"/other_program_files/bit_speed.scd", false, true).flatten.at(0).asString.asFloat;});
+	if(~rate_time_range == nil, {~rate_time_range_default = 7; ~rate_time_range = FileReader.read(Document.current.dir++"/other_program_files/rate_time_range.scd", false, true).flatten.at(0).asString.asFloat;}); // range in number of seconds to rate a piece from current time backwards. defualt is 8.
+	if(~rate_button_default == nil, {~rate_button_default = 8;}); // set default point rating at boot. Available point numbers - 1, 2, 4, 8, or 16
+
+	case
+	{FileReader.read(Document.current.dir++"/other_program_files/numberofvoices.scd", false, true).flatten.at(0) == 1.asString}{~number_of_instruments = 1}
+	{FileReader.read(Document.current.dir++"/other_program_files/numberofvoices.scd", false, true).flatten.at(0) == 2.asString}{~number_of_instruments = 2}
+	{FileReader.read(Document.current.dir++"/other_program_files/numberofvoices.scd", false, true).flatten.at(0) == 3.asString}{~number_of_instruments = 3};
+
+	if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", false, true) != nil, {
+		case
+		{FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", false, true).flatten.at(0) == 0.asString}{
+			~backgroundcolor = Color.black;
+			~stringcolor = Color.white;
+		}
+		{FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", false, true).flatten.at(0) == 1.asString}{
+			~backgroundcolor = Color.white;
+			~stringcolor = Color.black;
+		};
+	}, {
+		~backgroundcolor = Color.black;
+		~stringcolor = Color.white;
+	});
+
+
 	w = Window("DuranDuranbot",
 		Rect(Window.availableBounds.width*(1/4.4), Window.availableBounds.height*(1/4.5), Window.availableBounds.width*((4.5-2)/4.5), Window.availableBounds.height*((4.5-2)/4.5)),
 		resizable: true, border:true);
@@ -381,7 +380,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 				timeslider.valueAction = 0;
 				"piece stopped".postln;
 				~fullpiecedur2 = ~fullpiecedur;
-				~stopbutton.close;
+				if(~stopbutton != nil, {~stopbutton.close});
 				~playbutton.value = 0;
 				~pause_piece = 0;
 				~playbutton.string = "Play Piece";
@@ -460,7 +459,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 				2.do({q = q.at(0)});
 				q = q.asInteger;
 				if(q == 1, {~machine_learning_func.value;});
-				("\nlast "++(~auto_select_diff)++" secs rated:\nx"++(~net_change_mult)++" points\n").postln;
+				("\nlast "++(~rate_time_range)++" secs rated:\nx"++(~net_change_mult)++" points\n").postln;
 			}, {
 				"pice must be running to rate".postln;
 				if(ratedonetext != nil, {ratedonetext.close; ratedonetext = nil;});
@@ -499,7 +498,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 		ratepiecetext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.67571428571, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/12));
 		ratepiecetext.background=~backgroundcolor;
 		ratepiecetext.stringColor_(~stringcolor);
-		ratepiecetext.string = "^rate last "++(~auto_select_diff)++" seconds from current position in piece by clicking on a xpt rating above, and clicking "++"Rate".quote++". Higher point # = faster training, but less fine-tuning.";
+		ratepiecetext.string = "^rate last "++(~rate_time_range)++" seconds from current position in piece by clicking on a xpt rating above, and clicking "++"Rate".quote++". Higher point # = faster training, but less fine-tuning.";
 		ratepiecetext.font = Font(size: ~firstviewboundsWIDTH/55);
 
 		/*rangeslider = EZRanger(~firstview, bounds: (Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.1951428571, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/21)), controlSpec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"), action: {
@@ -522,25 +521,25 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 		if(~piece_position == nil, {~piece_position = 0});
 
-		timeslider = EZSlider(~firstview,  bounds: (Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.073, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/21)), controlSpec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"), action: {
+		timeslider = EZSlider(~firstview,  bounds: (Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/2.073, ~firstviewboundsWIDTH/1.5, ~firstviewboundsHEIGHT/21)), controlSpec: ControlSpec(0, ("instrument_"++(1)++"_full").asSymbol.envirGet.size, \lin, 1, 50, "bits"), action: {
 			|timeselect|
 			var selection1;
-			~piece_position = timeselect.value*(~instrument_1_full.size/~piecedur_secs); // works
-			selection1 = ~piece_position.roundUp;
-			if(selection1 != ~piece_position, {~piece_position = selection1-1});
-			/*if(timeslider.value >= ~auto_select_diff, {rangeslider.valueAction = [timeslider.value-~auto_select_diff, timeslider.value]}, {rangeslider.valueAction = [0, timeslider.value]});
+			~piece_position = timeselect.value/**(~instrument_1_full.size/~piecedur_secs)*/; // works
+			/*selection1 = ~piece_position.roundUp;
+			if(selection1 != ~piece_position, {~piece_position = selection1-1});*/
+			/*if(timeslider.value >= ~rate_time_range, {rangeslider.valueAction = [timeslider.value-~rate_time_range, timeslider.value]}, {rangeslider.valueAction = [0, timeslider.value]});
 			*//*timeselect.value.postln;
 			~piece_position.postln;*/
-			if((~piecedur_secs_zero+1) != timeselect.value, {
-				~piecedur_secs_zero = timeselect.value;
-				~fullpiecedur_change = ((~piecedur_secs - ~piecedur_secs_zero)/60);
-				~dd_secs = ((~fullpiecedur_change-(~dd_mins = ~fullpiecedur_change.roundUp-1))*60).roundUp;
+			/*if((~piecedur_secs_zero+1) != timeselect.value, {
+			~piecedur_secs_zero = timeselect.value;
+			~fullpiecedur_change = ((~piecedur_secs - ~piecedur_secs_zero)/60);
+			~dd_secs = ((~fullpiecedur_change-(~dd_mins = ~fullpiecedur_change.roundUp-1))*60).roundUp;
 			});
-
+			*/
 		});
 		timeslider.setColors(~stringcolor,~stringcolor);
 
-		if(~pause_piece != nil, {if(~pause_piece != 1,timeslider.valueAction = 0; {/*rangeslider.valueAction = [0, if(~piecedur_secs != nil, {~piecedur_secs}, {0});]*/nil});});
+		if(~pause_piece != nil, {if(~pause_piece != 1, {timeslider.valueAction = 0;/*rangeslider.valueAction = [0, if(~piecedur_secs != nil, {~piecedur_secs}, {0});]*/nil});});
 
 		/*if(~pause_piece == 0, {~piece_position = 0});*/
 
@@ -609,20 +608,21 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 		if(~will_record == 1, {~recordtext.string = "All pieces WILL be recorded"; recordbutton.value = 1;},
 			{~recordtext.string = "All pieces will NOT be recorded"; recordbutton.value = 0;});
 
-		piecedurationstatictext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.65 /*~firstviewboundsHEIGHT/6.2428571428571*/, ~firstviewboundsWIDTH/2.95, ~firstviewboundsHEIGHT/21));
+		piecedurationstatictext = StaticText(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.65 /*~firstviewboundsHEIGHT/6.2428571428571*/, ~firstviewboundsWIDTH/2.7, ~firstviewboundsHEIGHT/21));
 		piecedurationstatictext.background=~backgroundcolor;
 		piecedurationstatictext.stringColor=~stringcolor;
 		piecedurationstatictext.string = if(~fullpiecedur != nil, {~fullpiecedur}, {"Piece Length - --:-- mins"});
 		piecedurationstatictext.font = Font(size: ~firstviewboundsWIDTH/48);
 
-		piecepositionstatictext = StaticText(~firstview, Rect((~firstviewboundsWIDTH/72)+(~firstviewboundsWIDTH/2.95)+4, ~firstviewboundsHEIGHT/1.65 /*~firstviewboundsHEIGHT/6.2428571428571*/, ~firstviewboundsWIDTH/2.7, ~firstviewboundsHEIGHT/21));
+		piecepositionstatictext = StaticText(~firstview, Rect((~firstviewboundsWIDTH/72)+(~firstviewboundsWIDTH/2.95)+30, ~firstviewboundsHEIGHT/1.65 /*~firstviewboundsHEIGHT/6.2428571428571*/, ~firstviewboundsWIDTH/2.7, ~firstviewboundsHEIGHT/21));
 		piecepositionstatictext.background=~backgroundcolor;
 		piecepositionstatictext.stringColor=~stringcolor;
 		piecepositionstatictext.string = if(~instrument_1_full_midi != nil, {(
 			"Bit pos. "++(~piece_position.asInteger.asString)++" Midi "++(
 				case
-				{~number_of_instruments == 2}{(~instrument_1_full_midi.at(~piece_position).asString)++" "++(~instrument_2_full_midi.at(~piece_position).asString)}
-				{~number_of_instruments == 3}{(~instrument_1_full_midi.at(~piece_position).asString)++" "++(~instrument_2_full_midi.at(~piece_position).asString)++" "++(~instrument_3_full_midi.at(~piece_position).asString)};
+				{~number_of_instruments == 1}{(if(~instrument_1_full_midi != nil, {~instrument_1_full_midi.at(~piece_position).asString}))}
+				{~number_of_instruments == 2}{(if(~instrument_1_full_midi != nil, {~instrument_1_full_midi.at(~piece_position).asString}))++" "++(if(~instrument_2_full_midi != nil, {~instrument_2_full_midi.at(~piece_position).asString}))}
+				{~number_of_instruments == 3}{(if(~instrument_1_full_midi != nil, {~instrument_1_full_midi.at(~piece_position).asString}))++" "++(if(~instrument_2_full_midi != nil, {~instrument_2_full_midi.at(~piece_position).asString}))++" "++(if(~instrument_3_full_midi != nil, {~instrument_3_full_midi.at(~piece_position).asString}))};
 			)
 		)}, {"Bit pos. -- Midi --"});
 		piecepositionstatictext.font = Font(size: ~firstviewboundsWIDTH/48);
@@ -880,7 +880,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 		loadscoretext.string = "Load a saved score here. Then press "++"Play Piece".quote++".";
 		loadscoretext.font = Font(size: ~firstviewboundsWIDTH/55);
 
-		training_settings_page_button = Button.new(~firstview, Rect(~firstviewboundsWIDTH/1.4173228346457, ~firstviewboundsHEIGHT/1.45, ~firstviewboundsWIDTH/4, ~firstviewboundsHEIGHT/21)).states_([["Player Settings",~stringcolor,~backgroundcolor]]).action_({arg button;
+		training_settings_page_button = Button.new(~firstview, Rect(~firstviewboundsWIDTH/1.4173228346457, ~firstviewboundsHEIGHT/1.45, ~firstviewboundsWIDTH/4, ~firstviewboundsHEIGHT/21)).states_([["Settings",~stringcolor,~backgroundcolor]]).action_({arg button;
 			~player_settings_page_func.value;
 		});
 		training_settings_page_button.font = Font(size: ~firstviewboundsWIDTH/48);
@@ -896,6 +896,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 			{FileReader.read(Document.current.dir++"/other_program_files/which_players.scd", false, true).flatten.at(0) == 3.asString}{"Player 3"};
 		)++", "++(
 			case
+			{FileReader.read(Document.current.dir++"/other_program_files/numberofvoices.scd", false, true).flatten.at(0) == 1.asString}{"1 voice"}
 			{FileReader.read(Document.current.dir++"/other_program_files/numberofvoices.scd", false, true).flatten.at(0) == 2.asString}{"2 voices"}
 			{FileReader.read(Document.current.dir++"/other_program_files/numberofvoices.scd", false, true).flatten.at(0) == 3.asString}{"3 voices"};
 		);
@@ -1015,7 +1016,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 		firstviewtext4 = TextView(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/7.528571428571, ~firstviewboundsWIDTH/1.0285714285714, ~firstviewboundsHEIGHT/1.2));
 		firstviewtext4.background=~backgroundcolor;
-		firstviewtext4.string = "(Scroll down for more)\n\nHOW TO PLAY A PIECE\n\nPlay a DuranDuranbot piece by clicking the "++"generate piece".quote++"  button on the Main Page, and then by clicking the "++"play piece".quote++"  button. Once random seeds are input into the program on the front page (the very first page of this program), you only need to generate a song once using the same random seeds. If you click on the "++"generate piece".quote++"  button more than once without inputting new random seeds the same piece will always be generated. To generate a new piece, you can go back to the first page and input new random seeds, or you can do this automatically by clicking on the "++"new random seeds".quote++" button across from the "++"generate piece".quote++" button on the right side of the main page. Or, you can quickly generate a new piece based on entirely new random seeds by simply clicking on the "++"quick new piece".quote++" button a few sets of buttons below the "++"generate piece".quote++" button. \n\nMACHINE LEARNING\n\nMachine learning is enabled by default, but you can disable it on the main page. Using the machine learning function allows for you to teach DuranDuranbot what you prefer to hear in a piece by rating a piece, and for it become better at composing music for you. On the Main Page, you can rate a piece by clicking on any of the point ratings and clicking "++"Rate".quote++". The rating system is currently set to rate the last "++(~auto_select_diff)++" seconds from your current position in the piece designated by where the time slider is positioned... Doing all of this will train DuranDuranbot how to compose music. All training data will be saved to the DuranDuranbot "++"ddbot_training_data".quote++" folder for future use. (Side Note: You can hybridize the training data of numerous DD'bots as well by going into the DD'bot training folder.)\n\nDDbot's machine learning system utilizes mathematical weights to compose/learn to compose music. For instance, a piece compostition variable might be a note interval, and each note interval (1 step, 2 steps) would have a weight assigned to it in a given situation... and DDbot would choose an interval by comparing the weight values of each interval in a given situation, *tending* to choose a higher weighted variable using weighted probability. When you rate a section of a piece while using DDbot, a variable in a given situation is rewarded with points as to increase the value of it's weight. The more points you give a variable, the more chance it will be used in a piece composition. How powerful each xpt rating is - x16 pts is 80% weighted chance for variable in 5 reward instances for that variable... x8 pts is 80% weighted chance for variable in 10 reward instances. x4 pts is 80% weighted chance for variable in 20 reward instances.... and so on in that same pattern. Put simply, a higher rating point value equals faster training of DDbot, but less fine-tuning.\n\nPLAYER SETTINGS\n\nBy clicking the "++"Player Settings".quote++" button on the Main Page, you can choose which player(s) you can traget to compose music and be trained.\n\nLOOPING\n\nCurrently unmarked - 1st text box is starting bit position, 2nd text box is ending bit position. Last text box is how many loops.\n\nCURRENT BUGS\n\n- Every time you click on a link to the main page while piece is playing, the piece goes to it's beginning for a slight moment then goes back to current position.\n\n\n\nIf you have any questions, please feel free to contact -\n\nken_brant@ymail.com\n\nor\n\nkenbrant7@gmail.com";
+		firstviewtext4.string = "(Scroll down for more)\n\nHOW TO PLAY A PIECE\n\nPlay a DuranDuranbot piece by clicking the "++"generate piece".quote++"  button on the Main Page, and then by clicking the "++"play piece".quote++"  button. Once random seeds are input into the program on the front page (the very first page of this program), you only need to generate a song once using the same random seeds. If you click on the "++"generate piece".quote++"  button more than once without inputting new random seeds the same piece will always be generated. To generate a new piece, you can go back to the first page and input new random seeds, or you can do this automatically by clicking on the "++"new random seeds".quote++" button across from the "++"generate piece".quote++" button on the right side of the main page. Or, you can quickly generate a new piece based on entirely new random seeds by simply clicking on the "++"quick new piece".quote++" button a few sets of buttons below the "++"generate piece".quote++" button. \n\nMACHINE LEARNING\n\nMachine learning is enabled by default, but you can disable it on the main page. Using the machine learning function allows for you to teach DuranDuranbot what you prefer to hear in a piece by rating a piece, and for it become better at composing music for you. On the Main Page, you can rate a piece by clicking on any of the point ratings and clicking "++"Rate".quote++". The rating system is currently set to rate the last "++(~rate_time_range)++" seconds from your current position in the piece designated by where the time slider is positioned... Doing all of this will train DuranDuranbot how to compose music. All training data will be saved to the DuranDuranbot "++"ddbot_training_data".quote++" folder for future use. (Side Note: You can hybridize the training data of numerous DD'bots as well by going into the DD'bot training folder.)\n\nDDbot's machine learning system utilizes mathematical weights to compose/learn to compose music. For instance, a piece compostition variable might be a note interval, and each note interval (1 step, 2 steps) would have a weight assigned to it in a given situation... and DDbot would choose an interval by comparing the weight values of each interval in a given situation, *tending* to choose a higher weighted variable using weighted probability. When you rate a section of a piece while using DDbot, a variable in a given situation is rewarded with points as to increase the value of it's weight. The more points you give a variable, the more chance it will be used in a piece composition. How powerful each xpt rating is - x16 pts is 80% weighted chance for variable in 5 reward instances for that variable... x8 pts is 80% weighted chance for variable in 10 reward instances. x4 pts is 80% weighted chance for variable in 20 reward instances.... and so on in that same pattern. Put simply, a higher rating point value equals faster training of DDbot, but less fine-tuning.\n\nSettings\n\nBy clicking the "++"Settings".quote++" button on the Main Page, you can choose which player(s) you can traget to compose music and be trained.\n\nLOOPING\n\nCurrently unmarked - 1st text box is starting bit position, 2nd text box is ending bit position. Last text box is how many loops.\n\nCURRENT BUGS\n\n- Every time you click on a link to the main page while piece is playing, the piece goes to it's beginning for a slight moment then goes back to current position.\n\n\n\nIf you have any questions, please feel free to contact -\n\nken_brant@ymail.com\n\nor\n\nkenbrant7@gmail.com";
 		firstviewtext4.stringColor=~stringcolor;
 		firstviewtext4.font = Font(size: ~firstviewboundsWIDTH/48);
 
@@ -1034,7 +1035,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 		firstviewtext1 = StaticText(~firstview, Rect(~firstviewboundsWIDTH/2.2857142857143, ~firstviewboundsHEIGHT/43.7, ~firstviewboundsWIDTH/5, ~firstviewboundsHEIGHT/21));
 		firstviewtext1.background=~backgroundcolor;
 		firstviewtext1.stringColor=~stringcolor;
-		firstviewtext1.string = "Player Settings";
+		firstviewtext1.string = "Settings";
 		firstviewtext1.align = \topLeft;
 		firstviewtext1.font = Font(size: ~firstviewboundsWIDTH/48);
 
@@ -1059,7 +1060,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 			g = File(Document.current.dir++"/other_program_files/bit_speed.scd", "w");
 			g.write(~bit_duration.asString);
 			g.close;
-			playerspeedtextfield2.string = "Current - "++(~bit_duration.reciprocal)++" bits per second ... Input how fast "++"bits".quote++" are cycled through. Then press "++"Enter/Return".quote++". Original default is "++(~bit_duration_default)++".";
+			playerspeedtextfield2.string = "Bit speed of piece. Input how fast "++"bits".quote++" are cycled through in seconds. Then press "++"Enter/Return".quote++". Current - "++(~bit_duration.reciprocal)++". Original default is "++(~bit_duration_default)++".";
 
 			/*AppClock.sched(0, {
 			~fullpiecedur1 = ((~piecedur_secs = (("instrument_"++(1)++"_full").asSymbol.envirGet.size*~bit_duration).round)/60);
@@ -1081,20 +1082,21 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 			});*/
 		};
 
-		playerspeedtextfield2 = StaticText(~firstview, Rect(~firstviewboundsWIDTH/8, ~firstviewboundsHEIGHT/7.5, ~firstviewboundsWIDTH/1.3, ~firstviewboundsHEIGHT/11));
+		playerspeedtextfield2 = StaticText(~firstview, Rect(~firstviewboundsWIDTH/8, ~firstviewboundsHEIGHT/7.5, ~firstviewboundsWIDTH/1.2, ~firstviewboundsHEIGHT/11));
 		playerspeedtextfield2.background=~backgroundcolor;
 		playerspeedtextfield2.stringColor=~stringcolor;
-		playerspeedtextfield2.string = "Current - "++(~bit_duration.reciprocal)++" bits per second ... Input how fast "++"bits".quote++" are cycled through. Then press "++"Enter/Return".quote++". Original default is "++(~bit_duration_default)++".";
+		playerspeedtextfield2.string = "Bit speed of piece. Input how fast "++"bits".quote++" are cycled through in seconds. Then press "++"Enter/Return".quote++". Current - "++(~bit_duration.reciprocal)++". Original default is "++(~bit_duration_default)++".";
 		playerspeedtextfield2.font = Font(size: ~firstviewboundsWIDTH/48);
 
 		~num_instruments_menu = PopUpMenu(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/3.75, ~firstviewboundsWIDTH/4, ~firstviewboundsHEIGHT/21));
 		~num_instruments_menu.items = [
 			"Current - "++(
 				case
+				{FileReader.read(Document.current.dir++"/other_program_files/numberofvoices.scd", false, true).flatten.at(0) == 1.asString}{"1 voice"}
 				{FileReader.read(Document.current.dir++"/other_program_files/numberofvoices.scd", false, true).flatten.at(0) == 2.asString}{"2 voices"}
 				{FileReader.read(Document.current.dir++"/other_program_files/numberofvoices.scd", false, true).flatten.at(0) == 3.asString}{"3 voices"};
 			),
-			"2 voices", "3 voices"];
+			"1 voice", "2 voices", "3 voices"];
 		~num_instruments_menu.background_(~backgroundcolor);
 		~num_instruments_menu.stringColor_(~stringcolor);
 		~num_instruments_menu.value = FileReader.read(Document.current.dir++"/other_program_files/numberofvoices.scd", false, true);
@@ -1108,10 +1110,12 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 			g = File(Document.current.dir++"/other_program_files/numberofvoices.scd", "w");
 			case
 			{~num_instruments_menu.value == 0}{nil}
-			{~num_instruments_menu.value == 1}{g.write("2".asString); g.close; ~number_of_instruments = 2;}
-			{~num_instruments_menu.value == 2}{g.write("3".asString); g.close; ~number_of_instruments = 3;};
+			{~num_instruments_menu.value == 1}{g.write("1".asString); g.close; ~number_of_instruments = 1;}
+			{~num_instruments_menu.value == 2}{g.write("2".asString); g.close; ~number_of_instruments = 2;}
+			{~num_instruments_menu.value == 3}{g.write("3".asString); g.close; ~number_of_instruments = 3;};
 
 			~duranduranbot_GUI_func.value;
+			~main_page_func.value;
 		};
 		~num_instruments_menu.font = Font(size: ~firstviewboundsWIDTH/48);
 
@@ -1156,6 +1160,48 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 		firstviewtext4.string = "Click on the pop-up menu below to choose which player(s) will compose and be trained. This is useful for a more targeted composition and training... or less targeted. By selecting an option from the pop-up menu below, you are making that the default setting. Original default is "++"Player 1".quote++".";
 		firstviewtext4.align = \topLeft;
 		firstviewtext4.font = Font(size: ~firstviewboundsWIDTH/48);
+
+		rate_time_range_textfield = TextField(~firstview, Rect(~firstviewboundsWIDTH/72, ~firstviewboundsHEIGHT/1.5, ~firstviewboundsWIDTH/10, ~firstviewboundsHEIGHT/21));
+		rate_time_range_textfield.string = ~rate_time_range.asString;
+		rate_time_range_textfield.background_(~backgroundcolor);
+		rate_time_range_textfield.stringColor_(~stringcolor);
+		rate_time_range_textfield.font = Font(size: ~firstviewboundsWIDTH/48);
+		rate_time_range_textfield.action = {
+			/*randseed_1_make = randseedEZText1.value;
+			randseed_1_make = randseed_1_make.asString++"";
+			randseed_1_make = randseed_1_make.separate;*/
+			/*if(i.size > 8, {num = nil; playerspeedtextfield.string = "must be 8 digits or less";}, {*/
+			~rate_time_range = rate_time_range_textfield.value.asFloat;
+			g = File(Document.current.dir++"/other_program_files/rate_time_range.scd", "w");
+			g.write(~rate_time_range.asString);
+			g.close;
+			rate_time_range_textfield2.string = "Rate time range. Input time range in seconds that is rated backwards from current piece position. Then press "++"Enter/Return".quote++". Current - "++(~rate_time_range)++". Original default is "++(~rate_time_range_default)++".";
+
+			/*AppClock.sched(0, {
+			~fullpiecedur1 = ((~piecedur_secs = (("instrument_"++(1)++"_full").asSymbol.envirGet.size*~bit_duration).round)/60);
+			~dd_secs = ((~fullpiecedur1-(~dd_mins = ~fullpiecedur1.roundUp-1))*60).roundUp;
+			/*~fullpiecedur = ("piece length - "++(~dd_mins.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asString)++" mins");
+			*/
+			~fullpiecedur = ("Piece Length - "++(~piecedur_secs.asInteger.asString)++" secs ("++(~dd_mins.asInteger.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asInteger.asString)++" mins)");
+			piecedurationstatictext.string = ~fullpiecedur;
+			("\npiece duration: \n"++((~dd_mins.asInteger.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asInteger.asString))++" minutes";).postln;
+			/*rangeslider.set(spec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"), initVal: [0,if(~piecedur_secs != nil, {~piecedur_secs}, {0})]);
+			*/timeslider.set(spec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"));
+			~rate_selection_start = 0;
+			~rate_selection_end = ("instrument_"++(1)++"_full").asSymbol.envirGet.size;
+			});*/
+			/*randseedviewtext1.string = if(randseed_1_make.isNumber == true, {
+			randseed_1_make = randseed_1_make.asFloat; randseed_1_make.postln; ~randseed_1 = randseed_1_make; ~save_random_seeds_func.value; ~randseed_1.asString++" entered";}, {
+			randseed_1_make = nil; randseedEZText1.string = "Enter Numerical Value";
+			});
+			});*/
+		};
+
+		rate_time_range_textfield2 = StaticText(~firstview, Rect(~firstviewboundsWIDTH/8, ~firstviewboundsHEIGHT/1.5, ~firstviewboundsWIDTH/1.2, ~firstviewboundsHEIGHT/11));
+		rate_time_range_textfield2.background=~backgroundcolor;
+		rate_time_range_textfield2.stringColor=~stringcolor;
+		rate_time_range_textfield2.string = "Rate time range. Input time range in seconds that is rated backwards from current piece position. Then press "++"Enter/Return".quote++". Current - "++(~rate_time_range)++". Original default is "++(~rate_time_range_default)++".";
+		rate_time_range_textfield2.font = Font(size: ~firstviewboundsWIDTH/48);
 	};
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1246,6 +1292,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 	~note_generator_func = {
 
 		case
+		{~number_of_instruments == 1}{1.do(s = (-1); {("clock_diff_"++(s=s+1)++"_func").asSymbol.envirGet.value;});}
 		{~number_of_instruments == 2}{2.do(s = (-1); {("clock_diff_"++(s=s+1)++"_func").asSymbol.envirGet.value;});}
 		{~number_of_instruments == 3}{3.do(s = (-1); {("clock_diff_"++(s=s+1)++"_func").asSymbol.envirGet.value;});};
 
@@ -1256,6 +1303,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 		~intv_weights = FileReader.read(Document.current.dir++"/other_program_files/ddbot_training_data_folder/ddbot_training_data_current_"++(~number_of_instruments.asString)++"_inst/ddbot_interval_weights/"++(~player_array.wrapAt(~inst_num-1))++"_interval_weights/"++(
 			case
+			{~number_of_instruments == 1}{(~clock_diff_0.asString)}
 			{~number_of_instruments == 2}{(~clock_diff_0.asString)++"__"++(~clock_diff_1.asString)}
 			{~number_of_instruments == 3}{(~clock_diff_0.asString)++"__"++(~clock_diff_1.asString)++"_"++(~clock_diff_2.asString)};
 		)++"_weights.scd", false, true);
@@ -1266,9 +1314,9 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 		("instrument_"++(~inst_num)++"_freq").asSymbol.envirPut(("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet + ~new_interval);
 
-		if(((("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet > 90) or: (("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet < 55)), {
-			while({("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet > 90}, {("instrument_"++(~inst_num)++"_freq").asSymbol.envirPut(("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet-12)});
-			while({("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet < 55}, {("instrument_"++(~inst_num)++"_freq").asSymbol.envirPut(("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet+12)});
+		if(((("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet > ~midi_high_limit) or: (("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet < ~midi_low_limit)), {
+			while({("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet > ~midi_high_limit}, {("instrument_"++(~inst_num)++"_freq").asSymbol.envirPut(("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet-12)});
+			while({("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet < ~midi_low_limit}, {("instrument_"++(~inst_num)++"_freq").asSymbol.envirPut(("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet+12)});
 		});
 
 		("instrument_"++(~inst_num)++"_freq").asSymbol.envirGet;
@@ -1297,6 +1345,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 		~time_weights = FileReader.read(Document.current.dir++"/other_program_files/ddbot_training_data_folder/ddbot_training_data_current_"++(~number_of_instruments.asString)++"_inst/ddbot_time_weights/"++(~player_array.wrapAt(~inst_num-1))++"_time_weights/"++(
 			case
+			{~number_of_instruments == 1}{(("dna_clock_"++(~inst_array.wrapAt(~inst_num-1))++"_place").asSymbol.envirGet.asString)}
 			{~number_of_instruments == 2}{(("dna_clock_"++(~inst_array.wrapAt(~inst_num-1))++"_place").asSymbol.envirGet.asString)++"_"++(("dna_clock_"++(~inst_array.wrapAt(~inst_num))++"_place").asSymbol.envirGet.asString)}
 			{~number_of_instruments == 3}{(("dna_clock_"++(~inst_array.wrapAt(~inst_num-1))++"_place").asSymbol.envirGet.asString)++"_"++(("dna_clock_"++(~inst_array.wrapAt(~inst_num))++"_place").asSymbol.envirGet.asString)++"_"++(("dna_clock_"++(~inst_array.wrapAt(~inst_num+1))++"_place").asSymbol.envirGet.asString)};
 		)++"_time_weights.scd", false, true);
@@ -1331,6 +1380,18 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 	};
 
 
+	~midi_low_limit = 45;
+	~midi_high_limit = 81;
+	~tuning_frequency = 440; //default 440 hz
+	~freqmap = (i = ~tuning_frequency / (2 ** (69 / 12)); a = (-1); b = (-1); Array.fill(128, {i * (2 ** (((a=a+1) / 12).trunc)) * ( (2 ** (12.reciprocal)) ** ((b=b+1)  % 12));}));/*~freqmap = (i = 8.0271480262684/*-0.0000000000024*/; ~stepratio = 1.0594630943593; Array.fill(128, { i = i*~stepratio;}));*/
+	~freqmap = ~freqmap.cpsmidi;
+	/*~freqmap2 = (i = ~freqmap.at(58)/*-0.0000000000024*/; ~stepratio = 1.0594630943593; Array.fill(24, { i = i*~stepratio;}));*/
+	~freqmap2 = (n = ~midi_low_limit-1; Array.fill(~midi_high_limit-~midi_low_limit+1, {~freqmap.at(n=n+1);}));
+	/*~ratio_array = (x = 0; Array.fill(12, {1.0594630943593**(x=x+1)}));*/
+	~interval_array = (1..12);
+	~midi_ratio_array = (1..12);
+
+
 	~piece_generator_func = {
 
 		// THERE IS A POINT TO USING BIT-BY-BIT CIRCULAR COMPOSITION ( https://scsynth.org/t/bit-by-bit-circular-composition/1107 )
@@ -1341,17 +1402,6 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 			(
 
 				"gen checkpoint 1".post;
-
-				~tuning_frequency = 440; //default 440 hz
-				~freqmap = (i = ~tuning_frequency / (2 ** (69 / 12)); a = (-1); b = (-1); Array.fill(128, {i * (2 ** (((a=a+1) / 12).trunc)) * ( (2 ** (12.reciprocal)) ** ((b=b+1)  % 12));}));/*~freqmap = (i = 8.0271480262684/*-0.0000000000024*/; ~stepratio = 1.0594630943593; Array.fill(128, { i = i*~stepratio;}));*/
-				~freqmap = ~freqmap.cpsmidi;
-				/*~freqmap2 = (i = ~freqmap.at(58)/*-0.0000000000024*/; ~stepratio = 1.0594630943593; Array.fill(24, { i = i*~stepratio;}));*/
-				~freqmap2 = (n = 54; Array.fill(36, {~freqmap.at(n=n+1);}));
-				/*~ratio_array = (x = 0; Array.fill(12, {1.0594630943593**(x=x+1)}));*/
-				~interval_array = (1..12);
-				~midi_ratio_array = (1..12);
-				~midi_high_limit = 90;
-				~midi_low_limit = 55;
 
 				thisThread.randSeed = ~randseed_1;
 
@@ -1395,7 +1445,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 					// choose compoition process
 
-					if(~composition_process_setting == nil, {~composition_process_setting = 1});
+					~composition_process_setting = 1;
 
 					case
 					{~composition_process_setting == 1}{
@@ -1426,6 +1476,8 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 						thisThread.randSeed = ~randseed_2;
 
+						//generate first set of notes
+
 						~number_of_instruments.do(n = 0; {
 							~inst_num = (n=n+1);
 							("top_level_notes_"++(~inst_array.wrapAt(~inst_num-1))).asSymbol.envirPut([rrand(~midi_low_limit, ~midi_high_limit)]);
@@ -1438,6 +1490,9 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 						y = Array.fill(x.size, {1/x.size}).normalizeSum;
 						z = (x.wchoose(y.value)-1);
 						(if(z.odd == true, {[z=z+[1,(-1)].choose, z].wchoose([2/3,1/3].normalizeSum)}))*/
+
+						//generate string of notes using cpmposition process
+
 						(exprand(4, 16).round-1).do({
 							~number_of_instruments.do(n = 0; {
 								~inst_num = (n=n+1);
@@ -1446,6 +1501,32 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 							});
 						});
 
+						~composition_setting = 2;
+
+						if(~composition_setting == 2, {
+							// blend
+
+							/*("top_level_notes_"++(1)).asSymbol.envirGet
+							("top_level_notes_"++(1)++"_forwards").asSymbol.envirGet
+							("top_level_notes_"++(1)++"_reverse").asSymbol.envirGet*/
+
+							~number_of_instruments.do(n = 0; {("top_level_notes_"++(n=n+1)++"_forwards").asSymbol.envirPut(("top_level_notes_"++(n)).asSymbol.envirGet)});
+							~number_of_instruments.do(n = 0; {("top_level_notes_"++(n=n+1)++"_reverse").asSymbol.envirPut(("top_level_notes_"++(n)).asSymbol.envirGet.reverse)});
+
+							~number_of_instruments.do(n = 0; {n=n+1; ("top_level_notes_"++(n)++"_blended").asSymbol.envirPut([]);});
+
+							~number_of_instruments.do(n = 0; {
+								n=n+1;
+								(("top_level_notes_"++(1)++"_forwards").asSymbol.envirGet.size).do(i = (-1); {
+									i=i+1;
+									u = ((("top_level_notes_"++(n)++"_forwards").asSymbol.envirGet.at(i) + ("top_level_notes_"++(n)++"_reverse").asSymbol.envirGet.at(i)) / 2).round;
+									("top_level_notes_"++(n)++"_blended").asSymbol.envirPut(("top_level_notes_"++(n)++"_blended").asSymbol.envirGet.add(u.value));
+								});
+							});
+							~number_of_instruments.do(n = 0; {("top_level_notes_"++(n=n+1)).asSymbol.envirPut(("top_level_notes_"++(n)++"_blended").asSymbol.envirGet);});
+						});
+
+						// iterate sequence
 						y = rrand(2, 8);
 						~number_of_instruments.do(x = 0; {
 							("top_level_notes_"++(x=x+1)++"_full").asSymbol.envirPut([]);
@@ -1500,7 +1581,6 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 						};
 
 						~composition_setting = 2;
-
 
 						//compose action
 
@@ -1681,11 +1761,11 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 									~dd_secs = ((~fullpiecedur1-(~dd_mins = ~fullpiecedur1.roundUp-1))*60).roundUp;
 									/*~fullpiecedur = ("piece length - "++(~dd_mins.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asString)++" mins");
 									*/
-									~fullpiecedur = ("Piece Length - "++(~piecedur_secs.asInteger.asString)++" secs ("++(~dd_mins.asInteger.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asInteger.asString)++" mins)");
+									~fullpiecedur = ("Piece Length - "++(("instrument_"++(1)++"_full").asSymbol.envirGet.size.asString)++" bits ("++(~dd_mins.asInteger.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asInteger.asString)++" mins)");
 									piecedurationstatictext.string = ~fullpiecedur;
 									("\npiece duration: \n"++((~dd_mins.asInteger.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asInteger.asString))++" minutes";).postln;
 									/*rangeslider.set(spec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"), initVal: [0,if(~piecedur_secs != nil, {~piecedur_secs}, {0})]);
-									*/timeslider.set(spec: ControlSpec(0, if(~piecedur_secs != nil, {~piecedur_secs}, {0}), \lin, 1, 50, "secs"));
+									*/timeslider.set(spec: ControlSpec(0, ("instrument_"++(1)++"_full").asSymbol.envirGet.size, \lin, 1, 50, "bits"));
 									~rate_selection_start = 0;
 									~rate_selection_end = ("instrument_"++(1)++"_full").asSymbol.envirGet.size;
 								});
@@ -1764,6 +1844,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 		interv_inst_case = {
 			case
+			{~number_of_instruments == 1}{(~interval_diff0.asString)}
 			{~number_of_instruments == 2}{(~interval_diff0.asString)++"__"++(~interval_diff2.asString)}
 			{~number_of_instruments == 3}{(~interval_diff0.asString)++"__"++(~interval_diff2.asString)++"_"++(~interval_diff3.asString)};
 		};
@@ -1812,11 +1893,13 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 						("interval_diff"++(u=u+1)).asSymbol.envirPut(e.value;);
 
 						// find interval between intruments
-						(~number_of_instruments-1).do(t = 1; {
-							e = j - ("instrument_"++(~inst_array.wrapAt(~inst_num-(t=t-1)))++"_full_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1));
-							if(e.isNegative == true, {e = e.neg});
-							while({e > 12}, {e = e - 12});
-							("interval_diff"++(u=u+1)).asSymbol.envirPut(e.value;);
+						if(~number_of_instruments > 1, {
+							(~number_of_instruments-1).do(t = 1; {
+								e = j - ("instrument_"++(~inst_array.wrapAt(~inst_num-(t=t-1)))++"_full_midi").asSymbol.envirGet.at(~rate_selection_start+(x-1));
+								if(e.isNegative == true, {e = e.neg});
+								while({e > 12}, {e = e - 12});
+								("interval_diff"++(u=u+1)).asSymbol.envirPut(e.value;);
+							});
 						});
 
 						(~number_of_instruments+1).do(u = (-1); {
@@ -1888,6 +1971,7 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 		time_inst_case = {
 			case
+			{~number_of_instruments == 1}{(~lengthplace2.asString)}
 			{~number_of_instruments == 2}{(~lengthplace2.asString)++"_"++(~lengthplace3.asString)}
 			{~number_of_instruments == 3}{(~lengthplace2.asString)++"_"++(~lengthplace3.asString)++"_"++(~lengthplace4.asString)};
 		};
@@ -1917,24 +2001,26 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 							("instrument_"++(~inst_num)++"_full_midi").asSymbol.envirGet.at(c-1)
 						}, {k = k +1});
 						~length1 = k+1;
-						(~number_of_instruments-1).do(t = 0; u = 2; {
-							q = x-1;
-							d = ("instrument_"++(~inst_array.wrapAt(~inst_num-(t)))++"_full_midi").asSymbol.envirGet.at(~rate_selection_start+(q-1));
-							f = ("instrument_"++(~inst_array.wrapAt(~inst_num-(t)))++"_full_midi").asSymbol.envirGet.at(~rate_selection_start+q);
-							while({f == d}, {
-								q=q-1;
+						if(~number_of_instruments > 1, {
+							(~number_of_instruments-1).do(t = 0; u = 2; {
+								q = x-1;
 								d = ("instrument_"++(~inst_array.wrapAt(~inst_num-(t)))++"_full_midi").asSymbol.envirGet.at(~rate_selection_start+(q-1));
 								f = ("instrument_"++(~inst_array.wrapAt(~inst_num-(t)))++"_full_midi").asSymbol.envirGet.at(~rate_selection_start+q);
+								while({f == d}, {
+									q=q-1;
+									d = ("instrument_"++(~inst_array.wrapAt(~inst_num-(t)))++"_full_midi").asSymbol.envirGet.at(~rate_selection_start+(q-1));
+									f = ("instrument_"++(~inst_array.wrapAt(~inst_num-(t)))++"_full_midi").asSymbol.envirGet.at(~rate_selection_start+q);
+								});
+								c = (~rate_selection_start+(q+1));
+								k = 0;
+								while({
+									("instrument_"++(~inst_array.wrapAt(~inst_num-(t)))++"_full_midi").asSymbol.envirGet.at(c=c+1) ==
+									("instrument_"++(~inst_array.wrapAt(~inst_num-(t)))++"_full_midi").asSymbol.envirGet.at(c-1)
+								}, {k = k +1});
+								k=k+2;
+								("length"++(u=u+1)).asSymbol.envirPut(k);
+								t=t-1;
 							});
-							c = (~rate_selection_start+(q+1));
-							k = 0;
-							while({
-								("instrument_"++(~inst_array.wrapAt(~inst_num-(t)))++"_full_midi").asSymbol.envirGet.at(c=c+1) ==
-								("instrument_"++(~inst_array.wrapAt(~inst_num-(t)))++"_full_midi").asSymbol.envirGet.at(c-1)
-							}, {k = k +1});
-							k=k+2;
-							("length"++(u=u+1)).asSymbol.envirPut(k);
-							t=t-1;
 						});
 
 						/*~length1.postln;*/
@@ -2123,20 +2209,27 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 	if(~buffer == nil, {~buffer = Buffer.read(s, Document.current.dir++"/other_program_files/samples/Alesis-Sanctuary-QCard-Promenade-C3-loop5.wav");});
 
-	~vd_midi = 73; //base note for audio file - for equalizing volume/amplitude. default is 73.
+	~vd_midi = 73; //middle note for equalizing volume/amplitude. default is 73.
+
+	/*~amp = 1;*/
 
 	~number_of_instruments.do(x = 0; {
 		SynthDef("synth"++(x=x+1), {arg out = 0, bufnum = 0, freq = 1, amp = 1;
 			var sig;
 			sig = PlayBuf.ar(1, ~buffer, freq/~vd_midi.midicps, startPos: 0, loop: 1);
-			sig = BBandPass.ar(sig, freq: freq, bw: 1.6, mul: 1, add: 0);
-			/*sig = BPF.ar(sig, freq: freq, rq: 1.3, mul: 1, add: 0);*/
-			/*sig = BLowPass.ar(sig, freq: freq, rq: 4, mul: 1, add: 0);*/
-			/*sig = BLowPass4.ar(sig, freq: freq, rq: 6, mul: 1, add: 0);*/
+			sig = sig*amp;
+			/*sig = BBandPass.ar(sig, freq: ((((~midi_high_limit-~midi_low_limit)/2).roundUp + ~midi_low_limit).midicps), bw: 1, mul: 1, add: 0);
+			*//*sig = BPeakEQ.ar(sig, freq: ~vd_midi.midicps, rq: 1, db: 1, mul: 1, add: 0);
+			*//*sig = BPF.ar(sig, freq: freq, rq: 1.6, mul: 1, add: 0);*/
+			/*sig = BLowPass.ar(sig, freq: ~vd_midi.midicps, rq: 1, mul: 1, add: 0);*/
+			/*sig = BLowPass4.ar(sig, freq: ~vd_midi.midicps, rq: 8, mul: 1, add: 0);*/
 			/*sig = LPZ2.ar(sig, mul: 1, add: 0);*/
 			/*sig = BPZ2.ar(sig, mul: 1, add: 0);*/
-
-			Out.ar(0, ((sig.dup)*amp));
+			/*CompanderD.ar(in: sig, thresh: 0.0001, slopeBelow: 1, slopeAbove: 1, clampTime: 0.01, relaxTime: 0.1, mul: 1, add: 0);*/
+			/*Normalizer.ar(in: sig, level: 0.01, dur: 0.01);*/
+			/*Limiter.ar(in: sig, level: 0.0001, dur: 0.01);*/
+			sig = Compander.ar(in: sig, control: sig, thresh:/* MouseX.kr(0.01, 1).poll*/ 0.1, slopeBelow: /*MouseY.kr(0.01, 1).poll*/ 1, slopeAbove: /*MouseX.kr(0.01, 1).poll*/ 0.28, clampTime: 0.01, relaxTime: 0.1, mul: 1, add: 0);
+			Out.ar(0, sig.dup);
 		}).add;
 	});
 
@@ -2264,14 +2357,22 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 			});
 			});*/
 
+
+			/*~a_c = ~freqmap2.at((~freqmap2.size/2).round);
+			~a_c_func = {(
+			(~y = (~amp - (((("instrument_"++(~x)++"_full_midi").asSymbol.envirGet.at(~piece_position) - ~a_c)/~a_c)*3.5)));
+			/*if(~y < 1, {~y = ~y/2});*/ ~y.value;
+			)};*/
+
+
 			~init_start_func = {
 
 				Server.default.makeBundle(Server.default.latency, {
 
-					~number_of_instruments.do(~x = 0; {("duranduranbotsynth"++(~x=~x+1)).asSymbol.envirGet.set(
-						\amp, (~amp - ((("instrument_"++(~x)++"_full_midi").asSymbol.envirGet.at(~piece_position) - ~vd_midi)/~vd_midi))
+					/*~number_of_instruments.do(~x = 0; {("duranduranbotsynth"++(~x=~x+1)).asSymbol.envirGet.set(
+					\amp, ~a_c_func.value;
 					);
-					});
+					});*/
 
 					~number_of_instruments.do(~x = 0; {("duranduranbotsynth"++(~x=~x+1)).asSymbol.envirPut(
 						Synth("synth"++(~x), [freq: ("instrument_"++(~x)++"_full").asSymbol.envirGet.at(~piece_position)]);
@@ -2315,10 +2416,10 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 				Server.default.makeBundle(Server.default.latency, {
 
-					~number_of_instruments.do(~x = 0; {("duranduranbotsynth"++(~x=~x+1)).asSymbol.envirGet.set(
-						\amp, (~amp - ((("instrument_"++(~x)++"_full_midi").asSymbol.envirGet.at(~piece_position) - ~vd_midi)/~vd_midi))
+					/*~number_of_instruments.do(~x = 0; {("duranduranbotsynth"++(~x=~x+1)).asSymbol.envirGet.set(
+					\amp, /*~a_c_func.value;*/ ~amp
 					);
-					});
+					});*/
 					~number_of_instruments.do(~x = 0; {("duranduranbotsynth"++(~x=~x+1)).asSymbol.envirGet.set(
 						\freq, ("instrument_"++(~x)++"_full").asSymbol.envirGet.at(~piece_position);
 
@@ -2332,50 +2433,56 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 			};
 
+			/*~duranduranbot_routine.stop*/
+
+
+			/*bit_timer = 0;
+			~dd_secs = ((~fullpiecedur1-(~dd_mins = ~fullpiecedur1.roundUp-1))*60).roundUp;
+			~piecedur_secs = (~dd_mins*60)+~dd_secs;
+			~piecedur_secs_zero = 0;
+			~bit_dur_rec = ~bit_duration.reciprocal;*/
+
+			~bit_timer_func = {
+				~rate_selection_end = ~piece_position;
+				~rate_selection_start = ~piece_position-(~rate_time_range/~bit_duration);
+				if(~rate_selection_start.isNegative == true, {~rate_selection_start = 0;});
+
+				AppClock.sched(0, {
+					piecepositionstatictext.string = (
+						"Bit pos. "++(~piece_position.asInteger.asString)++" Midi "++(
+							case
+							{~number_of_instruments == 1}{(~instrument_1_full_midi.at(~piece_position).asString)}
+							{~number_of_instruments == 2}{(~instrument_1_full_midi.at(~piece_position).asString)++" "++(~instrument_2_full_midi.at(~piece_position).asString)}
+							{~number_of_instruments == 3}{(~instrument_1_full_midi.at(~piece_position).asString)++" "++(~instrument_2_full_midi.at(~piece_position).asString)++" "++(~instrument_3_full_midi.at(~piece_position).asString)};
+						)
+					);
+					timeslider.valueAction = timeslider.value+1;
+				});
+
+				/*bit_timer = bit_timer + 1;
+				if(bit_timer >= ~bit_dur_rec, {*/
+				/*AppClock.sched(0, {*/
+				/*timeslider.valueAction = timeslider.value+1;*/
+				/*~dd_secs = ~dd_secs-1;*/
+				/*if(~dd_secs == (-1), {~dd_mins = ~dd_mins-1; ~dd_secs = 59;});*/
+				/*piecedurationstatictext.string = ("Piece Length - "++(~piecedur_secs_zero.asInteger.asString)++" secs ("++(~dd_mins.asInteger.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asInteger.asString)++" mins)");*/
+				/*if(timeslider.value >= ~rate_time_range, {rangeslider.valueAction = [timeslider.value-~rate_time_range, timeslider.value]}, {rangeslider.valueAction = [0, timeslider.value]});
+				*//*if(~piecedur_secs_zero >= (~piecedur_secs), {~stop_func.value; "piece finished".postln; piecedurationstatictext.string = if(~fullpiecedur != nil, {~fullpiecedur}, {"piece length - --:-- mins"});})
+				*//*if(~piece_position == ~instrument_1_full.size, {
+				AppClock.sched(~bit_duration*4, {
+				~stop_func.value; "piece finished".postln; piecedurationstatictext.string = if(~fullpiecedur != nil, {~fullpiecedur}, {"Piece Length - --:-- mins"});
+				});
+				});*/
+				/*});
+				bit_timer = 0;*/
+				/*});*/
+			};
+
+
 			case
 			{~loop_on == 0}{
 
 				~duranduranbot_routine = Task({var bit_timer;
-
-					bit_timer = 0;
-					~dd_secs = ((~fullpiecedur1-(~dd_mins = ~fullpiecedur1.roundUp-1))*60).roundUp;
-					~piecedur_secs = (~dd_mins*60)+~dd_secs;
-					~piecedur_secs_zero = 0;
-					~bit_dur_rec = ~bit_duration.reciprocal;
-
-					~bit_timer_func = {
-						~rate_selection_end = ~piece_position;
-						~rate_selection_start = ~piece_position-(~auto_select_diff/~bit_duration);
-						if(~rate_selection_start.isNegative == true, {~rate_selection_start = 0;});
-
-						AppClock.sched(0, {
-							piecepositionstatictext.string = (
-								"Bit pos. "++(~piece_position.asInteger.asString)++" Midi "++(
-									case
-									{~number_of_instruments == 2}{(~instrument_1_full_midi.at(~piece_position).asString)++" "++(~instrument_2_full_midi.at(~piece_position).asString)}
-									{~number_of_instruments == 3}{(~instrument_1_full_midi.at(~piece_position).asString)++" "++(~instrument_2_full_midi.at(~piece_position).asString)++" "++(~instrument_3_full_midi.at(~piece_position).asString)};
-								)
-							);
-						});
-
-						bit_timer = bit_timer + 1;
-						if(bit_timer >= ~bit_dur_rec, {
-							AppClock.sched(0, {
-								timeslider.valueAction = (~piecedur_secs_zero = timeslider.value+1);
-								~dd_secs = ~dd_secs-1;
-								if(~dd_secs == (-1), {~dd_mins = ~dd_mins-1; ~dd_secs = 59;});
-								piecedurationstatictext.string = ("Piece Length - "++(~piecedur_secs_zero.asInteger.asString)++" secs ("++(~dd_mins.asInteger.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asInteger.asString)++" mins)");
-								/*if(timeslider.value >= ~auto_select_diff, {rangeslider.valueAction = [timeslider.value-~auto_select_diff, timeslider.value]}, {rangeslider.valueAction = [0, timeslider.value]});
-								*//*if(~piecedur_secs_zero >= (~piecedur_secs), {~stop_func.value; "piece finished".postln; piecedurationstatictext.string = if(~fullpiecedur != nil, {~fullpiecedur}, {"piece length - --:-- mins"});})
-								*//*if(~piece_position == ~instrument_1_full.size, {
-								AppClock.sched(~bit_duration*4, {
-								~stop_func.value; "piece finished".postln; piecedurationstatictext.string = if(~fullpiecedur != nil, {~fullpiecedur}, {"Piece Length - --:-- mins"});
-								});
-								});*/
-							});
-							bit_timer = 0;
-						});
-					};
 
 					~piece_position = 0;
 
@@ -2391,7 +2498,9 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 						~init_start_func.value;
 
-						if(~will_record != 1, {~bit_timer_func.value;});
+						~bit_timer_func.value;
+
+						/*if(~will_record != 1, {~bit_timer_func.value;});*/
 
 						~bit_duration.wait;
 
@@ -2403,7 +2512,9 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 						~init_func.value;
 
-						if(~will_record != 1, {~bit_timer_func.value;});
+						~bit_timer_func.value;
+
+						/*if(~will_record != 1, {~bit_timer_func.value;});*/
 
 						/*t=170;
 						~instrument_2_full_midi.at(t=t-1)*/
@@ -2452,46 +2563,6 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 				~duranduranbot_routine = Task({var bit_timer, numberofloops = 0;
 
-					bit_timer = 0;
-					~dd_secs = ((~fullpiecedur1-(~dd_mins = ~fullpiecedur1.roundUp-1))*60).roundUp;
-					~piecedur_secs = (~dd_mins*60)+~dd_secs;
-					~piecedur_secs_zero = 0;
-					~bit_dur_rec = ~bit_duration.reciprocal;
-
-					~bit_timer_func = {
-						~rate_selection_end = ~piece_position;
-						~rate_selection_start = ~piece_position-(~auto_select_diff/~bit_duration);
-						if(~rate_selection_start.isNegative == true, {~rate_selection_start = 0;});
-
-						AppClock.sched(0, {
-							piecepositionstatictext.string = (
-								"Bit pos. "++(~piece_position.asInteger.asString)++" Midi "++(
-									case
-									{~number_of_instruments == 2}{(~instrument_1_full_midi.at(~piece_position).asString)++" "++(~instrument_2_full_midi.at(~piece_position).asString)}
-									{~number_of_instruments == 3}{(~instrument_1_full_midi.at(~piece_position).asString)++" "++(~instrument_2_full_midi.at(~piece_position).asString)++" "++(~instrument_3_full_midi.at(~piece_position).asString)};
-								)
-							);
-						});
-
-						bit_timer = bit_timer + 1;
-						if(bit_timer >= ~bit_dur_rec, {
-							AppClock.sched(0, {
-								timeslider.valueAction = (~piecedur_secs_zero = timeslider.value+1);
-								~dd_secs = ~dd_secs-1;
-								if(~dd_secs == (-1), {~dd_mins = ~dd_mins-1; ~dd_secs = 59;});
-								piecedurationstatictext.string = ("Piece Length - "++(~piecedur_secs_zero.asInteger.asString)++" secs ("++(~dd_mins.asInteger.asString)++":"++(if(~dd_secs<10,{"0"},{""})++~dd_secs.asInteger.asString)++" mins)");
-								/*if(timeslider.value >= ~auto_select_diff, {rangeslider.valueAction = [timeslider.value-~auto_select_diff, timeslider.value]}, {rangeslider.valueAction = [0, timeslider.value]});
-								*//*if(~piecedur_secs_zero >= (~piecedur_secs), {~stop_func.value; "piece finished".postln; piecedurationstatictext.string = if(~fullpiecedur != nil, {~fullpiecedur}, {"piece length - --:-- mins"});})
-								*//*if(~piece_position == ~instrument_1_full.size, {
-								AppClock.sched(~bit_duration*4, {
-								~stop_func.value; "piece finished".postln; piecedurationstatictext.string = if(~fullpiecedur != nil, {~fullpiecedur}, {"Piece Length - --:-- mins"});
-								});
-								});*/
-							});
-							bit_timer = 0;
-						});
-					};
-
 					~piece_position = ~pos_1;
 
 					1.do({
@@ -2500,7 +2571,9 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 						~init_start_func.value;
 
-						/*~bit_timer_func.value;*/
+						~bit_timer_func.value;
+
+						/*if(~will_record != 1, {~bit_timer_func.value;});*/
 
 						~bit_duration.wait;
 
@@ -2512,22 +2585,14 @@ if(FileReader.read(Document.current.dir++"/other_program_files/gui_color.scd", f
 
 						~init_func.value;
 
-						/*	~bit_timer_func.value;
-						*/
-						AppClock.sched(0, {
-							piecepositionstatictext.string = (
-								"Bit pos. "++(~piece_position.asInteger.asString)++" Midi "++(
-									case
-									{~number_of_instruments == 2}{(~instrument_1_full_midi.at(~piece_position).asString)++" "++(~instrument_2_full_midi.at(~piece_position).asString)}
-									{~number_of_instruments == 3}{(~instrument_1_full_midi.at(~piece_position).asString)++" "++(~instrument_2_full_midi.at(~piece_position).asString)++" "++(~instrument_3_full_midi.at(~piece_position).asString)};
-								)
-							);
-						});
+						~bit_timer_func.value;
+
+						/*if(~will_record != 1, {~bit_timer_func.value;});*/
 
 						/*t=170;
 						~instrument_2_full_midi.at(t=t-1)*/
 
-						if(~loop_on == 1, {if(~piece_position == ~pos_2;, {~piece_position = ~pos_1; numberofloops=numberofloops+1});});
+						if(~loop_on == 1, {if(~piece_position == ~pos_2;, {~piece_position = ~pos_1; numberofloops=numberofloops+1; AppClock.sched(0, {timeslider.valueAction = ~pos_1;});});});
 
 						~bit_duration.wait;
 						/*
